@@ -1,0 +1,13 @@
+{
+  "name": "Dhanam Investment and Finance",
+  "short_name": "Dhanam",
+  "description": "RBI-licensed NBFC — investor presentation",
+  "icons": [
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#0B2A4A",
+  "background_color": "#000000",
+  "display": "standalone",
+  "start_url": "/"
+}
