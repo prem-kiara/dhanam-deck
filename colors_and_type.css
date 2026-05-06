@@ -1,0 +1,106 @@
+/* ============================================================
+   DHANAM FINANCE — Colors & Type
+   Semantic CSS variables + base typographic styles.
+   For raw token values, see tokens.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('./tokens.css');
+
+:root {
+  /* ----- Foreground (semantic) ----- */
+  --fg1: var(--df-color-text-primary);     /* primary body text */
+  --fg2: var(--df-color-text-secondary);   /* secondary body */
+  --fg3: var(--df-color-text-muted);       /* helper / placeholder */
+  --fg-inverse: var(--df-color-text-inverse);
+  --fg-brand: var(--df-color-text-brand);
+  --fg-accent: var(--df-color-text-accent);
+
+  /* ----- Background ----- */
+  --bg1: var(--df-color-bg);          /* page surface */
+  --bg2: var(--df-color-bg-subtle);   /* subtle / metric card */
+  --bg3: var(--df-color-bg-muted);    /* ghost button / chip */
+
+  /* ----- Borders ----- */
+  --border: var(--df-color-border);
+  --border-strong: var(--df-color-border-strong);
+
+  /* ----- Typeface aliases ----- */
+  --serif-display: var(--df-font-sans); /* Dhanam has no serif — sans for display */
+  --sans: var(--df-font-sans);
+  --mono: var(--df-font-mono);
+}
+
+/* ----- Base body ----- */
+body {
+  font-family: var(--sans);
+  font-size: var(--df-text-base);
+  font-weight: var(--df-weight-regular);
+  line-height: var(--df-leading-normal);
+  color: var(--fg1);
+  background: var(--bg1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----- Semantic typography ----- */
+h1, .h1 {
+  font-family: var(--sans);
+  font-size: var(--df-text-2xl);   /* 28px */
+  font-weight: var(--df-weight-medium);
+  line-height: var(--df-leading-tight);
+  letter-spacing: var(--df-tracking-tight);
+  color: var(--fg-brand);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-size: var(--df-text-xl);    /* 24px → spec says 22px; xl=24 closest */
+  font-weight: var(--df-weight-medium);
+  line-height: var(--df-leading-tight);
+  color: var(--fg1);
+  margin: 0;
+}
+
+h3, .h3 {
+  font-size: var(--df-text-md);    /* 17px ~ 18px spec */
+  font-weight: var(--df-weight-medium);
+  line-height: var(--df-leading-tight);
+  color: var(--fg1);
+  margin: 0;
+}
+
+p, .p {
+  font-size: var(--df-text-base);  /* 15px */
+  font-weight: var(--df-weight-regular);
+  line-height: var(--df-leading-normal);
+  color: var(--fg1);
+  margin: 0;
+}
+
+.small, small {
+  font-size: var(--df-text-sm);    /* 13px */
+  color: var(--fg2);
+}
+
+.label, .cap {
+  font-size: var(--df-text-xs);    /* 11px */
+  font-weight: var(--df-weight-medium);
+  letter-spacing: var(--df-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fg2);
+}
+
+.amount, .hero-num {
+  font-size: var(--df-text-3xl);   /* 32px */
+  font-weight: var(--df-weight-medium);
+  letter-spacing: var(--df-tracking-tight);
+  color: var(--fg-brand);
+  font-feature-settings: "tnum" 1;
+}
+
+code, kbd, samp, .mono {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  color: var(--fg2);
+}

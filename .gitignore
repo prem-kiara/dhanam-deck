@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+
+# Local dev (Claude harness scratch)
+.claude/
+
+# Image-slot's local sidecar — treat as local state, not source
+.image-slots.state.json
+
+# Reference junk we don't want to ship
+uploads/*.pdf
+uploads/pasted-*
