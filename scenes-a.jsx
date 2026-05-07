@@ -2,6 +2,10 @@
 
 const D_ = () => window.INVESTOR_DATA;
 
+// Bump when product photos are swapped — forces browsers to re-fetch
+// instead of serving the previous file from cache (URL-keyed).
+const IMG_VER = '20260507';
+
 // ─── Slide 1 — Cover (asymmetric photo mosaic + brand block) ──────────
 function SceneCover({ start, end }) {
   const D = D_();
@@ -177,7 +181,7 @@ function ProductCardTop({ item, category = 'lending' }) {
       height: 290
     }}>
       <div style={{ width: '100%', height: 160, flexShrink: 0, background: GRAY100 }}>
-        <img src={`uploads/${item.slot}.png`} alt={item.label}
+        <img src={`uploads/${item.slot}.png?v=${IMG_VER}`} alt={item.label}
              onError={(e) => { e.target.style.display = 'none'; }}
              style={{
                width: '100%', height: '100%',
@@ -221,7 +225,7 @@ function ProductCardSide({ item }) {
       height: 250
     }}>
       <div style={{ width: '100%', height: '100%', background: GRAY100 }}>
-        <img src={`uploads/${item.slot}.png`} alt={item.label}
+        <img src={`uploads/${item.slot}.png?v=${IMG_VER}`} alt={item.label}
              onError={(e) => { e.target.style.display = 'none'; }}
              style={{
                width: '100%', height: '100%',
