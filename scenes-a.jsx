@@ -177,13 +177,15 @@ function ProductCardTop({ item, category = 'lending' }) {
       display: 'flex', flexDirection: 'column',
       height: 290
     }}>
-      <div style={{ width: '100%', height: 160, flexShrink: 0, background: GRAY100 }}>
+      <div style={{ width: '100%', height: 160, flexShrink: 0, background: GRAY100, overflow: 'hidden' }}>
         <img src={`uploads/${item.slot}.png?v=${IMG_VER}`} alt={item.label}
              onError={(e) => { e.target.style.display = 'none'; }}
              style={{
                width: '100%', height: '100%',
                objectFit: 'cover',
                objectPosition: item.imgPos || 'center 28%',
+               transform: item.imgZoom ? `scale(${item.imgZoom})` : 'none',
+               transformOrigin: item.imgZoomOrigin || 'center 30%',
                display: 'block'
              }}/>
       </div>
@@ -507,7 +509,7 @@ function SceneLAP({ start, end }) {
               fontFamily: FONT, fontWeight: 500, fontSize: 48,
               color: NAVY, letterSpacing: '-0.025em', lineHeight: 1.05, marginTop: 14
             }}>
-              ₹76 lakh crore today → <span style={{ color: GOLD }}>₹160 lakh crore by 2030</span>.
+              ₹76 lakh crore (FY24) → <span style={{ color: GOLD }}>₹160 lakh crore by 2030</span>.
             </div>
             <div style={{
               fontFamily: MONO, fontSize: 13, color: GRAY600,
@@ -541,14 +543,21 @@ function SceneLAP({ start, end }) {
 
         <Reveal start={start} end={end} delay={1.0} y={16}>
           <div style={{ position: 'absolute', right: 100, top: 430, width: 1080 }}>
-            <Eyebrow>Book growth · ₹ crore — 5 historical + 5 projected</Eyebrow>
+            <Eyebrow>{L.axisLabel || 'India LAP market · ₹ lakh crore — 5 historical + 5 projected'}</Eyebrow>
             <div style={{ marginTop: 22 }}>
               <ProjectionChart
                 historical={L.historical}
                 projected={L.future}
                 start={start} end={end} delay={1.2}
                 height={400}
+                valuePrefix={L.valuePrefix || '₹'}
               />
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 14, color: GRAY600, fontStyle: 'italic',
+              marginTop: 16, lineHeight: 1.5
+            }}>
+              Your money grows where ours does — inside a market doubling to ₹160 lakh crore by 2030.
             </div>
           </div>
         </Reveal>

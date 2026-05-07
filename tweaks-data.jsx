@@ -36,7 +36,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "key": "gold",              "label": "Gold loans",                "slot": "about-gold",       "caption": "Best rates in town. 30-minute disbursal. Fully secured." },
       { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Small-ticket secured credit for self-employed India.", "imgPos": "center 65%" },
       { "key": "secured-business",  "label": "Secured business loans",    "slot": "about-business",   "caption": "Working capital secured by assets — for MSMEs banks miss." },
-      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Unsecured credit — for existing customers with a clean track record." }
+      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Unsecured credit — for existing customers with a clean track record.", "imgZoom": 1.5, "imgZoomOrigin": "55% 35%" }
     ],
     "wealth": [
       { "key": "ncd",     "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Recurring monthly income — RBI-overseen debt instruments. Built for retirees and conservative wealth." },
@@ -76,23 +76,25 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
 
   "lapProspectus": {
     "historical": [
-      { "year": "FY22", "value": 13 },
-      { "year": "FY23", "value": 18 },
-      { "year": "FY24", "value": 26 },
-      { "year": "FY25", "value": 32 },
-      { "year": "FY26", "value": 38 }
+      { "year": "FY22", "value": 59 },
+      { "year": "FY23", "value": 67 },
+      { "year": "FY24", "value": 76 },
+      { "year": "FY25", "value": 86 },
+      { "year": "FY26", "value": 97 }
     ],
     "future": [
-      { "year": "FY27", "value": 60 },
-      { "year": "FY28", "value": 95 },
-      { "year": "FY29", "value": 145 },
-      { "year": "FY30", "value": 220 },
-      { "year": "FY31", "value": 320 }
+      { "year": "FY27", "value": 110 },
+      { "year": "FY28", "value": 125 },
+      { "year": "FY29", "value": 141 },
+      { "year": "FY30", "value": 160 },
+      { "year": "FY31", "value": 181 }
     ],
-    "macroHeadline": "India's LAP market: ₹76 lakh crore today → ₹160 lakh crore by 2030.",
-    "macroCite": "TechSci Research, IMARC — 13.3% CAGR through 2030",
+    "valuePrefix": "₹",
+    "axisLabel": "India LAP market · ₹ lakh crore — 5 historical + 5 projected",
+    "macroHeadline": "India's LAP market: ₹76 lakh crore (FY24) → ₹160 lakh crore by 2030.",
+    "macroCite": "TechSci Research, IMARC — 13.28% CAGR through 2030",
     "yieldHeadline": "17% gross yield. Property-secured. Cash-flow underwritten.",
-    "marketStat": "Self-employed India is structurally under-served by banks. NBFCs own this category — and Dhanam underwrites at the branch, not from a screen in Mumbai."
+    "marketStat": "A market doubling in six years — and your capital compounds inside it. Self-employed India is the engine; NBFCs own the category; Dhanam underwrites at the branch, where banks structurally can't reach. Partner with us and grow on the same curve."
   },
 
   "lockersDetail": {

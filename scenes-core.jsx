@@ -35,16 +35,26 @@ const STAGE_H = 1080;
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 
 // ─── Reveal + Fade helpers ────────────────────────────────────────────
+// NOTE: applies opacity/translateY directly to the child via cloneElement
+// instead of wrapping it in an extra div. A wrapping div with `transform`
+// would establish a new containing block for absolutely-positioned
+// descendants — which silently broke any `position: absolute; bottom: …`
+// child by computing `bottom` against a zero-height Reveal box.
 function Reveal({ start, end, delay = 0, dur = 0.6, y = 16, children, style }) {
   return (
     <Sprite start={start + delay} end={end - 0.1}>
       {({ localTime }) => {
         const p = Easing.easeOutCubic(clamp(localTime / dur, 0, 1));
-        return (
-          <div style={{ opacity: p, transform: `translateY(${(1 - p) * y}px)`, ...style }}>
-            {children}
-          </div>
-        );
+        const childStyle = (children && children.props && children.props.style) || {};
+        const existingTransform = childStyle.transform ? `${childStyle.transform} ` : '';
+        return React.cloneElement(children, {
+          style: {
+            ...childStyle,
+            opacity: (childStyle.opacity != null ? childStyle.opacity : 1) * p,
+            transform: `${existingTransform}translateY(${(1 - p) * y}px)`,
+            ...style
+          }
+        });
       }}
     </Sprite>
   );
