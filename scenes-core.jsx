@@ -1,6 +1,11 @@
 // scenes-core.jsx — shared primitives, palette, chrome
 // Light / white-first theme inspired by Capri Global, with Dhanam navy + gold accents.
 
+// Cache-bust suffix for everything under uploads/. Bump when any photo is
+// re-saved under the same filename so browsers re-fetch instead of serving
+// the previous file from URL-keyed cache.
+const IMG_VER = '20260507';
+
 const NAVY      = '#0B2A4A';
 const NAVY_DEEP = '#06192E';
 const NAVY_SOFT = '#1F4470';
@@ -529,7 +534,7 @@ function HairlineBackdrop({ color = 'rgba(15,30,55,0.04)' }) {
 // Empty state shows nothing visible. Auto-loads `uploads/<id>.png` if a
 // file with the slot-id name exists; user-dropped images override it.
 function PhotoSlot({ id, src, placeholder = '', style, shape = 'rounded', radius = 8, fit = 'cover', ghost = true }) {
-  const defaultSrc = src !== undefined ? src : (id ? `uploads/${id}.png` : undefined);
+  const defaultSrc = src !== undefined ? src : (id ? `uploads/${id}.png?v=${IMG_VER}` : undefined);
   return (
     <div style={{
       borderRadius: radius, overflow: 'hidden',

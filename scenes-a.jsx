@@ -1,10 +1,7 @@
 // scenes-a.jsx — Slides 1–5 (Cover, About, Highlights, Gold prospectus, LAP prospectus)
+// IMG_VER comes from scenes-core.jsx — bump it there to bust photo caches deck-wide.
 
 const D_ = () => window.INVESTOR_DATA;
-
-// Bump when product photos are swapped — forces browsers to re-fetch
-// instead of serving the previous file from cache (URL-keyed).
-const IMG_VER = '20260507';
 
 // ─── Slide 1 — Cover (asymmetric photo mosaic + brand block) ──────────
 function SceneCover({ start, end }) {
