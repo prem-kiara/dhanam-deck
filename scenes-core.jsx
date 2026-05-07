@@ -4,7 +4,7 @@
 // Cache-bust suffix for everything under uploads/. Bump when any photo is
 // re-saved under the same filename so browsers re-fetch instead of serving
 // the previous file from URL-keyed cache.
-const IMG_VER = '20260507';
+const IMG_VER = '20260507b';
 
 const NAVY      = '#0B2A4A';
 const NAVY_DEEP = '#06192E';

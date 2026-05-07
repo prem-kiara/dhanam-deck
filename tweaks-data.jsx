@@ -36,7 +36,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "key": "gold",              "label": "Gold loans",                "slot": "about-gold",       "caption": "Best rates in town. 30-minute disbursal. Fully secured." },
       { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Small-ticket secured credit for self-employed India.", "imgPos": "center 65%" },
       { "key": "secured-business",  "label": "Secured business loans",    "slot": "about-business",   "caption": "Working capital secured by assets — for MSMEs banks miss." },
-      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Unsecured credit — for existing customers with a clean track record.", "imgZoom": 1.5, "imgZoomOrigin": "55% 35%" }
+      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Unsecured credit — for existing customers with a clean track record." }
     ],
     "wealth": [
       { "key": "ncd",     "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Recurring monthly income — RBI-overseen debt instruments. Built for retirees and conservative wealth." },

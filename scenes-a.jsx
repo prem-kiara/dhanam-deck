@@ -62,7 +62,7 @@ function SceneCover({ start, end }) {
         <Reveal start={start} end={end} delay={0.5} dur={1.1} y={20}>
           <div style={{
             position: 'absolute', right: 100, top: 200,
-            width: 940, height: 720,
+            width: 940, height: 640,
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gridTemplateRows: 'repeat(3, 1fr)',
