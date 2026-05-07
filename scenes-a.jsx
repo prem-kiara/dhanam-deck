@@ -1,4 +1,4 @@
-// scenes-a.jsx — Slides 1–7 (Cover, About, Highlights, Gold, LAP, Lockers, Vehicle)
+// scenes-a.jsx — Slides 1–5 (Cover, About, Highlights, Gold prospectus, LAP prospectus)
 
 const D_ = () => window.INVESTOR_DATA;
 
@@ -6,14 +6,13 @@ const D_ = () => window.INVESTOR_DATA;
 function SceneCover({ start, end }) {
   const D = D_();
 
-  // 6-cell asymmetric mosaic (4 cols × 3 rows). Slot ids → file paths under uploads/.
   const COVER_PHOTOS = [
-    { id: 'cover-hero',          col: '1 / 3', row: '1 / 3' },  // big 2×2 portrait
-    { id: 'cover-shopkeeper',    col: '3 / 4', row: '1 / 2' },  // small top
-    { id: 'cover-family',        col: '4 / 5', row: '1 / 2' },  // small top
-    { id: 'cover-driver',        col: '3 / 5', row: '2 / 3' },  // wide mid-right
-    { id: 'cover-professional',  col: '1 / 3', row: '3 / 4' },  // wide bottom-left
-    { id: 'cover-branch',        col: '3 / 5', row: '3 / 4' }   // wide bottom-right
+    { id: 'cover-hero',          col: '1 / 3', row: '1 / 3' },
+    { id: 'cover-shopkeeper',    col: '3 / 4', row: '1 / 2' },
+    { id: 'cover-family',        col: '4 / 5', row: '1 / 2' },
+    { id: 'cover-driver',        col: '3 / 5', row: '2 / 3' },
+    { id: 'cover-professional',  col: '1 / 3', row: '3 / 4' },
+    { id: 'cover-branch',        col: '3 / 5', row: '3 / 4' }
   ];
 
   return (
@@ -21,19 +20,15 @@ function SceneCover({ start, end }) {
       <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
         <HairlineBackdrop/>
 
-        {/* ─── LEFT COLUMN — brand + title block ─── */}
         <div style={{ position: 'absolute', left: 100, top: 230, width: 720 }}>
-          {/* Brand lockup */}
           <Reveal start={start} end={end} delay={0.2} dur={0.9} y={20}>
             <BrandLockup height={240}/>
           </Reveal>
 
-          {/* Gold accent rule */}
           <Reveal start={start} end={end} delay={0.7}>
             <div style={{ width: 88, height: 2, background: GOLD, marginTop: 40 }}/>
           </Reveal>
 
-          {/* Title */}
           <Reveal start={start} end={end} delay={0.85} dur={0.7} y={14}>
             <div style={{
               fontFamily: FONT, fontWeight: 500, fontSize: 44,
@@ -44,18 +39,16 @@ function SceneCover({ start, end }) {
             </div>
           </Reveal>
 
-          {/* Date subtitle */}
           <Reveal start={start} end={end} delay={1.0}>
             <div style={{
               fontFamily: MONO, fontSize: 14, color: GOLD,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               fontWeight: 500, marginTop: 12
             }}>
-              {new Date().getFullYear()} · {D.brand.city}
+              {new Date().getFullYear()} · Pan-India
             </div>
           </Reveal>
 
-          {/* Tagline */}
           <Reveal start={start} end={end} delay={1.2} y={14}>
             <div style={{
               fontFamily: FONT, fontSize: 18, color: GRAY600,
@@ -65,7 +58,6 @@ function SceneCover({ start, end }) {
           </Reveal>
         </div>
 
-        {/* ─── RIGHT COLUMN — photo mosaic ─── */}
         <Reveal start={start} end={end} delay={0.5} dur={1.1} y={20}>
           <div style={{
             position: 'absolute', right: 100, top: 200,
@@ -91,7 +83,6 @@ function SceneCover({ start, end }) {
           </div>
         </Reveal>
 
-        {/* Bottom strip — minimal trust line */}
         <Reveal start={start} end={end} delay={1.4} dur={1.0} y={0}>
           <div style={{
             position: 'absolute', left: 100, bottom: 120, right: 100,
@@ -100,7 +91,7 @@ function SceneCover({ start, end }) {
             fontFamily: MONO, fontSize: 14, color: GRAY600,
             letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600
           }}>
-            <span>RBI-licensed NBFC · BFSI · India</span>
+            <span>RBI-licensed NBFC · BFSI · Pan-India</span>
             <span>Licensed in {D.brand.establishedYear}</span>
             <span>{D.brand.yearsOperating} years lending</span>
             <span>{D.brand.website}</span>
@@ -111,74 +102,223 @@ function SceneCover({ start, end }) {
   );
 }
 
-// ─── Slide 2 — About us (image grid) ──────────────────────────────────
+// ─── Slide 2 — Products we offer (Loans + Wealth, categorised) ───────
 function SceneAbout({ start, end }) {
   const D = D_();
-  const items = [
-    { key: 'gold',    label: 'Gold loans',     slot: 'about-gold',    blurb: 'Anchor product — secured, granular' },
-    { key: 'lap',     label: 'Loan against property',     slot: 'about-lap',     blurb: 'Small-ticket, self-employed' },
-    { key: 'lockers', label: 'Private lockers',slot: 'about-lockers', blurb: 'First NBFC to operate lockers' },
-    { key: 'pl',      label: 'Personal loans', slot: 'about-pl',      blurb: 'Disciplined entry, existing customers' },
-    { key: 'vehicle', label: 'Vehicle loans',  slot: 'about-vehicle', blurb: 'Last-mile commercial fleet finance' }
-  ];
+  const loans  = D.productCategories.loans;
+  const wealth = D.productCategories.wealth;
+
   return (
     <Sprite start={start} end={end}>
       <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
         <HairlineBackdrop/>
 
-        <div style={{ position: 'absolute', left: 100, top: 160, width: 1720 }}>
+        {/* Title block: top 110 → ends ~270 */}
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="01 · About us"
-            title={<><span style={{ color: GOLD }}>Five products.</span> One trusted roof.</>}
-            fontSize={64}
+            eyebrow="02 · Products we offer"
+            title="Multi-product NBFC — built for both sides of the household balance sheet."
+            fontSize={72}
+            subSize={22}
           />
+        </div>
+
+        {/* LOANS — top 310 → ends ~620 (4-col now) */}
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 310 }}>
           <Reveal start={start} end={end} delay={0.7}>
-            <div style={{
-              fontFamily: FONT, fontSize: 22, color: GRAY600,
-              marginTop: 20, maxWidth: 1200, lineHeight: 1.5
-            }}>
-              Headquartered in {D.brand.city}. Licensed in {D.brand.establishedYear}.
-              {' '}{D.brand.yearsOperating} years of lending behind every signature.
-            </div>
+            <CategoryLabel>Loans · we lend</CategoryLabel>
           </Reveal>
-        </div>
-
-        {/* Image grid — 5 product thumbnails */}
-        <div style={{
-          position: 'absolute', left: 100, right: 100, top: 460,
-          display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 20
-        }}>
-          {items.map((it, i) => (
-            <Reveal key={it.key} start={start} end={end} delay={1.0 + i * 0.12} y={18}>
-              <div>
-                <PhotoSlot id={it.slot} placeholder=""
-                           style={{ width: '100%', height: 280 }}/>
-                <div style={{
-                  fontFamily: FONT, fontSize: 20, fontWeight: 600,
-                  color: NAVY, marginTop: 16, letterSpacing: '-0.005em'
-                }}>{it.label}</div>
-                <div style={{
-                  fontFamily: FONT, fontSize: 16, color: GRAY600,
-                  marginTop: 8, lineHeight: 1.5
-                }}>{it.blurb}</div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Fact strip */}
-        <Reveal start={start} end={end} delay={1.8}>
           <div style={{
-            position: 'absolute', left: 100, right: 100, bottom: 120,
-            display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
-            paddingTop: 22, borderTop: `1px solid ${GRAY200}`,
-            fontFamily: FONT
+            marginTop: 18,
+            display: 'grid', gridTemplateColumns: `repeat(${loans.length}, 1fr)`, gap: 18
           }}>
-            <FactCell label="Licensed" value={D.brand.establishedYear}/>
-            <FactCell label="Lending experience" value={`${D.brand.yearsOperating} years`}/>
-            <FactCell label="Branches" value={D.highlights.branches}/>
-            <FactCell label="Customers" value={D.highlights.customers}/>
+            {loans.map((it, i) => (
+              <Reveal key={it.key} start={start} end={end} delay={0.9 + i * 0.1} y={14}>
+                <ProductCardTop item={it} category="lending"/>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* WEALTH — top 660 → ends ~960 (photo-left layout, fits people-photos better) */}
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 660 }}>
+          <Reveal start={start} end={end} delay={1.3}>
+            <CategoryLabel>Wealth · we safeguard and grow</CategoryLabel>
+          </Reveal>
+          <div style={{
+            marginTop: 18,
+            display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 22
+          }}>
+            {wealth.map((it, i) => (
+              <Reveal key={it.key} start={start} end={end} delay={1.5 + i * 0.1} y={14}>
+                <ProductCardSide item={it}/>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+// Loans card — photo on top.
+// Direct <img> instead of PhotoSlot so we can control object-position
+// and bias the crop toward the top (where faces sit) — otherwise cover-crop
+// at 3:1 aspect slices the head off the people in horizontal photos.
+function ProductCardTop({ item, category = 'lending' }) {
+  const isWealth = category === 'wealth';
+  return (
+    <div style={{
+      background: PAPER,
+      border: `1px solid ${GRAY200}`,
+      borderRadius: 12, overflow: 'hidden',
+      display: 'flex', flexDirection: 'column',
+      height: 290
+    }}>
+      <div style={{ width: '100%', height: 160, flexShrink: 0, background: GRAY100 }}>
+        <img src={`uploads/${item.slot}.png`} alt={item.label}
+             onError={(e) => { e.target.style.display = 'none'; }}
+             style={{
+               width: '100%', height: '100%',
+               objectFit: 'cover',
+               objectPosition: item.imgPos || 'center 28%',
+               display: 'block'
+             }}/>
+      </div>
+      <div style={{ padding: '14px 18px 16px', fontFamily: FONT, flex: 1,
+                     display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{
+            width: 6, height: 6, borderRadius: 999,
+            background: isWealth ? NAVY : GOLD
+          }}/>
+          <span style={{
+            fontFamily: MONO, fontSize: 10, color: GRAY600,
+            letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+          }}>{isWealth ? 'Wealth' : 'Lending'}</span>
+        </div>
+        <div style={{
+          fontSize: 18, fontWeight: 600, color: NAVY,
+          letterSpacing: '-0.005em', lineHeight: 1.2
+        }}>{item.label}</div>
+        <div style={{
+          fontSize: 13, color: GRAY600, lineHeight: 1.45
+        }}>{item.caption}</div>
+      </div>
+    </div>
+  );
+}
+
+// Wealth card — photo on left (300×250 ≈ 1.2:1, near-square — no decapitation risk)
+function ProductCardSide({ item }) {
+  return (
+    <div style={{
+      background: PAPER,
+      border: `1px solid ${GRAY200}`,
+      borderRadius: 12, overflow: 'hidden',
+      display: 'grid', gridTemplateColumns: '300px 1fr',
+      height: 250
+    }}>
+      <div style={{ width: '100%', height: '100%', background: GRAY100 }}>
+        <img src={`uploads/${item.slot}.png`} alt={item.label}
+             onError={(e) => { e.target.style.display = 'none'; }}
+             style={{
+               width: '100%', height: '100%',
+               objectFit: 'cover',
+               objectPosition: 'center 35%',
+               display: 'block'
+             }}/>
+      </div>
+      <div style={{ padding: '24px 28px', fontFamily: FONT,
+                     display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{
+            width: 6, height: 6, borderRadius: 999, background: NAVY
+          }}/>
+          <span style={{
+            fontFamily: MONO, fontSize: 10, color: GRAY600,
+            letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+          }}>Wealth</span>
+        </div>
+        <div style={{
+          fontSize: 24, fontWeight: 600, color: NAVY,
+          letterSpacing: '-0.005em', lineHeight: 1.25
+        }}>{item.label}</div>
+        <div style={{
+          fontSize: 15, color: GRAY600, lineHeight: 1.55
+        }}>{item.caption}</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Slide 3 — Annual highlights (KPI dashboard + product mix) ──────
+function SceneHighlights({ start, end }) {
+  const D = D_();
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="03 · Annual highlights"
+            title="A book that has tripled in three years — anchored by gold, levered by LAP."
+            fontSize={80}
+            subSize={26}
+          />
+        </div>
+
+        {/* Hero AUM number — left half */}
+        <Reveal start={start} end={end} delay={0.9} y={14}>
+          <div style={{ position: 'absolute', left: 100, top: 410, width: 720 }}>
+            <Eyebrow>Total AUM · FY26</Eyebrow>
+            <div style={{
+              fontFamily: FONT, fontSize: 196, fontWeight: 500,
+              color: NAVY, letterSpacing: '-0.04em', lineHeight: 0.95,
+              marginTop: 12, fontVariantNumeric: 'tabular-nums'
+            }}>
+              ₹{D.highlights.aumCr}
+              <span style={{ fontSize: 64, color: GRAY600, marginLeft: 14, letterSpacing: '-0.01em' }}>Cr</span>
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 22, color: GOLD,
+              marginTop: 22, fontWeight: 500
+            }}>↑ {D.highlights.growthPct}% YoY · 5-year compounded book</div>
+          </div>
+        </Reveal>
+
+        {/* Product mix — right half */}
+        <Reveal start={start} end={end} delay={1.2} y={16}>
+          <div style={{ position: 'absolute', right: 100, top: 410, width: 720 }}>
+            <Eyebrow>Product mix · % of book</Eyebrow>
+            <div style={{ marginTop: 22 }}>
+              <ProductMixBar data={D.highlights.productMix}
+                             start={start} end={end} delay={1.4}/>
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 16, color: GRAY600,
+              marginTop: 26, lineHeight: 1.55, maxWidth: 620
+            }}>
+              Gold loans anchor the book. LAP is the fastest-compounding line.
+              Unsecured kept disciplined — only existing customers, only after a clean track record.
+            </div>
+          </div>
+        </Reveal>
+
+        {/* KPI tile row */}
+        <Reveal start={start} end={end} delay={1.6}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, bottom: 110,
+            display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+            paddingTop: 26, borderTop: `1px solid ${GRAY200}`
+          }}>
+            <FactCell label="Branches"         value={D.highlights.branches}/>
+            <FactCell label="Customers"        value={D.highlights.customers}/>
+            <FactCell label="Capital adequacy" value={`${D.highlights.carPct}%`}/>
+            <FactCell label="YoY growth"       value={`${D.highlights.growthPct}%`}/>
           </div>
         </Reveal>
       </div>
@@ -202,395 +342,211 @@ function FactCell({ label, value }) {
   );
 }
 
-// ─── Slide 3 — Annual highlights (KPI dashboard) ──────────────────────
-function SceneHighlights({ start, end }) {
-  const D = D_();
-  const aumByYear = [
-    { label: 'FY22', value: Math.round(D.highlights.aumCr * 0.32) },
-    { label: 'FY23', value: Math.round(D.highlights.aumCr * 0.48) },
-    { label: 'FY24', value: Math.round(D.highlights.aumCr * 0.68) },
-    { label: 'FY25', value: Math.round(D.highlights.aumCr * 0.84) },
-    { label: 'FY26', value: D.highlights.aumCr }
-  ];
+// ─── Product mix segmented horizontal bar ────────────────────────────
+function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 56 }) {
+  const PALETTE = [GOLD, NAVY, GRAY400];
   return (
-    <Sprite start={start} end={end}>
-      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
-        <HairlineBackdrop/>
-
-        <div style={{ position: 'absolute', left: 100, top: 160, width: 1720 }}>
-          <SectionHeading
-            start={start} end={end}
-            eyebrow="02 · Annual highlights"
-            title={<>A book that has <span style={{ color: GOLD }}>tripled</span> in three years.</>}
-            fontSize={60}
-          />
-        </div>
-
-        {/* Hero AUM number — left half */}
-        <Reveal start={start} end={end} delay={1.0} y={14}>
-          <div style={{ position: 'absolute', left: 100, top: 440, width: 720 }}>
-            <Eyebrow>Total AUM · FY26</Eyebrow>
+    <Sprite start={start} end={end - 0.1}>
+      {({ localTime }) => {
+        const p = Easing.easeOutCubic(clamp((localTime - delay) / growDur, 0, 1));
+        const total = data.reduce((s, d) => s + d.value, 0) || 1;
+        return (
+          <div style={{ fontFamily: FONT }}>
             <div style={{
-              fontFamily: FONT, fontSize: 180, fontWeight: 500,
-              color: NAVY, letterSpacing: '-0.04em', lineHeight: 0.95,
-              marginTop: 12, fontVariantNumeric: 'tabular-nums'
+              width: '100%', height, borderRadius: 8, overflow: 'hidden',
+              display: 'flex', background: GRAY100
             }}>
-              ₹{D.highlights.aumCr}
-              <span style={{ fontSize: 60, color: GRAY600, marginLeft: 14, letterSpacing: '-0.01em' }}>Cr</span>
+              {data.map((d, i) => {
+                const widthPct = (d.value / total) * 100 * p;
+                return (
+                  <div key={d.label} style={{
+                    width: `${widthPct}%`, height: '100%',
+                    background: PALETTE[i % PALETTE.length],
+                    transition: 'width 200ms ease-out',
+                    display: 'flex', alignItems: 'center', justifyContent: 'flex-start',
+                    paddingLeft: 14, color: i === 0 ? NAVY_DEEP : '#fff',
+                    fontWeight: 600, fontSize: 18, letterSpacing: '-0.01em',
+                    fontVariantNumeric: 'tabular-nums', overflow: 'hidden', whiteSpace: 'nowrap'
+                  }}>{p > 0.6 ? `${d.value}%` : ''}</div>
+                );
+              })}
             </div>
             <div style={{
-              fontFamily: FONT, fontSize: 22, color: GOLD,
-              marginTop: 22, fontWeight: 500
-            }}>↑ {D.highlights.growthPct}% YoY · 5-year compounded book</div>
-          </div>
-        </Reveal>
-
-        {/* Donut — right side */}
-        <Reveal start={start} end={end} delay={1.3} y={16}>
-          <div style={{ position: 'absolute', right: 200, top: 420, textAlign: 'center' }}>
-            <Eyebrow>Capital adequacy</Eyebrow>
-            <div style={{ marginTop: 16 }}>
-              <Donut value={D.highlights.carPct} max={100} size={260} stroke={22}
-                     color={GOLD} label={`${D.highlights.carPct}%`} sub="CAR"
-                     animateStart={start + 1.4} animateEnd={end} animateDelay={0}/>
+              marginTop: 16,
+              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16
+            }}>
+              {data.map((d, i) => (
+                <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: 10, opacity: p }}>
+                  <span style={{
+                    width: 12, height: 12, borderRadius: 3,
+                    background: PALETTE[i % PALETTE.length], flexShrink: 0
+                  }}/>
+                  <span style={{
+                    fontSize: 14, color: GRAY600, letterSpacing: '-0.005em', lineHeight: 1.3
+                  }}>{d.label}</span>
+                </div>
+              ))}
             </div>
-            <div style={{
-              fontFamily: FONT, fontSize: 16, color: GRAY600,
-              marginTop: 16, maxWidth: 320, lineHeight: 1.5
-            }}>Well above industry minimums — built on conservative leverage.</div>
           </div>
-        </Reveal>
-
-        {/* KPI tile row */}
-        <Reveal start={start} end={end} delay={1.6}>
-          <div style={{
-            position: 'absolute', left: 100, right: 100, bottom: 110,
-            display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
-            paddingTop: 26, borderTop: `1px solid ${GRAY200}`
-          }}>
-            <FactCell label="Branches" value={D.highlights.branches}/>
-            <FactCell label="Customers" value={D.highlights.customers}/>
-            <FactCell label="Products" value={D.highlights.products}/>
-            <FactCell label="YoY growth" value={`${D.highlights.growthPct}%`}/>
-          </div>
-        </Reveal>
-      </div>
+        );
+      }}
     </Sprite>
   );
 }
 
-// ─── Slide 4 — Gold loans (photo + vertical bars) ─────────────────────
+// ─── Slide 4 — Gold loans · prospectus ───────────────────────────────
 function SceneGold({ start, end }) {
   const D = D_();
-  const g = D.products.gold;
-  const trend = [
-    { label: 'FY22', value: Math.round(g.bookCr * 0.35) },
-    { label: 'FY23', value: Math.round(g.bookCr * 0.5) },
-    { label: 'FY24', value: Math.round(g.bookCr * 0.68) },
-    { label: 'FY25', value: Math.round(g.bookCr * 0.85) },
-    { label: 'FY26', value: g.bookCr }
-  ];
-  const sharePct = Math.round((g.bookCr / D.highlights.aumCr) * 100);
+  const G = D.goldProspectus;
   return (
     <Sprite start={start} end={end}>
       <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
         <HairlineBackdrop/>
 
-        <div style={{ position: 'absolute', left: 100, top: 160, width: 1720 }}>
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="03 · Gold loans"
-            title={<>Anchor of the book — <span style={{ color: GOLD }}>secured</span>, granular, recurring.</>}
-            fontSize={56}
+            eyebrow="04 · Gold loans"
+            title="Anchor of the book — secured, granular, recurring. And the macro is on our side."
+            fontSize={80}
+            subSize={26}
           />
         </div>
 
-        {/* Two-column: photo left, stats + chart right */}
-        <div style={{
-          position: 'absolute', left: 100, right: 100, top: 420,
-          display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 56
-        }}>
-          <Reveal start={start} end={end} delay={1.0} y={16}>
-            <PhotoSlot id="gold-photo" placeholder=""
-                       style={{ width: '100%', height: 480 }}/>
-          </Reveal>
+        {/* Macro callout — top left */}
+        <Reveal start={start} end={end} delay={0.8} y={14}>
+          <div style={{ position: 'absolute', left: 100, top: 410, width: 580 }}>
+            <Eyebrow>Macro tailwind</Eyebrow>
+            <div style={{
+              fontFamily: FONT, fontWeight: 500, fontSize: 56,
+              color: NAVY, letterSpacing: '-0.025em', lineHeight: 1.05, marginTop: 14
+            }}>
+              Gold could reach <span style={{ color: GOLD }}>$10,000/oz</span> by 2030.
+            </div>
+            <div style={{
+              fontFamily: MONO, fontSize: 13, color: GRAY600,
+              marginTop: 14, letterSpacing: '0.04em'
+            }}>{G.macroCite}</div>
 
-          <div>
-            <Reveal start={start} end={end} delay={1.2}>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 28, marginBottom: 14 }}>
-                <div>
-                  <Eyebrow>Book size</Eyebrow>
-                  <div style={{
-                    fontSize: 96, fontWeight: 500, color: NAVY,
-                    letterSpacing: '-0.03em', lineHeight: 1, marginTop: 8,
-                    fontFamily: FONT, fontVariantNumeric: 'tabular-nums'
-                  }}>₹{g.bookCr}<span style={{ fontSize: 30, color: GRAY600, marginLeft: 8 }}>Cr</span></div>
-                </div>
-                <div style={{
-                  fontFamily: FONT, fontSize: 19, color: GOLD, fontWeight: 500,
-                  borderLeft: `1px solid ${GRAY200}`, paddingLeft: 24, paddingTop: 18,
-                  lineHeight: 1.5
-                }}>
-                  {sharePct}% of total AUM<br/>+{g.growthYoY}% YoY · {g.yieldPct}% yield
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Sub stats */}
-            <Reveal start={start} end={end} delay={1.4}>
-              <div style={{
-                display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 16, marginTop: 16, padding: '20px 0',
-                borderTop: `1px solid ${GRAY200}`, borderBottom: `1px solid ${GRAY200}`
-              }}>
-                <StatBlock label="YoY growth" value={`+${g.growthYoY}`} unit="%" color={GOLD} big={36}/>
-                <StatBlock label="Yield" value={g.yieldPct} unit="%" color={NAVY} big={36}/>
-                <StatBlock label="Avg ticket" value={`₹${g.atsLakh}`} unit="L" color={NAVY} big={36}/>
-              </div>
-            </Reveal>
-
-            <Reveal start={start} end={end} delay={1.7}>
-              <div style={{ marginTop: 26 }}>
-                <Eyebrow>Book growth · ₹ crore</Eyebrow>
-                <div style={{ marginTop: 14 }}>
-                  <GrowingBarChart
-                    data={trend} start={start} end={end}
-                    delay={1.9} growDur={1.4} height={120}
-                    formatter={v => `₹${v}`}
-                  />
-                </div>
-              </div>
-            </Reveal>
+            <div style={{
+              fontFamily: FONT, fontSize: 17, color: GRAY800,
+              marginTop: 28, lineHeight: 1.6
+            }}>{G.marketStat}</div>
           </div>
-        </div>
+        </Reveal>
+
+        {/* Yield callout — bottom left */}
+        <Reveal start={start} end={end} delay={1.2}>
+          <div style={{
+            position: 'absolute', left: 100, bottom: 120, width: 580,
+            padding: '22px 26px',
+            background: GOLD_PALE, borderLeft: `4px solid ${GOLD}`,
+            borderRadius: 4
+          }}>
+            <div style={{
+              fontFamily: MONO, fontSize: 12, color: NAVY_DEEP,
+              letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
+            }}>And we get paid for it</div>
+            <div style={{
+              fontFamily: FONT, fontSize: 26, fontWeight: 500, color: NAVY,
+              marginTop: 10, lineHeight: 1.3, letterSpacing: '-0.01em'
+            }}>{G.yieldHeadline}</div>
+          </div>
+        </Reveal>
+
+        {/* 10-year gold-price chart — right column. As gold rises, our book rises. */}
+        <Reveal start={start} end={end} delay={1.0} y={16}>
+          <div style={{ position: 'absolute', right: 100, top: 410, width: 1080 }}>
+            <Eyebrow>{G.axisLabel || 'Gold price · USD per troy ounce — 5 historical + 5 projected'}</Eyebrow>
+            <div style={{ marginTop: 22 }}>
+              <ProjectionChart
+                historical={G.historical}
+                projected={G.future}
+                start={start} end={end} delay={1.2}
+                height={360}
+                valuePrefix={G.valuePrefix || '$'}
+              />
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 14, color: GRAY600, fontStyle: 'italic',
+              marginTop: 16, lineHeight: 1.5
+            }}>
+              As gold rises, our gold-loan book rises with it — same gram of gold, bigger loan ticket, recurring yield.
+            </div>
+          </div>
+        </Reveal>
       </div>
     </Sprite>
   );
 }
 
-// ─── Slide 5 — LAP (donut + narrative) ────────────────────────────────
+// ─── Slide 5 — LAP · prospectus ──────────────────────────────────────
 function SceneLAP({ start, end }) {
   const D = D_();
-  const p = D.products.lap;
-  const sharePct = Math.round((p.bookCr / D.highlights.aumCr) * 100);
+  const L = D.lapProspectus;
   return (
     <Sprite start={start} end={end}>
       <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
         <HairlineBackdrop/>
 
-        <div style={{ position: 'absolute', left: 100, top: 160, width: 1720 }}>
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="04 · Loan against property"
-            title={<>Largest <span style={{ color: GOLD }}>growth lever</span> — small-ticket LAP for self-employed India.</>}
-            fontSize={52}
+            eyebrow="05 · Loan against property"
+            title="Largest growth lever — small-ticket LAP for the self-employed Bharat banks won't underwrite."
+            fontSize={72}
+            subSize={26}
           />
         </div>
 
-        <div style={{
-          position: 'absolute', left: 100, right: 100, top: 460,
-          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64,
-          alignItems: 'start'
-        }}>
-          {/* Left — narrative + hero stat */}
-          <div>
-            <Reveal start={start} end={end} delay={1.0}>
-              <div>
-                <Eyebrow>Book size</Eyebrow>
-                <div style={{
-                  fontFamily: FONT, fontSize: 140, fontWeight: 500,
-                  color: NAVY, letterSpacing: '-0.035em', lineHeight: 0.95,
-                  marginTop: 12, fontVariantNumeric: 'tabular-nums'
-                }}>₹{p.bookCr}<span style={{ fontSize: 44, color: GRAY600, marginLeft: 12 }}>Cr</span></div>
-                <div style={{
-                  fontFamily: FONT, fontSize: 18, color: GOLD,
-                  fontWeight: 500, marginTop: 14
-                }}>↑ {p.growthYoY}% YoY · fastest-compounding product</div>
-              </div>
-            </Reveal>
-
-            <Reveal start={start} end={end} delay={1.4}>
-              <div style={{
-                fontFamily: FONT, fontSize: 20, color: GRAY800,
-                marginTop: 36, lineHeight: 1.65, maxWidth: 600
-              }}>
-                Self-employed India is structurally under-served by banks.
-                We underwrite cash-flow at the branch — small-ticket, secured by
-                property — at an average ticket of <strong style={{ color: NAVY, fontWeight: 600 }}>₹{p.atsLakh}L</strong>.
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right — donut + sub-stats */}
-          <div>
-            <Reveal start={start} end={end} delay={1.2} y={16}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
-                <Donut value={sharePct} max={100} size={220} stroke={20}
-                       color={GOLD} label={`${sharePct}%`} sub="of book"
-                       animateStart={start + 1.3} animateEnd={end} animateDelay={0}/>
-                <div>
-                  <div style={{
-                    fontSize: 14, color: GRAY600, letterSpacing: '0.14em',
-                    textTransform: 'uppercase', fontWeight: 600, marginBottom: 10
-                  }}>Share of total AUM</div>
-                  <div style={{
-                    fontFamily: FONT, fontSize: 16, color: GRAY600,
-                    lineHeight: 1.5, maxWidth: 280
-                  }}>~{sharePct}% of Dhanam's book is LAP — and growing the fastest of any product.</div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal start={start} end={end} delay={1.6}>
-              <div style={{
-                display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 16, marginTop: 36, padding: '20px 0',
-                borderTop: `1px solid ${GRAY200}`, borderBottom: `1px solid ${GRAY200}`
-              }}>
-                <StatBlock label="Yield" value={p.yieldPct} unit="%" color={NAVY} big={40}/>
-                <StatBlock label="Avg ticket" value={`₹${p.atsLakh}`} unit="L" color={NAVY} big={40}/>
-                <StatBlock label="YoY growth" value={`+${p.growthYoY}`} unit="%" color={GOLD} big={40}/>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </div>
-    </Sprite>
-  );
-}
-
-// ─── Slide 6 — Private Lockers ────────────────────────────────────────
-function SceneLockers({ start, end }) {
-  const D = D_();
-  const l = D.products.lockers;
-  return (
-    <Sprite start={start} end={end}>
-      <div style={{ position: 'absolute', inset: 0, background: CREAM }}>
-        <HairlineBackdrop color="rgba(15,30,55,0.05)"/>
-
-        <div style={{ position: 'absolute', left: 100, top: 160, width: 1720 }}>
-          <SectionHeading
-            start={start} end={end}
-            eyebrow="05 · Private lockers"
-            title={
-              <span style={{ fontFamily: SERIF, fontStyle: 'italic' }}>
-                <span style={{ color: GOLD, fontSize: 88, lineHeight: 0.6,
-                                position: 'relative', top: 14, marginRight: 6 }}>“</span>
-                The first NBFC in history to operate <span style={{ color: GOLD }}>private lockers</span> alongside financial services under one roof.
-                <span style={{ color: GOLD, fontSize: 88, lineHeight: 0.6,
-                                position: 'relative', top: 14, marginLeft: 4 }}>”</span>
-              </span>
-            }
-            fontSize={52}
-          />
-        </div>
-
-        <div style={{
-          position: 'absolute', left: 100, right: 100, top: 580,
-          display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 56
-        }}>
-          <Reveal start={start} end={end} delay={1.4} y={18}>
-            <PhotoSlot id="lockers-photo" placeholder=""
-                       style={{ width: '100%', height: 360 }}/>
-          </Reveal>
-          <Reveal start={start} end={end} delay={1.7} y={14}>
+        <Reveal start={start} end={end} delay={0.8} y={14}>
+          <div style={{ position: 'absolute', left: 100, top: 430, width: 580 }}>
+            <Eyebrow>Macro tailwind</Eyebrow>
             <div style={{
-              display: 'grid', gridTemplateColumns: '1fr 1fr',
-              gap: 28
+              fontFamily: FONT, fontWeight: 500, fontSize: 48,
+              color: NAVY, letterSpacing: '-0.025em', lineHeight: 1.05, marginTop: 14
             }}>
-              <StatBlock label="Locker units" value={l.units}
-                         foot="Co-located with branches" color={NAVY} big={56}/>
-              <StatBlock label="Occupancy" value={l.occupancyPct} unit="%"
-                         foot="Across all branches" color={GOLD} big={56}/>
-              <StatBlock label="Annual fee revenue" value={`₹${l.feeCr}`} unit="Cr"
-                         foot="Recurring, asset-light" color={NAVY} big={56}/>
-              <StatBlock label="Differentiation" value="1st"
-                         foot="NBFC operating private lockers" color={GOLD} big={56}/>
+              ₹76 lakh crore today → <span style={{ color: GOLD }}>₹160 lakh crore by 2030</span>.
             </div>
-          </Reveal>
-        </div>
-      </div>
-    </Sprite>
-  );
-}
+            <div style={{
+              fontFamily: MONO, fontSize: 13, color: GRAY600,
+              marginTop: 14, letterSpacing: '0.04em'
+            }}>{L.macroCite}</div>
 
-// ─── Slide 7 — Vehicle loans (sparkline + horizontal bars) ────────────
-function SceneVehicle({ start, end }) {
-  const D = D_();
-  const p = D.products.vehicle;
-  const trend = [
-    { label: 'FY24', value: Math.round(p.bookCr * 0.4) },
-    { label: 'FY25', value: Math.round(p.bookCr * 0.7) },
-    { label: 'FY26', value: p.bookCr }
-  ];
-  return (
-    <Sprite start={start} end={end}>
-      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
-        <HairlineBackdrop/>
-
-        <div style={{ position: 'absolute', left: 100, top: 160, width: 1720 }}>
-          <SectionHeading
-            start={start} end={end}
-            eyebrow="06 · Vehicle loans"
-            title={<>New growth engine — <span style={{ color: GOLD }}>commercial vehicle</span> finance for last-mile fleets.</>}
-            fontSize={52}
-          />
-        </div>
-
-        <div style={{
-          position: 'absolute', left: 100, right: 100, top: 440,
-          display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64
-        }}>
-          {/* Left — hero growth + sparkline */}
-          <div>
-            <Reveal start={start} end={end} delay={1.0}>
-              <Eyebrow>YoY growth</Eyebrow>
-              <div style={{
-                fontFamily: FONT, fontSize: 200, fontWeight: 500,
-                color: GOLD, letterSpacing: '-0.045em', lineHeight: 0.9,
-                marginTop: 8, fontVariantNumeric: 'tabular-nums'
-              }}>+{p.growthYoY}<span style={{ fontSize: 80, color: GRAY600, marginLeft: 8 }}>%</span></div>
-            </Reveal>
-            <Reveal start={start} end={end} delay={1.4}>
-              <div style={{
-                marginTop: 36, padding: '20px 24px',
-                background: GRAY50, borderRadius: 8,
-                display: 'flex', alignItems: 'center', gap: 24
-              }}>
-                <Sparkline data={trend.map(d => d.value)} width={200} height={60}/>
-                <div>
-                  <div style={{ fontSize: 11, color: GRAY600, letterSpacing: '0.1em',
-                                 textTransform: 'uppercase', fontWeight: 500 }}>3-year trajectory</div>
-                  <div style={{ fontSize: 22, color: NAVY, fontWeight: 500,
-                                 marginTop: 4, fontVariantNumeric: 'tabular-nums' }}>₹{trend[0].value} → ₹{trend[trend.length-1].value} Cr</div>
-                </div>
-              </div>
-            </Reveal>
+            <div style={{
+              fontFamily: FONT, fontSize: 17, color: GRAY800,
+              marginTop: 28, lineHeight: 1.6
+            }}>{L.marketStat}</div>
           </div>
+        </Reveal>
 
-          {/* Right — stat tiles */}
-          <div>
-            <Reveal start={start} end={end} delay={1.2}>
-              <div style={{
-                display: 'flex', flexDirection: 'column', gap: 18
-              }}>
-                <StatTile label="Book size" value={`₹${p.bookCr} Cr`} accent={NAVY}/>
-                <StatTile label="Yield" value={`${p.yieldPct}%`} accent={NAVY}/>
-                <StatTile label="Avg ticket size" value={`₹${p.atsLakh} L`} accent={GOLD}/>
-              </div>
-            </Reveal>
+        <Reveal start={start} end={end} delay={1.2}>
+          <div style={{
+            position: 'absolute', left: 100, bottom: 120, width: 580,
+            padding: '22px 26px',
+            background: GOLD_PALE, borderLeft: `4px solid ${GOLD}`,
+            borderRadius: 4
+          }}>
+            <div style={{
+              fontFamily: MONO, fontSize: 12, color: NAVY_DEEP,
+              letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
+            }}>And we get paid for it</div>
+            <div style={{
+              fontFamily: FONT, fontSize: 26, fontWeight: 500, color: NAVY,
+              marginTop: 10, lineHeight: 1.3, letterSpacing: '-0.01em'
+            }}>{L.yieldHeadline}</div>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Bottom — horizontal bars */}
-        <Reveal start={start} end={end} delay={1.7}>
-          <div style={{ position: 'absolute', left: 100, right: 100, bottom: 110 }}>
-            <Eyebrow>Book progression · ₹ crore</Eyebrow>
-            <div style={{ marginTop: 14 }}>
-              <HorizontalBars
-                data={trend} start={start} end={end}
-                delay={1.9} growDur={1.2}
-                formatter={v => `₹${v} Cr`}
+        <Reveal start={start} end={end} delay={1.0} y={16}>
+          <div style={{ position: 'absolute', right: 100, top: 430, width: 1080 }}>
+            <Eyebrow>Book growth · ₹ crore — 5 historical + 5 projected</Eyebrow>
+            <div style={{ marginTop: 22 }}>
+              <ProjectionChart
+                historical={L.historical}
+                projected={L.future}
+                start={start} end={end} delay={1.2}
+                height={400}
               />
             </div>
           </div>
@@ -600,28 +556,80 @@ function SceneVehicle({ start, end }) {
   );
 }
 
-function StatTile({ label, value, accent = NAVY }) {
+// ─── Combined historical + projected bar chart with 'now' divider ────
+function ProjectionChart({ historical, projected, start, end, delay = 0.4, growDur = 1.4, height = 360, valuePrefix = '₹' }) {
+  const all = [...historical, ...projected];
+  const max = Math.max(...all.map(d => d.value)) || 1;
+  const fmt = v => `${valuePrefix}${v.toLocaleString()}`;
   return (
-    <div style={{
-      padding: '22px 28px',
-      background: PAPER, border: `1px solid ${GRAY200}`, borderRadius: 12,
-      display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
-      fontFamily: FONT
-    }}>
-      <span style={{
-        fontSize: 14, color: GRAY600, letterSpacing: '0.14em',
-        textTransform: 'uppercase', fontWeight: 600
-      }}>{label}</span>
-      <span style={{
-        fontSize: 36, fontWeight: 500, color: accent,
-        letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums'
-      }}>{value}</span>
-    </div>
+    <Sprite start={start} end={end - 0.1}>
+      {({ localTime }) => {
+        const labelArea = 36;
+        return (
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: `repeat(${all.length}, 1fr)`,
+            gap: 12, height: height + labelArea + 24, alignItems: 'end',
+            fontFamily: FONT, position: 'relative'
+          }}>
+            {all.map((d, i) => {
+              const stagger = i * 0.06;
+              const localP = Easing.easeOutCubic(clamp((localTime - delay - stagger) / growDur, 0, 1));
+              const isProjected = i >= historical.length;
+              const h = (d.value / max) * height * localP;
+              const fill = isProjected ? GOLD : NAVY;
+              return (
+                <div key={i} style={{
+                  display: 'flex', flexDirection: 'column',
+                  alignItems: 'center', gap: 8,
+                  position: 'relative'
+                }}>
+                  <div style={{
+                    fontFamily: MONO, fontSize: 12, color: isProjected ? GOLD : NAVY,
+                    fontVariantNumeric: 'tabular-nums', fontWeight: 600,
+                    opacity: localP
+                  }}>{fmt(d.value)}</div>
+                  <div style={{
+                    width: '100%', height: h, background: fill,
+                    borderRadius: '4px 4px 0 0',
+                    opacity: isProjected ? 0.85 : 1,
+                    backgroundImage: isProjected
+                      ? `repeating-linear-gradient(45deg, transparent 0 6px, rgba(255,255,255,0.18) 6px 12px)`
+                      : 'none'
+                  }}/>
+                  <div style={{
+                    fontSize: 12, color: GRAY600, letterSpacing: '0.04em',
+                    textTransform: 'uppercase', textAlign: 'center',
+                    opacity: localP, fontWeight: isProjected ? 600 : 400
+                  }}>{d.year}</div>
+                </div>
+              );
+            })}
+
+            {/* Vertical 'NOW' divider */}
+            <div style={{
+              position: 'absolute',
+              left: `calc(${(historical.length / all.length) * 100}% - 1px)`,
+              top: 24, bottom: labelArea,
+              width: 1,
+              borderLeft: `1.5px dashed ${GRAY400}`,
+              pointerEvents: 'none'
+            }}>
+              <div style={{
+                position: 'absolute', top: -22, left: -28,
+                fontFamily: MONO, fontSize: 10, color: GRAY600,
+                letterSpacing: '0.18em', fontWeight: 700,
+                background: PAPER, padding: '2px 6px'
+              }}>· NOW ·</div>
+            </div>
+          </div>
+        );
+      }}
+    </Sprite>
   );
 }
 
 Object.assign(window, {
-  SceneCover, SceneAbout, SceneHighlights,
-  SceneGold, SceneLAP, SceneLockers, SceneVehicle,
-  FactCell, StatTile
+  SceneCover, SceneAbout, SceneHighlights, SceneGold, SceneLAP,
+  ProductCardTop, ProductCardSide, FactCell, ProductMixBar, ProjectionChart
 });

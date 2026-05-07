@@ -153,54 +153,79 @@ function LotusMark({ size = 32, color = GOLD, dark = false }) {
 
 // ─── Chapter title (top-left during slide) ────────────────────────────
 function SlideHeader({ idx, total, label, dark = false }) {
-  const muted = dark ? 'rgba(255,255,255,0.55)' : GRAY600;
   return (
     <div style={{
       position: 'absolute', left: 100, top: 50,
-      display: 'flex', alignItems: 'center', gap: 18,
+      display: 'flex', alignItems: 'center',
       fontFamily: FONT
     }}>
       <BrandLockup height={40} dark={dark} eyebrow={false}/>
-      <div style={{ width: 1, height: 18, background: dark ? 'rgba(255,255,255,0.2)' : GRAY200 }}/>
-      <div style={{
-        fontSize: 12, fontFamily: MONO, color: muted,
-        letterSpacing: '0.06em', textTransform: 'uppercase'
-      }}>{label}</div>
     </div>
   );
 }
 
-function SlideFooter({ idx, total, dark = false }) {
-  const c = dark ? 'rgba(255,255,255,0.55)' : GRAY400;
-  const accent = dark ? '#fff' : NAVY;
-  return (
-    <div style={{
-      position: 'absolute', right: 100, bottom: 60,
-      fontFamily: MONO, fontSize: 12,
-      color: c, letterSpacing: '0.08em'
-    }}>
-      <span style={{ color: accent }}>{String(idx).padStart(2, '0')}</span>
-      <span> / {String(total).padStart(2, '0')}</span>
-    </div>
-  );
+function SlideFooter() {
+  // Pagination intentionally hidden — slide numbers removed deck-wide.
+  return null;
 }
 
 // ─── Section title bar ────────────────────────────────────────────────
-function SectionHeading({ start, end, eyebrow, title, accent = GOLD, dark = false, maxWidth = 1500, fontSize = 60 }) {
+// `eyebrow` is the big bold heading; `title` becomes the subhead below.
+// Any "NN · " number prefix is stripped — slide numbers are no longer shown.
+function SectionHeading({ start, end, eyebrow, title, accent = GOLD, dark = false, maxWidth = 1500, fontSize = 80, subSize = 26 }) {
   const ink = dark ? '#fff' : NAVY;
+  const subColor = dark ? 'rgba(255,255,255,0.72)' : GRAY600;
+  const cleanEyebrow = typeof eyebrow === 'string'
+    ? eyebrow.replace(/^\d+\s*[·.\-]\s*/, '')
+    : eyebrow;
   return (
     <>
-      <Reveal start={start} end={end} delay={0.2}>
-        <Eyebrow color={accent}>{eyebrow}</Eyebrow>
-      </Reveal>
-      <Reveal start={start} end={end} delay={0.35} dur={0.7} y={20}>
+      <Reveal start={start} end={end} delay={0.2} dur={0.7} y={20}>
         <div style={{
-          fontFamily: FONT, fontWeight: 500, fontSize,
-          color: ink, letterSpacing: '-0.025em', lineHeight: 1.1,
-          marginTop: 16, maxWidth
-        }}>{title}</div>
+          fontFamily: FONT, fontWeight: 600, fontSize,
+          color: ink, letterSpacing: '-0.03em', lineHeight: 1.0,
+          maxWidth
+        }}>{cleanEyebrow}</div>
       </Reveal>
+      {title && (
+        <Reveal start={start} end={end} delay={0.4} dur={0.7} y={14}>
+          <div style={{
+            fontFamily: FONT, fontWeight: 400, fontSize: subSize,
+            color: subColor, letterSpacing: '-0.005em', lineHeight: 1.4,
+            marginTop: 20, maxWidth: maxWidth * 0.92
+          }}>{title}</div>
+        </Reveal>
+      )}
     </>
+  );
+}
+
+// ─── Round photo — circular crop of a PhotoSlot ──────────────────────
+function RoundPhoto({ id, size = 220, ringColor = GOLD, ringWidth = 0 }) {
+  return (
+    <div style={{
+      width: size, height: size, borderRadius: '50%', overflow: 'hidden',
+      border: ringWidth ? `${ringWidth}px solid ${ringColor}` : 'none',
+      background: GRAY100, flexShrink: 0
+    }}>
+      <PhotoSlot id={id} placeholder="" radius={size}
+                 style={{ width: '100%', height: '100%' }}/>
+    </div>
+  );
+}
+
+// ─── Category label (e.g. "LOANS" / "WEALTH" section dividers) ───────
+function CategoryLabel({ children, color = NAVY, accent = GOLD }) {
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 14,
+      fontFamily: MONO, fontSize: 13, color,
+      letterSpacing: '0.22em', textTransform: 'uppercase',
+      fontWeight: 700
+    }}>
+      <span style={{ width: 28, height: 2, background: accent }}/>
+      {children}
+    </div>
   );
 }
 
@@ -544,5 +569,6 @@ Object.assign(window, {
   FONT, SERIF, MONO, BRAND, STAGE_W, STAGE_H, clamp,
   Reveal, Eyebrow, LotusMark, BrandLockup, SlideHeader, SlideFooter, SectionHeading,
   StatBlock, BarChart, GrowingBarChart, HorizontalBars, LineChart, Sparkline,
-  Donut, HairlineBackdrop, PhotoSlot, Chip
+  Donut, HairlineBackdrop, PhotoSlot, Chip,
+  RoundPhoto, CategoryLabel
 });
