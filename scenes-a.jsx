@@ -494,7 +494,7 @@ function SceneLAP({ start, end }) {
           <SectionHeading
             start={start} end={end}
             eyebrow="05 · Loan against property"
-            title="Largest growth lever — small-ticket LAP for the self-employed Bharat banks won't underwrite."
+            title="Largest growth lever — turning small properties into working capital for India's self-employed."
             fontSize={72}
             subSize={26}
           />

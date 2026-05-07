@@ -1,22 +1,22 @@
 // app.jsx — wires the deck timeline together
-// 13 scenes × ~14-16s = ~196s (~3:16)
+// 13 scenes, durations tuned to content density. Total 172s (~2:52).
 
 const SCENES = [
-  { id: 1,  label: 'Cover',                    start: 0,   end: 14,  Comp: 'SceneCover',         dark: false },
-  { id: 2,  label: 'Products we offer',        start: 14,  end: 28,  Comp: 'SceneAbout',         dark: false },
-  { id: 3,  label: 'Annual highlights',        start: 28,  end: 42,  Comp: 'SceneHighlights',    dark: false },
-  { id: 4,  label: 'Gold loans · prospectus',  start: 42,  end: 58,  Comp: 'SceneGold',          dark: false },
-  { id: 5,  label: 'LAP · prospectus',         start: 58,  end: 74,  Comp: 'SceneLAP',           dark: false },
-  { id: 6,  label: 'Private lockers',          start: 74,  end: 88,  Comp: 'SceneLockers',       dark: false },
-  { id: 7,  label: 'Where we compete',         start: 88,  end: 102, Comp: 'SceneCompetitors',   dark: false },
-  { id: 8,  label: 'Promoters & directors',    start: 102, end: 118, Comp: 'SceneFoundingTeam',  dark: false },
-  { id: 9,  label: 'Promoters & directors',    start: 118, end: 134, Comp: 'SceneDirectors',     dark: false },
-  { id: 10, label: 'Management team',          start: 134, end: 148, Comp: 'SceneTeam',          dark: false },
-  { id: 11, label: 'Ace investors',            start: 148, end: 164, Comp: 'SceneAceInvestors',  dark: true  },
-  { id: 12, label: 'Why partner with us',      start: 164, end: 180, Comp: 'SceneWhyDhanam',     dark: false },
-  { id: 13, label: 'Thank you',                start: 180, end: 196, Comp: 'SceneContact',       dark: false }
+  { id: 1,  label: 'Cover',                    start: 0,   end: 5,   Comp: 'SceneCover',         dark: false },
+  { id: 2,  label: 'Products we offer',        start: 5,   end: 21,  Comp: 'SceneAbout',         dark: false },
+  { id: 3,  label: 'Annual highlights',        start: 21,  end: 35,  Comp: 'SceneHighlights',    dark: false },
+  { id: 4,  label: 'Gold loans · prospectus',  start: 35,  end: 51,  Comp: 'SceneGold',          dark: false },
+  { id: 5,  label: 'LAP · prospectus',         start: 51,  end: 67,  Comp: 'SceneLAP',           dark: false },
+  { id: 6,  label: 'Private lockers',          start: 67,  end: 79,  Comp: 'SceneLockers',       dark: false },
+  { id: 7,  label: 'Where we compete',         start: 79,  end: 95,  Comp: 'SceneCompetitors',   dark: false },
+  { id: 8,  label: 'Promoters & directors',    start: 95,  end: 111, Comp: 'SceneFoundingTeam',  dark: false },
+  { id: 9,  label: 'Promoters & directors',    start: 111, end: 127, Comp: 'SceneDirectors',     dark: false },
+  { id: 10, label: 'Management team',          start: 127, end: 138, Comp: 'SceneTeam',          dark: false },
+  { id: 11, label: 'Ace investors',            start: 138, end: 152, Comp: 'SceneAceInvestors',  dark: true  },
+  { id: 12, label: 'Why partner with us',      start: 152, end: 166, Comp: 'SceneWhyDhanam',     dark: false },
+  { id: 13, label: 'Thank you',                start: 166, end: 172, Comp: 'SceneContact',       dark: false }
 ];
-const DURATION = 196;
+const DURATION = 172;
 
 function ChromeMux() {
   const t = useTime();

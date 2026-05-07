@@ -92,7 +92,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "macroHeadline": "India's LAP market: ₹76 lakh crore today → ₹160 lakh crore by 2030.",
     "macroCite": "TechSci Research, IMARC — 13.3% CAGR through 2030",
     "yieldHeadline": "17% gross yield. Property-secured. Cash-flow underwritten.",
-    "marketStat": "Self-employed Bharat is structurally under-served by banks. NBFCs own this category — and Dhanam underwrites at the branch, not from a screen in Mumbai."
+    "marketStat": "Self-employed India is structurally under-served by banks. NBFCs own this category — and Dhanam underwrites at the branch, not from a screen in Mumbai."
   },
 
   "lockersDetail": {
