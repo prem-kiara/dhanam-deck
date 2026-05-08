@@ -119,7 +119,7 @@ function SceneAbout({ start, end }) {
           <SectionHeading
             start={start} end={end}
             eyebrow="02 · Products we offer"
-            title="Multi-product NBFC — built for both sides of the household balance sheet."
+            title="Multi-product NBFC — the trusted financial partner for Tamil Nadu's families, entrepreneurs and wealth-builders."
             fontSize={72}
             subSize={22}
           />
@@ -306,7 +306,7 @@ function SceneHighlights({ start, end }) {
               marginTop: 26, lineHeight: 1.55, maxWidth: 620
             }}>
               Gold loans anchor the book. LAP is the fastest-compounding line.
-              Unsecured kept disciplined — only existing customers, only after a clean track record.
+              Unsecured kept disciplined — credit that rewards a verified repayment track record.
             </div>
           </div>
         </Reveal>
@@ -438,25 +438,6 @@ function SceneGold({ start, end }) {
           </div>
         </Reveal>
 
-        {/* Yield callout — bottom left */}
-        <Reveal start={start} end={end} delay={1.2}>
-          <div style={{
-            position: 'absolute', left: 100, bottom: 120, width: 580,
-            padding: '22px 26px',
-            background: GOLD_PALE, borderLeft: `4px solid ${GOLD}`,
-            borderRadius: 4
-          }}>
-            <div style={{
-              fontFamily: MONO, fontSize: 12, color: NAVY_DEEP,
-              letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
-            }}>And we get paid for it</div>
-            <div style={{
-              fontFamily: FONT, fontSize: 26, fontWeight: 500, color: NAVY,
-              marginTop: 10, lineHeight: 1.3, letterSpacing: '-0.01em'
-            }}>{G.yieldHeadline}</div>
-          </div>
-        </Reveal>
-
         {/* 10-year gold-price chart — right column. As gold rises, our book rises. */}
         <Reveal start={start} end={end} delay={1.0} y={16}>
           <div style={{ position: 'absolute', right: 100, top: 410, width: 1080 }}>
@@ -520,24 +501,6 @@ function SceneLAP({ start, end }) {
               fontFamily: FONT, fontSize: 17, color: GRAY800,
               marginTop: 28, lineHeight: 1.6
             }}>{L.marketStat}</div>
-          </div>
-        </Reveal>
-
-        <Reveal start={start} end={end} delay={1.2}>
-          <div style={{
-            position: 'absolute', left: 100, bottom: 120, width: 580,
-            padding: '22px 26px',
-            background: GOLD_PALE, borderLeft: `4px solid ${GOLD}`,
-            borderRadius: 4
-          }}>
-            <div style={{
-              fontFamily: MONO, fontSize: 12, color: NAVY_DEEP,
-              letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
-            }}>And we get paid for it</div>
-            <div style={{
-              fontFamily: FONT, fontSize: 26, fontWeight: 500, color: NAVY,
-              marginTop: 10, lineHeight: 1.3, letterSpacing: '-0.01em'
-            }}>{L.yieldHeadline}</div>
           </div>
         </Reveal>
 

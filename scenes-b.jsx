@@ -120,21 +120,6 @@ function SceneCompetitors({ start, end }) {
           ))}
         </div>
 
-        <Reveal start={start} end={end} delay={1.6}>
-          <div style={{
-            position: 'absolute', left: 100, right: 100, bottom: 100,
-            paddingTop: 18, borderTop: `1px solid ${GRAY200}`,
-            display: 'flex', justifyContent: 'flex-end', alignItems: 'baseline',
-            fontFamily: FONT
-          }}>
-            <span style={{
-              fontSize: 22, fontWeight: 500, color: NAVY,
-              letterSpacing: '-0.01em'
-            }}>
-              Five specialists. <span style={{ color: GOLD }}>One operator. One customer.</span>
-            </span>
-          </div>
-        </Reveal>
       </div>
     </Sprite>
   );
@@ -217,8 +202,8 @@ function SceneFoundingTeam({ start, end }) {
   const D = D_b();
   const directors = D.directors.filter(d => d.show).slice(0, 4);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
-                                eyebrow="08 · Promoters & directors"
-                                title="Promoters and operating directors — chartered accountancy, finance, technology and governance, all under one roof."/>;
+                                eyebrow="08 · Promoters & Directors"
+                                title="Promoters and operating Directors — chartered accountancy, finance, technology and governance, all under one roof."/>;
 }
 
 // ─── Slide 9 — Promoters & Directors II (next 4, same zigzag format) ─
@@ -226,7 +211,7 @@ function SceneDirectors({ start, end }) {
   const D = D_b();
   const directors = D.directors.filter(d => d.show).slice(4, 8);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
-                                eyebrow="09 · Promoters & directors"
+                                eyebrow="09 · Promoters & Directors"
                                 title="The operating board — branch network, administration, growth and company secretarial leadership."/>;
 }
 
@@ -299,29 +284,30 @@ function FounderColumn({ d, offset = 'up' }) {
 function SceneTeam({ start, end }) {
   const D = D_b();
   const visible = D.team.filter(t => t.show);
-  const cols = Math.min(4, visible.length);
+  // ≤4 people → single row; 5-9 → 3-col grid (fills rows of 3 cleanly)
+  const cols = visible.length <= 4 ? visible.length : 3;
   return (
     <Sprite start={start} end={end}>
       <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
         <HairlineBackdrop/>
 
-        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
             eyebrow="10 · Management team"
             title="The core team driving Dhanam's day-to-day across technology, finance, branch network, credit, compliance and growth."
-            fontSize={80}
-            subSize={26}
+            fontSize={72}
+            subSize={22}
           />
         </div>
 
         <div style={{
-          position: 'absolute', left: 100, right: 100, top: 420,
+          position: 'absolute', left: 100, right: 100, top: 360,
           display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`,
-          gap: 22
+          gap: '28px 32px'
         }}>
           {visible.map((t, i) => (
-            <Reveal key={t.name} start={start} end={end} delay={0.9 + i * 0.1} y={10}>
+            <Reveal key={t.name} start={start} end={end} delay={0.7 + i * 0.08} y={10}>
               <TeamCard t={t}/>
             </Reveal>
           ))}
@@ -334,92 +320,76 @@ function SceneTeam({ start, end }) {
 function TeamCard({ t }) {
   return (
     <div style={{
-      background: GRAY50, border: `1px solid ${GRAY200}`,
-      borderRadius: 12, padding: '34px 24px 30px',
       fontFamily: FONT, textAlign: 'center',
-      display: 'flex', flexDirection: 'column', gap: 10
+      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10
     }}>
-      <div style={{
-        fontSize: 22, fontWeight: 700, color: NAVY,
-        letterSpacing: '-0.005em', lineHeight: 1.2
-      }}>{t.name}</div>
-      {t.role && (
+      <RoundPhoto id={t.slot} size={140} objPos={t.imgPos || 'center 18%'} zoom={t.imgZoom || 1}/>
+      <div>
         <div style={{
-          fontSize: 11, color: GOLD,
-          letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700,
-          lineHeight: 1.3
-        }}>{t.role}</div>
-      )}
-      <div style={{
-        fontSize: 12, color: GRAY600,
-        fontFamily: MONO, letterSpacing: '0.04em'
-      }}>{t.qualification}</div>
+          fontSize: 16, fontWeight: 700, color: NAVY,
+          letterSpacing: '-0.005em', lineHeight: 1.25
+        }}>{t.name}</div>
+        {t.role && (
+          <div style={{
+            fontSize: 10, color: GOLD,
+            letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700,
+            lineHeight: 1.3, marginTop: 5
+          }}>{t.role}</div>
+        )}
+        <div style={{
+          fontSize: 11, color: GRAY600,
+          fontFamily: MONO, letterSpacing: '0.04em', marginTop: 3
+        }}>{t.qualification}</div>
+      </div>
     </div>
   );
 }
 
-// ─── Slide 11 — Ace investors (full 31, dark theme, centred last row) ─
+// ─── Slide 11 — Ace investors (full grid, spacers pad final row) ─────
 function SceneAceInvestors({ start, end }) {
   const D = D_b();
   const ace = D.aceInvestors;
   const COLS = 4;
-  const completeCount = Math.floor(ace.length / COLS) * COLS;
-  const completeRows = ace.slice(0, completeCount);
-  const partialRow   = ace.slice(completeCount);
-  // Match column widths between the grid and the centred partial row so cards align.
   const COL_GAP = 12;
-  const cardWidthPct = `calc((100% - ${(COLS - 1) * COL_GAP}px) / ${COLS})`;
+  // Pad with nulls so the last row fills out the grid completely → all cards
+  // share the same 1fr column width with zero risk of misalignment.
+  const remainder = ace.length % COLS;
+  const padCount  = remainder > 0 ? COLS - remainder : 0;
+  const padded    = [...ace, ...Array(padCount).fill(null)];
 
   return (
     <Sprite start={start} end={end}>
-      <div style={{ position: 'absolute', inset: 0, background: NAVY, color: '#fff' }}>
-        <div style={{
-          position: 'absolute', right: -150, bottom: -150,
-          width: 720, height: 720,
-          background: 'radial-gradient(closest-side, rgba(200,146,42,0.18), transparent 70%)',
-          pointerEvents: 'none'
-        }}/>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
 
         <div style={{ position: 'absolute', left: 100, top: 90, width: 1720 }}>
           <SectionHeading
-            start={start} end={end} dark
+            start={start} end={end}
             eyebrow="11 · Ace investors"
             title="Senior advisors spanning banking, capital markets, healthcare, real estate, technology, manufacturing, hospitality, jewellery, agriculture and law — combining decades of operating, regulatory and capital-allocation experience."
-            accent={GOLD_LITE}
+            accent={GOLD}
             fontSize={64}
             subSize={20}
           />
         </div>
 
+        {/* Single uniform grid — spacer divs keep last row left-aligned */}
         <div style={{
           position: 'absolute', left: 100, right: 100, top: 320, bottom: 100,
-          display: 'flex', flexDirection: 'column', gap: COL_GAP
+          display: 'grid',
+          gridTemplateColumns: `repeat(${COLS}, 1fr)`,
+          gap: COL_GAP,
+          alignContent: 'start'
         }}>
-          {/* Complete rows — perfectly aligned 4-col grid */}
-          <div style={{
-            display: 'grid', gridTemplateColumns: `repeat(${COLS}, 1fr)`,
-            gap: COL_GAP, alignContent: 'start'
-          }}>
-            {completeRows.map((a, i) => (
-              <Reveal key={i} start={start} end={end} delay={0.8 + Math.min(i, 30) * 0.025} y={6}>
+          {padded.map((a, i) =>
+            a ? (
+              <Reveal key={i} start={start} end={end}
+                      delay={0.8 + Math.min(i, 30) * 0.025} y={6}>
                 <AceCard name={a.name} tag={a.tag}/>
               </Reveal>
-            ))}
-          </div>
-
-          {/* Partial last row — centred, same card width as the grid above */}
-          {partialRow.length > 0 && (
-            <div style={{
-              display: 'flex', justifyContent: 'center', gap: COL_GAP
-            }}>
-              {partialRow.map((a, i) => (
-                <Reveal key={completeCount + i} start={start} end={end}
-                        delay={0.8 + Math.min(completeCount + i, 30) * 0.025} y={6}
-                        style={{ width: cardWidthPct, flex: `0 0 ${cardWidthPct}` }}>
-                  <AceCard name={a.name} tag={a.tag}/>
-                </Reveal>
-              ))}
-            </div>
+            ) : (
+              <div key={i} style={{ visibility: 'hidden' }}/>
+            )
           )}
         </div>
       </div>
@@ -430,17 +400,17 @@ function SceneAceInvestors({ start, end }) {
 function AceCard({ name, tag }) {
   return (
     <div style={{
-      background: 'rgba(255,255,255,0.05)',
-      border: '1px solid rgba(255,255,255,0.1)',
+      background: GRAY50,
+      border: `1px solid ${GRAY200}`,
       borderRadius: 8, padding: '12px 16px',
-      fontFamily: FONT, color: '#fff'
+      fontFamily: FONT, color: NAVY
     }}>
       <div style={{
         fontSize: 15, fontWeight: 600, letterSpacing: '-0.005em',
         lineHeight: 1.25
       }}>{name}</div>
       <div style={{
-        fontSize: 12, color: 'rgba(255,255,255,0.65)', fontStyle: 'italic',
+        fontSize: 12, color: GRAY600, fontStyle: 'italic',
         marginTop: 4, lineHeight: 1.35
       }}>{tag}</div>
     </div>
@@ -599,8 +569,7 @@ function SceneWhyDhanam({ start, end }) {
             color: NAVY, letterSpacing: '-0.03em', lineHeight: 1.05
           }}>
             Your money will <span style={{
-              fontFamily: SERIF, fontStyle: 'italic',
-              fontWeight: 500, color: GOLD, letterSpacing: '-0.02em'
+              fontWeight: 600, color: GOLD, letterSpacing: '-0.02em'
             }}>grow</span> with us.
           </div>
         </Reveal>
@@ -613,53 +582,68 @@ function SceneWhyDhanam({ start, end }) {
           }}>{P.subhead}</div>
         </Reveal>
 
-        {/* MRF strip — minimal, attractive: kicker · single-line detail · big number */}
+        {/* Two-panel strip: Wipro precedent (left) + Dhanam opportunity (right) */}
         <Reveal start={start} end={end} delay={1.0} y={14}>
           <div style={{
             position: 'absolute', left: 100, right: 100, top: 470,
             background: NAVY, color: '#fff',
-            borderRadius: 16, padding: '36px 44px',
-            display: 'grid', gridTemplateColumns: '1fr 380px',
-            alignItems: 'center', gap: 48,
-            fontFamily: FONT
+            borderRadius: 16,
+            display: 'grid', gridTemplateColumns: '1fr 1fr',
+            fontFamily: FONT, overflow: 'hidden'
           }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              <div style={{
-                fontFamily: SERIF, fontStyle: 'italic',
-                fontSize: 40, fontWeight: 500, color: GOLD_LITE,
-                letterSpacing: '-0.015em', lineHeight: 1.15
-              }}>{P.mrf.kicker}</div>
-              <div style={{
-                fontSize: 18, color: 'rgba(255,255,255,0.85)', lineHeight: 1.55,
-                letterSpacing: '-0.005em'
-              }}>{P.mrf.detail}</div>
-            </div>
+            {/* Left panel — Wipro precedent */}
             <div style={{
-              borderLeft: '1px solid rgba(255,255,255,0.18)',
-              paddingLeft: 40,
-              display: 'flex', flexDirection: 'column', gap: 8
+              padding: '36px 44px',
+              display: 'flex', flexDirection: 'column', gap: 14,
+              borderRight: '1px solid rgba(255,255,255,0.14)'
             }}>
               <div style={{
-                fontFamily: FONT, fontSize: 88, fontWeight: 600, color: GOLD_LITE,
-                letterSpacing: '-0.04em',
-                fontVariantNumeric: 'tabular-nums', lineHeight: 1
-              }}>{P.mrf.stat}</div>
+                fontFamily: MONO, fontSize: 11, color: GOLD_LITE,
+                letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+              }}>The Wipro Precedent</div>
               <div style={{
-                fontFamily: MONO, fontSize: 11, color: 'rgba(255,255,255,0.7)',
-                letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600,
-                marginTop: 4
-              }}>{P.mrf.statSub}</div>
+                fontFamily: SERIF, fontStyle: 'italic',
+                fontSize: 28, fontWeight: 500, color: GOLD_LITE,
+                letterSpacing: '-0.015em', lineHeight: 1.2
+              }}>{P.wipro.kicker}</div>
               <div style={{
-                fontSize: 11, color: 'rgba(255,255,255,0.45)',
-                marginTop: 8, fontStyle: 'italic'
-              }}>{P.mrf.cite}</div>
+                fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
+                letterSpacing: '-0.005em'
+              }}>{P.wipro.detail}</div>
+              <div style={{
+                fontSize: 11, color: 'rgba(255,255,255,0.4)',
+                fontStyle: 'italic', marginTop: 4
+              }}>{P.wipro.cite}</div>
+            </div>
+
+            {/* Right panel — Dhanam opportunity */}
+            <div style={{
+              padding: '36px 44px',
+              display: 'flex', flexDirection: 'column', gap: 14
+            }}>
+              <div style={{
+                fontFamily: MONO, fontSize: 11, color: GOLD_LITE,
+                letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+              }}>Your Dhanam Moment</div>
+              <div style={{
+                fontFamily: SERIF, fontStyle: 'italic',
+                fontSize: 28, fontWeight: 500, color: GOLD_LITE,
+                letterSpacing: '-0.015em', lineHeight: 1.2
+              }}>{P.dhanam.kicker}</div>
+              <div style={{
+                fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
+                letterSpacing: '-0.005em'
+              }}>{P.dhanam.detail}</div>
+              <div style={{
+                fontSize: 13, color: GOLD_LITE, fontWeight: 600, marginTop: 4
+              }}>{P.dhanam.note}</div>
             </div>
           </div>
         </Reveal>
 
         {/* 3 pillars */}
         <div style={{
-          position: 'absolute', left: 100, right: 100, top: 700,
+          position: 'absolute', left: 100, right: 100, top: 780,
           display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20
         }}>
           {P.pillars.map((line, i) => (
@@ -712,7 +696,6 @@ function SceneContact({ start, end }) {
             }}>
               Let's build the next<br/>
               <span style={{
-                fontFamily: SERIF, fontStyle: 'italic',
                 color: GOLD, letterSpacing: '-0.02em', fontWeight: 500
               }}>Unicorn</span> together.
             </div>
@@ -722,7 +705,7 @@ function SceneContact({ start, end }) {
               fontFamily: FONT, fontSize: 22, color: GRAY600,
               marginTop: 30, lineHeight: 1.5, maxWidth: 820
             }}>
-              An invitation to partner with one of India's most carefully run regional NBFCs —
+              An opportunity to partner with one of India's most carefully run regional NBFCs —
               now scaling into a national, multi-product fintech.
             </div>
           </Reveal>
@@ -739,27 +722,30 @@ function SceneContact({ start, end }) {
 
         <Reveal start={start} end={end} delay={1.4} y={14}>
           <div style={{
-            position: 'absolute', right: 100, top: 700,
-            width: 720, padding: 28,
-            background: NAVY, color: '#fff', borderRadius: 12,
+            position: 'absolute', left: 100, right: 100, bottom: 44,
+            background: NAVY, color: '#fff', borderRadius: 16,
+            padding: '28px 44px 32px',
             fontFamily: FONT, pointerEvents: 'auto'
           }}>
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-              marginBottom: 16
+              marginBottom: 18
             }}>
               <div style={{
-                fontSize: 14, color: GOLD_LITE,
-                letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600
+                fontSize: 13, color: GOLD_LITE,
+                letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600
               }}>Talk to us</div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)',
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)',
                              fontFamily: MONO, letterSpacing: '0.08em' }}>
                 {D.brand.hq}
               </div>
             </div>
-            <ContactRow label="Website"   value={D.brand.website}   href={`https://${D.brand.website}`}/>
-            <ContactRow label="Toll-free" value={D.brand.tollFree}/>
-            <ContactRow label="Instagram" value={D.brand.instagram} href={D.brand.instagramUrl}/>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 60 }}>
+              <ContactRow label="Website"   value={D.brand.website}   href={`https://${D.brand.website}`}/>
+              <ContactRow label="Toll-free" value={D.brand.tollFree}/>
+              <ContactRow label="Instagram" value={D.brand.instagram} href={D.brand.instagramUrl} last/>
+              <ContactRow label="WhatsApp"  value={D.brand.whatsapp} last/>
+            </div>
           </div>
         </Reveal>
       </div>
@@ -767,15 +753,15 @@ function SceneContact({ start, end }) {
   );
 }
 
-function ContactRow({ label, value, href }) {
+function ContactRow({ label, value, href, last = false }) {
   const inner = (
     <>
       <span style={{
-        fontSize: 14, color: 'rgba(255,255,255,0.6)',
+        fontSize: 13, color: 'rgba(255,255,255,0.6)',
         letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600
       }}>{label}</span>
       <span style={{
-        fontSize: 22, color: '#fff', fontFamily: MONO, letterSpacing: '-0.005em',
+        fontSize: 20, color: '#fff', fontFamily: MONO, letterSpacing: '-0.005em',
         textDecoration: href ? 'underline' : 'none',
         textDecorationColor: 'rgba(232,182,90,0.55)', textUnderlineOffset: 4
       }}>{value}</span>
@@ -783,7 +769,8 @@ function ContactRow({ label, value, href }) {
   );
   const style = {
     display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-    padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.1)',
+    padding: '14px 0',
+    borderBottom: last ? 'none' : '1px solid rgba(255,255,255,0.1)',
     fontFamily: FONT, color: 'inherit'
   };
   if (href) {

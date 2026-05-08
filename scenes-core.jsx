@@ -166,15 +166,17 @@ function LotusMark({ size = 32, color = GOLD, dark = false }) {
   );
 }
 
-// ─── Chapter title (top-left during slide) ────────────────────────────
+// ─── Chapter title (top-right during slide, hidden on cover) ─────────
 function SlideHeader({ idx, total, label, dark = false }) {
+  // No logo overlay on the cover — it has its own large lockup
+  if (idx === 1) return null;
   return (
     <div style={{
-      position: 'absolute', left: 100, top: 50,
+      position: 'absolute', right: 80, top: 44,
       display: 'flex', alignItems: 'center',
       fontFamily: FONT
     }}>
-      <BrandLockup height={40} dark={dark} eyebrow={false}/>
+      <BrandLockup height={96} dark={dark} eyebrow={false}/>
     </div>
   );
 }
@@ -215,16 +217,29 @@ function SectionHeading({ start, end, eyebrow, title, accent = GOLD, dark = fals
   );
 }
 
-// ─── Round photo — circular crop of a PhotoSlot ──────────────────────
-function RoundPhoto({ id, size = 220, ringColor = GOLD, ringWidth = 0 }) {
+// ─── Round photo — circular crop with face-biased objectPosition ──────
+// Uses a direct <img> so we can control objectPosition (PhotoSlot's
+// image-slot custom element doesn't expose that property).
+function RoundPhoto({ id, size = 220, ringColor = GOLD, ringWidth = 0, objPos = 'center 18%', zoom = 1 }) {
   return (
     <div style={{
       width: size, height: size, borderRadius: '50%', overflow: 'hidden',
       border: ringWidth ? `${ringWidth}px solid ${ringColor}` : 'none',
       background: GRAY100, flexShrink: 0
     }}>
-      <PhotoSlot id={id} placeholder="" radius={size}
-                 style={{ width: '100%', height: '100%' }}/>
+      <img
+        src={`uploads/${id}.png?v=${IMG_VER}`}
+        alt=""
+        onError={(e) => { e.target.style.display = 'none'; }}
+        style={{
+          width: '100%', height: '100%',
+          objectFit: 'cover',
+          objectPosition: objPos,
+          transform: zoom !== 1 ? `scale(${zoom})` : 'none',
+          transformOrigin: 'center 30%',
+          display: 'block'
+        }}
+      />
     </div>
   );
 }
