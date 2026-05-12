@@ -183,11 +183,29 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "slot": "dir-somasundaram",
       "show": true,
       "founder": false
+    },
+    {
+      "name": "Mr. Pathmanathan D",
+      "role": "Director · Business",
+      "qualification": "B.E., M.Eng.Sc.",
+      "bio": "Veteran business leader with deep experience in NBFC operations and branch network expansion. Spearheads Dhanam's business development strategy, client relationships and cross-product revenue growth across markets.",
+      "slot": "dir-pathmanathan",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Sivashanmugam P",
+      "role": "Director",
+      "qualification": "B.Com",
+      "bio": "Capital markets and securities specialist with 30+ years of experience in share market and trading. Business Associate at Kotak Securities, Erode. Brings deep investor relations, wealth management and financial markets expertise to Dhanam's board.",
+      "slot": "dir-sivashanmugam",
+      "show": true,
+      "founder": false
     }
   ],
 
   "team": [
-    { "name": "Mr. Pathmanathan D",   "role": "VP · Business",            "qualification": "B.E., M.Eng.Sc.", "slot": "team-pathmanathan", "show": true },
+    { "name": "Mr. Pathmanathan D",   "role": "VP · Business",            "qualification": "B.E., M.Eng.Sc.", "slot": "team-pathmanathan", "show": false },
     { "name": "Mr. Raju P",           "role": "Head of Operations · North","qualification": "B.A.",           "slot": "team-raju",         "show": true, "imgPos": "center 5%" },
     { "name": "Mr. Sridhar M P",      "role": "VP · Gold",                "qualification": "M.Tech.",         "slot": "team-sridhar",      "show": true },
     { "name": "Mr. Gowtham D S",      "role": "VP · LAP",                 "qualification": "B.B.A., L.L.B.",  "slot": "team-gowtham",      "show": true, "imgZoom": 1.25 },
@@ -199,7 +217,6 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   ],
 
   "aceInvestors": [
-    { "name": "Mr. Sivashanmugam P",         "tag": "Kotak Securities, Erode" },
     { "name": "Dr. Krishna Kumar T",         "tag": "Founder, Sabari Eye Hospital, P.Velur" },
     { "name": "Dr. Manivannan R",            "tag": "Quarter, UAE" },
     { "name": "Mr. Karnan Shanmugam",        "tag": "Director of Engg., Intel, Malaysia" },
