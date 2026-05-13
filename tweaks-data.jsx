@@ -218,7 +218,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
 
   "aceInvestors": [
     { "name": "Dr. Krishna Kumar T",         "tag": "Founder, Sabari Eye Hospital, P.Velur" },
-    { "name": "Dr. Manivannan R",            "tag": "Quarter, UAE" },
+    { "name": "Dr. Manivannan R",            "tag": "Qatar" },
     { "name": "Mr. Karnan Shanmugam",        "tag": "Director of Engg., Intel, Malaysia" },
     { "name": "Mr. Murthy Nanjan N",         "tag": "Western Hill Villas, Kothagiri" },
     { "name": "Dr. Senthil Kumar K",         "tag": "Founder, Gateway Hospitals, CBE" },

@@ -1,0 +1,4128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Dhanam Investment and Finance — Investor Presentation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#0B2A4A"/>
+<base href="https://deck.dhanamfinance.com/"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   DHANAM FINANCE — Design System Tokens
+   dhanam.finance · v1.0 · May 2026
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   COLOR TOKENS
+   ------------------------------------------------------------ */
+
+:root {
+
+  /* Primary — Navy */
+  --df-navy-50:   #D0E4F5;
+  --df-navy-100:  #A4C8EC;
+  --df-navy-200:  #85B7EB;
+  --df-navy-300:  #5B9FDB;
+  --df-navy-500:  #2A6BAD;
+  --df-navy-700:  #1A4A7A;
+  --df-navy-900:  #0D2B4E;
+
+  /* Accent — Gold */
+  --df-gold-50:   #FEF3DC;
+  --df-gold-100:  #FAD98A;
+  --df-gold-200:  #FAC75A;
+  --df-gold-400:  #F0B840;
+  --df-gold-600:  #C8922A;
+  --df-gold-800:  #9A6510;
+  --df-gold-900:  #7A4A0A;
+
+  /* Semantic — Success */
+  --df-success-50:   #E8F5EE;
+  --df-success-200:  #8FCFAB;
+  --df-success-600:  #1E7A45;
+  --df-success-900:  #0C4025;
+
+  /* Semantic — Warning */
+  --df-warning-50:   #FEF3DC;
+  --df-warning-200:  #FAD98A;
+  --df-warning-600:  #C8922A;
+  --df-warning-900:  #7A4A0A;
+
+  /* Semantic — Danger */
+  --df-danger-50:   #FDECEA;
+  --df-danger-200:  #F5A9A4;
+  --df-danger-600:  #C0392B;
+  --df-danger-900:  #7A1A15;
+
+  /* Semantic — Info (Teal) */
+  --df-info-50:   #E6F5F3;
+  --df-info-200:  #7DCEC7;
+  --df-info-600:  #1A7A6E;
+  --df-info-900:  #0A3D38;
+
+  /* Neutral — Gray */
+  --df-gray-50:   #F8F9FA;
+  --df-gray-100:  #F0F2F5;
+  --df-gray-200:  #E2E6EA;
+  --df-gray-400:  #9AA3AE;
+  --df-gray-600:  #4A5568;
+  --df-gray-800:  #2D3748;
+  --df-gray-900:  #1A202C;
+
+
+  /* ------------------------------------------------------------
+     SEMANTIC ALIASES (use these in components, not raw tokens)
+     ------------------------------------------------------------ */
+
+  --df-color-brand:         var(--df-navy-900);
+  --df-color-brand-mid:     var(--df-navy-700);
+  --df-color-brand-light:   var(--df-navy-500);
+  --df-color-accent:        var(--df-gold-600);
+  --df-color-accent-light:  var(--df-gold-400);
+
+  --df-color-bg:            #FFFFFF;
+  --df-color-bg-subtle:     var(--df-gray-50);
+  --df-color-bg-muted:      var(--df-gray-100);
+  --df-color-border:        var(--df-gray-200);
+  --df-color-border-strong: var(--df-gray-400);
+
+  --df-color-text-primary:   var(--df-gray-900);
+  --df-color-text-secondary: var(--df-gray-600);
+  --df-color-text-muted:     var(--df-gray-400);
+  --df-color-text-inverse:   #FFFFFF;
+  --df-color-text-brand:     var(--df-navy-900);
+  --df-color-text-accent:    var(--df-gold-600);
+
+  --df-color-success-bg:     var(--df-success-50);
+  --df-color-success-text:   var(--df-success-600);
+  --df-color-warning-bg:     var(--df-warning-50);
+  --df-color-warning-text:   var(--df-warning-600);
+  --df-color-danger-bg:      var(--df-danger-50);
+  --df-color-danger-text:    var(--df-danger-600);
+  --df-color-info-bg:        var(--df-info-50);
+  --df-color-info-text:      var(--df-info-600);
+
+
+  /* ------------------------------------------------------------
+     TYPOGRAPHY
+     ------------------------------------------------------------ */
+
+  --df-font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --df-font-mono:  'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Size scale */
+  --df-text-xs:   11px;
+  --df-text-sm:   13px;
+  --df-text-base: 15px;
+  --df-text-md:   17px;
+  --df-text-lg:   20px;
+  --df-text-xl:   24px;
+  --df-text-2xl:  28px;
+  --df-text-3xl:  32px;  /* amounts, hero numbers */
+
+  /* Weight */
+  --df-weight-regular: 400;
+  --df-weight-medium:  500;
+
+  /* Line heights */
+  --df-leading-tight:  1.3;
+  --df-leading-normal: 1.6;
+  --df-leading-loose:  1.8;
+
+  /* Letter spacing */
+  --df-tracking-wide:  0.04em;  /* labels, uppercase caps */
+  --df-tracking-tight: -0.01em; /* large amounts */
+
+
+  /* ------------------------------------------------------------
+     SPACING SCALE (base 4px)
+     ------------------------------------------------------------ */
+
+  --df-space-1:  4px;   /* xs  — tight internal gaps */
+  --df-space-2:  8px;   /* sm  — icon-text gap */
+  --df-space-3:  12px;  /* md  — field spacing */
+  --df-space-4:  16px;  /* lg  — section padding */
+  --df-space-5:  20px;  /* xl  — card padding */
+  --df-space-6:  24px;  /* 2xl — section gap */
+  --df-space-8:  32px;  /* 3xl — large separation */
+  --df-space-10: 40px;  /* 4xl — page section break */
+  --df-space-12: 48px;  /* 5xl — hero spacing */
+
+
+  /* ------------------------------------------------------------
+     BORDER RADIUS
+     ------------------------------------------------------------ */
+
+  --df-radius-sm:   4px;
+  --df-radius-md:   8px;
+  --df-radius-lg:   12px;
+  --df-radius-xl:   16px;
+  --df-radius-pill: 9999px;
+
+
+  /* ------------------------------------------------------------
+     SHADOWS (use sparingly — prefer borders)
+     ------------------------------------------------------------ */
+
+  --df-shadow-sm:  0 1px 3px rgba(13, 43, 78, 0.08);
+  --df-shadow-md:  0 4px 12px rgba(13, 43, 78, 0.10);
+  --df-shadow-focus: 0 0 0 3px rgba(42, 107, 173, 0.25);
+
+
+  /* ------------------------------------------------------------
+     ANIMATION
+     ------------------------------------------------------------ */
+
+  --df-duration-fast:   100ms;
+  --df-duration-normal: 180ms;
+  --df-duration-slow:   300ms;
+  --df-ease:            ease;
+
+
+  /* ------------------------------------------------------------
+     Z-INDEX SCALE
+     ------------------------------------------------------------ */
+
+  --df-z-base:    0;
+  --df-z-raised:  10;
+  --df-z-overlay: 100;
+  --df-z-modal:   200;
+  --df-z-toast:   300;
+
+}
+
+
+/* ============================================================
+   DARK MODE OVERRIDES
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --df-color-bg:              #0F1923;
+    --df-color-bg-subtle:       #1A2535;
+    --df-color-bg-muted:        #1F2D40;
+    --df-color-border:          rgba(255,255,255,0.10);
+    --df-color-border-strong:   rgba(255,255,255,0.20);
+
+    --df-color-text-primary:    #F0F4F8;
+    --df-color-text-secondary:  #9AA3AE;
+    --df-color-text-muted:      #5F6E80;
+    --df-color-text-brand:      var(--df-navy-200);
+    --df-color-text-accent:     var(--df-gold-400);
+
+    --df-color-success-bg:      rgba(30, 122, 69,  0.15);
+    --df-color-warning-bg:      rgba(200, 146, 42, 0.15);
+    --df-color-danger-bg:       rgba(192, 57, 43,  0.15);
+    --df-color-info-bg:         rgba(26, 122, 110, 0.15);
+  }
+}
+
+
+/* ============================================================
+   BASE RESET
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family:  var(--df-font-sans);
+  font-size:    var(--df-text-base);
+  font-weight:  var(--df-weight-regular);
+  line-height:  var(--df-leading-normal);
+  color:        var(--df-color-text-primary);
+  background:   var(--df-color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+/* Text */
+.df-text-xs       { font-size: var(--df-text-xs); }
+.df-text-sm       { font-size: var(--df-text-sm); }
+.df-text-base     { font-size: var(--df-text-base); }
+.df-text-lg       { font-size: var(--df-text-lg); }
+.df-text-xl       { font-size: var(--df-text-xl); }
+.df-text-amount   { font-size: var(--df-text-3xl); font-weight: var(--df-weight-medium); letter-spacing: var(--df-tracking-tight); color: var(--df-color-text-brand); }
+
+.df-text-primary   { color: var(--df-color-text-primary); }
+.df-text-secondary { color: var(--df-color-text-secondary); }
+.df-text-muted     { color: var(--df-color-text-muted); }
+.df-text-brand     { color: var(--df-color-text-brand); }
+.df-text-accent    { color: var(--df-color-text-accent); }
+.df-text-success   { color: var(--df-color-success-text); }
+.df-text-warning   { color: var(--df-color-warning-text); }
+.df-text-danger    { color: var(--df-color-danger-text); }
+
+.df-label {
+  font-size:      var(--df-text-xs);
+  font-weight:    var(--df-weight-medium);
+  letter-spacing: var(--df-tracking-wide);
+  text-transform: uppercase;
+  color:          var(--df-color-text-secondary);
+}
+
+/* Surfaces */
+.df-card {
+  background:    var(--df-color-bg);
+  border:        1px solid var(--df-color-border);
+  border-radius: var(--df-radius-lg);
+  padding:       var(--df-space-5);
+}
+
+.df-card-subtle {
+  background:    var(--df-color-bg-subtle);
+  border-radius: var(--df-radius-md);
+  padding:       var(--df-space-4);
+}
+
+/* Buttons */
+.df-btn {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--df-space-2);
+  padding:        8px 16px;
+  border-radius:  var(--df-radius-md);
+  font-size:      var(--df-text-sm);
+  font-weight:    var(--df-weight-medium);
+  border:         none;
+  cursor:         pointer;
+  transition:     opacity var(--df-duration-fast) var(--df-ease);
+  white-space:    nowrap;
+}
+.df-btn:hover         { opacity: 0.88; }
+.df-btn:focus-visible { box-shadow: var(--df-shadow-focus); outline: none; }
+.df-btn:active        { transform: scale(0.98); }
+
+.df-btn-primary   { background: var(--df-navy-900); color: #fff; }
+.df-btn-secondary { background: transparent; color: var(--df-navy-700); border: 1.5px solid var(--df-navy-700); }
+.df-btn-accent    { background: var(--df-gold-600); color: #fff; }
+.df-btn-ghost     { background: var(--df-gray-100); color: var(--df-gray-600); }
+.df-btn-danger    { background: var(--df-danger-600); color: #fff; }
+
+.df-btn-sm { padding: 5px 12px; font-size: var(--df-text-xs); }
+.df-btn-lg { padding: 11px 24px; font-size: var(--df-text-base); }
+
+/* Badges */
+.df-badge {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           var(--df-space-1);
+  padding:       3px 10px;
+  border-radius: var(--df-radius-pill);
+  font-size:     var(--df-text-xs);
+  font-weight:   var(--df-weight-medium);
+}
+.df-badge-active   { background: var(--df-color-success-bg); color: var(--df-color-success-text); }
+.df-badge-pending  { background: var(--df-color-warning-bg); color: var(--df-color-warning-text); }
+.df-badge-disbursed{ background: var(--df-color-info-bg);    color: var(--df-color-info-text);    }
+.df-badge-overdue  { background: var(--df-color-danger-bg);  color: var(--df-color-danger-text);  }
+.df-badge-closed   { background: var(--df-color-bg-muted);   color: var(--df-color-text-secondary);}
+
+/* Form inputs */
+.df-input {
+  height:        36px;
+  padding:       0 var(--df-space-3);
+  border:        1px solid var(--df-color-border);
+  border-radius: var(--df-radius-md);
+  font-size:     var(--df-text-sm);
+  font-family:   var(--df-font-sans);
+  color:         var(--df-color-text-primary);
+  background:    var(--df-color-bg);
+  width:         100%;
+  transition:    border-color var(--df-duration-fast);
+}
+.df-input::placeholder { color: var(--df-color-text-muted); }
+.df-input:hover        { border-color: var(--df-color-border-strong); }
+.df-input:focus        { outline: none; border-color: var(--df-navy-500); box-shadow: var(--df-shadow-focus); }
+
+/* Alerts */
+.df-alert {
+  border-radius:  var(--df-radius-md);
+  padding:        var(--df-space-3) var(--df-space-4);
+  font-size:      var(--df-text-sm);
+  display:        flex;
+  gap:            var(--df-space-3);
+  align-items:    flex-start;
+  border-left:    3px solid;
+}
+.df-alert-info    { background: var(--df-color-info-bg);    color: var(--df-color-info-text);    border-color: var(--df-info-600);    }
+.df-alert-success { background: var(--df-color-success-bg); color: var(--df-color-success-text); border-color: var(--df-success-600); }
+.df-alert-warning { background: var(--df-color-warning-bg); color: var(--df-color-warning-text); border-color: var(--df-warning-600); }
+.df-alert-danger  { background: var(--df-color-danger-bg);  color: var(--df-color-danger-text);  border-color: var(--df-danger-600);  }
+
+/* Data table */
+.df-table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       var(--df-text-sm);
+}
+.df-table th {
+  text-align:   left;
+  font-size:    var(--df-text-xs);
+  font-weight:  var(--df-weight-medium);
+  color:        var(--df-color-text-secondary);
+  padding:      var(--df-space-2) var(--df-space-3);
+  border-bottom: 1px solid var(--df-color-border);
+}
+.df-table td {
+  padding:       10px var(--df-space-3);
+  border-bottom: 1px solid var(--df-color-border);
+}
+.df-table tr:last-child td { border-bottom: none; }
+.df-table tr:hover td      { background: var(--df-color-bg-subtle); }
+
+/* Top navigation */
+.df-navbar {
+  background:    var(--df-navy-900);
+  display:       flex;
+  align-items:   center;
+  height:        56px;
+  padding:       0 var(--df-space-6);
+  gap:           var(--df-space-1);
+}
+.df-navbar-brand {
+  color:       var(--df-gold-400);
+  font-weight: var(--df-weight-medium);
+  font-size:   var(--df-text-md);
+  margin-right: auto;
+}
+.df-navbar-item {
+  color:         rgba(255,255,255,0.65);
+  font-size:     var(--df-text-sm);
+  padding:       6px var(--df-space-3);
+  border-radius: var(--df-radius-sm);
+  cursor:        pointer;
+  transition:    background var(--df-duration-fast), color var(--df-duration-fast);
+}
+.df-navbar-item:hover,
+.df-navbar-item.active {
+  background: rgba(255,255,255,0.12);
+  color:      #fff;
+}
+html, body { margin: 0; padding: 0; height: 100%; background: #0a0a0a; overflow: hidden; }
+  #root, #video-root { position: fixed; inset: 0; }
+  image-slot[data-ghost]::part(empty) { display: none; }
+  image-slot[data-ghost]::part(frame) { background: transparent; }
+  image-slot[data-ghost]::part(ring)  { display: none; }
+</style></head>
+<body style="font-size: 10px"><div id="video-root" data-screen-label="0:00"><div id="root"></div></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<script>
+/**
+ * <image-slot> — user-fillable image placeholder.
+ *
+ * Drop this into a deck, mockup, or page wherever you want the user to
+ * supply an image. You control the slot's shape and size; the user fills it
+ * by dragging an image file onto it (or clicking to browse). The dropped
+ * image persists across reloads via a .image-slots.state.json sidecar —
+ * same read-via-fetch / write-via-window.omelette pattern as
+ * design_canvas.jsx, so the filled slot shows on share links, downloaded
+ * zips, and PPTX export. Outside the omelette runtime the slot is read-only.
+ *
+ * The host bridge only allows sidecar writes at the project root, so the
+ * HTML that uses this component is assumed to live at the project root too
+ * (same constraint as design_canvas.jsx).
+ *
+ * Attributes:
+ *   id           Persistence key. REQUIRED for the drop to survive reload —
+ *                every slot on the page needs a distinct id.
+ *   shape        'rect' | 'rounded' | 'circle' | 'pill'   (default 'rounded')
+ *                'circle' applies 50% border-radius; on a non-square slot
+ *                that's an ellipse — set equal width and height for a true
+ *                circle.
+ *   radius       Corner radius in px for 'rounded'.       (default 12)
+ *   mask         Any CSS clip-path value. Overrides `shape` — use this for
+ *                hexagons, blobs, arbitrary polygons.
+ *   fit          object-fit: cover | contain | fill.       (default 'cover')
+ *                With cover (the default) double-clicking the filled slot
+ *                enters a reframe mode: the whole image spills past the mask
+ *                (translucent outside, opaque inside), drag to reposition,
+ *                corner-drag to scale. The crop persists alongside the image
+ *                in the sidecar. contain/fill stay static.
+ *   position     object-position for fit=contain|fill.     (default '50% 50%')
+ *   placeholder  Empty-state caption.                      (default 'Drop an image')
+ *   src          Optional initial/fallback image URL. A user drop overrides
+ *                it; clearing the drop reveals src again.
+ *
+ * Size and layout come from ordinary CSS on the element — width/height
+ * inline or from a parent grid — so it composes with any layout.
+ *
+ * Usage:
+ *   <script src="image-slot.js"></script>
+ *   <image-slot id="hero"   style="width:800px;height:450px" shape="rounded" radius="20"
+ *               placeholder="Drop a hero image"></image-slot>
+ *   <image-slot id="avatar" style="width:120px;height:120px" shape="circle"></image-slot>
+ *   <image-slot id="kite"   style="width:300px;height:300px"
+ *               mask="polygon(50% 0, 100% 50%, 50% 100%, 0 50%)"></image-slot>
+ */
+
+(() => {
+  const STATE_FILE = '.image-slots.state.json';
+  // 2× a ~600px slot in a 1920-wide deck — retina-sharp without making the
+  // sidecar enormous. A 1200px WebP at q=0.85 is ~150-300KB.
+  const MAX_DIM = 1200;
+  // Raster formats only. SVG is excluded (can carry script; createImageBitmap
+  // on SVG blobs is inconsistent). GIF is excluded because the canvas
+  // re-encode keeps only the first frame, so an animated GIF would silently
+  // go still — better to reject than surprise.
+  const ACCEPT = ['image/png', 'image/jpeg', 'image/webp', 'image/avif'];
+
+  // ── Shared sidecar store ────────────────────────────────────────────────
+  // One fetch + immediate write-on-change for every <image-slot> on the
+  // page. Reads via fetch() so viewing works anywhere the HTML and sidecar
+  // are served together; writes go through window.omelette.writeFile, which
+  // the host allowlists to *.state.json basenames only.
+  const subs = new Set();
+  let slots = {};
+  // ids explicitly cleared before the sidecar fetch resolved — otherwise
+  // the merge below can't tell "never set" from "just deleted" and would
+  // resurrect the sidecar's stale value.
+  const tombstones = new Set();
+  let loaded = false;
+  let loadP = null;
+
+  function load() {
+    if (loadP) return loadP;
+    loadP = fetch(STATE_FILE)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        // Merge: sidecar loses to any in-memory change that raced ahead of
+        // the fetch (drop or clear) so neither is clobbered by hydration.
+        if (j && typeof j === 'object') {
+          const merged = Object.assign({}, j, slots);
+          // A framing-only write that raced ahead of hydration must not
+          // drop a user image that's only on disk — inherit u from the
+          // sidecar for any in-memory entry that lacks one.
+          for (const k in slots) {
+            if (merged[k] && !merged[k].u && j[k]) {
+              merged[k].u = typeof j[k] === 'string' ? j[k] : j[k].u;
+            }
+          }
+          for (const id of tombstones) delete merged[id];
+          slots = merged;
+        }
+        tombstones.clear();
+      })
+      .catch(() => {})
+      .then(() => { loaded = true; subs.forEach((fn) => fn()); });
+    return loadP;
+  }
+
+  // Serialize writes so two near-simultaneous drops on different slots
+  // can't reorder at the backend and leave the sidecar with only the
+  // first. A save requested mid-flight just marks dirty and re-fires on
+  // completion with the then-current slots.
+  let saving = false;
+  let saveDirty = false;
+  function save() {
+    if (saving) { saveDirty = true; return; }
+    const w = window.omelette && window.omelette.writeFile;
+    if (!w) return;
+    saving = true;
+    Promise.resolve(w(STATE_FILE, JSON.stringify(slots)))
+      .catch(() => {})
+      .then(() => { saving = false; if (saveDirty) { saveDirty = false; save(); } });
+  }
+
+  const S_MAX = 5;
+  const clampS = (s) => Math.max(1, Math.min(S_MAX, s));
+
+  // Normalize a stored slot value. Pre-reframe sidecars stored a bare
+  // data-URL string; newer ones store {u, s, x, y}. Either shape is valid.
+  function getSlot(id) {
+    const v = slots[id];
+    if (!v) return null;
+    return typeof v === 'string' ? { u: v, s: 1, x: 0, y: 0 } : v;
+  }
+
+  function setSlot(id, val) {
+    if (!id) return;
+    if (val) { slots[id] = val; tombstones.delete(id); }
+    else { delete slots[id]; if (!loaded) tombstones.add(id); }
+    subs.forEach((fn) => fn());
+    // A drop is rare + high-value — write immediately so nav-away can't lose
+    // it. Gate on the initial read so we don't overwrite a sidecar we haven't
+    // merged yet; the merge in load() keeps this change once the read lands.
+    if (loaded) save(); else load().then(save);
+  }
+
+  // ── Image downscale ─────────────────────────────────────────────────────
+  // Encode through a canvas so the sidecar carries resized bytes, not the
+  // raw upload. Longest side is capped at 2× the slot's rendered width
+  // (retina) and at MAX_DIM. WebP keeps alpha and is ~10× smaller than PNG
+  // for photos, so there's no need for per-image format picking.
+  async function toDataUrl(file, targetW) {
+    const bitmap = await createImageBitmap(file);
+    try {
+      const cap = Math.min(MAX_DIM, Math.max(1, Math.round(targetW * 2)) || MAX_DIM);
+      const scale = Math.min(1, cap / Math.max(bitmap.width, bitmap.height));
+      const w = Math.max(1, Math.round(bitmap.width * scale));
+      const h = Math.max(1, Math.round(bitmap.height * scale));
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(bitmap, 0, 0, w, h);
+      return canvas.toDataURL('image/webp', 0.85);
+    } finally {
+      bitmap.close && bitmap.close();
+    }
+  }
+
+  // ── Custom element ──────────────────────────────────────────────────────
+  const stylesheet =
+    ':host{display:inline-block;position:relative;vertical-align:top;' +
+    '  font:13px/1.3 system-ui,-apple-system,sans-serif;color:rgba(0,0,0,.55);width:240px;height:160px}' +
+    '.frame{position:absolute;inset:0;overflow:hidden;background:rgba(0,0,0,.04)}' +
+    // .frame img (clipped) and .spill (unclipped ghost + handles) share the
+    // same left/top/width/height in frame-%, computed by _applyView(), so the
+    // inside-mask crop and the outside-mask spill stay pixel-aligned.
+    '.frame img{position:absolute;max-width:none;transform:translate(-50%,-50%);' +
+    '  -webkit-user-drag:none;user-select:none;touch-action:none}' +
+    // Reframe mode (double-click): the full image spills past the mask. The
+    // spill layer is sized to the IMAGE bounds so its corners are where the
+    // resize handles belong. The ghost <img> inside is translucent; the real
+    // clipped <img> underneath shows the opaque in-mask crop.
+    '.spill{position:absolute;transform:translate(-50%,-50%);display:none;z-index:1;' +
+    '  cursor:grab;touch-action:none}' +
+    ':host([data-panning]) .spill{cursor:grabbing}' +
+    '.spill .ghost{position:absolute;inset:0;width:100%;height:100%;opacity:.35;' +
+    '  pointer-events:none;-webkit-user-drag:none;user-select:none;' +
+    '  box-shadow:0 0 0 1px rgba(0,0,0,.2),0 12px 32px rgba(0,0,0,.2)}' +
+    '.spill .handle{position:absolute;width:12px;height:12px;border-radius:50%;' +
+    '  background:#fff;box-shadow:0 0 0 1.5px #c96442,0 1px 3px rgba(0,0,0,.3);' +
+    '  transform:translate(-50%,-50%)}' +
+    '.spill .handle[data-c=nw]{left:0;top:0;cursor:nwse-resize}' +
+    '.spill .handle[data-c=ne]{left:100%;top:0;cursor:nesw-resize}' +
+    '.spill .handle[data-c=sw]{left:0;top:100%;cursor:nesw-resize}' +
+    '.spill .handle[data-c=se]{left:100%;top:100%;cursor:nwse-resize}' +
+    ':host([data-reframe]){z-index:10}' +
+    ':host([data-reframe]) .spill{display:block}' +
+    ':host([data-reframe]) .frame{box-shadow:0 0 0 2px #c96442}' +
+    '.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;' +
+    '  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;' +
+    '  cursor:pointer;user-select:none}' +
+    '.empty svg{opacity:.45}' +
+    '.empty .cap{max-width:90%;font-weight:500;letter-spacing:.01em}' +
+    '.empty .sub{font-size:11px}' +
+    '.empty .sub u{text-underline-offset:2px;text-decoration-color:rgba(0,0,0,.25)}' +
+    '.empty:hover .sub u{color:rgba(0,0,0,.75);text-decoration-color:currentColor}' +
+    ':host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;' +
+    '  background:rgba(201,100,66,.10)}' +
+    '.ring{position:absolute;inset:0;pointer-events:none;border:1.5px dashed rgba(0,0,0,.25);' +
+    '  transition:border-color .12s}' +
+    ':host([data-over]) .ring{border-color:#c96442}' +
+    ':host([data-filled]) .ring{display:none}' +
+    // Controls sit BELOW the mask (top:100%), absolutely positioned so the
+    // author-declared slot height is unaffected. The gap is padding, not a
+    // top offset, so the hover target stays contiguous with the frame.
+    '.ctl{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;' +
+    '  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2;' +
+    '  white-space:nowrap}' +
+    ':host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl' +
+    '  {opacity:1;pointer-events:auto}' +
+    '.ctl button{appearance:none;border:0;border-radius:6px;padding:5px 10px;cursor:pointer;' +
+    '  background:rgba(0,0,0,.65);color:#fff;font:11px/1 system-ui,-apple-system,sans-serif;' +
+    '  backdrop-filter:blur(6px)}' +
+    '.ctl button:hover{background:rgba(0,0,0,.8)}' +
+    '.err{position:absolute;left:8px;bottom:8px;right:8px;color:#b3261e;font-size:11px;' +
+    '  background:rgba(255,255,255,.85);padding:4px 6px;border-radius:5px;pointer-events:none}';
+
+  const icon =
+    '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+    '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>' +
+    '<path d="m21 15-5-5L5 21"/></svg>';
+
+  class ImageSlot extends HTMLElement {
+    static get observedAttributes() {
+      return ['shape', 'radius', 'mask', 'fit', 'position', 'placeholder', 'src', 'id'];
+    }
+
+    constructor() {
+      super();
+      const root = this.attachShadow({ mode: 'open' });
+      // .spill and .ctl sit OUTSIDE .frame so overflow:hidden + border-radius
+      // on the frame (circle, pill, rounded) can't clip them.
+      root.innerHTML =
+        '<style>' + stylesheet + '</style>' +
+        '<div class="frame" part="frame">' +
+        '  <img part="image" alt="" draggable="false" style="display:none">' +
+        '  <div class="empty" part="empty">' + icon +
+        '    <div class="cap"></div>' +
+        '    <div class="sub">or <u>browse files</u></div></div>' +
+        '  <div class="ring" part="ring"></div>' +
+        '</div>' +
+        '<div class="spill">' +
+        '  <img class="ghost" alt="" draggable="false">' +
+        '  <div class="handle" data-c="nw"></div><div class="handle" data-c="ne"></div>' +
+        '  <div class="handle" data-c="sw"></div><div class="handle" data-c="se"></div>' +
+        '</div>' +
+        '<div class="ctl"><button data-act="replace" title="Replace image">Replace</button>' +
+        '  <button data-act="clear" title="Remove image">Remove</button></div>' +
+        '<input type="file" accept="' + ACCEPT.join(',') + '" hidden>';
+      this._frame = root.querySelector('.frame');
+      this._ring = root.querySelector('.ring');
+      this._img = root.querySelector('.frame img');
+      this._empty = root.querySelector('.empty');
+      this._cap = root.querySelector('.cap');
+      this._sub = root.querySelector('.sub');
+      this._spill = root.querySelector('.spill');
+      this._ghost = root.querySelector('.ghost');
+      this._err = null;
+      this._input = root.querySelector('input');
+      this._depth = 0;
+      this._gen = 0;
+      this._view = { s: 1, x: 0, y: 0 };
+      this._subFn = () => this._render();
+      // Shadow-DOM listeners live with the shadow DOM — bound once here so
+      // disconnect/reconnect (e.g. React remount) doesn't stack handlers.
+      this._empty.addEventListener('click', () => this._input.click());
+      root.addEventListener('click', (e) => {
+        const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
+        if (act === 'replace') { this._exitReframe(true); this._input.click(); }
+        if (act === 'clear') {
+          this._exitReframe(false);
+          this._gen++;
+          this._local = null;
+          if (this.id) setSlot(this.id, null); else this._render();
+        }
+      });
+      this._input.addEventListener('change', () => {
+        const f = this._input.files && this._input.files[0];
+        if (f) this._ingest(f);
+        this._input.value = '';
+      });
+      // naturalWidth/Height aren't known until load — re-apply so the cover
+      // baseline is computed from real dimensions, not the 100%×100% fallback.
+      this._img.addEventListener('load', () => this._applyView());
+      // Gated on editable + fit=cover so share links and contain/fill slots
+      // stay static.
+      this.addEventListener('dblclick', (e) => {
+        if (!this.hasAttribute('data-editable') || !this._reframes()) return;
+        e.preventDefault();
+        if (this.hasAttribute('data-reframe')) this._exitReframe(true);
+        else this._enterReframe();
+      });
+      // Pan + resize both originate on the spill layer. A handle pointerdown
+      // drives an aspect-locked resize anchored at the opposite corner; any
+      // other pointerdown on the spill pans. Offsets are frame-% so a
+      // reframed slot survives responsive resize / PPTX export.
+      this._spill.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 || !this.hasAttribute('data-reframe')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        this._spill.setPointerCapture(e.pointerId);
+        const rect = this.getBoundingClientRect();
+        const fw = rect.width || 1, fh = rect.height || 1;
+        const corner = e.target.getAttribute && e.target.getAttribute('data-c');
+        let move;
+        if (corner) {
+          // Resize about the OPPOSITE corner. Viewport-px throughout (rect
+          // fw/fh, not clientWidth) so the math survives a transform:scale()
+          // ancestor — deck_stage renders slides scaled-to-fit.
+          const iw = this._img.naturalWidth || 1, ih = this._img.naturalHeight || 1;
+          const base = Math.max(fw / iw, fh / ih);
+          const sx = corner.includes('e') ? 1 : -1;
+          const sy = corner.includes('s') ? 1 : -1;
+          const s0 = this._view.s;
+          const w0 = iw * base * s0, h0 = ih * base * s0;
+          const cx0 = (50 + this._view.x) / 100 * fw;
+          const cy0 = (50 + this._view.y) / 100 * fh;
+          const ox = cx0 - sx * w0 / 2, oy = cy0 - sy * h0 / 2;
+          const diag0 = Math.hypot(w0, h0);
+          const ux = sx * w0 / diag0, uy = sy * h0 / diag0;
+          move = (ev) => {
+            const proj = (ev.clientX - rect.left - ox) * ux +
+                         (ev.clientY - rect.top - oy) * uy;
+            const s = clampS(s0 * proj / diag0);
+            const d = diag0 * s / s0;
+            this._view.s = s;
+            this._view.x = (ox + ux * d / 2) / fw * 100 - 50;
+            this._view.y = (oy + uy * d / 2) / fh * 100 - 50;
+            this._clampView();
+            this._applyView();
+          };
+        } else {
+          this.setAttribute('data-panning', '');
+          const start = { px: e.clientX, py: e.clientY, x: this._view.x, y: this._view.y };
+          move = (ev) => {
+            this._view.x = start.x + (ev.clientX - start.px) / fw * 100;
+            this._view.y = start.y + (ev.clientY - start.py) / fh * 100;
+            this._clampView();
+            this._applyView();
+          };
+        }
+        const up = () => {
+          try { this._spill.releasePointerCapture(e.pointerId); } catch {}
+          this._spill.removeEventListener('pointermove', move);
+          this._spill.removeEventListener('pointerup', up);
+          this._spill.removeEventListener('pointercancel', up);
+          this.removeAttribute('data-panning');
+          this._dragUp = null;
+        };
+        // Stashed so _exitReframe (Escape / outside-click mid-drag) can
+        // tear the capture + listeners down synchronously.
+        this._dragUp = up;
+        this._spill.addEventListener('pointermove', move);
+        this._spill.addEventListener('pointerup', up);
+        this._spill.addEventListener('pointercancel', up);
+      });
+      // Wheel zoom stays available inside reframe mode as a trackpad nicety —
+      // zooms toward the cursor (offset' = cursor·(1-k) + offset·k).
+      this.addEventListener('wheel', (e) => {
+        if (!this.hasAttribute('data-reframe')) return;
+        e.preventDefault();
+        const r = this.getBoundingClientRect();
+        const cx = (e.clientX - r.left) / r.width * 100 - 50;
+        const cy = (e.clientY - r.top) / r.height * 100 - 50;
+        const prev = this._view.s;
+        const next = clampS(prev * Math.pow(1.0015, -e.deltaY));
+        if (next === prev) return;
+        const k = next / prev;
+        this._view.s = next;
+        this._view.x = cx * (1 - k) + this._view.x * k;
+        this._view.y = cy * (1 - k) + this._view.y * k;
+        this._clampView();
+        this._applyView();
+      }, { passive: false });
+    }
+
+    connectedCallback() {
+      // Warn once per page — an id-less slot works for the session but
+      // cannot persist, and two id-less slots would share nothing.
+      if (!this.id && !ImageSlot._warned) {
+        ImageSlot._warned = true;
+        console.warn('<image-slot> without an id will not persist its dropped image.');
+      }
+      this.addEventListener('dragenter', this);
+      this.addEventListener('dragover', this);
+      this.addEventListener('dragleave', this);
+      this.addEventListener('drop', this);
+      subs.add(this._subFn);
+      // width%/height% in _applyView encode the frame aspect at call time —
+      // a host resize (responsive grid, pane divider) would stretch the
+      // image until the next _render. Re-render on size change: _render()
+      // re-seeds _view from stored before clamp/apply, so a shrink→grow
+      // cycle round-trips instead of ratcheting x/y toward the narrower
+      // frame's clamp range.
+      this._ro = new ResizeObserver(() => this._render());
+      this._ro.observe(this);
+      load();
+      this._render();
+    }
+
+    disconnectedCallback() {
+      subs.delete(this._subFn);
+      this.removeEventListener('dragenter', this);
+      this.removeEventListener('dragover', this);
+      this.removeEventListener('dragleave', this);
+      this.removeEventListener('drop', this);
+      if (this._ro) { this._ro.disconnect(); this._ro = null; }
+      this._exitReframe(false);
+    }
+
+    _enterReframe() {
+      if (this.hasAttribute('data-reframe')) return;
+      this.setAttribute('data-reframe', '');
+      this._applyView();
+      // Close on click outside (the spill handler stopPropagation()s so
+      // in-image drags don't reach this) and on Escape. Listeners are held
+      // on the instance so _exitReframe / disconnectedCallback can detach
+      // exactly what was attached.
+      this._outside = (e) => {
+        if (e.composedPath && e.composedPath().includes(this)) return;
+        this._exitReframe(true);
+      };
+      this._esc = (e) => { if (e.key === 'Escape') this._exitReframe(true); };
+      document.addEventListener('pointerdown', this._outside, true);
+      document.addEventListener('keydown', this._esc, true);
+    }
+
+    _exitReframe(commit) {
+      if (!this.hasAttribute('data-reframe')) return;
+      if (this._dragUp) this._dragUp();
+      this.removeAttribute('data-reframe');
+      this.removeAttribute('data-panning');
+      if (this._outside) document.removeEventListener('pointerdown', this._outside, true);
+      if (this._esc) document.removeEventListener('keydown', this._esc, true);
+      this._outside = this._esc = null;
+      if (commit) this._commitView();
+    }
+
+    attributeChangedCallback() { if (this.shadowRoot) this._render(); }
+
+    // handleEvent — one listener object for all four drag events keeps the
+    // add/remove symmetric and the depth counter correct.
+    handleEvent(e) {
+      if (e.type === 'dragenter' || e.type === 'dragover') {
+        // Without preventDefault the browser never fires 'drop'.
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
+        if (e.type === 'dragenter') this._depth++;
+        this.setAttribute('data-over', '');
+      } else if (e.type === 'dragleave') {
+        // dragenter/leave fire for every descendant crossing — count depth
+        // so hovering the icon inside the empty state doesn't flicker.
+        if (--this._depth <= 0) { this._depth = 0; this.removeAttribute('data-over'); }
+      } else if (e.type === 'drop') {
+        e.preventDefault();
+        e.stopPropagation();
+        this._depth = 0;
+        this.removeAttribute('data-over');
+        const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) this._ingest(f);
+      }
+    }
+
+    async _ingest(file) {
+      this._setError(null);
+      if (!file || ACCEPT.indexOf(file.type) < 0) {
+        this._setError('Drop a PNG, JPEG, WebP, or AVIF image.');
+        return;
+      }
+      // toDataUrl can take hundreds of ms on a large photo. A Clear or a
+      // newer drop during that window would be clobbered when this await
+      // resumes — bump + capture a generation so stale encodes bail.
+      const gen = ++this._gen;
+      try {
+        const w = this.clientWidth || this.offsetWidth || MAX_DIM;
+        const url = await toDataUrl(file, w);
+        if (gen !== this._gen) return;
+        // Only exit reframe once the new image is in hand — a rejected type
+        // or decode failure leaves the in-progress crop untouched.
+        this._exitReframe(false);
+        const val = { u: url, s: 1, x: 0, y: 0 };
+        setSlot(this.id || '', val);
+        // Keep a session-local copy for id-less slots so the drop still
+        // shows, even though it cannot persist.
+        if (!this.id) { this._local = val; this._render(); }
+      } catch (err) {
+        if (gen !== this._gen) return;
+        this._setError('Could not read that image.');
+        console.warn('<image-slot> ingest failed:', err);
+      }
+    }
+
+    _setError(msg) {
+      if (this._err) { this._err.remove(); this._err = null; }
+      if (!msg) return;
+      const d = document.createElement('div');
+      d.className = 'err'; d.textContent = msg;
+      this.shadowRoot.appendChild(d);
+      this._err = d;
+      setTimeout(() => { if (this._err === d) { d.remove(); this._err = null; } }, 3000);
+    }
+
+    // Reframing (pan/resize) is only meaningful for fit=cover — contain/fill
+    // keep the old object-fit path and double-click is a no-op.
+    _reframes() {
+      return this.hasAttribute('data-filled') &&
+        (this.getAttribute('fit') || 'cover') === 'cover';
+    }
+
+    // Cover-baseline geometry, shared by clamp/apply/resize. Null until the
+    // img has loaded (naturalWidth is 0 before that) or when the slot has no
+    // layout box — ResizeObserver fires with a 0×0 rect under display:none,
+    // and clamping against a degenerate 1×1 frame would silently pull the
+    // stored pan toward zero.
+    _geom() {
+      const iw = this._img.naturalWidth, ih = this._img.naturalHeight;
+      const fw = this.clientWidth, fh = this.clientHeight;
+      if (!iw || !ih || !fw || !fh) return null;
+      return { iw, ih, fw, fh, base: Math.max(fw / iw, fh / ih) };
+    }
+
+    _clampView() {
+      // Pan range on each axis is half the overflow past the frame edge.
+      const g = this._geom();
+      if (!g) return;
+      const mx = Math.max(0, (g.iw * g.base * this._view.s / g.fw - 1) * 50);
+      const my = Math.max(0, (g.ih * g.base * this._view.s / g.fh - 1) * 50);
+      this._view.x = Math.max(-mx, Math.min(mx, this._view.x));
+      this._view.y = Math.max(-my, Math.min(my, this._view.y));
+    }
+
+    _applyView() {
+      const g = this._geom();
+      const fit = this.getAttribute('fit') || 'cover';
+      if (fit !== 'cover' || !g) {
+        // Non-cover, or dimensions not known yet (before img load).
+        this._img.style.width = '100%';
+        this._img.style.height = '100%';
+        this._img.style.left = '50%';
+        this._img.style.top = '50%';
+        this._img.style.objectFit = fit;
+        this._img.style.objectPosition = this.getAttribute('position') || '50% 50%';
+        return;
+      }
+      // Cover baseline: img fills the frame on its tighter axis at s=1, so
+      // pan works immediately on the overflowing axis without zooming first.
+      // Width/height and left/top are all frame-% — depends only on the
+      // frame aspect ratio, so a responsive resize keeps the same crop. The
+      // spill layer mirrors the same box so its corners = image corners.
+      const k = g.base * this._view.s;
+      const w = (g.iw * k / g.fw * 100) + '%';
+      const h = (g.ih * k / g.fh * 100) + '%';
+      const l = (50 + this._view.x) + '%';
+      const t = (50 + this._view.y) + '%';
+      this._img.style.width = w; this._img.style.height = h;
+      this._img.style.left = l; this._img.style.top = t;
+      this._img.style.objectFit = '';
+      this._spill.style.width = w; this._spill.style.height = h;
+      this._spill.style.left = l; this._spill.style.top = t;
+    }
+
+    _commitView() {
+      const v = { s: this._view.s, x: this._view.x, y: this._view.y };
+      if (this._userUrl) v.u = this._userUrl;
+      // Framing-only (no u) persists too so an author-src slot remembers its
+      // crop; clearing the sidecar still falls through to src=.
+      if (this.id) setSlot(this.id, v);
+      else { this._local = v; }
+    }
+
+    _render() {
+      // Shape / mask. Presets use border-radius so the dashed ring can
+      // follow the rounded outline; clip-path is only applied for an
+      // explicit `mask` (the ring is hidden there since a rectangle
+      // dashed border chopped by an arbitrary polygon looks broken).
+      const mask = this.getAttribute('mask');
+      const shape = (this.getAttribute('shape') || 'rounded').toLowerCase();
+      let radius = '';
+      if (shape === 'circle') radius = '50%';
+      else if (shape === 'pill') radius = '9999px';
+      else if (shape === 'rounded') {
+        const n = parseFloat(this.getAttribute('radius'));
+        radius = (Number.isFinite(n) ? n : 12) + 'px';
+      }
+      this._frame.style.borderRadius = mask ? '' : radius;
+      this._frame.style.clipPath = mask || '';
+      this._ring.style.borderRadius = mask ? '' : radius;
+      this._ring.style.display = mask ? 'none' : '';
+
+      // Controls and reframe entry gate on this so share links stay read-only.
+      const editable = !!(window.omelette && window.omelette.writeFile);
+      this.toggleAttribute('data-editable', editable);
+      this._sub.style.display = editable ? '' : 'none';
+
+      // Content. The sidecar is also writable by the agent's write_file
+      // tool, so its value isn't guaranteed canvas-originated — only accept
+      // data:image/ URLs from it. The `src` attribute is author-controlled
+      // (Claude wrote it into the HTML) so it passes through unchanged.
+      let stored = this.id ? getSlot(this.id) : this._local;
+      if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
+      const srcAttr = this.getAttribute('src') || '';
+      this._userUrl = (stored && stored.u) || null;
+      const url = this._userUrl || srcAttr;
+      // Don't clobber an in-flight reframe with a store-triggered re-render.
+      if (!this.hasAttribute('data-reframe')) {
+        this._view = {
+          s: stored && Number.isFinite(stored.s) ? clampS(stored.s) : 1,
+          x: stored && Number.isFinite(stored.x) ? stored.x : 0,
+          y: stored && Number.isFinite(stored.y) ? stored.y : 0,
+        };
+      }
+      this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
+      // Toggle via style.display — the [hidden] attribute alone loses to
+      // the display:flex / display:block rules in the stylesheet above.
+      if (url) {
+        if (this._img.getAttribute('src') !== url) {
+          this._img.src = url;
+          this._ghost.src = url;
+        }
+        this._img.style.display = 'block';
+        this._empty.style.display = 'none';
+        this.setAttribute('data-filled', '');
+        this._clampView();
+        this._applyView();
+      } else {
+        this._img.style.display = 'none';
+        this._img.removeAttribute('src');
+        this._ghost.removeAttribute('src');
+        this._empty.style.display = 'flex';
+        this.removeAttribute('data-filled');
+      }
+    }
+  }
+
+  if (!customElements.get('image-slot')) {
+    customElements.define('image-slot', ImageSlot);
+  }
+})();
+</script>
+<script type="text/babel">
+
+// animations.jsx
+// Reusable animation starter: Stage, Timeline, Sprite, easing helpers.
+// Usage (in an HTML file that loads React + Babel):
+//
+//   <Stage width={1280} height={720} duration={10} background="#f6f4ef">
+//     <MyScene />
+//   </Stage>
+//
+// Inside <Stage>, any child can call useTime() to read the current
+// playhead (seconds). Or wrap content in <Sprite start={1} end={4}>...</Sprite>
+// to only render during that window -- children receive a `localTime` and
+// `progress` via the useSprite() hook.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Easing functions (hand-rolled, Popmotion-style) ─────────────────────────
+// All easings take t ∈ [0,1] and return eased t ∈ [0,1] (may overshoot for back/elastic).
+const Easing = {
+  linear: (t) => t,
+
+  // Quad
+  easeInQuad:    (t) => t * t,
+  easeOutQuad:   (t) => t * (2 - t),
+  easeInOutQuad: (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t),
+
+  // Cubic
+  easeInCubic:    (t) => t * t * t,
+  easeOutCubic:   (t) => (--t) * t * t + 1,
+  easeInOutCubic: (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1),
+
+  // Quart
+  easeInQuart:    (t) => t * t * t * t,
+  easeOutQuart:   (t) => 1 - (--t) * t * t * t,
+  easeInOutQuart: (t) => (t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t),
+
+  // Expo
+  easeInExpo:  (t) => (t === 0 ? 0 : Math.pow(2, 10 * (t - 1))),
+  easeOutExpo: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+  easeInOutExpo: (t) => {
+    if (t === 0) return 0;
+    if (t === 1) return 1;
+    if (t < 0.5) return 0.5 * Math.pow(2, 20 * t - 10);
+    return 1 - 0.5 * Math.pow(2, -20 * t + 10);
+  },
+
+  // Sine
+  easeInSine:    (t) => 1 - Math.cos((t * Math.PI) / 2),
+  easeOutSine:   (t) => Math.sin((t * Math.PI) / 2),
+  easeInOutSine: (t) => -(Math.cos(Math.PI * t) - 1) / 2,
+
+  // Back (overshoot)
+  easeOutBack: (t) => {
+    const c1 = 1.70158, c3 = c1 + 1;
+    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+  },
+  easeInBack: (t) => {
+    const c1 = 1.70158, c3 = c1 + 1;
+    return c3 * t * t * t - c1 * t * t;
+  },
+  easeInOutBack: (t) => {
+    const c1 = 1.70158, c2 = c1 * 1.525;
+    return t < 0.5
+      ? (Math.pow(2 * t, 2) * ((c2 + 1) * 2 * t - c2)) / 2
+      : (Math.pow(2 * t - 2, 2) * ((c2 + 1) * (t * 2 - 2) + c2) + 2) / 2;
+  },
+
+  // Elastic
+  easeOutElastic: (t) => {
+    const c4 = (2 * Math.PI) / 3;
+    if (t === 0) return 0;
+    if (t === 1) return 1;
+    return Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * c4) + 1;
+  },
+};
+
+// ── Core interpolation helpers ──────────────────────────────────────────────
+
+// Clamp a value to [min, max]
+const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+// interpolate([0, 0.5, 1], [0, 100, 50], ease?) -> fn(t)
+// Popmotion-style: linearly maps t across input keyframes to output values,
+// with optional easing per segment (single fn or array of fns).
+function interpolate(input, output, ease = Easing.linear) {
+  return (t) => {
+    if (t <= input[0]) return output[0];
+    if (t >= input[input.length - 1]) return output[output.length - 1];
+    for (let i = 0; i < input.length - 1; i++) {
+      if (t >= input[i] && t <= input[i + 1]) {
+        const span = input[i + 1] - input[i];
+        const local = span === 0 ? 0 : (t - input[i]) / span;
+        const easeFn = Array.isArray(ease) ? (ease[i] || Easing.linear) : ease;
+        const eased = easeFn(local);
+        return output[i] + (output[i + 1] - output[i]) * eased;
+      }
+    }
+    return output[output.length - 1];
+  };
+}
+
+// animate({from, to, start, end, ease})(t) — simpler single-segment tween.
+// Returns `from` before `start`, `to` after `end`.
+function animate({ from = 0, to = 1, start = 0, end = 1, ease = Easing.easeInOutCubic }) {
+  return (t) => {
+    if (t <= start) return from;
+    if (t >= end) return to;
+    const local = (t - start) / (end - start);
+    return from + (to - from) * ease(local);
+  };
+}
+
+// ── Timeline context ────────────────────────────────────────────────────────
+
+const TimelineContext = React.createContext({ time: 0, duration: 10, playing: false });
+
+const useTime = () => React.useContext(TimelineContext).time;
+const useTimeline = () => React.useContext(TimelineContext);
+
+// ── Sprite ──────────────────────────────────────────────────────────────────
+// Renders children only when the playhead is inside [start, end]. Provides
+// a sub-context with `localTime` (seconds since start) and `progress` (0..1).
+//
+//   <Sprite start={2} end={5}>
+//     {({ localTime, progress }) => <Thing x={progress * 100} />}
+//   </Sprite>
+//
+// Or as a plain wrapper — children can call useSprite() themselves.
+
+const SpriteContext = React.createContext({ localTime: 0, progress: 0, duration: 0 });
+const useSprite = () => React.useContext(SpriteContext);
+
+function Sprite({ start = 0, end = Infinity, children, keepMounted = false }) {
+  const { time } = useTimeline();
+  const visible = time >= start && time <= end;
+  if (!visible && !keepMounted) return null;
+
+  const duration = end - start;
+  const localTime = Math.max(0, time - start);
+  const progress = duration > 0 && isFinite(duration)
+    ? clamp(localTime / duration, 0, 1)
+    : 0;
+
+  const value = { localTime, progress, duration, visible };
+
+  return (
+    <SpriteContext.Provider value={value}>
+      {typeof children === 'function' ? children(value) : children}
+    </SpriteContext.Provider>
+  );
+}
+
+// ── Sample sprite components ────────────────────────────────────────────────
+
+// TextSprite: fades/slides text in on entry, holds, then fades out on exit.
+// Props: text, x, y, size, color, font, entryDur, exitDur, align
+function TextSprite({
+  text,
+  x = 0, y = 0,
+  size = 48,
+  color = '#111',
+  font = 'Inter, system-ui, sans-serif',
+  weight = 600,
+  entryDur = 0.45,
+  exitDur = 0.35,
+  entryEase = Easing.easeOutBack,
+  exitEase = Easing.easeInCubic,
+  align = 'left',
+  letterSpacing = '-0.01em',
+}) {
+  const { localTime, duration } = useSprite();
+  const exitStart = Math.max(0, duration - exitDur);
+
+  let opacity = 1;
+  let ty = 0;
+
+  if (localTime < entryDur) {
+    const t = entryEase(clamp(localTime / entryDur, 0, 1));
+    opacity = t;
+    ty = (1 - t) * 16;
+  } else if (localTime > exitStart) {
+    const t = exitEase(clamp((localTime - exitStart) / exitDur, 0, 1));
+    opacity = 1 - t;
+    ty = -t * 8;
+  }
+
+  const translateX = align === 'center' ? '-50%' : align === 'right' ? '-100%' : '0';
+
+  return (
+    <div style={{
+      position: 'absolute',
+      left: x, top: y,
+      transform: `translate(${translateX}, ${ty}px)`,
+      opacity,
+      fontFamily: font,
+      fontSize: size,
+      fontWeight: weight,
+      color,
+      letterSpacing,
+      whiteSpace: 'pre',
+      lineHeight: 1.1,
+      willChange: 'transform, opacity',
+    }}>
+      {text}
+    </div>
+  );
+}
+
+// ImageSprite: scales + fades in; optional Ken Burns drift during hold.
+function ImageSprite({
+  src,
+  x = 0, y = 0,
+  width = 400, height = 300,
+  entryDur = 0.6,
+  exitDur = 0.4,
+  kenBurns = false,
+  kenBurnsScale = 1.08,
+  radius = 12,
+  fit = 'cover',
+  placeholder = null, // {label: string} for striped placeholder
+}) {
+  const { localTime, duration } = useSprite();
+  const exitStart = Math.max(0, duration - exitDur);
+
+  let opacity = 1;
+  let scale = 1;
+
+  if (localTime < entryDur) {
+    const t = Easing.easeOutCubic(clamp(localTime / entryDur, 0, 1));
+    opacity = t;
+    scale = 0.96 + 0.04 * t;
+  } else if (localTime > exitStart) {
+    const t = Easing.easeInCubic(clamp((localTime - exitStart) / exitDur, 0, 1));
+    opacity = 1 - t;
+    scale = (kenBurns ? kenBurnsScale : 1) + 0.02 * t;
+  } else if (kenBurns) {
+    const holdSpan = exitStart - entryDur;
+    const holdT = holdSpan > 0 ? (localTime - entryDur) / holdSpan : 0;
+    scale = 1 + (kenBurnsScale - 1) * holdT;
+  }
+
+  const content = placeholder ? (
+    <div style={{
+      width: '100%', height: '100%',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      background: 'repeating-linear-gradient(135deg, #e9e6df 0 10px, #dcd8cf 10px 20px)',
+      color: '#6b6458',
+      fontFamily: 'JetBrains Mono, ui-monospace, monospace',
+      fontSize: 13,
+      letterSpacing: '0.04em',
+      textTransform: 'uppercase',
+    }}>
+      {placeholder.label || 'image'}
+    </div>
+  ) : (
+    <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: fit, display: 'block' }} />
+  );
+
+  return (
+    <div style={{
+      position: 'absolute',
+      left: x, top: y,
+      width, height,
+      opacity,
+      transform: `scale(${scale})`,
+      transformOrigin: 'center',
+      borderRadius: radius,
+      overflow: 'hidden',
+      willChange: 'transform, opacity',
+    }}>
+      {content}
+    </div>
+  );
+}
+
+// RectSprite: simple rectangle that animates position/size/color via props.
+// Useful demo primitive — takes a `render` fn for per-frame customization.
+function RectSprite({
+  x = 0, y = 0,
+  width = 100, height = 100,
+  color = '#111',
+  radius = 8,
+  entryDur = 0.4,
+  exitDur = 0.3,
+  render, // optional: (ctx) => style overrides
+}) {
+  const spriteCtx = useSprite();
+  const { localTime, duration } = spriteCtx;
+  const exitStart = Math.max(0, duration - exitDur);
+
+  let opacity = 1;
+  let scale = 1;
+
+  if (localTime < entryDur) {
+    const t = Easing.easeOutBack(clamp(localTime / entryDur, 0, 1));
+    opacity = clamp(localTime / entryDur, 0, 1);
+    scale = 0.4 + 0.6 * t;
+  } else if (localTime > exitStart) {
+    const t = Easing.easeInQuad(clamp((localTime - exitStart) / exitDur, 0, 1));
+    opacity = 1 - t;
+    scale = 1 - 0.15 * t;
+  }
+
+  const overrides = render ? render(spriteCtx) : {};
+
+  return (
+    <div style={{
+      position: 'absolute',
+      left: x, top: y,
+      width, height,
+      background: color,
+      borderRadius: radius,
+      opacity,
+      transform: `scale(${scale})`,
+      transformOrigin: 'center',
+      willChange: 'transform, opacity',
+      ...overrides,
+    }} />
+  );
+}
+
+
+function Stage({
+  width = 1280,
+  height = 720,
+  duration = 10,
+  background = '#f6f4ef',
+  fps = 60,
+  loop = true,
+  autoplay = true,
+  persistKey = 'animstage',
+  children,
+}) {
+  const [time, setTime] = React.useState(() => {
+    try {
+      const v = parseFloat(localStorage.getItem(persistKey + ':t') || '0');
+      return isFinite(v) ? clamp(v, 0, duration) : 0;
+    } catch { return 0; }
+  });
+  const [playing, setPlaying] = React.useState(autoplay);
+  const [hoverTime, setHoverTime] = React.useState(null);
+  const [scale, setScale] = React.useState(1);
+
+  const stageRef = React.useRef(null);
+  const canvasRef = React.useRef(null);
+  const rafRef = React.useRef(null);
+  const lastTsRef = React.useRef(null);
+
+  // Persist playhead
+  React.useEffect(() => {
+    try { localStorage.setItem(persistKey + ':t', String(time)); } catch {}
+  }, [time, persistKey]);
+
+  // Auto-scale to fit viewport
+  React.useEffect(() => {
+    if (!stageRef.current) return;
+    const el = stageRef.current;
+    const measure = () => {
+      const barH = 44; // playback bar height
+      const s = Math.min(
+        el.clientWidth / width,
+        (el.clientHeight - barH) / height
+      );
+      setScale(Math.max(0.05, s));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, [width, height]);
+
+  // Animation loop
+  React.useEffect(() => {
+    if (!playing) {
+      lastTsRef.current = null;
+      return;
+    }
+    const step = (ts) => {
+      if (lastTsRef.current == null) lastTsRef.current = ts;
+      const dt = (ts - lastTsRef.current) / 1000;
+      lastTsRef.current = ts;
+      setTime((t) => {
+        let next = t + dt;
+        if (next >= duration) {
+          if (loop) next = next % duration;
+          else { next = duration; setPlaying(false); }
+        }
+        return next;
+      });
+      rafRef.current = requestAnimationFrame(step);
+    };
+    rafRef.current = requestAnimationFrame(step);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      lastTsRef.current = null;
+    };
+  }, [playing, duration, loop]);
+
+  // Keyboard: space = play/pause, ← → = seek
+  React.useEffect(() => {
+    const onKey = (e) => {
+      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        setPlaying(p => !p);
+      } else if (e.code === 'ArrowLeft') {
+        setTime(t => clamp(t - (e.shiftKey ? 1 : 0.1), 0, duration));
+      } else if (e.code === 'ArrowRight') {
+        setTime(t => clamp(t + (e.shiftKey ? 1 : 0.1), 0, duration));
+      } else if (e.key === '0' || e.code === 'Home') {
+        setTime(0);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [duration]);
+
+  const displayTime = hoverTime != null ? hoverTime : time;
+
+  const ctxValue = React.useMemo(
+    () => ({ time: displayTime, duration, playing, setTime, setPlaying }),
+    [displayTime, duration, playing]
+  );
+
+  return (
+    <div
+      ref={stageRef}
+      style={{
+        position: 'absolute', inset: 0,
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center',
+        background: '#0a0a0a',
+        fontFamily: 'Inter, system-ui, sans-serif',
+      }}
+    >
+      {/* Canvas area — vertically centered in remaining space */}
+      <div style={{
+        flex: 1,
+        width: '100%',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        overflow: 'hidden',
+        minHeight: 0,
+      }}>
+        <div
+          ref={canvasRef}
+          style={{
+            width, height,
+            background,
+            position: 'relative',
+            transform: `scale(${scale})`,
+            transformOrigin: 'center',
+            flexShrink: 0,
+            boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+            overflow: 'hidden',
+          }}
+        >
+          <TimelineContext.Provider value={ctxValue}>
+            {children}
+          </TimelineContext.Provider>
+        </div>
+      </div>
+
+      {/* Playback bar — stacked below canvas, never overlapping */}
+      <PlaybackBar
+        time={displayTime}
+        actualTime={time}
+        duration={duration}
+        playing={playing}
+        onPlayPause={() => setPlaying(p => !p)}
+        onReset={() => { setTime(0); }}
+        onSeek={(t) => setTime(t)}
+        onHover={(t) => setHoverTime(t)}
+      />
+    </div>
+  );
+}
+
+// ── Playback bar ────────────────────────────────────────────────────────────
+// Play/pause, return-to-begin, scrub track, time display.
+// Uses fixed-width time fields so layout doesn't thrash.
+
+function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, onHover }) {
+  const trackRef = React.useRef(null);
+  const [dragging, setDragging] = React.useState(false);
+
+  const timeFromEvent = React.useCallback((e) => {
+    const rect = trackRef.current.getBoundingClientRect();
+    const x = clamp((e.clientX - rect.left) / rect.width, 0, 1);
+    return x * duration;
+  }, [duration]);
+
+  const onTrackMove = (e) => {
+    if (!trackRef.current) return;
+    const t = timeFromEvent(e);
+    if (dragging) {
+      onSeek(t);
+    } else {
+      onHover(t);
+    }
+  };
+
+  const onTrackLeave = () => {
+    if (!dragging) onHover(null);
+  };
+
+  const onTrackDown = (e) => {
+    setDragging(true);
+    const t = timeFromEvent(e);
+    onSeek(t);
+    onHover(null);
+  };
+
+  React.useEffect(() => {
+    if (!dragging) return;
+    const onUp = () => setDragging(false);
+    const onMove = (e) => {
+      if (!trackRef.current) return;
+      const t = timeFromEvent(e);
+      onSeek(t);
+    };
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('mousemove', onMove);
+    return () => {
+      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener('mousemove', onMove);
+    };
+  }, [dragging, timeFromEvent, onSeek]);
+
+  const pct = duration > 0 ? (time / duration) * 100 : 0;
+  const fmt = (t) => {
+    const total = Math.max(0, t);
+    const m = Math.floor(total / 60);
+    const s = Math.floor(total % 60);
+    const cs = Math.floor((total * 100) % 100);
+    return `${String(m).padStart(1, '0')}:${String(s).padStart(2, '0')}.${String(cs).padStart(2, '0')}`;
+  };
+
+  const mono = 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace';
+
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 12,
+      padding: '8px 16px',
+      background: 'rgba(20,20,20,0.92)',
+      borderTop: '1px solid rgba(255,255,255,0.08)',
+      width: '100%',
+      maxWidth: 680,
+      alignSelf: 'center',
+
+      borderRadius: 8,
+      color: '#f6f4ef',
+      fontFamily: 'Inter, system-ui, sans-serif',
+      userSelect: 'none',
+      flexShrink: 0,
+    }}>
+      <IconButton onClick={onReset} title="Return to start (0)">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 2v10M12 2L5 7l7 5V2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round"/>
+        </svg>
+      </IconButton>
+      <IconButton onClick={onPlayPause} title="Play/pause (space)">
+        {playing ? (
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="3" y="2" width="3" height="10" fill="currentColor"/>
+            <rect x="8" y="2" width="3" height="10" fill="currentColor"/>
+          </svg>
+        ) : (
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 2l9 5-9 5V2z" fill="currentColor"/>
+          </svg>
+        )}
+      </IconButton>
+
+      {/* Current time: fixed width so it doesn't thrash */}
+      <div style={{
+        fontFamily: mono,
+        fontSize: 12,
+        fontVariantNumeric: 'tabular-nums',
+        width: 64, textAlign: 'right',
+        color: '#f6f4ef',
+      }}>
+        {fmt(time)}
+      </div>
+
+      {/* Scrub track */}
+      <div
+        ref={trackRef}
+        onMouseMove={onTrackMove}
+        onMouseLeave={onTrackLeave}
+        onMouseDown={onTrackDown}
+        style={{
+          flex: 1,
+          height: 22,
+          position: 'relative',
+          cursor: 'pointer',
+          display: 'flex', alignItems: 'center',
+        }}
+      >
+        <div style={{
+          position: 'absolute',
+          left: 0, right: 0, height: 4,
+          background: 'rgba(255,255,255,0.12)',
+          borderRadius: 2,
+        }}/>
+        <div style={{
+          position: 'absolute',
+          left: 0, width: `${pct}%`, height: 4,
+          background: 'oklch(72% 0.12 250)',
+          borderRadius: 2,
+        }}/>
+        <div style={{
+          position: 'absolute',
+          left: `${pct}%`, top: '50%',
+          width: 12, height: 12,
+          marginLeft: -6, marginTop: -6,
+          background: '#fff',
+          borderRadius: 6,
+          boxShadow: '0 2px 4px rgba(0,0,0,0.4)',
+        }}/>
+      </div>
+
+      {/* Duration: fixed width */}
+      <div style={{
+        fontFamily: mono,
+        fontSize: 12,
+        fontVariantNumeric: 'tabular-nums',
+        width: 64, textAlign: 'left',
+        color: 'rgba(246,244,239,0.55)',
+      }}>
+        {fmt(duration)}
+      </div>
+    </div>
+  );
+}
+
+function IconButton({ children, onClick, title }) {
+  const [hover, setHover] = React.useState(false);
+  return (
+    <button
+      onClick={onClick}
+      title={title}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        width: 28, height: 28,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: hover ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.04)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: 6,
+        color: '#f6f4ef',
+        cursor: 'pointer',
+        padding: 0,
+        transition: 'background 120ms',
+      }}
+    >
+      {children}
+    </button>
+  );
+}
+
+
+Object.assign(window, {
+  Easing, interpolate, animate, clamp,
+  TimelineContext, useTime, useTimeline,
+  Sprite, SpriteContext, useSprite,
+  TextSprite, ImageSprite, RectSprite,
+  Stage, PlaybackBar,
+});
+
+</script>
+<script type="text/babel">
+// tweaks-data.jsx — single source of truth for the deck.
+// Change any value here and every slide / chart re-renders automatically.
+
+const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
+  "brand": {
+    "name": "Dhanam Investment and Finance",
+    "short": "Dhanam",
+    "legalName": "Dhanam Investment and Finance Private Limited",
+    "tagline": "An RBI-licensed NBFC — building India's most trusted multi-product financial institution. Rooted in communities, scaling nationally.",
+    "city": "India",
+    "hq": "Coimbatore, Tamil Nadu",
+    "yearsOperating": "10+",
+    "establishedYear": 2018,
+    "website": "www.dhanamfinance.com",
+    "tollFree": "1800 2025 180",
+    "instagram": "@dhanamfin",
+    "instagramUrl": "https://www.instagram.com/dhanamfin",
+    "whatsapp": "89258 03986"
+  },
+
+  "highlights": {
+    "aumCr": 150,
+    "branches": "50+",
+    "carPct": 40,
+    "growthPct": 35,
+    "products": 5,
+    "customers": "50,000+",
+    "productMix": [
+      { "label": "Gold loans",            "value": 65 },
+      { "label": "Loan against property", "value": 25 },
+      { "label": "Unsecured / other",     "value": 10 }
+    ]
+  },
+
+  "productCategories": {
+    "loans": [
+      { "key": "gold",              "label": "Gold loans",                "slot": "about-gold",       "caption": "Highest LTV in the market. 30-minute disbursal. Fully secured collateral." },
+      { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Secured property-backed credit — fastest disbursement in 3–4 days. Open to all eligible borrowers.", "imgPos": "center 65%" },
+      { "key": "secured-business",  "label": "Secured business loans",    "slot": "about-business",   "caption": "Asset-backed working capital — structured credit for businesses that deserve better than a bank rejection." },
+      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Fast, flexible personal credit — backed by a verified repayment track record." }
+    ],
+    "wealth": [
+      { "key": "ncd",     "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Secured · Stable · Income. RBI-overseen debt instruments — a regulated investment for every wealth profile." },
+      { "key": "lockers", "label": "Private lockers",                "slot": "about-lockers", "caption": "Exclusive vault-grade security with five-star hospitality — private, discreet, and reserved for Dhanam's discerning clientele." }
+    ]
+  },
+
+  "products": {
+    "gold":      { "label": "Gold loans",            "bookCr": 95, "growthYoY": 38, "yieldPct": 22, "atsLakh": 1.2 },
+    "lap":       { "label": "Loan against property", "bookCr": 38, "growthYoY": 42, "yieldPct": 17, "atsLakh": 18 },
+    "lockers":   { "label": "Private lockers",       "units": 1850, "occupancyPct": 92, "feeCr": 4.2 }
+  },
+
+  "goldProspectus": {
+    "historical": [
+      { "year": "FY22", "value": 1800 },
+      { "year": "FY23", "value": 1950 },
+      { "year": "FY24", "value": 2300 },
+      { "year": "FY25", "value": 2900 },
+      { "year": "FY26", "value": 3500 }
+    ],
+    "future": [
+      { "year": "FY27", "value": 4500 },
+      { "year": "FY28", "value": 5500 },
+      { "year": "FY29", "value": 7000 },
+      { "year": "FY30", "value": 8500 },
+      { "year": "FY31", "value": 10000 }
+    ],
+    "valueUnit": "$",
+    "valuePrefix": "$",
+    "axisLabel": "Gold price · USD per troy ounce — 5 historical + 5 projected",
+    "macroHeadline": "Gold could reach $10,000/oz by 2030.",
+    "macroCite": "Yardeni Research; CoinPriceForecast — long-range gold price models",
+    "yieldHeadline": "22% gross yield. Fully secured. Intra-day disbursal.",
+    "marketStat": "Central-bank gold buying, currency debasement and household monetisation are pushing gold higher every year. As the asset rises, our loan-to-value ticket rises with it — the same gram of gold collateralises a bigger loan, year after year. We grow when gold grows."
+  },
+
+  "lapProspectus": {
+    "historical": [
+      { "year": "FY22", "value": 59 },
+      { "year": "FY23", "value": 67 },
+      { "year": "FY24", "value": 76 },
+      { "year": "FY25", "value": 86 },
+      { "year": "FY26", "value": 97 }
+    ],
+    "future": [
+      { "year": "FY27", "value": 110 },
+      { "year": "FY28", "value": 125 },
+      { "year": "FY29", "value": 141 },
+      { "year": "FY30", "value": 160 },
+      { "year": "FY31", "value": 181 }
+    ],
+    "valuePrefix": "₹",
+    "axisLabel": "India LAP market · ₹ lakh crore — 5 historical + 5 projected",
+    "macroHeadline": "India's LAP market: ₹76 lakh crore (FY24) → ₹160 lakh crore by 2030.",
+    "macroCite": "TechSci Research, IMARC — 13.28% CAGR through 2030",
+    "yieldHeadline": "17% gross yield. Property-secured. Cash-flow underwritten.",
+    "marketStat": "A market doubling in six years — and your capital compounds inside it. Self-employed India is the engine; NBFCs own the category; Dhanam underwrites at the branch, where banks structurally can't reach. Partner with us and grow on the same curve."
+  },
+
+  "lockersDetail": {
+    "headline": "Dhanam Private Vaults — where your most precious possessions meet uncompromising protection.",
+    "intro": "We do not offer a mere locker. We offer a sovereign-grade sanctuary — where biometric precision, armed custodianship and five-star hospitality converge. Designed for those who expect nothing less than the finest.",
+    "features": [
+      { "title": "Triple-layer biometric authentication",  "body": "Military-grade fingerprint and dual-custodian key protocol. No single point of failure. No exceptions." },
+      { "title": "Round-the-clock armed custodianship",    "body": "Licensed, trained security personnel on premises at all hours — exceeding every benchmark set by the RBI and industry peers." },
+      { "title": "Concierge-class welcome",                "body": "From the moment you arrive — a private attendant and a dedicated vault suite. You are honoured as a guest, never managed as a number." },
+      { "title": "Large-format premium lockers",           "body": "Spacious, large-sized vault compartments for families, collections and high-value assets — available at Dhanam Private Vaults. Designed for those with more to protect." },
+      { "title": "Appointment-based after-hours access",   "body": "Pre-scheduled private sessions outside standard banking hours. We open the vault at your convenience, not ours." },
+      { "title": "Sovereign private chambers",             "body": "Sound-isolated, staff-free review rooms where your privacy is absolute — no observation, no queue, no compromise." }
+    ]
+  },
+
+  "directors": [
+    {
+      "name": "Dr. CA. Gokul Govindarajan",
+      "role": "Director · Governance",
+      "qualification": "M.Com · FCA · CS · PhD",
+      "bio": "Promoter-Director since inception. Two decades across chartered accountancy, company secretarial and corporate law — the architect of Dhanam's governance, compliance and strategic posture. Holds a doctorate in banking and finance. Deep roots in the banking and finance ecosystem, spanning grassroots lending, financial inclusion and community credit.",
+      "slot": "dir-gokul",
+      "show": true,
+      "founder": true
+    },
+    {
+      "name": "Mr. Avinash Gopalakrishnan",
+      "role": "Director · Strategy & Operations",
+      "qualification": "MBA",
+      "bio": "Serial entrepreneur with 15+ years of operating experience. Built Dhanam's day-to-day execution engine from scratch — branches, products, distribution. The hands-on operating partner alongside the next generation of leadership.",
+      "slot": "dir-avinash",
+      "show": true,
+      "founder": true
+    },
+    {
+      "name": "Mr. Sankar Venkataraman",
+      "role": "Director · Finance & Risk",
+      "qualification": "B.Sc. · FCA",
+      "bio": "Fellow Chartered Accountant with deep audit, taxation and risk-advisory expertise across regulated financial institutions. Long-standing relationships across India's NBFC and MFI ecosystem, including personal connections to the founding fathers of microfinance. Anchors Dhanam's financial discipline and audit readiness.",
+      "slot": "dir-sankar",
+      "show": true,
+      "founder": true
+    },
+    {
+      "name": "Mr. Suren S",
+      "role": "Director · CEO · Technology & Strategy",
+      "qualification": "B.E.",
+      "bio": "Engineer and former CEO of two technology companies. 8+ years in machine learning and data sciences across the United States, delivering AI-led solutions for Home Depot, Walmart and global banking clients. Drives Dhanam's digital transformation, scalable infrastructure and intelligent data-led decisions.",
+      "slot": "dir-suren",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Gunasekaran S",
+      "role": "Director & COO",
+      "qualification": "MBA",
+      "bio": "Operations specialist with decades in branch-network management, process optimisation and service delivery at scale across financial services. Leads Dhanam's branch productivity, customer service and operational delivery.",
+      "slot": "dir-guna",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Selvakumar D",
+      "role": "CAO",
+      "qualification": "M.A.",
+      "bio": "Three decades in financial-services administration. Oversees infrastructure, vendor management and branch coordination — Dhanam's operational backbone.",
+      "slot": "dir-selvakumar",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Nambirajan R",
+      "role": "CBO",
+      "qualification": "B.Com · MBA",
+      "bio": "Growth strategist with a sharp focus on market development, customer acquisition and distribution. Drives Dhanam's pan-India expansion and channel partnerships.",
+      "slot": "dir-nambi",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Somasundaram G",
+      "role": "CS",
+      "qualification": "B.Com · LLB · FCS",
+      "bio": "Fellow Company Secretary with 25+ years in corporate secretarial practice. Led IPO readiness and capital-markets compliance for regulated entities. Anchors Dhanam's board governance, regulatory filings and company-law matters.",
+      "slot": "dir-somasundaram",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Pathmanathan D",
+      "role": "Director · Business",
+      "qualification": "B.E., M.Eng.Sc.",
+      "bio": "Veteran business leader with deep experience in NBFC operations and branch network expansion. Spearheads Dhanam's business development strategy, client relationships and cross-product revenue growth across markets.",
+      "slot": "dir-pathmanathan",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Sivashanmugam P",
+      "role": "Director",
+      "qualification": "B.Com",
+      "bio": "Capital markets and securities specialist with 30+ years of experience in share market and trading. Business Associate at Kotak Securities, Erode. Brings deep investor relations, wealth management and financial markets expertise to Dhanam's board.",
+      "slot": "dir-sivashanmugam",
+      "show": true,
+      "founder": false
+    }
+  ],
+
+  "team": [
+    { "name": "Mr. Pathmanathan D",   "role": "VP · Business",            "qualification": "B.E., M.Eng.Sc.", "slot": "team-pathmanathan", "show": false },
+    { "name": "Mr. Raju P",           "role": "Head of Operations · North","qualification": "B.A.",           "slot": "team-raju",         "show": true, "imgPos": "center 5%" },
+    { "name": "Mr. Sridhar M P",      "role": "VP · Gold",                "qualification": "M.Tech.",         "slot": "team-sridhar",      "show": true },
+    { "name": "Mr. Gowtham D S",      "role": "VP · LAP",                 "qualification": "B.B.A., L.L.B.",  "slot": "team-gowtham",      "show": true, "imgZoom": 1.25 },
+    { "name": "Mr. Prem Karnan",      "role": "VP · Tech",                "qualification": "B.E.",            "slot": "team-prem",         "show": true },
+    { "name": "Mr. Eashwar Ram K",    "role": "AVP · Tech",               "qualification": "B.Tech.",         "slot": "team-eashwar",      "show": true },
+    { "name": "Mr. Harisudhan D",     "role": "AVP · Business",           "qualification": "B.Tech.",         "slot": "team-harisudhan",   "show": true },
+    { "name": "Mr. Srinish D",        "role": "AVP · Digital & Social",   "qualification": "M.B.A.",          "slot": "team-srinish",      "show": true },
+    { "name": "Mr. Thivya Darssan E", "role": "AVP · Accounts",           "qualification": "B.M.S.",          "slot": "team-thivya",       "show": true }
+  ],
+
+  "aceInvestors": [
+    { "name": "Dr. Krishna Kumar T",         "tag": "Founder, Sabari Eye Hospital, P.Velur" },
+    { "name": "Dr. Manivannan R",            "tag": "Quarter, UAE" },
+    { "name": "Mr. Karnan Shanmugam",        "tag": "Director of Engg., Intel, Malaysia" },
+    { "name": "Mr. Murthy Nanjan N",         "tag": "Western Hill Villas, Kothagiri" },
+    { "name": "Dr. Senthil Kumar K",         "tag": "Founder, Gateway Hospitals, CBE" },
+    { "name": "Dr. Sudhakaran K",            "tag": "President, Rajshree Biosolutions, Theni" },
+    { "name": "Mr. Dinesh Thangamuthu",      "tag": "Muthu Constructions, Erode" },
+    { "name": "CA. Mohan Raj T M",           "tag": "Chartered Accountant, CBE" },
+    { "name": "CA. Vishwanath T M",          "tag": "Chartered Accountant, CBE" },
+    { "name": "CA. Shanmugam P",             "tag": "Chartered Accountant, Namakkal" },
+    { "name": "Mr. Samy K",                  "tag": "Associate Partner, IBM India" },
+    { "name": "Mr. Vivek Anandh D",          "tag": "VP — JP Morgan Chase, Bangalore" },
+    { "name": "Dr. Subramanian N",           "tag": "Rtd. Income Tax Officer, CBE" },
+    { "name": "Dr. Umashankar K K",          "tag": "Director, Vimalaa Dental Health Care, Erode" },
+    { "name": "Mr. Sanjay Malhotra",         "tag": "Rtd., London Stock Exchange" },
+    { "name": "Mr. Vairavan A L",            "tag": "Director, Sree Alagulakshmi Finance, Trichy" },
+    { "name": "Mr. Mahendran V",             "tag": "Director, Realty One Shelters, CBE" },
+    { "name": "Mr. Kuppuraj S",              "tag": "Rtd. Senior Manager, IOB, CBE" },
+    { "name": "Mr. Kuppusamy M",             "tag": "Founder, M P Selli Constructions, Erode" },
+    { "name": "Mr. Venkatachalamurthi S",    "tag": "Vinayaka Electro Alloys, Perundurai" },
+    { "name": "Mr. Dhanasekaran A",          "tag": "Valuemax Corporate Services, Erode" },
+    { "name": "Mr. Senthilkumar G",          "tag": "MD, FreshNet Farms Pvt. Ltd., Pollachi" },
+    { "name": "Mr. Balakrishnan Parthiban",  "tag": "Classiqu Building Engravers, CBE" },
+    { "name": "Mr. Kamalasekar P",           "tag": "Social Activist & Ex-Journalist, Namakkal" },
+    { "name": "Mr. Eswaramoorthi P M",       "tag": "Founder, Aathira Jewels, Erode" },
+    { "name": "Mr. Govindhasamy S",          "tag": "Gem Housing, CBE" },
+    { "name": "Mr. Prabhakaran T",           "tag": "Standard Roofs, India & USA" },
+    { "name": "Mr. Dinesh M S",              "tag": "Clued In, Mathampatti" },
+    { "name": "Mr. Balasubraniam M S",       "tag": "Shri Shendhur Poultry Farms, Namakkal" },
+    { "name": "Mr. Keerthi Vardhan Singhania", "tag": "Denmax International, CBE" },
+    { "name": "Mr. Vijayakumar S",           "tag": "Financial Advisor, Rasipuram" }
+  ],
+
+  "growth": {
+    "aumTodayCr": 150,
+    "aumYr5TargetCr": 2500,
+    "branchesTodayCount": 50,
+    "branchesYr5TargetCount": 150,
+    "customersTodayK": 50,
+    "customersYr5TargetK": 500,
+    "nbfcSectorCagrPct": 18,
+    "lapMarketCagrPct": 13.3,
+    "goldMarketCagrPct": 18,
+    "macroPoints": [
+      { "label": "NBFC sector AUM",     "stat": "Crosses ₹50 lakh crore by FY27", "cite": "CRISIL — 18% growth FY26-FY27" },
+      { "label": "Gold loan market",    "stat": "Gold could hit $10,000/oz by 2030", "cite": "Yardeni Research" },
+      { "label": "LAP market",          "stat": "$0.76T → $1.59T by 2030 (13.3% CAGR)", "cite": "TechSci Research, IMARC" },
+      { "label": "Locker demand",       "stat": "Multi-year wait-lists at PSU banks",   "cite": "Industry observation" }
+    ],
+    "ourTrajectory": [
+      { "label": "AUM",        "today": "₹150 Cr",  "year5": "₹2,500 Cr",  "multiple": "16×" },
+      { "label": "Branches",   "today": "50+",       "year5": "150+",        "multiple": "3×" },
+      { "label": "Customers",  "today": "50,000+",   "year5": "5,00,000+",   "multiple": "10×" }
+    ]
+  },
+
+  "competitors": [
+    {
+      "product": "Gold loans",
+      "us": { "headline": "Hyper-local · 30-minute disbursal", "sub": "Branch-level credit decisions, in your language." },
+      "peers": [
+        { "name": "Muthoot Finance",  "focus": "Single-product specialist" },
+        { "name": "Manappuram Finance", "focus": "Single-product specialist" }
+      ]
+    },
+    {
+      "product": "Loan against property",
+      "us": { "headline": "Self-employed underwriting", "sub": "Fastest disbursement in 3–4 days — cash-flow underwritten at the branch, not bureau-only." },
+      "peers": [
+        { "name": "Five Star",  "focus": "Small-ticket LAP only" },
+        { "name": "Veritas",    "focus": "MSME / LAP only" }
+      ]
+    },
+    {
+      "product": "Private lockers",
+      "us": { "headline": "The sovereign alternative to a bank locker", "sub": "Large-sized lockers, concierge-class service, armed custodianship and seamless wealth integration — all under one Dhanam roof." },
+      "peers": [
+        { "name": "PSU bank lockers", "focus": "Multi-year wait-lists" },
+        { "name": "Sakthi",           "focus": "Locker specialist · regional" }
+      ]
+    },
+    {
+      "product": "Personal loans",
+      "us": { "headline": "Fast, flexible personal credit", "sub": "Swift disbursal backed by a verified repayment track record — credit that rewards loyalty." },
+      "peers": [
+        { "name": "Bajaj Finance",  "focus": "Multi-product retail giant" },
+        { "name": "Shriram",        "focus": "Vehicle + retail credit" }
+      ]
+    }
+  ],
+
+  "promise": {
+    "headline": "Your money will grow with us.",
+    "subhead": "Building a fintech on the bones of a 10-year-old NBFC.",
+    "wipro": {
+      "kicker": "If you missed Wipro's 1980 IPO, you have Dhanam today.",
+      "detail": "An investment of ₹10,000 in Wipro's 1980 IPO — held patiently — grew into a fortune of over ₹598 crores by late 2024. The early investors who believed in a disciplined, quietly compounding enterprise were the ones who built generational wealth.",
+      "cite": "Source: Wipro historical performance data · NSE/BSE"
+    },
+    "dhanam": {
+      "kicker": "This is your Dhanam moment.",
+      "detail": "Dhanam is a rare early-entry opportunity into one of India's most carefully run regional NBFCs — now scaling into a national, multi-product financial institution. RBI-licensed. Profit-making. The architecture is built. The trajectory is clear. Those who partner with us at the ground floor compound the most.",
+      "note": "The window to enter at the earliest stage does not remain open indefinitely."
+    },
+    "pillars": [
+      { "title": "Multi-product NBFC",        "body": "Five products under one roof. Diversified revenue, resilient by design." },
+      { "title": "Fintech inside an NBFC",    "body": "RBI-licensed credit chassis. Data, AI and modern operations." },
+      { "title": "Compounding alongside us",  "body": "Your capital sits next to ours. We win together." }
+    ]
+  }
+};/*EDITMODE-END*/
+
+window.INVESTOR_DATA = INVESTOR_DATA;
+</script>
+<script type="text/babel">
+// scenes-core.jsx — shared primitives, palette, chrome
+// Light / white-first theme inspired by Capri Global, with Dhanam navy + gold accents.
+
+// Cache-bust suffix for everything under uploads/. Bump when any photo is
+// re-saved under the same filename so browsers re-fetch instead of serving
+// the previous file from URL-keyed cache.
+const IMG_VER = '20260507b';
+
+const NAVY      = '#0B2A4A';
+const NAVY_DEEP = '#06192E';
+const NAVY_SOFT = '#1F4470';
+const GOLD      = '#C8922A';
+const GOLD_LITE = '#E8B65A';
+const GOLD_PALE = '#F6E8C4';
+const PAPER     = '#FFFFFF';
+const CREAM     = '#FAF7F1';
+const GRAY50    = '#F6F7F9';
+const GRAY100   = '#EDEEF1';
+const GRAY200   = '#E1E3E8';
+const GRAY300   = '#C9CCD3';
+const GRAY400   = '#9EA2AC';
+const GRAY600   = '#5C616D';
+const GRAY800   = '#2A2D35';
+const INK       = '#15171C';
+
+const FONT  = 'Inter, system-ui, sans-serif';
+const SERIF = '"Cormorant Garamond", "EB Garamond", Georgia, serif';
+const MONO  = '"JetBrains Mono", ui-monospace, monospace';
+// Brand wordmark — Palatino with sane fallbacks.
+const BRAND = '"Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", "TeX Gyre Pagella", "Cormorant Garamond", Georgia, serif';
+
+const STAGE_W = 1920;
+const STAGE_H = 1080;
+
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+// ─── Reveal + Fade helpers ────────────────────────────────────────────
+// NOTE: applies opacity/translateY directly to the child via cloneElement
+// instead of wrapping it in an extra div. A wrapping div with `transform`
+// would establish a new containing block for absolutely-positioned
+// descendants — which silently broke any `position: absolute; bottom: …`
+// child by computing `bottom` against a zero-height Reveal box.
+function Reveal({ start, end, delay = 0, dur = 0.6, y = 16, children, style }) {
+  return (
+    <Sprite start={start + delay} end={end - 0.1}>
+      {({ localTime }) => {
+        const p = Easing.easeOutCubic(clamp(localTime / dur, 0, 1));
+        const childStyle = (children && children.props && children.props.style) || {};
+        const existingTransform = childStyle.transform ? `${childStyle.transform} ` : '';
+        return React.cloneElement(children, {
+          style: {
+            ...childStyle,
+            opacity: (childStyle.opacity != null ? childStyle.opacity : 1) * p,
+            transform: `${existingTransform}translateY(${(1 - p) * y}px)`,
+            ...style
+          }
+        });
+      }}
+    </Sprite>
+  );
+}
+
+// ─── Eyebrow / Section label ──────────────────────────────────────────
+function Eyebrow({ children, color = GOLD, style = {} }) {
+  return (
+    <div style={{
+      fontFamily: MONO, fontSize: 14, color,
+      letterSpacing: '0.18em', textTransform: 'uppercase',
+      fontWeight: 600,
+      ...style
+    }}>{children}</div>
+  );
+}
+
+// ─── Brand lockup — uses assets/logo-dhanam.png if present, otherwise
+//     falls back to inline lotus + Palatino "Dhanam" wordmark.
+//     Only one renders at a time — never both — so they can't collide.
+//
+// Module-level cache so all instances (cover + every slide header) share
+// one existence check and stay in sync.
+let _logoState = 'checking';        // 'checking' | 'loaded' | 'missing'
+const _logoSubs = new Set();
+(function _checkLogoOnce() {
+  if (typeof window === 'undefined' || _logoState !== 'checking') return;
+  const img = new Image();
+  img.onload  = () => { _logoState = 'loaded';  _logoSubs.forEach(fn => fn(_logoState)); };
+  img.onerror = () => { _logoState = 'missing'; _logoSubs.forEach(fn => fn(_logoState)); };
+  img.src = 'assets/logo-dhanam.png';
+})();
+
+function useLogoState() {
+  const [s, setS] = React.useState(_logoState);
+  React.useEffect(() => {
+    if (_logoState !== 'checking') { setS(_logoState); return; }
+    _logoSubs.add(setS);
+    return () => { _logoSubs.delete(setS); };
+  }, []);
+  return s;
+}
+
+function BrandLockup({ height = 360, dark = false, eyebrow = true }) {
+  const state = useLogoState();
+
+  // Reserve space during the brief existence check so layout doesn't jump.
+  if (state === 'checking') {
+    return <div style={{ height, width: height * 1.2 }}/>;
+  }
+
+  if (state === 'loaded') {
+    return (
+      <img
+        src="assets/logo-dhanam.png"
+        alt="Dhanam Investment and Finance"
+        style={{
+          display: 'block', height,
+          width: 'auto', maxWidth: height * 1.6,
+          objectFit: 'contain'
+        }}
+      />
+    );
+  }
+
+  // Fallback — inline lotus + Palatino "Dhanam" wordmark
+  const wordmarkColor = dark ? '#fff' : NAVY;
+  const eyebrowColor  = dark ? GOLD_LITE : GOLD;
+  const lotusSize     = Math.round(height * 0.78);
+  const wordSize      = Math.round(height * 0.62);
+  const eyebrowSize   = Math.max(11, Math.round(height * 0.055));
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: Math.round(height * 0.12) }}>
+      <LotusMark size={lotusSize} color={GOLD} dark={dark}/>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{
+          fontFamily: BRAND, fontWeight: 600, fontSize: wordSize,
+          color: wordmarkColor, letterSpacing: '0.005em', lineHeight: 0.95
+        }}>Dhanam</div>
+        {eyebrow && (
+          <div style={{
+            fontFamily: FONT, fontSize: eyebrowSize, fontWeight: 500,
+            color: eyebrowColor, letterSpacing: '0.16em',
+            textTransform: 'uppercase', marginTop: Math.round(height * 0.04)
+          }}>Investment & Finance</div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Brand mark — gold lotus glyph, simplified for slide chrome ──────
+function LotusMark({ size = 32, color = GOLD, dark = false }) {
+  const stroke = dark ? '#fff' : NAVY_DEEP;
+  return (
+    <svg width={size} height={size} viewBox="0 0 64 64"
+         style={{ display: 'block' }}>
+      <g fill={color} stroke={stroke} strokeWidth="1.2" strokeLinejoin="round">
+        {/* center petal */}
+        <path d="M32,8 C28,18 28,32 32,42 C36,32 36,18 32,8 Z"/>
+        {/* side petals */}
+        <path d="M14,20 C22,28 28,36 32,42 C24,42 18,38 12,30 Z"/>
+        <path d="M50,20 C42,28 36,36 32,42 C40,42 46,38 52,30 Z"/>
+        {/* outer petals */}
+        <path d="M6,34 C16,36 26,40 32,46 C24,48 16,46 8,42 Z"/>
+        <path d="M58,34 C48,36 38,40 32,46 C40,48 48,46 56,42 Z"/>
+      </g>
+    </svg>
+  );
+}
+
+// ─── Chapter title (top-right during slide, hidden on cover) ─────────
+function SlideHeader({ idx, total, label, dark = false }) {
+  // No logo overlay on the cover — it has its own large lockup
+  if (idx === 1) return null;
+  return (
+    <div style={{
+      position: 'absolute', right: 80, top: 44,
+      display: 'flex', alignItems: 'center',
+      fontFamily: FONT
+    }}>
+      <BrandLockup height={96} dark={dark} eyebrow={false}/>
+    </div>
+  );
+}
+
+function SlideFooter() {
+  // Pagination intentionally hidden — slide numbers removed deck-wide.
+  return null;
+}
+
+// ─── Section title bar ────────────────────────────────────────────────
+// `eyebrow` is the big bold heading; `title` becomes the subhead below.
+// Any "NN · " number prefix is stripped — slide numbers are no longer shown.
+function SectionHeading({ start, end, eyebrow, title, accent = GOLD, dark = false, maxWidth = 1500, fontSize = 80, subSize = 26 }) {
+  const ink = dark ? '#fff' : NAVY;
+  const subColor = dark ? 'rgba(255,255,255,0.72)' : GRAY600;
+  const cleanEyebrow = typeof eyebrow === 'string'
+    ? eyebrow.replace(/^\d+\s*[·.\-]\s*/, '')
+    : eyebrow;
+  return (
+    <>
+      <Reveal start={start} end={end} delay={0.2} dur={0.7} y={20}>
+        <div style={{
+          fontFamily: FONT, fontWeight: 600, fontSize,
+          color: ink, letterSpacing: '-0.03em', lineHeight: 1.0,
+          maxWidth
+        }}>{cleanEyebrow}</div>
+      </Reveal>
+      {title && (
+        <Reveal start={start} end={end} delay={0.4} dur={0.7} y={14}>
+          <div style={{
+            fontFamily: FONT, fontWeight: 400, fontSize: subSize,
+            color: subColor, letterSpacing: '-0.005em', lineHeight: 1.4,
+            marginTop: 20, maxWidth: maxWidth * 0.92
+          }}>{title}</div>
+        </Reveal>
+      )}
+    </>
+  );
+}
+
+// ─── Round photo — circular crop with face-biased objectPosition ──────
+// Uses a direct <img> so we can control objectPosition (PhotoSlot's
+// image-slot custom element doesn't expose that property).
+function RoundPhoto({ id, size = 220, ringColor = GOLD, ringWidth = 0, objPos = 'center 18%', zoom = 1 }) {
+  return (
+    <div style={{
+      width: size, height: size, borderRadius: '50%', overflow: 'hidden',
+      border: ringWidth ? `${ringWidth}px solid ${ringColor}` : 'none',
+      background: GRAY100, flexShrink: 0
+    }}>
+      <img
+        src={`uploads/${id}.png?v=${IMG_VER}`}
+        alt=""
+        onError={(e) => { e.target.style.display = 'none'; }}
+        style={{
+          width: '100%', height: '100%',
+          objectFit: 'cover',
+          objectPosition: objPos,
+          transform: zoom !== 1 ? `scale(${zoom})` : 'none',
+          transformOrigin: 'center 30%',
+          display: 'block'
+        }}
+      />
+    </div>
+  );
+}
+
+// ─── Category label (e.g. "LOANS" / "WEALTH" section dividers) ───────
+function CategoryLabel({ children, color = NAVY, accent = GOLD }) {
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 14,
+      fontFamily: MONO, fontSize: 13, color,
+      letterSpacing: '0.22em', textTransform: 'uppercase',
+      fontWeight: 700
+    }}>
+      <span style={{ width: 28, height: 2, background: accent }}/>
+      {children}
+    </div>
+  );
+}
+
+// ─── Stat block ───────────────────────────────────────────────────────
+function StatBlock({ label, value, unit, foot, color = NAVY, big = 56, dark = false }) {
+  const labelColor = dark ? 'rgba(255,255,255,0.6)' : GRAY600;
+  return (
+    <div style={{ fontFamily: FONT }}>
+      <div style={{
+        fontSize: 14, color: labelColor, letterSpacing: '0.12em',
+        textTransform: 'uppercase', fontWeight: 600, marginBottom: 12
+      }}>{label}</div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+        <span style={{
+          fontFamily: FONT, fontSize: big, fontWeight: 500,
+          color, letterSpacing: '-0.02em', lineHeight: 1,
+          fontVariantNumeric: 'tabular-nums'
+        }}>{value}</span>
+        {unit && (
+          <span style={{
+            fontSize: big * 0.32, fontWeight: 500,
+            color: dark ? 'rgba(255,255,255,0.7)' : GRAY600,
+            letterSpacing: '-0.01em'
+          }}>{unit}</span>
+        )}
+      </div>
+      {foot && (
+        <div style={{
+          fontSize: 15, color: labelColor, marginTop: 10, lineHeight: 1.5
+        }}>{foot}</div>
+      )}
+    </div>
+  );
+}
+
+// ─── Bar chart (auto-scales to data) ──────────────────────────────────
+function BarChart({ data, height = 280, color = NAVY, accentLast = true, formatter = v => v }) {
+  const max = Math.max(...data.map(d => d.value)) || 1;
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: `repeat(${data.length}, 1fr)`,
+      gap: 16, height: height + 60, alignItems: 'end',
+      fontFamily: FONT
+    }}>
+      {data.map((d, i) => {
+        const h = (d.value / max) * height;
+        const isLast = i === data.length - 1;
+        const fill = accentLast && isLast ? GOLD : color;
+        return (
+          <div key={i} style={{
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', gap: 8
+          }}>
+            <div style={{
+              fontFamily: MONO, fontSize: 12, color: NAVY,
+              fontVariantNumeric: 'tabular-nums', fontWeight: 500
+            }}>{formatter(d.value)}</div>
+            <div style={{
+              width: '100%', height: h, background: fill,
+              borderRadius: '4px 4px 0 0',
+              transition: 'height 600ms ease-out'
+            }}/>
+            <div style={{
+              fontSize: 12, color: GRAY600, letterSpacing: '0.04em',
+              textTransform: 'uppercase', textAlign: 'center'
+            }}>{d.label}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Animated bar chart that grows from 0 to value over time ─────────
+function GrowingBarChart({ data, start, end, delay = 0.4, growDur = 1.4,
+                           height = 280, color = NAVY, accentLast = true,
+                           formatter = v => v }) {
+  return (
+    <Sprite start={start} end={end - 0.1}>
+      {({ localTime }) => {
+        const p = Easing.easeOutCubic(clamp((localTime - delay) / growDur, 0, 1));
+        const max = Math.max(...data.map(d => d.value)) || 1;
+        return (
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: `repeat(${data.length}, 1fr)`,
+            gap: 16, height: height + 60, alignItems: 'end',
+            fontFamily: FONT
+          }}>
+            {data.map((d, i) => {
+              const stagger = i * 0.06;
+              const localP = Easing.easeOutCubic(clamp((localTime - delay - stagger) / growDur, 0, 1));
+              const h = (d.value / max) * height * localP;
+              const isLast = i === data.length - 1;
+              const fill = accentLast && isLast ? GOLD : color;
+              return (
+                <div key={i} style={{
+                  display: 'flex', flexDirection: 'column',
+                  alignItems: 'center', gap: 8
+                }}>
+                  <div style={{
+                    fontFamily: MONO, fontSize: 12, color: NAVY,
+                    fontVariantNumeric: 'tabular-nums', fontWeight: 500,
+                    opacity: localP
+                  }}>{formatter(d.value)}</div>
+                  <div style={{
+                    width: '100%', height: h, background: fill,
+                    borderRadius: '4px 4px 0 0'
+                  }}/>
+                  <div style={{
+                    fontSize: 12, color: GRAY600, letterSpacing: '0.04em',
+                    textTransform: 'uppercase', textAlign: 'center',
+                    opacity: localP
+                  }}>{d.label}</div>
+                </div>
+              );
+            })}
+          </div>
+        );
+      }}
+    </Sprite>
+  );
+}
+
+// ─── Horizontal bar chart (animated) ─────────────────────────────────
+function HorizontalBars({ data, start, end, delay = 0.4, growDur = 1.2,
+                         color = NAVY, accentLast = true, formatter = v => v,
+                         barHeight = 22, gap = 14 }) {
+  return (
+    <Sprite start={start} end={end - 0.1}>
+      {({ localTime }) => {
+        const max = Math.max(...data.map(d => d.value)) || 1;
+        return (
+          <div style={{ display: 'flex', flexDirection: 'column', gap, fontFamily: FONT }}>
+            {data.map((d, i) => {
+              const stagger = i * 0.08;
+              const localP = Easing.easeOutCubic(clamp((localTime - delay - stagger) / growDur, 0, 1));
+              const w = (d.value / max) * 100 * localP;
+              const isLast = i === data.length - 1;
+              const fill = accentLast && isLast ? GOLD : color;
+              return (
+                <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr 96px', alignItems: 'center', gap: 16 }}>
+                  <div style={{
+                    fontSize: 12, color: GRAY600, letterSpacing: '0.06em',
+                    textTransform: 'uppercase', fontWeight: 500
+                  }}>{d.label}</div>
+                  <div style={{ position: 'relative', height: barHeight, background: GRAY100, borderRadius: 4 }}>
+                    <div style={{
+                      position: 'absolute', left: 0, top: 0, height: '100%',
+                      width: `${w}%`, background: fill,
+                      borderRadius: 4
+                    }}/>
+                  </div>
+                  <div style={{
+                    fontFamily: MONO, fontSize: 13, color: NAVY,
+                    fontVariantNumeric: 'tabular-nums', fontWeight: 500,
+                    opacity: localP, textAlign: 'right'
+                  }}>{formatter(d.value)}</div>
+                </div>
+              );
+            })}
+          </div>
+        );
+      }}
+    </Sprite>
+  );
+}
+
+// ─── Line chart (animated draw) ──────────────────────────────────────
+function LineChart({ data, start, end, delay = 0.4, drawDur = 1.4,
+                    width = 800, height = 220, color = NAVY,
+                    fill = 'rgba(11,42,74,0.06)', formatter = v => v,
+                    showDots = true }) {
+  const max = Math.max(...data.map(d => d.value)) || 1;
+  const min = Math.min(...data.map(d => d.value));
+  const padTop = 30, padBot = 36, padX = 40;
+  const chartW = width - padX * 2;
+  const chartH = height - padTop - padBot;
+  const xs = data.map((_, i) => padX + (i / (data.length - 1)) * chartW);
+  const ys = data.map(d => padTop + chartH - ((d.value - min) / (max - min || 1)) * chartH);
+  const linePath = data.map((_, i) => `${i === 0 ? 'M' : 'L'}${xs[i]},${ys[i]}`).join(' ');
+  const fillPath = `${linePath} L${xs[xs.length-1]},${padTop+chartH} L${xs[0]},${padTop+chartH} Z`;
+  return (
+    <Sprite start={start} end={end - 0.1}>
+      {({ localTime }) => {
+        const p = Easing.easeOutCubic(clamp((localTime - delay) / drawDur, 0, 1));
+        return (
+          <svg width={width} height={height} style={{ display: 'block', overflow: 'visible' }}>
+            {/* gridlines */}
+            <line x1={padX} y1={padTop+chartH} x2={padX+chartW} y2={padTop+chartH} stroke={GRAY200} strokeWidth="1"/>
+            {/* fill area */}
+            <path d={fillPath} fill={fill} opacity={p}/>
+            {/* line */}
+            <path d={linePath} fill="none" stroke={color} strokeWidth="2.5"
+                  strokeLinecap="round" strokeLinejoin="round"
+                  strokeDasharray="2000" strokeDashoffset={2000 * (1 - p)}/>
+            {/* dots + labels */}
+            {data.map((d, i) => {
+              const dotP = Easing.easeOutCubic(clamp((localTime - delay - 0.2 - i * 0.1) / 0.4, 0, 1));
+              const isLast = i === data.length - 1;
+              return (
+                <g key={i} opacity={dotP}>
+                  {showDots && (
+                    <circle cx={xs[i]} cy={ys[i]} r={isLast ? 6 : 4}
+                            fill={isLast ? GOLD : color} stroke="#fff" strokeWidth="2"/>
+                  )}
+                  <text x={xs[i]} y={ys[i] - 14} textAnchor="middle"
+                        fontFamily={MONO} fontSize="12" fill={NAVY}
+                        style={{ fontVariantNumeric: 'tabular-nums', fontWeight: 500 }}>
+                    {formatter(d.value)}
+                  </text>
+                  <text x={xs[i]} y={padTop + chartH + 22} textAnchor="middle"
+                        fontFamily={FONT} fontSize="12" fill={GRAY600}
+                        style={{ letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                    {d.label}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        );
+      }}
+    </Sprite>
+  );
+}
+
+// ─── Sparkline (compact trend, no axes) ──────────────────────────────
+function Sparkline({ data, width = 220, height = 60, color = GOLD, fill = 'rgba(200,146,42,0.15)' }) {
+  const max = Math.max(...data) || 1;
+  const min = Math.min(...data);
+  const xs = data.map((_, i) => (i / (data.length - 1)) * (width - 4) + 2);
+  const ys = data.map(v => (height - 8) - ((v - min) / (max - min || 1)) * (height - 16) + 4);
+  const linePath = data.map((_, i) => `${i === 0 ? 'M' : 'L'}${xs[i]},${ys[i]}`).join(' ');
+  const fillPath = `${linePath} L${xs[xs.length-1]},${height} L${xs[0]},${height} Z`;
+  return (
+    <svg width={width} height={height} style={{ display: 'block' }}>
+      <path d={fillPath} fill={fill}/>
+      <path d={linePath} fill="none" stroke={color} strokeWidth="2"
+            strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx={xs[xs.length-1]} cy={ys[ys.length-1]} r="3.5"
+              fill={color} stroke="#fff" strokeWidth="1.5"/>
+    </svg>
+  );
+}
+
+// ─── Donut / progress ring ───────────────────────────────────────────
+function Donut({ value, max = 100, size = 160, stroke = 14, color = GOLD, label, sub, animateStart, animateEnd, animateDelay = 0.4 }) {
+  const r = (size - stroke) / 2;
+  const c = 2 * Math.PI * r;
+  const pctTarget = Math.min(1, value / max);
+  const inner = ({ localTime } = {}) => {
+    const p = animateStart != null
+      ? Easing.easeOutCubic(clamp(((localTime ?? 0) - animateDelay) / 1.2, 0, 1))
+      : 1;
+    return (
+      <div style={{
+        position: 'relative', width: size, height: size,
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center'
+      }}>
+        <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+          <circle cx={size/2} cy={size/2} r={r} fill="none"
+                  stroke={GRAY100} strokeWidth={stroke}/>
+          <circle cx={size/2} cy={size/2} r={r} fill="none"
+                  stroke={color} strokeWidth={stroke} strokeLinecap="round"
+                  strokeDasharray={c} strokeDashoffset={c * (1 - pctTarget * p)}/>
+        </svg>
+        <div style={{
+          position: 'absolute', textAlign: 'center', fontFamily: FONT
+        }}>
+          <div style={{ fontSize: Math.round(size * 0.18), fontWeight: 500, color: NAVY,
+                         letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>{label}</div>
+          {sub && (
+            <div style={{ fontSize: 11, color: GRAY600, letterSpacing: '0.06em',
+                           textTransform: 'uppercase', marginTop: 4 }}>{sub}</div>
+          )}
+        </div>
+      </div>
+    );
+  };
+  if (animateStart != null) {
+    return <Sprite start={animateStart} end={animateEnd - 0.1}>{inner}</Sprite>;
+  }
+  return inner();
+}
+
+// ─── Subtle hairline grid backdrop ───────────────────────────────────
+function HairlineBackdrop({ color = 'rgba(15,30,55,0.04)' }) {
+  return (
+    <div style={{
+      position: 'absolute', inset: 0,
+      backgroundImage: `linear-gradient(${color} 1px, transparent 1px),
+                        linear-gradient(90deg, ${color} 1px, transparent 1px)`,
+      backgroundSize: '120px 120px',
+      pointerEvents: 'none'
+    }}/>
+  );
+}
+
+// ─── Photo slot — invisible until image is dropped ───────────────────
+// Empty state shows nothing visible. Auto-loads `uploads/<id>.png` if a
+// file with the slot-id name exists; user-dropped images override it.
+function PhotoSlot({ id, src, placeholder = '', style, shape = 'rounded', radius = 8, fit = 'cover', ghost = true }) {
+  const defaultSrc = src !== undefined ? src : (id ? `uploads/${id}.png?v=${IMG_VER}` : undefined);
+  return (
+    <div style={{
+      borderRadius: radius, overflow: 'hidden',
+      ...style
+    }}>
+      <image-slot
+        id={id}
+        shape={shape}
+        radius={String(radius)}
+        fit={fit}
+        placeholder={placeholder}
+        {...(defaultSrc ? { src: defaultSrc } : {})}
+        {...(ghost ? { 'data-ghost': 'true' } : {})}
+        style={{ width: '100%', height: '100%', display: 'block' }}
+      />
+    </div>
+  );
+}
+
+// ─── Pill / chip ─────────────────────────────────────────────────────
+function Chip({ children, color = NAVY, bg = GRAY50, border = GRAY200, mono = false }) {
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center', gap: 6,
+      padding: '6px 12px', borderRadius: 999,
+      background: bg, border: `1px solid ${border}`,
+      fontFamily: mono ? MONO : FONT, fontSize: 12, color,
+      fontWeight: 500, letterSpacing: mono ? '0.04em' : '-0.005em',
+      whiteSpace: 'nowrap'
+    }}>{children}</span>
+  );
+}
+
+Object.assign(window, {
+  NAVY, NAVY_DEEP, NAVY_SOFT, GOLD, GOLD_LITE, GOLD_PALE,
+  PAPER, CREAM, GRAY50, GRAY100, GRAY200, GRAY300, GRAY400, GRAY600, GRAY800, INK,
+  FONT, SERIF, MONO, BRAND, STAGE_W, STAGE_H, clamp,
+  Reveal, Eyebrow, LotusMark, BrandLockup, SlideHeader, SlideFooter, SectionHeading,
+  StatBlock, BarChart, GrowingBarChart, HorizontalBars, LineChart, Sparkline,
+  Donut, HairlineBackdrop, PhotoSlot, Chip,
+  RoundPhoto, CategoryLabel
+});
+</script>
+<script type="text/babel">
+// scenes-a.jsx — Slides 1–5 (Cover, About, Highlights, Gold prospectus, LAP prospectus)
+// IMG_VER comes from scenes-core.jsx — bump it there to bust photo caches deck-wide.
+
+const D_ = () => window.INVESTOR_DATA;
+
+// ─── Slide 1 — Cover (asymmetric photo mosaic + brand block) ──────────
+function SceneCover({ start, end }) {
+  const D = D_();
+
+  const COVER_PHOTOS = [
+    { id: 'cover-hero',          col: '1 / 3', row: '1 / 3' },
+    { id: 'cover-shopkeeper',    col: '3 / 4', row: '1 / 2' },
+    { id: 'cover-family',        col: '4 / 5', row: '1 / 2' },
+    { id: 'cover-driver',        col: '3 / 5', row: '2 / 3' },
+    { id: 'cover-professional',  col: '1 / 3', row: '3 / 4' },
+    { id: 'cover-branch',        col: '3 / 5', row: '3 / 4' }
+  ];
+
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 230, width: 720 }}>
+          <Reveal start={start} end={end} delay={0.2} dur={0.9} y={20}>
+            <BrandLockup height={240}/>
+          </Reveal>
+
+          <Reveal start={start} end={end} delay={0.7}>
+            <div style={{ width: 88, height: 2, background: GOLD, marginTop: 40 }}/>
+          </Reveal>
+
+          <Reveal start={start} end={end} delay={0.85} dur={0.7} y={14}>
+            <div style={{
+              fontFamily: FONT, fontWeight: 500, fontSize: 44,
+              color: NAVY, letterSpacing: '-0.025em', lineHeight: 1.1,
+              marginTop: 28
+            }}>
+              Investor Presentation
+            </div>
+          </Reveal>
+
+          <Reveal start={start} end={end} delay={1.0}>
+            <div style={{
+              fontFamily: MONO, fontSize: 14, color: GOLD,
+              letterSpacing: '0.16em', textTransform: 'uppercase',
+              fontWeight: 500, marginTop: 12
+            }}>
+              {new Date().getFullYear()} · Pan-India
+            </div>
+          </Reveal>
+
+          <Reveal start={start} end={end} delay={1.2} y={14}>
+            <div style={{
+              fontFamily: FONT, fontSize: 18, color: GRAY600,
+              marginTop: 32, lineHeight: 1.55, maxWidth: 660,
+              letterSpacing: '-0.005em'
+            }}>{D.brand.tagline}</div>
+          </Reveal>
+        </div>
+
+        <Reveal start={start} end={end} delay={0.5} dur={1.1} y={20}>
+          <div style={{
+            position: 'absolute', right: 100, top: 200,
+            width: 940, height: 640,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateRows: 'repeat(3, 1fr)',
+            gap: 12
+          }}>
+            {COVER_PHOTOS.map(p => (
+              <PhotoSlot
+                key={p.id}
+                id={p.id}
+                placeholder=""
+                radius={14}
+                style={{
+                  gridColumn: p.col,
+                  gridRow: p.row,
+                  width: 'auto', height: 'auto'
+                }}
+              />
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal start={start} end={end} delay={1.4} dur={1.0} y={0}>
+          <div style={{
+            position: 'absolute', left: 100, bottom: 120, right: 100,
+            display: 'flex', justifyContent: 'space-between',
+            paddingTop: 24, borderTop: `1px solid ${GRAY200}`,
+            fontFamily: MONO, fontSize: 14, color: GRAY600,
+            letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600
+          }}>
+            <span>RBI-licensed NBFC · BFSI · Pan-India</span>
+            <span>Licensed in {D.brand.establishedYear}</span>
+            <span>{D.brand.yearsOperating} years lending</span>
+            <span>{D.brand.website}</span>
+          </div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
+// ─── Slide 2 — Products we offer (Loans + Wealth, categorised) ───────
+function SceneAbout({ start, end }) {
+  const D = D_();
+  const loans  = D.productCategories.loans;
+  const wealth = D.productCategories.wealth;
+
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        {/* Title block: top 110 → ends ~270 */}
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="02 · Products we offer"
+            title="Multi-product NBFC — the trusted financial partner for Tamil Nadu's families, entrepreneurs and wealth-builders."
+            fontSize={72}
+            subSize={22}
+          />
+        </div>
+
+        {/* LOANS — top 310 → ends ~620 (4-col now) */}
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 310 }}>
+          <Reveal start={start} end={end} delay={0.7}>
+            <CategoryLabel>Loans · we lend</CategoryLabel>
+          </Reveal>
+          <div style={{
+            marginTop: 18,
+            display: 'grid', gridTemplateColumns: `repeat(${loans.length}, 1fr)`, gap: 18
+          }}>
+            {loans.map((it, i) => (
+              <Reveal key={it.key} start={start} end={end} delay={0.9 + i * 0.1} y={14}>
+                <ProductCardTop item={it} category="lending"/>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* WEALTH — top 660 → ends ~960 (photo-left layout, fits people-photos better) */}
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 660 }}>
+          <Reveal start={start} end={end} delay={1.3}>
+            <CategoryLabel>Wealth · we safeguard and grow</CategoryLabel>
+          </Reveal>
+          <div style={{
+            marginTop: 18,
+            display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 22
+          }}>
+            {wealth.map((it, i) => (
+              <Reveal key={it.key} start={start} end={end} delay={1.5 + i * 0.1} y={14}>
+                <ProductCardSide item={it}/>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+// Loans card — photo on top.
+// Direct <img> instead of PhotoSlot so we can control object-position
+// and bias the crop toward the top (where faces sit) — otherwise cover-crop
+// at 3:1 aspect slices the head off the people in horizontal photos.
+function ProductCardTop({ item, category = 'lending' }) {
+  const isWealth = category === 'wealth';
+  return (
+    <div style={{
+      background: PAPER,
+      border: `1px solid ${GRAY200}`,
+      borderRadius: 12, overflow: 'hidden',
+      display: 'flex', flexDirection: 'column',
+      height: 290
+    }}>
+      <div style={{ width: '100%', height: 160, flexShrink: 0, background: GRAY100, overflow: 'hidden' }}>
+        <img src={`uploads/${item.slot}.png?v=${IMG_VER}`} alt={item.label}
+             onError={(e) => { e.target.style.display = 'none'; }}
+             style={{
+               width: '100%', height: '100%',
+               objectFit: 'cover',
+               objectPosition: item.imgPos || 'center 28%',
+               transform: item.imgZoom ? `scale(${item.imgZoom})` : 'none',
+               transformOrigin: item.imgZoomOrigin || 'center 30%',
+               display: 'block'
+             }}/>
+      </div>
+      <div style={{ padding: '14px 18px 16px', fontFamily: FONT, flex: 1,
+                     display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{
+            width: 6, height: 6, borderRadius: 999,
+            background: isWealth ? NAVY : GOLD
+          }}/>
+          <span style={{
+            fontFamily: MONO, fontSize: 10, color: GRAY600,
+            letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+          }}>{isWealth ? 'Wealth' : 'Lending'}</span>
+        </div>
+        <div style={{
+          fontSize: 18, fontWeight: 600, color: NAVY,
+          letterSpacing: '-0.005em', lineHeight: 1.2
+        }}>{item.label}</div>
+        <div style={{
+          fontSize: 13, color: GRAY600, lineHeight: 1.45
+        }}>{item.caption}</div>
+      </div>
+    </div>
+  );
+}
+
+// Wealth card — photo on left (300×250 ≈ 1.2:1, near-square — no decapitation risk)
+function ProductCardSide({ item }) {
+  return (
+    <div style={{
+      background: PAPER,
+      border: `1px solid ${GRAY200}`,
+      borderRadius: 12, overflow: 'hidden',
+      display: 'grid', gridTemplateColumns: '300px 1fr',
+      height: 250
+    }}>
+      <div style={{ width: '100%', height: '100%', background: GRAY100 }}>
+        <img src={`uploads/${item.slot}.png?v=${IMG_VER}`} alt={item.label}
+             onError={(e) => { e.target.style.display = 'none'; }}
+             style={{
+               width: '100%', height: '100%',
+               objectFit: 'cover',
+               objectPosition: 'center 35%',
+               display: 'block'
+             }}/>
+      </div>
+      <div style={{ padding: '24px 28px', fontFamily: FONT,
+                     display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{
+            width: 6, height: 6, borderRadius: 999, background: NAVY
+          }}/>
+          <span style={{
+            fontFamily: MONO, fontSize: 10, color: GRAY600,
+            letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+          }}>Wealth</span>
+        </div>
+        <div style={{
+          fontSize: 24, fontWeight: 600, color: NAVY,
+          letterSpacing: '-0.005em', lineHeight: 1.25
+        }}>{item.label}</div>
+        <div style={{
+          fontSize: 15, color: GRAY600, lineHeight: 1.55
+        }}>{item.caption}</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Slide 3 — Annual highlights (KPI dashboard + product mix) ──────
+function SceneHighlights({ start, end }) {
+  const D = D_();
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="03 · Annual highlights"
+            title="A book that has tripled in three years — anchored by gold, levered by LAP."
+            fontSize={80}
+            subSize={26}
+          />
+        </div>
+
+        {/* Hero AUM number — left half */}
+        <Reveal start={start} end={end} delay={0.9} y={14}>
+          <div style={{ position: 'absolute', left: 100, top: 410, width: 720 }}>
+            <Eyebrow>Total AUM · FY26</Eyebrow>
+            <div style={{
+              fontFamily: FONT, fontSize: 196, fontWeight: 500,
+              color: NAVY, letterSpacing: '-0.04em', lineHeight: 0.95,
+              marginTop: 12, fontVariantNumeric: 'tabular-nums'
+            }}>
+              ₹{D.highlights.aumCr}
+              <span style={{ fontSize: 64, color: GRAY600, marginLeft: 14, letterSpacing: '-0.01em' }}>Cr</span>
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 22, color: GOLD,
+              marginTop: 22, fontWeight: 500
+            }}>↑ {D.highlights.growthPct}% YoY · 5-year compounded book</div>
+          </div>
+        </Reveal>
+
+        {/* Product mix — right half */}
+        <Reveal start={start} end={end} delay={1.2} y={16}>
+          <div style={{ position: 'absolute', right: 100, top: 410, width: 720 }}>
+            <Eyebrow>Product mix · % of book</Eyebrow>
+            <div style={{ marginTop: 22 }}>
+              <ProductMixBar data={D.highlights.productMix}
+                             start={start} end={end} delay={1.4}/>
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 16, color: GRAY600,
+              marginTop: 26, lineHeight: 1.55, maxWidth: 620
+            }}>
+              Gold loans anchor the book. LAP is the fastest-compounding line.
+              Unsecured kept disciplined — credit that rewards a verified repayment track record.
+            </div>
+          </div>
+        </Reveal>
+
+        {/* KPI tile row */}
+        <Reveal start={start} end={end} delay={1.6}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, bottom: 110,
+            display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+            paddingTop: 26, borderTop: `1px solid ${GRAY200}`
+          }}>
+            <FactCell label="Branches"         value={D.highlights.branches}/>
+            <FactCell label="Customers"        value={D.highlights.customers}/>
+            <FactCell label="Capital adequacy" value={`${D.highlights.carPct}%`}/>
+            <FactCell label="YoY growth"       value={`${D.highlights.growthPct}%`}/>
+          </div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
+function FactCell({ label, value }) {
+  return (
+    <div>
+      <div style={{
+        fontSize: 13, color: GRAY600, letterSpacing: '0.14em',
+        textTransform: 'uppercase', fontWeight: 600
+      }}>{label}</div>
+      <div style={{
+        fontSize: 38, fontWeight: 500, color: NAVY,
+        marginTop: 10, letterSpacing: '-0.02em', fontFamily: FONT,
+        fontVariantNumeric: 'tabular-nums'
+      }}>{value}</div>
+    </div>
+  );
+}
+
+// ─── Product mix segmented horizontal bar ────────────────────────────
+function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 56 }) {
+  const PALETTE = [GOLD, NAVY, GRAY400];
+  return (
+    <Sprite start={start} end={end - 0.1}>
+      {({ localTime }) => {
+        const p = Easing.easeOutCubic(clamp((localTime - delay) / growDur, 0, 1));
+        const total = data.reduce((s, d) => s + d.value, 0) || 1;
+        return (
+          <div style={{ fontFamily: FONT }}>
+            <div style={{
+              width: '100%', height, borderRadius: 8, overflow: 'hidden',
+              display: 'flex', background: GRAY100
+            }}>
+              {data.map((d, i) => {
+                const widthPct = (d.value / total) * 100 * p;
+                return (
+                  <div key={d.label} style={{
+                    width: `${widthPct}%`, height: '100%',
+                    background: PALETTE[i % PALETTE.length],
+                    transition: 'width 200ms ease-out',
+                    display: 'flex', alignItems: 'center', justifyContent: 'flex-start',
+                    paddingLeft: 14, color: i === 0 ? NAVY_DEEP : '#fff',
+                    fontWeight: 600, fontSize: 18, letterSpacing: '-0.01em',
+                    fontVariantNumeric: 'tabular-nums', overflow: 'hidden', whiteSpace: 'nowrap'
+                  }}>{p > 0.6 ? `${d.value}%` : ''}</div>
+                );
+              })}
+            </div>
+            <div style={{
+              marginTop: 16,
+              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16
+            }}>
+              {data.map((d, i) => (
+                <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: 10, opacity: p }}>
+                  <span style={{
+                    width: 12, height: 12, borderRadius: 3,
+                    background: PALETTE[i % PALETTE.length], flexShrink: 0
+                  }}/>
+                  <span style={{
+                    fontSize: 14, color: GRAY600, letterSpacing: '-0.005em', lineHeight: 1.3
+                  }}>{d.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      }}
+    </Sprite>
+  );
+}
+
+// ─── Slide 4 — Gold loans · prospectus ───────────────────────────────
+function SceneGold({ start, end }) {
+  const D = D_();
+  const G = D.goldProspectus;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="04 · Gold loans"
+            title="Anchor of the book — secured, granular, recurring. And the macro is on our side."
+            fontSize={80}
+            subSize={26}
+          />
+        </div>
+
+        {/* Macro callout — top left */}
+        <Reveal start={start} end={end} delay={0.8} y={14}>
+          <div style={{ position: 'absolute', left: 100, top: 410, width: 580 }}>
+            <Eyebrow>Macro tailwind</Eyebrow>
+            <div style={{
+              fontFamily: FONT, fontWeight: 500, fontSize: 56,
+              color: NAVY, letterSpacing: '-0.025em', lineHeight: 1.05, marginTop: 14
+            }}>
+              Gold could reach <span style={{ color: GOLD }}>$10,000/oz</span> by 2030.
+            </div>
+            <div style={{
+              fontFamily: MONO, fontSize: 13, color: GRAY600,
+              marginTop: 14, letterSpacing: '0.04em'
+            }}>{G.macroCite}</div>
+
+            <div style={{
+              fontFamily: FONT, fontSize: 17, color: GRAY800,
+              marginTop: 28, lineHeight: 1.6
+            }}>{G.marketStat}</div>
+          </div>
+        </Reveal>
+
+        {/* 10-year gold-price chart — right column. As gold rises, our book rises. */}
+        <Reveal start={start} end={end} delay={1.0} y={16}>
+          <div style={{ position: 'absolute', right: 100, top: 410, width: 1080 }}>
+            <Eyebrow>{G.axisLabel || 'Gold price · USD per troy ounce — 5 historical + 5 projected'}</Eyebrow>
+            <div style={{ marginTop: 22 }}>
+              <ProjectionChart
+                historical={G.historical}
+                projected={G.future}
+                start={start} end={end} delay={1.2}
+                height={360}
+                valuePrefix={G.valuePrefix || '$'}
+              />
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 14, color: GRAY600, fontStyle: 'italic',
+              marginTop: 16, lineHeight: 1.5
+            }}>
+              As gold rises, our gold-loan book rises with it — same gram of gold, bigger loan ticket, recurring yield.
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
+// ─── Slide 5 — LAP · prospectus ──────────────────────────────────────
+function SceneLAP({ start, end }) {
+  const D = D_();
+  const L = D.lapProspectus;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="05 · Loan against property"
+            title="Largest growth lever — turning small properties into working capital for India's self-employed."
+            fontSize={72}
+            subSize={26}
+          />
+        </div>
+
+        <Reveal start={start} end={end} delay={0.8} y={14}>
+          <div style={{ position: 'absolute', left: 100, top: 430, width: 580 }}>
+            <Eyebrow>Macro tailwind</Eyebrow>
+            <div style={{
+              fontFamily: FONT, fontWeight: 500, fontSize: 48,
+              color: NAVY, letterSpacing: '-0.025em', lineHeight: 1.05, marginTop: 14
+            }}>
+              ₹76 lakh crore (FY24) → <span style={{ color: GOLD }}>₹160 lakh crore by 2030</span>.
+            </div>
+            <div style={{
+              fontFamily: MONO, fontSize: 13, color: GRAY600,
+              marginTop: 14, letterSpacing: '0.04em'
+            }}>{L.macroCite}</div>
+
+            <div style={{
+              fontFamily: FONT, fontSize: 17, color: GRAY800,
+              marginTop: 28, lineHeight: 1.6
+            }}>{L.marketStat}</div>
+          </div>
+        </Reveal>
+
+        <Reveal start={start} end={end} delay={1.0} y={16}>
+          <div style={{ position: 'absolute', right: 100, top: 430, width: 1080 }}>
+            <Eyebrow>{L.axisLabel || 'India LAP market · ₹ lakh crore — 5 historical + 5 projected'}</Eyebrow>
+            <div style={{ marginTop: 22 }}>
+              <ProjectionChart
+                historical={L.historical}
+                projected={L.future}
+                start={start} end={end} delay={1.2}
+                height={400}
+                valuePrefix={L.valuePrefix || '₹'}
+              />
+            </div>
+            <div style={{
+              fontFamily: FONT, fontSize: 14, color: GRAY600, fontStyle: 'italic',
+              marginTop: 16, lineHeight: 1.5
+            }}>
+              Your money grows where ours does — inside a market doubling to ₹160 lakh crore by 2030.
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
+// ─── Combined historical + projected bar chart with 'now' divider ────
+function ProjectionChart({ historical, projected, start, end, delay = 0.4, growDur = 1.4, height = 360, valuePrefix = '₹' }) {
+  const all = [...historical, ...projected];
+  const max = Math.max(...all.map(d => d.value)) || 1;
+  const fmt = v => `${valuePrefix}${v.toLocaleString()}`;
+  return (
+    <Sprite start={start} end={end - 0.1}>
+      {({ localTime }) => {
+        const labelArea = 36;
+        return (
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: `repeat(${all.length}, 1fr)`,
+            gap: 12, height: height + labelArea + 24, alignItems: 'end',
+            fontFamily: FONT, position: 'relative'
+          }}>
+            {all.map((d, i) => {
+              const stagger = i * 0.06;
+              const localP = Easing.easeOutCubic(clamp((localTime - delay - stagger) / growDur, 0, 1));
+              const isProjected = i >= historical.length;
+              const h = (d.value / max) * height * localP;
+              const fill = isProjected ? GOLD : NAVY;
+              return (
+                <div key={i} style={{
+                  display: 'flex', flexDirection: 'column',
+                  alignItems: 'center', gap: 8,
+                  position: 'relative'
+                }}>
+                  <div style={{
+                    fontFamily: MONO, fontSize: 12, color: isProjected ? GOLD : NAVY,
+                    fontVariantNumeric: 'tabular-nums', fontWeight: 600,
+                    opacity: localP
+                  }}>{fmt(d.value)}</div>
+                  <div style={{
+                    width: '100%', height: h, background: fill,
+                    borderRadius: '4px 4px 0 0',
+                    opacity: isProjected ? 0.85 : 1,
+                    backgroundImage: isProjected
+                      ? `repeating-linear-gradient(45deg, transparent 0 6px, rgba(255,255,255,0.18) 6px 12px)`
+                      : 'none'
+                  }}/>
+                  <div style={{
+                    fontSize: 12, color: GRAY600, letterSpacing: '0.04em',
+                    textTransform: 'uppercase', textAlign: 'center',
+                    opacity: localP, fontWeight: isProjected ? 600 : 400
+                  }}>{d.year}</div>
+                </div>
+              );
+            })}
+
+            {/* Vertical 'NOW' divider */}
+            <div style={{
+              position: 'absolute',
+              left: `calc(${(historical.length / all.length) * 100}% - 1px)`,
+              top: 24, bottom: labelArea,
+              width: 1,
+              borderLeft: `1.5px dashed ${GRAY400}`,
+              pointerEvents: 'none'
+            }}>
+              <div style={{
+                position: 'absolute', top: -22, left: -28,
+                fontFamily: MONO, fontSize: 10, color: GRAY600,
+                letterSpacing: '0.18em', fontWeight: 700,
+                background: PAPER, padding: '2px 6px'
+              }}>· NOW ·</div>
+            </div>
+          </div>
+        );
+      }}
+    </Sprite>
+  );
+}
+
+Object.assign(window, {
+  SceneCover, SceneAbout, SceneHighlights, SceneGold, SceneLAP,
+  ProductCardTop, ProductCardSide, FactCell, ProductMixBar, ProjectionChart
+});
+</script>
+<script type="text/babel">
+// scenes-b.jsx — Slides 6–14 (Lockers, Competitors, FoundingTeam, Directors,
+//                              Team, AceInvestors, Growth, WhyPartner, Contact)
+
+const D_b = () => window.INVESTOR_DATA;
+
+// ─── Slide 6 — Private lockers (high-tech features) ──────────────────
+function SceneLockers({ start, end }) {
+  const D = D_b();
+  const L = D.lockersDetail;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: CREAM }}>
+        <HairlineBackdrop color="rgba(15,30,55,0.05)"/>
+
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="06 · Private lockers"
+            title={L.headline}
+            fontSize={80}
+            subSize={26}
+          />
+        </div>
+
+        <Reveal start={start} end={end} delay={0.7}>
+          <div style={{
+            position: 'absolute', left: 100, top: 380, width: 1100,
+            fontFamily: SERIF, fontStyle: 'italic',
+            fontSize: 30, color: NAVY, lineHeight: 1.4, letterSpacing: '-0.005em'
+          }}>
+            <span style={{
+              color: GOLD, fontSize: 60, lineHeight: 0.4,
+              position: 'relative', top: 10, marginRight: 4
+            }}>“</span>
+            {L.intro}
+            <span style={{
+              color: GOLD, fontSize: 60, lineHeight: 0.4,
+              position: 'relative', top: 10, marginLeft: 4
+            }}>”</span>
+          </div>
+        </Reveal>
+
+        {/* 6 feature cards — 3×2 grid */}
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 540,
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 22
+        }}>
+          {L.features.map((f, i) => (
+            <Reveal key={i} start={start} end={end} delay={1.0 + i * 0.1} y={14}>
+              <LockerFeatureCard num={i + 1} feature={f}/>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+function LockerFeatureCard({ num, feature }) {
+  return (
+    <div style={{
+      background: PAPER, border: `1px solid ${GRAY200}`,
+      borderRadius: 12, padding: '24px 26px',
+      fontFamily: FONT, minHeight: 175,
+      display: 'flex', flexDirection: 'column', gap: 10
+    }}>
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between'
+      }}>
+        <span style={{
+          fontFamily: MONO, fontSize: 12, color: GOLD,
+          letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
+        }}>{String(num).padStart(2, '0')}</span>
+        <span style={{
+          width: 24, height: 24, borderRadius: 999,
+          background: GOLD_PALE, display: 'inline-flex',
+          alignItems: 'center', justifyContent: 'center',
+          fontSize: 12, color: NAVY_DEEP
+        }}>✓</span>
+      </div>
+      <div style={{
+        fontSize: 22, fontWeight: 600, color: NAVY,
+        letterSpacing: '-0.01em', lineHeight: 1.25
+      }}>{feature.title}</div>
+      <div style={{
+        fontSize: 15, color: GRAY600, lineHeight: 1.5
+      }}>{feature.body}</div>
+    </div>
+  );
+}
+
+// ─── Slide 7 — Where we compete (4 vertical product cards) ──────────
+function SceneCompetitors({ start, end }) {
+  const D = D_b();
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="07 · Where we compete"
+            title="Each peer is a single-product specialist. We bring the full stack — lending and wealth — to one customer, under one roof."
+            fontSize={64}
+            subSize={22}
+          />
+        </div>
+
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 320,
+          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18,
+          height: 620
+        }}>
+          {D.competitors.map((row, i) => (
+            <Reveal key={row.product} start={start} end={end} delay={0.8 + i * 0.12} y={14}>
+              <CompetitorColumn row={row}/>
+            </Reveal>
+          ))}
+        </div>
+
+      </div>
+    </Sprite>
+  );
+}
+
+function CompetitorColumn({ row }) {
+  return (
+    <div style={{
+      background: PAPER, border: `1px solid ${GRAY200}`,
+      borderRadius: 14, overflow: 'hidden',
+      display: 'flex', flexDirection: 'column',
+      fontFamily: FONT, height: '100%'
+    }}>
+      {/* Header — product name */}
+      <div style={{ padding: '24px 24px 18px' }}>
+        <div style={{
+          fontFamily: MONO, fontSize: 10, color: GRAY600,
+          letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700
+        }}>Product</div>
+        <div style={{
+          fontSize: 24, fontWeight: 700, color: NAVY,
+          letterSpacing: '-0.01em', lineHeight: 1.2, marginTop: 8
+        }}>{row.product}</div>
+        <div style={{
+          width: 36, height: 2, background: GOLD, marginTop: 12
+        }}/>
+      </div>
+
+      {/* Peers — fills middle */}
+      <div style={{ padding: '4px 24px 22px', flex: 1,
+                     display: 'flex', flexDirection: 'column' }}>
+        <div style={{
+          fontFamily: MONO, fontSize: 10, color: GRAY600,
+          letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700,
+          marginBottom: 12
+        }}>Specialists</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {row.peers.map(p => (
+            <div key={p.name} style={{
+              padding: '12px 14px',
+              background: GRAY50, border: `1px solid ${GRAY200}`, borderRadius: 8,
+              lineHeight: 1.3
+            }}>
+              <div style={{ fontSize: 15, fontWeight: 600, color: NAVY,
+                             letterSpacing: '-0.005em' }}>{p.name}</div>
+              <div style={{ fontSize: 12, color: GRAY600, marginTop: 3 }}>{p.focus}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Dhanam — gold-tinted footer of card. Fixed height so the top edge
+          of the gold band lines up across all four columns regardless of
+          copy length. */}
+      <div style={{
+        background: GOLD_PALE,
+        borderTop: `2px solid ${GOLD}`,
+        padding: '20px 24px 24px',
+        display: 'flex', flexDirection: 'column', gap: 8,
+        height: 180, flexShrink: 0
+      }}>
+        <div style={{
+          fontFamily: MONO, fontSize: 11, color: NAVY_DEEP,
+          letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 800
+        }}>Dhanam ✓</div>
+        <div style={{
+          fontSize: 17, fontWeight: 700, color: NAVY,
+          letterSpacing: '-0.005em', lineHeight: 1.3
+        }}>{row.us.headline}</div>
+        <div style={{
+          fontSize: 13, color: GRAY800, lineHeight: 1.5
+        }}>{row.us.sub}</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Slide 8 — Promoters & Directors I (first 4, zigzag round photos) ─
+function SceneFoundingTeam({ start, end }) {
+  const D = D_b();
+  const directors = D.directors.filter(d => d.show).slice(0, 5);
+  return <DirectorsZigzagSlide start={start} end={end} directors={directors}
+                                eyebrow="08 · Promoters & Directors"
+                                title="Promoters and operating Directors — chartered accountancy, finance, technology and governance, all under one roof."/>;
+}
+
+// ─── Slide 9 — Promoters & Directors II (next 4, same zigzag format) ─
+function SceneDirectors({ start, end }) {
+  const D = D_b();
+  const directors = D.directors.filter(d => d.show).slice(5, 10);
+  return <DirectorsZigzagSlide start={start} end={end} directors={directors}
+                                eyebrow="09 · Promoters & Directors"
+                                title="The operating board — branch network, administration, growth, business development and capital markets."/>;
+}
+
+function DirectorsZigzagSlide({ start, end, directors, eyebrow, title }) {
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow={eyebrow}
+            title={title}
+            fontSize={64}
+            subSize={22}
+          />
+        </div>
+
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 320,
+          display: 'grid', gridTemplateColumns: `repeat(${directors.length}, 1fr)`,
+          gap: 30, alignItems: 'start'
+        }}>
+          {directors.map((d, i) => (
+            <Reveal key={d.name} start={start} end={end} delay={0.9 + i * 0.15} y={20}>
+              <FounderColumn d={d} offset={i % 2 === 0 ? 'up' : 'down'} photoSize={directors.length >= 5 ? 160 : 200}/>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+function FounderColumn({ d, offset = 'up', photoSize = 200 }) {
+  const isUp = offset === 'up';
+  return (
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'center',
+      paddingTop: isUp ? 0 : 70,
+      fontFamily: FONT
+    }}>
+      <RoundPhoto id={d.slot} size={photoSize}/>
+      <div style={{
+        fontSize: 22, fontWeight: 600, color: NAVY,
+        letterSpacing: '-0.01em', marginTop: 22, textAlign: 'center', lineHeight: 1.2
+      }}>{d.name}</div>
+      <div style={{
+        fontSize: 11, color: GOLD, marginTop: 8,
+        letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700,
+        textAlign: 'center'
+      }}>{d.role}</div>
+      {d.qualification && (
+        <div style={{
+          fontSize: 12, color: GRAY600, marginTop: 6,
+          fontFamily: MONO, letterSpacing: '0.04em', textAlign: 'center'
+        }}>{d.qualification}</div>
+      )}
+      <div style={{
+        fontSize: 14, color: GRAY800, lineHeight: 1.6,
+        marginTop: 20, textAlign: 'left'
+      }}>{d.bio}</div>
+    </div>
+  );
+}
+
+// ─── Slide 10 — Management team ──────────────────────────────────────
+function SceneTeam({ start, end }) {
+  const D = D_b();
+  const visible = D.team.filter(t => t.show);
+  // ≤4 people → single row; 5-9 → 3-col grid (fills rows of 3 cleanly)
+  const cols = visible.length <= 4 ? visible.length : 3;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="10 · Management team"
+            title="The core team driving Dhanam's day-to-day across technology, finance, branch network, credit, compliance and growth."
+            fontSize={72}
+            subSize={22}
+          />
+        </div>
+
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 360,
+          display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`,
+          gap: '28px 32px'
+        }}>
+          {visible.map((t, i) => (
+            <Reveal key={t.name} start={start} end={end} delay={0.7 + i * 0.08} y={10}>
+              <TeamCard t={t}/>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+function TeamCard({ t }) {
+  return (
+    <div style={{
+      fontFamily: FONT, textAlign: 'center',
+      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10
+    }}>
+      <RoundPhoto id={t.slot} size={140} objPos={t.imgPos || 'center 18%'} zoom={t.imgZoom || 1}/>
+      <div>
+        <div style={{
+          fontSize: 16, fontWeight: 700, color: NAVY,
+          letterSpacing: '-0.005em', lineHeight: 1.25
+        }}>{t.name}</div>
+        {t.role && (
+          <div style={{
+            fontSize: 10, color: GOLD,
+            letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700,
+            lineHeight: 1.3, marginTop: 5
+          }}>{t.role}</div>
+        )}
+        <div style={{
+          fontSize: 11, color: GRAY600,
+          fontFamily: MONO, letterSpacing: '0.04em', marginTop: 3
+        }}>{t.qualification}</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Slide 11 — Ace investors (full grid, spacers pad final row) ─────
+function SceneAceInvestors({ start, end }) {
+  const D = D_b();
+  const ace = D.aceInvestors;
+  const COLS = 4;
+  const COL_GAP = 12;
+  // Pad with nulls so the last row fills out the grid completely → all cards
+  // share the same 1fr column width with zero risk of misalignment.
+  const remainder = ace.length % COLS;
+  const padCount  = remainder > 0 ? COLS - remainder : 0;
+  const padded    = [...ace, ...Array(padCount).fill(null)];
+
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 90, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="11 · Ace investors"
+            title="Senior advisors spanning banking, capital markets, healthcare, real estate, technology, manufacturing, hospitality, jewellery, agriculture and law — combining decades of operating, regulatory and capital-allocation experience."
+            accent={GOLD}
+            fontSize={64}
+            subSize={20}
+          />
+        </div>
+
+        {/* Single uniform grid — spacer divs keep last row left-aligned */}
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 320, bottom: 100,
+          display: 'grid',
+          gridTemplateColumns: `repeat(${COLS}, 1fr)`,
+          gap: COL_GAP,
+          alignContent: 'start'
+        }}>
+          {padded.map((a, i) =>
+            a ? (
+              <Reveal key={i} start={start} end={end}
+                      delay={0.8 + Math.min(i, 30) * 0.025} y={6}>
+                <AceCard name={a.name} tag={a.tag}/>
+              </Reveal>
+            ) : (
+              <div key={i} style={{ visibility: 'hidden' }}/>
+            )
+          )}
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+function AceCard({ name, tag }) {
+  return (
+    <div style={{
+      background: GRAY50,
+      border: `1px solid ${GRAY200}`,
+      borderRadius: 8, padding: '12px 16px',
+      fontFamily: FONT, color: NAVY
+    }}>
+      <div style={{
+        fontSize: 15, fontWeight: 600, letterSpacing: '-0.005em',
+        lineHeight: 1.25
+      }}>{name}</div>
+      <div style={{
+        fontSize: 12, color: GRAY600, fontStyle: 'italic',
+        marginTop: 4, lineHeight: 1.35
+      }}>{tag}</div>
+    </div>
+  );
+}
+
+// ─── Slide 12 — Future growth (5-year projection) ────────────────────
+function SceneGrowth({ start, end }) {
+  const D = D_b();
+  const G = D.growth;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="12 · Future growth"
+            title="Conservative, secured, multi-product. Built for India's next decade of credit — and the macro tailwinds working in our favour."
+            fontSize={80}
+            subSize={26}
+          />
+        </div>
+
+        {/* LEFT — Our 5-year trajectory */}
+        <div style={{ position: 'absolute', left: 100, top: 410, width: 800 }}>
+          <Reveal start={start} end={end} delay={0.7}>
+            <CategoryLabel>Our 5-year trajectory</CategoryLabel>
+          </Reveal>
+          <div style={{ marginTop: 22, display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {G.ourTrajectory.map((row, i) => (
+              <Reveal key={row.label} start={start} end={end} delay={0.95 + i * 0.15}>
+                <TrajectoryRow row={row}/>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT — Macro tailwinds */}
+        <div style={{ position: 'absolute', right: 100, top: 410, width: 880 }}>
+          <Reveal start={start} end={end} delay={1.2}>
+            <CategoryLabel color={NAVY} accent={GOLD}>Macro tailwinds</CategoryLabel>
+          </Reveal>
+          <div style={{
+            marginTop: 22,
+            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14
+          }}>
+            {G.macroPoints.map((m, i) => (
+              <Reveal key={i} start={start} end={end} delay={1.4 + i * 0.12} y={10}>
+                <MacroCard m={m}/>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <Reveal start={start} end={end} delay={2.0}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, bottom: 100,
+            paddingTop: 22, borderTop: `1px solid ${GRAY200}`,
+            fontFamily: FONT, fontSize: 22, fontWeight: 500,
+            color: NAVY, letterSpacing: '-0.01em', textAlign: 'center'
+          }}>
+            Our money grows because <span style={{ color: GOLD }}>India's credit cycle</span> grows.
+          </div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
+function TrajectoryRow({ row }) {
+  return (
+    <div style={{
+      display: 'grid', gridTemplateColumns: '160px 1fr 1fr 80px',
+      alignItems: 'baseline', gap: 18,
+      padding: '18px 0', borderBottom: `1px solid ${GRAY200}`,
+      fontFamily: FONT
+    }}>
+      <div style={{
+        fontSize: 13, color: GRAY600, letterSpacing: '0.16em',
+        textTransform: 'uppercase', fontWeight: 700
+      }}>{row.label}</div>
+      <div>
+        <div style={{ fontSize: 11, color: GRAY400, letterSpacing: '0.12em',
+                       textTransform: 'uppercase', fontWeight: 600 }}>Today</div>
+        <div style={{ fontSize: 28, color: NAVY, fontWeight: 500,
+                       letterSpacing: '-0.015em', marginTop: 4,
+                       fontVariantNumeric: 'tabular-nums' }}>{row.today}</div>
+      </div>
+      <div>
+        <div style={{ fontSize: 11, color: GRAY400, letterSpacing: '0.12em',
+                       textTransform: 'uppercase', fontWeight: 600 }}>Year 5</div>
+        <div style={{ fontSize: 28, color: GOLD, fontWeight: 500,
+                       letterSpacing: '-0.015em', marginTop: 4,
+                       fontVariantNumeric: 'tabular-nums' }}>{row.year5}</div>
+      </div>
+      <div style={{
+        fontSize: 22, fontWeight: 700, color: GOLD,
+        textAlign: 'right', letterSpacing: '-0.01em',
+        fontVariantNumeric: 'tabular-nums'
+      }}>{row.multiple}</div>
+    </div>
+  );
+}
+
+function MacroCard({ m }) {
+  return (
+    <div style={{
+      background: GRAY50, border: `1px solid ${GRAY200}`,
+      borderRadius: 10, padding: '16px 18px',
+      fontFamily: FONT, minHeight: 130
+    }}>
+      <div style={{
+        fontFamily: MONO, fontSize: 11, color: GOLD,
+        letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
+      }}>{m.label}</div>
+      <div style={{
+        fontSize: 18, fontWeight: 600, color: NAVY,
+        marginTop: 10, lineHeight: 1.3, letterSpacing: '-0.005em'
+      }}>{m.stat}</div>
+      <div style={{
+        fontSize: 12, color: GRAY600, marginTop: 8, fontStyle: 'italic',
+        lineHeight: 1.4
+      }}>{m.cite}</div>
+    </div>
+  );
+}
+
+// ─── Slide 13 — Why partner with us (MRF + Fintech) ─────────────────
+function SceneWhyDhanam({ start, end }) {
+  const D = D_b();
+  const P = D.promise;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: `linear-gradient(135deg, ${CREAM} 0%, ${GOLD_PALE} 100%)`
+      }}>
+        <HairlineBackdrop color="rgba(15,30,55,0.04)"/>
+
+        <div style={{ position: 'absolute', left: 100, top: 130, width: 1720 }}>
+          <Reveal start={start} end={end} delay={0.2}>
+            <div style={{
+              fontFamily: FONT, fontWeight: 600, fontSize: 80,
+              color: NAVY, letterSpacing: '-0.03em', lineHeight: 1.0
+            }}>Why partner with us</div>
+          </Reveal>
+        </div>
+
+        {/* Hero promise */}
+        <Reveal start={start} end={end} delay={0.5} dur={0.9} y={20}>
+          <div style={{
+            position: 'absolute', left: 100, top: 270, width: 1500,
+            fontFamily: FONT, fontWeight: 500, fontSize: 64,
+            color: NAVY, letterSpacing: '-0.03em', lineHeight: 1.05
+          }}>
+            Your money will <span style={{
+              fontWeight: 600, color: GOLD, letterSpacing: '-0.02em'
+            }}>grow</span> with us.
+          </div>
+        </Reveal>
+
+        <Reveal start={start} end={end} delay={0.8}>
+          <div style={{
+            position: 'absolute', left: 100, top: 380, width: 1500,
+            fontFamily: FONT, fontSize: 20, color: GRAY800,
+            lineHeight: 1.55, letterSpacing: '-0.005em'
+          }}>{P.subhead}</div>
+        </Reveal>
+
+        {/* Two-panel strip: Wipro precedent (left) + Dhanam opportunity (right) */}
+        <Reveal start={start} end={end} delay={1.0} y={14}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, top: 470,
+            background: NAVY, color: '#fff',
+            borderRadius: 16,
+            display: 'grid', gridTemplateColumns: '1fr 1fr',
+            fontFamily: FONT, overflow: 'hidden'
+          }}>
+            {/* Left panel — Wipro precedent */}
+            <div style={{
+              padding: '36px 44px',
+              display: 'flex', flexDirection: 'column', gap: 14,
+              borderRight: '1px solid rgba(255,255,255,0.14)'
+            }}>
+              <div style={{
+                fontFamily: MONO, fontSize: 11, color: GOLD_LITE,
+                letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+              }}>The Wipro Precedent</div>
+              <div style={{
+                fontFamily: SERIF, fontStyle: 'italic',
+                fontSize: 28, fontWeight: 500, color: GOLD_LITE,
+                letterSpacing: '-0.015em', lineHeight: 1.2
+              }}>{P.wipro.kicker}</div>
+              <div style={{
+                fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
+                letterSpacing: '-0.005em'
+              }}>{P.wipro.detail}</div>
+              <div style={{
+                fontSize: 11, color: 'rgba(255,255,255,0.4)',
+                fontStyle: 'italic', marginTop: 4
+              }}>{P.wipro.cite}</div>
+            </div>
+
+            {/* Right panel — Dhanam opportunity */}
+            <div style={{
+              padding: '36px 44px',
+              display: 'flex', flexDirection: 'column', gap: 14
+            }}>
+              <div style={{
+                fontFamily: MONO, fontSize: 11, color: GOLD_LITE,
+                letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+              }}>Your Dhanam Moment</div>
+              <div style={{
+                fontFamily: SERIF, fontStyle: 'italic',
+                fontSize: 28, fontWeight: 500, color: GOLD_LITE,
+                letterSpacing: '-0.015em', lineHeight: 1.2
+              }}>{P.dhanam.kicker}</div>
+              <div style={{
+                fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
+                letterSpacing: '-0.005em'
+              }}>{P.dhanam.detail}</div>
+              <div style={{
+                fontSize: 13, color: GOLD_LITE, fontWeight: 600, marginTop: 4
+              }}>{P.dhanam.note}</div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* 3 pillars */}
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 780,
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20
+        }}>
+          {P.pillars.map((line, i) => (
+            <Reveal key={i} start={start} end={end} delay={1.4 + i * 0.16}>
+              <PromiseCard index={i + 1} title={line.title} body={line.body}/>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+function PromiseCard({ index, title, body }) {
+  return (
+    <div style={{
+      background: PAPER, border: `1px solid ${GRAY200}`,
+      borderRadius: 14, padding: '24px 26px',
+      fontFamily: FONT, minHeight: 170,
+      display: 'flex', flexDirection: 'column', gap: 12
+    }}>
+      <div style={{
+        fontFamily: MONO, fontSize: 12, color: GOLD,
+        letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+      }}>{String(index).padStart(2, '0')}</div>
+      <div style={{
+        fontSize: 22, color: NAVY, fontWeight: 600,
+        lineHeight: 1.3, letterSpacing: '-0.01em'
+      }}>{title}</div>
+      <div style={{
+        fontSize: 15, color: GRAY800, lineHeight: 1.55
+      }}>{body}</div>
+    </div>
+  );
+}
+
+// ─── Slide 14 — Thank you / Contact ─────────────────────────────────
+function SceneContact({ start, end }) {
+  const D = D_b();
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 280, width: 1100 }}>
+          <Reveal start={start} end={end} delay={0.5} dur={0.9} y={20}>
+            <div style={{
+              fontFamily: FONT, fontWeight: 500, fontSize: 96,
+              color: NAVY, letterSpacing: '-0.035em', lineHeight: 1.05
+            }}>
+              Let's build the next<br/>
+              <span style={{
+                color: GOLD, letterSpacing: '-0.02em', fontWeight: 500
+              }}>Unicorn</span> together.
+            </div>
+          </Reveal>
+          <Reveal start={start} end={end} delay={1.0}>
+            <div style={{
+              fontFamily: FONT, fontSize: 22, color: GRAY600,
+              marginTop: 30, lineHeight: 1.5, maxWidth: 820
+            }}>
+              An opportunity to partner with one of India's most carefully run regional NBFCs —
+              now scaling into a national, multi-product fintech.
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal start={start} end={end} delay={0.7} dur={1.0} y={20}>
+          <PhotoSlot
+            id="closing-photo"
+            placeholder=""
+            style={{ position: 'absolute', right: 100, top: 200,
+                     width: 720, height: 460 }}
+          />
+        </Reveal>
+
+        <Reveal start={start} end={end} delay={1.4} y={14}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, bottom: 44,
+            background: NAVY, color: '#fff', borderRadius: 16,
+            padding: '28px 44px 32px',
+            fontFamily: FONT, pointerEvents: 'auto'
+          }}>
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              marginBottom: 18
+            }}>
+              <div style={{
+                fontSize: 13, color: GOLD_LITE,
+                letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600
+              }}>Talk to us</div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)',
+                             fontFamily: MONO, letterSpacing: '0.08em' }}>
+                {D.brand.hq}
+              </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 60 }}>
+              <ContactRow label="Website"   value={D.brand.website}   href={`https://${D.brand.website}`}/>
+              <ContactRow label="Toll-free" value={D.brand.tollFree}/>
+              <ContactRow label="Instagram" value={D.brand.instagram} href={D.brand.instagramUrl} last/>
+              <ContactRow label="WhatsApp"  value={D.brand.whatsapp} last/>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
+function ContactRow({ label, value, href, last = false }) {
+  const inner = (
+    <>
+      <span style={{
+        fontSize: 13, color: 'rgba(255,255,255,0.6)',
+        letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600
+      }}>{label}</span>
+      <span style={{
+        fontSize: 20, color: '#fff', fontFamily: MONO, letterSpacing: '-0.005em',
+        textDecoration: href ? 'underline' : 'none',
+        textDecorationColor: 'rgba(232,182,90,0.55)', textUnderlineOffset: 4
+      }}>{value}</span>
+    </>
+  );
+  const style = {
+    display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+    padding: '14px 0',
+    borderBottom: last ? 'none' : '1px solid rgba(255,255,255,0.1)',
+    fontFamily: FONT, color: 'inherit'
+  };
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer"
+         style={{ ...style, textDecoration: 'none', cursor: 'pointer' }}>
+        {inner}
+      </a>
+    );
+  }
+  return <div style={style}>{inner}</div>;
+}
+
+Object.assign(window, {
+  SceneLockers, SceneCompetitors, SceneFoundingTeam, SceneDirectors,
+  SceneTeam, SceneAceInvestors, SceneGrowth, SceneWhyDhanam, SceneContact,
+  LockerFeatureCard, CompetitorColumn, FounderColumn,
+  DirectorCardCompact, TeamCard, AceCard,
+  TrajectoryRow, MacroCard, PromiseCard, ContactRow
+});
+</script>
+<script type="text/babel">
+// app.jsx — wires the deck timeline together
+// 13 scenes, durations tuned to content density. Total 159s (~2:39).
+
+const SCENES = [
+  { id: 1,  label: 'Cover',                    start: 0,   end: 5,   Comp: 'SceneCover',         dark: false },
+  { id: 2,  label: 'Products we offer',        start: 5,   end: 15,  Comp: 'SceneAbout',         dark: false },
+  { id: 3,  label: 'Annual highlights',        start: 15,  end: 21,  Comp: 'SceneHighlights',    dark: false },
+  { id: 4,  label: 'Gold loans · prospectus',  start: 21,  end: 37,  Comp: 'SceneGold',          dark: false },
+  { id: 5,  label: 'LAP · prospectus',         start: 37,  end: 53,  Comp: 'SceneLAP',           dark: false },
+  { id: 6,  label: 'Private lockers',          start: 53,  end: 66,  Comp: 'SceneLockers',       dark: false },
+  { id: 7,  label: 'Where we compete',         start: 66,  end: 82,  Comp: 'SceneCompetitors',   dark: false },
+  { id: 8,  label: 'Promoters & Directors',    start: 82,  end: 98,  Comp: 'SceneFoundingTeam',  dark: false },
+  { id: 9,  label: 'Promoters & Directors',    start: 98,  end: 114, Comp: 'SceneDirectors',     dark: false },
+  { id: 10, label: 'Management team',          start: 114, end: 125, Comp: 'SceneTeam',          dark: false },
+  { id: 11, label: 'Ace investors',            start: 125, end: 139, Comp: 'SceneAceInvestors',  dark: true  },
+  { id: 12, label: 'Why partner with us',      start: 139, end: 153, Comp: 'SceneWhyDhanam',     dark: false },
+  { id: 13, label: 'Thank you',                start: 153, end: 159, Comp: 'SceneContact',       dark: false }
+];
+const DURATION = 159;
+
+function ChromeMux() {
+  const t = useTime();
+  const current = SCENES.find(s => t >= s.start && t < s.end) || SCENES[SCENES.length - 1];
+  return (
+    <>
+      <SlideHeader idx={current.id} total={SCENES.length} label={current.label} dark={current.dark}/>
+      <SlideFooter idx={current.id} total={SCENES.length} dark={current.dark}/>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Stage width={STAGE_W} height={STAGE_H} duration={DURATION}
+           background={PAPER} loop={true} autoplay={true}
+           persistKey="dhanam-investor-video-v6">
+      {SCENES.map(s => {
+        const Comp = window[s.Comp];
+        return <Comp key={s.id} start={s.start} end={s.end}/>;
+      })}
+      <ChromeMux/>
+    </Stage>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App/>);
+</script>
+</body></html>
