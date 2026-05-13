@@ -26,9 +26,10 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "products": 5,
     "customers": "50,000+",
     "productMix": [
-      { "label": "Gold loans",            "value": 65 },
-      { "label": "Loan against property", "value": 25 },
-      { "label": "Unsecured / other",     "value": 10 }
+      { "label": "Gold loans",            "value": 60 },
+      { "label": "Loan against property", "value": 22 },
+      { "label": "Private lockers",       "value": 12 },
+      { "label": "Personal loans",        "value": 6 }
     ]
   },
 

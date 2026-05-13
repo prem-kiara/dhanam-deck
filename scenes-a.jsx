@@ -264,49 +264,31 @@ function SceneHighlights({ start, end }) {
       <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
         <HairlineBackdrop/>
 
-        <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="03 · Annual highlights"
-            title="A book that has tripled in three years — anchored by gold, levered by LAP."
-            fontSize={80}
-            subSize={26}
+            eyebrow="03 · Our highlights"
+            title="A book that has tripled in three years — anchored by gold, growing through LAP, secured by private vaults."
+            fontSize={72}
+            subSize={24}
           />
         </div>
 
-        {/* Hero AUM number — left half */}
-        <Reveal start={start} end={end} delay={0.9} y={14}>
-          <div style={{ position: 'absolute', left: 100, top: 410, width: 720 }}>
-            <Eyebrow>Total AUM · FY26</Eyebrow>
-            <div style={{
-              fontFamily: FONT, fontSize: 196, fontWeight: 500,
-              color: NAVY, letterSpacing: '-0.04em', lineHeight: 0.95,
-              marginTop: 12, fontVariantNumeric: 'tabular-nums'
-            }}>
-              ₹{D.highlights.aumCr}
-              <span style={{ fontSize: 64, color: GRAY600, marginLeft: 14, letterSpacing: '-0.01em' }}>Cr</span>
-            </div>
-            <div style={{
-              fontFamily: FONT, fontSize: 22, color: GOLD,
-              marginTop: 22, fontWeight: 500
-            }}>↑ {D.highlights.growthPct}% YoY · 5-year compounded book</div>
-          </div>
-        </Reveal>
-
-        {/* Product mix — right half */}
-        <Reveal start={start} end={end} delay={1.2} y={16}>
-          <div style={{ position: 'absolute', right: 100, top: 410, width: 720 }}>
+        {/* Product mix — full width */}
+        <Reveal start={start} end={end} delay={0.9} y={16}>
+          <div style={{ position: 'absolute', left: 100, right: 100, top: 360 }}>
             <Eyebrow>Product mix · % of book</Eyebrow>
-            <div style={{ marginTop: 22 }}>
+            <div style={{ marginTop: 18 }}>
               <ProductMixBar data={D.highlights.productMix}
-                             start={start} end={end} delay={1.4}/>
+                             start={start} end={end} delay={1.1} height={72}/>
             </div>
             <div style={{
-              fontFamily: FONT, fontSize: 16, color: GRAY600,
-              marginTop: 26, lineHeight: 1.55, maxWidth: 620
+              fontFamily: FONT, fontSize: 17, color: GRAY600,
+              marginTop: 24, lineHeight: 1.6
             }}>
-              Gold loans anchor the book. LAP is the fastest-compounding line.
-              Unsecured kept disciplined — credit that rewards a verified repayment track record.
+              Gold loans anchor the book — secured, granular, recurring. LAP is the fastest-compounding line, backed by real property.
+              Private lockers add fee-based revenue with zero credit risk — a rare, premium asset class in the NBFC space.
+              Personal loans remain disciplined, rewarding only proven borrowers.
             </div>
           </div>
         </Reveal>
@@ -347,7 +329,7 @@ function FactCell({ label, value }) {
 
 // ─── Product mix segmented horizontal bar ────────────────────────────
 function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 56 }) {
-  const PALETTE = [GOLD, NAVY, GRAY400];
+  const PALETTE = [GOLD, NAVY, NAVY_SOFT, GRAY400];
   return (
     <Sprite start={start} end={end - 0.1}>
       {({ localTime }) => {
@@ -367,7 +349,7 @@ function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 
                     background: PALETTE[i % PALETTE.length],
                     transition: 'width 200ms ease-out',
                     display: 'flex', alignItems: 'center', justifyContent: 'flex-start',
-                    paddingLeft: 14, color: i === 0 ? NAVY_DEEP : '#fff',
+                    paddingLeft: 14, color: i === 0 ? NAVY_DEEP : i === 3 ? NAVY : '#fff',
                     fontWeight: 600, fontSize: 18, letterSpacing: '-0.01em',
                     fontVariantNumeric: 'tabular-nums', overflow: 'hidden', whiteSpace: 'nowrap'
                   }}>{p > 0.6 ? `${d.value}%` : ''}</div>
@@ -376,7 +358,7 @@ function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 
             </div>
             <div style={{
               marginTop: 16,
-              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16
+              display: 'grid', gridTemplateColumns: `repeat(${data.length}, 1fr)`, gap: 16
             }}>
               {data.map((d, i) => (
                 <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: 10, opacity: p }}>
