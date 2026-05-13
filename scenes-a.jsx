@@ -287,23 +287,50 @@ function SceneHighlights({ start, end }) {
               marginTop: 24, lineHeight: 1.6
             }}>
               Gold loans anchor the book — secured, granular, recurring. LAP is the fastest-compounding line, backed by real property.
-              Private lockers add fee-based revenue with zero credit risk — a rare, premium asset class in the NBFC space.
-              Personal loans remain disciplined, rewarding only proven borrowers.
+              Private lockers bring fee-based income with zero credit risk. Personal loans remain disciplined, rewarding only proven borrowers.
             </div>
           </div>
         </Reveal>
 
+        {/* Product highlight cards */}
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 610,
+          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18
+        }}>
+          {[
+            { label: 'Gold loans',     color: GOLD,      stat: '22%',     statLabel: 'Gross yield', detail: '30-min disbursal · highest LTV · fully secured collateral' },
+            { label: 'Loan against property', color: NAVY, stat: '17%',  statLabel: 'Gross yield', detail: '3–4 day disbursal · property-backed · self-employed friendly' },
+            { label: 'Private lockers', color: NAVY_SOFT, stat: '100%',   statLabel: 'Asset secured', detail: 'Recurring fee income · security deposits · zero credit risk · large-format premium vaults' },
+            { label: 'Personal loans',  color: GRAY400,   stat: '↑38%',  statLabel: 'YoY growth',  detail: 'Fast & flexible · rewarding proven repayment track records' }
+          ].map((card, i) => (
+            <Reveal key={card.label} start={start} end={end} delay={1.3 + i * 0.1} y={12}>
+              <div style={{
+                background: GRAY50, border: `1px solid ${GRAY200}`,
+                borderRadius: 12, padding: '20px 22px',
+                fontFamily: FONT, borderTop: `3px solid ${card.color}`
+              }}>
+                <div style={{ fontSize: 11, color: GRAY600, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700 }}>{card.label}</div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginTop: 10 }}>
+                  <span style={{ fontSize: 36, fontWeight: 500, color: card.color, letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>{card.stat}</span>
+                  <span style={{ fontSize: 12, color: GRAY600, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{card.statLabel}</span>
+                </div>
+                <div style={{ fontSize: 13, color: GRAY800, lineHeight: 1.5, marginTop: 10 }}>{card.detail}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
         {/* KPI tile row */}
         <Reveal start={start} end={end} delay={1.6}>
           <div style={{
-            position: 'absolute', left: 100, right: 100, bottom: 110,
+            position: 'absolute', left: 100, right: 100, bottom: 80,
             display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
-            paddingTop: 26, borderTop: `1px solid ${GRAY200}`
+            paddingTop: 28, borderTop: `2px solid ${GOLD_PALE}`
           }}>
-            <FactCell label="Branches"         value={D.highlights.branches}/>
-            <FactCell label="Customers"        value={D.highlights.customers}/>
-            <FactCell label="Capital adequacy" value={`${D.highlights.carPct}%`}/>
-            <FactCell label="YoY growth"       value={`${D.highlights.growthPct}%`}/>
+            <FactCell label="Branches"         value={D.highlights.branches}  align="left"/>
+            <FactCell label="Customers"        value={D.highlights.customers}  align="center"/>
+            <FactCell label="Capital adequacy" value={`${D.highlights.carPct}%`} align="center"/>
+            <FactCell label="YoY growth"       value={`${D.highlights.growthPct}%`} align="right"/>
           </div>
         </Reveal>
       </div>
@@ -311,9 +338,9 @@ function SceneHighlights({ start, end }) {
   );
 }
 
-function FactCell({ label, value }) {
+function FactCell({ label, value, align = 'left' }) {
   return (
-    <div>
+    <div style={{ textAlign: align }}>
       <div style={{
         fontSize: 13, color: GRAY600, letterSpacing: '0.14em',
         textTransform: 'uppercase', fontWeight: 600
