@@ -225,6 +225,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     { "name": "Mr. Karnan Shanmugam",        "tag": "Director of Engg., Intel, Malaysia" },
     { "name": "Dr. Senthil Kumar K",         "tag": "Founder, Gateway Hospitals, CBE" },
     { "name": "Dr. Sudhakaran K",            "tag": "President, Rajshree Biosolutions, Theni" },
+    { "name": "Mr. Selvarajkumar C",         "tag": "Banker, Tenkasi" },
     { "name": "Mr. Dinesh Thangamuthu",      "tag": "Muthu Constructions, Erode" },
     { "name": "CA. Shanmugam P",             "tag": "Chartered Accountant, Namakkal" },
     { "name": "Mr. Samy K",                  "tag": "Associate Partner, IBM India" },
@@ -232,7 +233,6 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     { "name": "Dr. Subramanian N",           "tag": "Rtd. Income Tax Officer, CBE" },
     { "name": "Dr. Umashankar K K",          "tag": "Director, Vimalaa Dental Health Care, Erode" },
     { "name": "Mr. Sanjay Malhotra",         "tag": "Rtd., London Stock Exchange" },
-    { "name": "Mr. Vairavan A L",            "tag": "Director, Sree Alagulakshmi Finance, Trichy" },
     { "name": "Mr. Mahendran V",             "tag": "Director, Realty One Shelters, CBE" },
     { "name": "Mr. Murthy Nanjan N",         "tag": "Western Hill Villas, Kothagiri" },
     { "name": "Mr. Kuppuraj S",              "tag": "Rtd. Senior Manager, IOB, CBE" },
@@ -240,6 +240,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     { "name": "Mr. Venkatachalamurthi S",    "tag": "Vinayaka Electro Alloys, Perundurai" },
     { "name": "Mr. Dhanasekaran A",          "tag": "Valuemax Corporate Services, Erode" },
     { "name": "Mr. Senthilkumar G",          "tag": "MD, FreshNet Farms Pvt. Ltd., Pollachi" },
+    { "name": "Mr. Vairavan A L",            "tag": "Director, Sree Alagulakshmi Finance, Trichy" },
     { "name": "Mr. Balakrishnan Parthiban",  "tag": "Classiqu Building Engravers, CBE" },
     { "name": "Mr. Balasubraniam M S",       "tag": "Shri Shendhur Poultry Farms, Namakkal" },
     { "name": "Mr. Eswaramoorthi P M",       "tag": "Founder, Aathira Jewels, Erode" },
@@ -248,8 +249,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     { "name": "Mr. Dinesh M S",              "tag": "Clued In, Mathampatti" },
     { "name": "Mr. Kamalasekar P",           "tag": "Social Activist & Ex-Journalist, Namakkal" },
     { "name": "Mr. Keerthi Vardhan Singhania", "tag": "Denmax International, CBE" },
-    { "name": "Mr. Vijayakumar S",           "tag": "Financial Advisor, Rasipuram" },
-    { "name": "Mr. Selvarajkumar C",         "tag": "Banker, Tenkasi" }
+    { "name": "Mr. Vijayakumar S",           "tag": "Financial Advisor, Rasipuram" }
   ],
 
   "growth": {
