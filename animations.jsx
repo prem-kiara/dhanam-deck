@@ -487,9 +487,15 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
   const trackRef = React.useRef(null);
   const [dragging, setDragging] = React.useState(false);
 
+  const clientXFromEvent = (e) => {
+    if (e.touches && e.touches.length > 0) return e.touches[0].clientX;
+    if (e.changedTouches && e.changedTouches.length > 0) return e.changedTouches[0].clientX;
+    return e.clientX;
+  };
+
   const timeFromEvent = React.useCallback((e) => {
     const rect = trackRef.current.getBoundingClientRect();
-    const x = clamp((e.clientX - rect.left) / rect.width, 0, 1);
+    const x = clamp((clientXFromEvent(e) - rect.left) / rect.width, 0, 1);
     return x * duration;
   }, [duration]);
 
@@ -508,6 +514,7 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
   };
 
   const onTrackDown = (e) => {
+    e.preventDefault();
     setDragging(true);
     const t = timeFromEvent(e);
     onSeek(t);
@@ -524,9 +531,13 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
     };
     window.addEventListener('mouseup', onUp);
     window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchmove', onMove, { passive: false });
     return () => {
       window.removeEventListener('mouseup', onUp);
       window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('touchend', onUp);
+      window.removeEventListener('touchmove', onMove);
     };
   }, [dragging, timeFromEvent, onSeek]);
 
@@ -592,12 +603,16 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
         onMouseMove={onTrackMove}
         onMouseLeave={onTrackLeave}
         onMouseDown={onTrackDown}
+        onTouchStart={onTrackDown}
+        onTouchMove={onTrackMove}
+        onTouchEnd={onTrackLeave}
         style={{
           flex: 1,
-          height: 22,
+          height: 36,
           position: 'relative',
           cursor: 'pointer',
           display: 'flex', alignItems: 'center',
+          touchAction: 'none',
         }}
       >
         <div style={{

@@ -197,7 +197,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     {
       "name": "Mr. Sivashanmugam P",
       "role": "Director",
-      "qualification": "B.Com",
+      "qualification": "MBA",
       "bio": "Capital markets and securities specialist with 30+ years of experience in share market and trading. Business Associate at Kotak Securities, Erode. Brings deep investor relations, wealth management and financial markets expertise to Dhanam's board.",
       "slot": "dir-sivashanmugam",
       "show": true,
