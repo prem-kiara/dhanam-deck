@@ -49,9 +49,9 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   "tech": {
     "appName": "Dhanamfin",
     "appPlatforms": "iOS · Android · Web",
-    "headline": "We build it ourselves.",
+    "headline": "Engineered by us, crafted for you.",
     "subhead": "Our own engineering team designs, codes and ships everything — starting with Dhanamfin, live on the App Store and Google Play.",
-    "appSubtitle": "One app for our customers — invest in NCDs, save in gold, book private lockers and borrow. Apply, e-sign and pay in minutes, no branch visit needed.",
+    "appSubtitle": "Invest, save, borrow and bank — apply, e-sign and pay in minutes. No branch needed.",
     "appChips": ["Instant e-KYC", "e-Signing", "UPI & auto-pay", "Same-day disbursal"],
     "appStoreUrl": "https://apps.apple.com/in/app/dhanamfin/id6766440740",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.dhanam.lockerhub",
@@ -68,7 +68,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "step": "Collect",  "note": "Automated repayments" },
       { "step": "Service",  "note": "In-app LMS & support" }
     ],
-    "buildHeadline": "Engineered by us, crafted for you.",
+    "buildHeadline": "We build it ourselves.",
     "buildLead": "One team, one stack — with the range to build whatever comes next:",
     "buildBlocks": [
       { "label": "Mobile & web apps",      "note": "iOS, Android and browser — all ours" },

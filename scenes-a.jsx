@@ -276,7 +276,7 @@ function SceneTech({ start, end }) {
         </div>
 
         {/* LEFT — the app: identity + store badges */}
-        <div style={{ position: 'absolute', left: 100, top: 372, width: 760 }}>
+        <div style={{ position: 'absolute', left: 100, top: 336, width: 760 }}>
           <Reveal start={start} end={end} delay={0.6}>
             <div><CategoryLabel>Our app · live on both stores</CategoryLabel></div>
           </Reveal>
@@ -329,7 +329,7 @@ function SceneTech({ start, end }) {
         </div>
 
         {/* RIGHT — everything is built in-house */}
-        <div style={{ position: 'absolute', right: 100, top: 372, width: 880 }}>
+        <div style={{ position: 'absolute', right: 100, top: 336, width: 880 }}>
           <Reveal start={start} end={end} delay={0.85}>
             <div><CategoryLabel>Built entirely in-house</CategoryLabel></div>
           </Reveal>
@@ -366,6 +366,26 @@ function SceneTech({ start, end }) {
             ))}
           </div>
         </div>
+
+        {/* MIDDLE — fintech positioning */}
+        <Reveal start={start} end={end} delay={1.35} y={12}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, top: 742,
+            textAlign: 'center', fontFamily: FONT
+          }}>
+            <div style={{
+              fontSize: 32, fontWeight: 600, color: NAVY,
+              letterSpacing: '-0.025em', lineHeight: 1.1
+            }}>
+              From neighbourhood NBFC to <span style={{ color: GOLD }}>full-stack fintech</span>.
+            </div>
+            <div style={{
+              fontSize: 16, color: GRAY600, marginTop: 12, letterSpacing: '0.01em'
+            }}>
+              Digital-first · automated end to end · built on rails we own.
+            </div>
+          </div>
+        </Reveal>
 
         {/* BOTTOM — full-width anchor band */}
         <Reveal start={start} end={end} delay={1.5} y={14}>
