@@ -377,7 +377,7 @@ function SceneTech({ start, end }) {
               fontSize: 32, fontWeight: 600, color: NAVY,
               letterSpacing: '-0.025em', lineHeight: 1.1
             }}>
-              From neighbourhood NBFC to <span style={{ color: GOLD }}>full-stack fintech</span>.
+              An end-to-end <span style={{ color: GOLD }}>FinTech application</span> built to streamline customer financial journeys.
             </div>
             <div style={{
               fontSize: 16, color: GRAY600, marginTop: 12, letterSpacing: '0.01em'
