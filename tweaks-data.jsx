@@ -49,9 +49,10 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   "tech": {
     "appName": "Dhanamfin",
     "appPlatforms": "iOS · Android · Web",
-    "headline": "We ship our own apps.",
-    "subhead": "Most lenders rent their software. Dhanam designs, builds and runs Dhanamfin — our customer app for NCDs, private lockers, gold savings and personal loans — entirely in-house. Live today on the App Store and Google Play.",
-    "appSubtitle": "Our customer app — invest, save, borrow and bank, all in one place. A built-from-scratch LOS + LMS, with a web console our branch staff run operations on.",
+    "headline": "We build it ourselves.",
+    "subhead": "Our own engineering team designs, codes and ships everything — starting with Dhanamfin, live on the App Store and Google Play.",
+    "appSubtitle": "One app for our customers — invest in NCDs, save in gold, book private lockers and borrow. Apply, e-sign and pay in minutes, no branch visit needed.",
+    "appChips": ["Instant e-KYC", "e-Signing", "UPI & auto-pay", "Same-day disbursal"],
     "appStoreUrl": "https://apps.apple.com/in/app/dhanamfin/id6766440740",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.dhanam.lockerhub",
     "capabilities": [
@@ -67,12 +68,16 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "step": "Collect",  "note": "Automated repayments" },
       { "step": "Service",  "note": "In-app LMS & support" }
     ],
-    "team": [
-      { "name": "Mr. Suren S",       "role": "Director · CEO · Tech", "slot": "dir-suren" },
-      { "name": "Mr. Prem Karnan",   "role": "VP · Technology",       "slot": "team-prem" },
-      { "name": "Mr. Eashwar Ram K", "role": "AVP · Technology",      "slot": "team-eashwar" }
+    "buildHeadline": "Engineered by us, crafted for you.",
+    "buildLead": "One team, one stack — with the range to build whatever comes next:",
+    "buildBlocks": [
+      { "label": "Mobile & web apps",      "note": "iOS, Android and browser — all ours" },
+      { "label": "End-to-end lending",     "note": "Origination to servicing · LOS + LMS" },
+      { "label": "Payments, KYC & e-sign", "note": "Onboarding to money movement" },
+      { "label": "Whatever's next",        "note": "New products & AI, built on demand" }
     ],
-    "teamFoot": "Engineering, product, design & DevOps — a full-stack team, all under one roof. Not a single line of our core platform is outsourced."
+    "buildFoot": "No vendors. No off-the-shelf core. If we can design it, we can build it.",
+    "appIcon": "assets/dhanamfin-icon.png"
   },
 
   "products": {
