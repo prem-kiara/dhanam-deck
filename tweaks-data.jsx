@@ -6,7 +6,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "name": "Dhanam Investment and Finance",
     "short": "Dhanam",
     "legalName": "Dhanam Investment and Finance Private Limited",
-    "tagline": "An RBI-licensed NBFC — building India's most trusted multi-product financial institution. Rooted in communities, scaling nationally.",
+    "tagline": "An RBI-licensed NBFC — building India's most trusted multi-product financial institution. Rooted in communities, powered by our own technology, scaling nationally.",
     "city": "India",
     "hq": "Coimbatore, Tamil Nadu",
     "yearsOperating": "10+",
@@ -44,6 +44,35 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "key": "ncd",     "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Secured · Stable · Income. RBI-overseen debt instruments — a regulated investment for every wealth profile." },
       { "key": "lockers", "label": "Private lockers",                "slot": "about-lockers", "caption": "Exclusive vault-grade security with five-star hospitality — private, discreet, and reserved for Dhanam's discerning clientele." }
     ]
+  },
+
+  "tech": {
+    "appName": "Dhanamfin",
+    "appPlatforms": "iOS · Android · Web",
+    "headline": "We ship our own apps.",
+    "subhead": "Most lenders rent their software. Dhanam designs, builds and runs Dhanamfin — our customer app for NCDs, private lockers, gold savings and personal loans — entirely in-house. Live today on the App Store and Google Play.",
+    "appSubtitle": "Our customer app — invest, save, borrow and bank, all in one place. A built-from-scratch LOS + LMS, with a web console our branch staff run operations on.",
+    "appStoreUrl": "https://apps.apple.com/in/app/dhanamfin/id6766440740",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.dhanam.lockerhub",
+    "capabilities": [
+      { "label": "NCD investments",      "note": "Subscribe & track secured debentures" },
+      { "label": "Private lockers",      "note": "Book & manage vault access" },
+      { "label": "Gold savings schemes", "note": "Enrol & pay in, gram by gram" },
+      { "label": "Personal loans",       "note": "Apply, e-sign & repay in-app" }
+    ],
+    "pipeline": [
+      { "step": "Onboard",  "note": "Digital KYC & verification" },
+      { "step": "e-Sign",   "note": "Paperless agreements" },
+      { "step": "Disburse", "note": "Straight-to-bank payouts" },
+      { "step": "Collect",  "note": "Automated repayments" },
+      { "step": "Service",  "note": "In-app LMS & support" }
+    ],
+    "team": [
+      { "name": "Mr. Suren S",       "role": "Director · CEO · Tech", "slot": "dir-suren" },
+      { "name": "Mr. Prem Karnan",   "role": "VP · Technology",       "slot": "team-prem" },
+      { "name": "Mr. Eashwar Ram K", "role": "AVP · Technology",      "slot": "team-eashwar" }
+    ],
+    "teamFoot": "Engineering, product, design & DevOps — a full-stack team, all under one roof. Not a single line of our core platform is outsourced."
   },
 
   "products": {

@@ -256,6 +256,190 @@ function ProductCardSide({ item }) {
   );
 }
 
+// ─── Slide 3 — In-house technology (Dhanamfin app + tech team + stack) ─
+function SceneTech({ start, end }) {
+  const D = D_();
+  const T = D.tech;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 108, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow={T.headline}
+            title={T.subhead}
+            fontSize={72}
+            subSize={22}
+          />
+        </div>
+
+        {/* LEFT — the app: identity, capabilities, store badges */}
+        <div style={{ position: 'absolute', left: 100, top: 330, width: 760 }}>
+          <Reveal start={start} end={end} delay={0.6}>
+            <div><CategoryLabel>Our app · live on both stores</CategoryLabel></div>
+          </Reveal>
+
+          <Reveal start={start} end={end} delay={0.75} y={16}>
+            <div style={{
+              marginTop: 18, background: PAPER, border: `1px solid ${GRAY200}`,
+              borderRadius: 16, padding: 28, fontFamily: FONT
+            }}>
+              {/* App header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                <div style={{
+                  width: 64, height: 64, borderRadius: 16, background: NAVY,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                }}>
+                  <LotusMark size={40} color={GOLD} dark={true}/>
+                </div>
+                <div>
+                  <div style={{ fontSize: 30, fontWeight: 700, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1 }}>{T.appName}</div>
+                  <div style={{ fontFamily: MONO, fontSize: 11, color: GRAY600, letterSpacing: '0.16em', textTransform: 'uppercase', marginTop: 6 }}>{T.appPlatforms}</div>
+                </div>
+                <div style={{ marginLeft: 'auto' }}>
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 7,
+                    background: '#E8F5EE', color: '#1E7A45', borderRadius: 999,
+                    padding: '5px 12px', fontSize: 11, fontWeight: 700,
+                    letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: MONO
+                  }}>
+                    <span style={{ width: 7, height: 7, borderRadius: 999, background: '#1E7A45' }}/>Live
+                  </span>
+                </div>
+              </div>
+
+              <div style={{ fontSize: 14, color: GRAY800, lineHeight: 1.55, marginTop: 16 }}>{T.appSubtitle}</div>
+
+              <div style={{ height: 1, background: GRAY100, margin: '20px 0' }}/>
+
+              {/* Capabilities — 2×2 */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px 24px' }}>
+                {T.capabilities.map(c => (
+                  <div key={c.label} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                    <span style={{ width: 7, height: 7, borderRadius: 999, background: GOLD, marginTop: 6, flexShrink: 0 }}/>
+                    <div>
+                      <div style={{ fontSize: 15, fontWeight: 600, color: NAVY, letterSpacing: '-0.005em' }}>{c.label}</div>
+                      <div style={{ fontSize: 12, color: GRAY600, lineHeight: 1.35, marginTop: 2 }}>{c.note}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Store badges */}
+              <div style={{ display: 'flex', gap: 14, marginTop: 24 }}>
+                <StoreBadge kind="apple" href={T.appStoreUrl}/>
+                <StoreBadge kind="play"  href={T.playStoreUrl}/>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* RIGHT — built in-house by our own engineers */}
+        <div style={{ position: 'absolute', right: 100, top: 330, width: 880 }}>
+          <Reveal start={start} end={end} delay={0.9}>
+            <div><CategoryLabel>Built in-house · our engineers</CategoryLabel></div>
+          </Reveal>
+
+          <div style={{
+            marginTop: 22, display: 'grid', gridTemplateColumns: `repeat(${T.team.length}, 1fr)`, gap: 24
+          }}>
+            {T.team.map((m, i) => (
+              <Reveal key={m.name} start={start} end={end} delay={1.05 + i * 0.12} y={18}>
+                <TechLeadCard m={m}/>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal start={start} end={end} delay={1.45} y={12}>
+            <div style={{
+              marginTop: 26, background: GRAY50, borderLeft: `3px solid ${GOLD}`,
+              border: `1px solid ${GRAY200}`, borderLeftWidth: 3, borderLeftColor: GOLD,
+              borderRadius: 10, padding: '16px 20px',
+              fontFamily: FONT, fontSize: 15, color: GRAY800, lineHeight: 1.5
+            }}>{T.teamFoot}</div>
+          </Reveal>
+        </div>
+
+        {/* BOTTOM — one platform, the whole journey */}
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 772 }}>
+          <Reveal start={start} end={end} delay={1.5}>
+            <div><CategoryLabel>One platform · onboarding to servicing — all on our own stack</CategoryLabel></div>
+          </Reveal>
+          <div style={{ marginTop: 18, display: 'flex', alignItems: 'stretch' }}>
+            {T.pipeline.map((p, i) => (
+              <React.Fragment key={p.step}>
+                {i > 0 && (
+                  <div style={{
+                    flexShrink: 0, width: 40, display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', color: GRAY400, fontSize: 22
+                  }}>→</div>
+                )}
+                <Reveal start={start} end={end} delay={1.65 + i * 0.1} y={12}>
+                  <div style={{
+                    flex: 1, minWidth: 0, background: GRAY50, border: `1px solid ${GRAY200}`,
+                    borderRadius: 12, padding: '18px 20px', fontFamily: FONT
+                  }}>
+                    <div style={{ fontFamily: MONO, fontSize: 11, color: GOLD, letterSpacing: '0.18em', fontWeight: 700 }}>{String(i + 1).padStart(2, '0')}</div>
+                    <div style={{ fontSize: 18, fontWeight: 600, color: NAVY, letterSpacing: '-0.01em', marginTop: 8 }}>{p.step}</div>
+                    <div style={{ fontSize: 12, color: GRAY600, lineHeight: 1.4, marginTop: 5 }}>{p.note}</div>
+                  </div>
+                </Reveal>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
+// Tech leader — round photo + name + tech role
+function TechLeadCard({ m }) {
+  return (
+    <div style={{
+      fontFamily: FONT, textAlign: 'center',
+      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12
+    }}>
+      <RoundPhoto id={m.slot} size={150}/>
+      <div>
+        <div style={{ fontSize: 18, fontWeight: 700, color: NAVY, letterSpacing: '-0.005em', lineHeight: 1.2 }}>{m.name}</div>
+        <div style={{
+          fontSize: 10, color: GOLD, letterSpacing: '0.2em', textTransform: 'uppercase',
+          fontWeight: 700, marginTop: 6
+        }}>{m.role}</div>
+      </div>
+    </div>
+  );
+}
+
+// App-store / Google-Play download badge — links out to the live listing
+function StoreBadge({ kind, href }) {
+  const isApple = kind === 'apple';
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" style={{
+      display: 'inline-flex', alignItems: 'center', gap: 12,
+      background: NAVY_DEEP, border: `1px solid ${NAVY_SOFT}`, borderRadius: 12,
+      padding: '11px 20px', textDecoration: 'none', pointerEvents: 'auto', flex: 1
+    }}>
+      {isApple ? (
+        <svg width="26" height="26" viewBox="0 0 384 512" style={{ flexShrink: 0 }}>
+          <path fill="#fff" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+        </svg>
+      ) : (
+        <svg width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: 0 }}>
+          <path fill="#fff" d="M4 2.5v19l15-9.5L4 2.5z"/>
+        </svg>
+      )}
+      <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
+        <span style={{ fontFamily: FONT, fontSize: 11, color: 'rgba(255,255,255,0.72)', letterSpacing: '0.02em' }}>{isApple ? 'Download on the' : 'Get it on'}</span>
+        <span style={{ fontFamily: FONT, fontSize: 19, fontWeight: 600, color: '#fff', letterSpacing: '-0.01em' }}>{isApple ? 'App Store' : 'Google Play'}</span>
+      </div>
+    </a>
+  );
+}
+
 // ─── Slide 3 — Annual highlights (KPI dashboard + product mix) ──────
 function SceneHighlights({ start, end }) {
   const D = D_();
@@ -612,6 +796,7 @@ function ProjectionChart({ historical, projected, start, end, delay = 0.4, growD
 }
 
 Object.assign(window, {
-  SceneCover, SceneAbout, SceneHighlights, SceneGold, SceneLAP,
-  ProductCardTop, ProductCardSide, FactCell, ProductMixBar, ProjectionChart
+  SceneCover, SceneAbout, SceneTech, SceneHighlights, SceneGold, SceneLAP,
+  ProductCardTop, ProductCardSide, TechLeadCard, StoreBadge,
+  FactCell, ProductMixBar, ProjectionChart
 });
