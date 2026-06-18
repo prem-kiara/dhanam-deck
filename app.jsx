@@ -1,5 +1,5 @@
 // app.jsx — wires the deck timeline together
-// 14 scenes, durations tuned to content density. Total 173s (~2:53).
+// 13 scenes, durations tuned to content density. Total 162s (~2:42).
 
 const SCENES = [
   { id: 1,  label: 'Cover',                    start: 0,   end: 5,   Comp: 'SceneCover',         dark: false },
@@ -12,12 +12,11 @@ const SCENES = [
   { id: 8,  label: 'Where we compete',         start: 80,  end: 96,  Comp: 'SceneCompetitors',   dark: false },
   { id: 9,  label: 'Promoters & Directors',    start: 96,  end: 112, Comp: 'SceneFoundingTeam',  dark: false },
   { id: 10, label: 'Promoters & Directors',    start: 112, end: 128, Comp: 'SceneDirectors',     dark: false },
-  { id: 11, label: 'Management team',          start: 128, end: 139, Comp: 'SceneTeam',          dark: false },
-  { id: 12, label: 'Ace investors',            start: 139, end: 153, Comp: 'SceneAceInvestors',  dark: true  },
-  { id: 13, label: 'Why partner with us',      start: 153, end: 167, Comp: 'SceneWhyDhanam',     dark: false },
-  { id: 14, label: 'Thank you',                start: 167, end: 173, Comp: 'SceneContact',       dark: false }
+  { id: 11, label: 'Advisory board',           start: 128, end: 142, Comp: 'SceneAceInvestors',  dark: true  },
+  { id: 12, label: 'Why partner with us',      start: 142, end: 156, Comp: 'SceneWhyDhanam',     dark: false },
+  { id: 13, label: 'Thank you',                start: 156, end: 162, Comp: 'SceneContact',       dark: false }
 ];
-const DURATION = 173;
+const DURATION = 162;
 
 function ChromeMux() {
   const t = useTime();

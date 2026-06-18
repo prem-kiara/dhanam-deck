@@ -364,7 +364,7 @@ function SceneAceInvestors({ start, end }) {
         <div style={{ position: 'absolute', left: 100, top: 90, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="11 · Ace investors"
+            eyebrow="Advisory board"
             title="Senior advisors spanning banking, capital markets, healthcare, real estate, technology, manufacturing, hospitality, jewellery, agriculture and law — combining decades of operating, regulatory and capital-allocation experience."
             accent={GOLD}
             fontSize={64}

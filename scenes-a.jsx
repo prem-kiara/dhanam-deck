@@ -387,22 +387,41 @@ function SceneTech({ start, end }) {
           </div>
         </Reveal>
 
-        {/* BOTTOM — full-width anchor band */}
+        {/* BOTTOM — full-width metric strip */}
         <Reveal start={start} end={end} delay={1.5} y={14}>
           <div style={{
             position: 'absolute', left: 100, right: 100, bottom: 104,
             background: NAVY, color: '#fff', borderRadius: 16,
-            padding: '26px 44px', display: 'flex', alignItems: 'center',
+            padding: '22px 48px', display: 'flex', alignItems: 'center',
             justifyContent: 'space-between', gap: 28, fontFamily: FONT
           }}>
-            <div style={{
-              fontFamily: MONO, fontSize: 12, color: GOLD_LITE,
-              letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, flexShrink: 0
-            }}>Built in-house</div>
-            <div style={{
-              fontSize: 24, fontWeight: 500, color: '#fff',
-              letterSpacing: '-0.015em', textAlign: 'right', lineHeight: 1.3
-            }}>{T.buildFoot}</div>
+            <div style={{ flexShrink: 0, maxWidth: 720 }}>
+              <div style={{
+                fontFamily: MONO, fontSize: 12, color: GOLD_LITE,
+                letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
+              }}>Straight-through processing</div>
+              <div style={{
+                fontSize: 21, fontWeight: 500, color: '#fff',
+                letterSpacing: '-0.01em', lineHeight: 1.25, marginTop: 8
+              }}>{T.stpLine}</div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 56 }}>
+              {T.metrics.map((m, i) => (
+                <React.Fragment key={m.label}>
+                  {i > 0 && <span style={{ width: 1, height: 40, background: 'rgba(255,255,255,0.16)' }}/>}
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{
+                      fontSize: 36, fontWeight: 600, color: '#fff',
+                      letterSpacing: '-0.02em', lineHeight: 1, fontVariantNumeric: 'tabular-nums'
+                    }}>{m.value}</div>
+                    <div style={{
+                      fontSize: 12, color: 'rgba(255,255,255,0.62)', marginTop: 6,
+                      letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600
+                    }}>{m.label}</div>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </Reveal>
 

@@ -50,7 +50,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "appName": "Dhanamfin",
     "appPlatforms": "iOS · Android · Web",
     "headline": "Engineered by us, crafted for you.",
-    "subhead": "Our own engineering team designs, codes and ships everything — starting with Dhanamfin, live on the App Store and Google Play.",
+    "subhead": "A fully digital lending platform — manual-intervention-free from onboarding to final collection, built and run entirely in-house.",
     "appSubtitle": "Invest, save, borrow and bank — apply, e-sign and pay in minutes. No branch needed.",
     "appChips": ["Instant e-KYC", "e-Signing", "UPI & auto-pay", "Same-day disbursal"],
     "appStoreUrl": "https://apps.apple.com/in/app/dhanamfin/id6766440740",
@@ -68,15 +68,20 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "step": "Collect",  "note": "Automated repayments" },
       { "step": "Service",  "note": "In-app LMS & support" }
     ],
-    "buildHeadline": "We build it ourselves.",
-    "buildLead": "One team, one stack — with the range to build whatever comes next:",
+    "buildHeadline": "Run like a fintech, end to end.",
+    "buildLead": "From first tap to final collection — automated, paperless, on-app:",
     "buildBlocks": [
-      { "label": "Mobile & web apps",      "note": "iOS, Android and browser — all ours" },
-      { "label": "End-to-end lending",     "note": "Origination to servicing · LOS + LMS" },
-      { "label": "Payments, KYC & e-sign", "note": "Onboarding to money movement" },
-      { "label": "Whatever's next",        "note": "New products & AI, built on demand" }
+      { "label": "Zero-touch onboarding",  "note": "Digital KYC to disbursal — no manual intervention" },
+      { "label": "Paper-free branches",     "note": "App-first operations, fully paperless" },
+      { "label": "App-based servicing",     "note": "Customers and staff, entirely on-app" },
+      { "label": "Integrated core banking", "note": "LOS, LMS & core ledger — one platform" }
     ],
-    "buildFoot": "No vendors. No off-the-shelf core. If we can design it, we can build it.",
+    "stpLine": "No manual intervention — onboarding to final collections.",
+    "metrics": [
+      { "value": "100%", "label": "Digital onboarding" },
+      { "value": "100%", "label": "Paperless branches" },
+      { "value": "24×7", "label": "App-based access" }
+    ],
     "appIcon": "assets/dhanamfin-icon.png"
   },
 
