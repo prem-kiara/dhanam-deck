@@ -102,7 +102,7 @@ function SceneCompetitors({ start, end }) {
           <SectionHeading
             start={start} end={end}
             eyebrow="07 · Where we compete"
-            title="Each peer is a single-product specialist. We bring the full stack — lending and wealth — to one customer, under one roof."
+            title="We go up against single-product NBFCs, app-only fintechs and full-service banks alike — and beat each at its own game, under one roof."
             fontSize={64}
             subSize={22}
           />
@@ -155,7 +155,7 @@ function CompetitorColumn({ row }) {
           fontFamily: MONO, fontSize: 10, color: GRAY600,
           letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700,
           marginBottom: 12
-        }}>Specialists</div>
+        }}>Competitors</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {row.peers.map(p => (
             <div key={p.name} style={{

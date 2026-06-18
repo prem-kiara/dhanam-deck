@@ -50,7 +50,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "appName": "Dhanamfin",
     "appPlatforms": "iOS · Android · Web",
     "headline": "Engineered by us, crafted for you.",
-    "subhead": "A fully digital lending platform — manual-intervention-free from onboarding to final collection, built and run entirely in-house.",
+    "subhead": "A fully digital lending platform — built and run entirely in-house.",
     "appSubtitle": "Invest, save, borrow and bank — apply, e-sign and pay in minutes. No branch needed.",
     "appChips": ["Instant e-KYC", "e-Signing", "UPI & auto-pay", "Same-day disbursal"],
     "appStoreUrl": "https://apps.apple.com/in/app/dhanamfin/id6766440740",
@@ -76,7 +76,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "label": "App-based servicing",     "note": "Customers and staff, entirely on-app" },
       { "label": "Integrated core banking", "note": "LOS, LMS & core ledger — one platform" }
     ],
-    "stpLine": "No manual intervention — onboarding to final collections.",
+    "stpLine": "No manual intervention — from onboarding to collections.",
     "metrics": [
       { "value": "100%", "label": "Digital onboarding" },
       { "value": "100%", "label": "Paperless branches" },
@@ -320,7 +320,8 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "us": { "headline": "Hyper-local · 30-minute disbursal", "sub": "Branch-level credit decisions, in your language." },
       "peers": [
         { "name": "Muthoot Finance",  "focus": "Single-product specialist" },
-        { "name": "Manappuram Finance", "focus": "Single-product specialist" }
+        { "name": "Manappuram Finance", "focus": "Single-product specialist" },
+        { "name": "Gold-loan fintechs", "focus": "App-only · e.g. Rupeek" }
       ]
     },
     {
@@ -328,7 +329,8 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "us": { "headline": "Self-employed underwriting", "sub": "Fastest disbursement in 3–4 days — cash-flow underwritten at the branch, not bureau-only." },
       "peers": [
         { "name": "Five Star",  "focus": "Small-ticket LAP only" },
-        { "name": "Veritas",    "focus": "MSME / LAP only" }
+        { "name": "Veritas",    "focus": "MSME / LAP only" },
+        { "name": "Banks & HFCs", "focus": "Bureau-only · slow" }
       ]
     },
     {
@@ -336,7 +338,8 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "us": { "headline": "The sovereign alternative to a bank locker", "sub": "Large-sized lockers, concierge-class service, armed custodianship and seamless wealth integration — all under one Dhanam roof." },
       "peers": [
         { "name": "PSU bank lockers", "focus": "Multi-year wait-lists" },
-        { "name": "Sakthi",           "focus": "Locker specialist · regional" }
+        { "name": "Sakthi",           "focus": "Locker specialist · regional" },
+        { "name": "Private banks",    "focus": "Premium · wait-listed" }
       ]
     },
     {
@@ -344,7 +347,8 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "us": { "headline": "Fast, flexible personal credit", "sub": "Swift disbursal backed by a verified repayment track record — credit that rewards loyalty." },
       "peers": [
         { "name": "Bajaj Finance",  "focus": "Multi-product retail giant" },
-        { "name": "Shriram",        "focus": "Vehicle + retail credit" }
+        { "name": "Shriram",        "focus": "Vehicle + retail credit" },
+        { "name": "App-only fintechs", "focus": "Thin-file · high-rate" }
       ]
     }
   ],
