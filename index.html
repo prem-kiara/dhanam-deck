@@ -40,6 +40,28 @@
   image-slot[data-ghost]::part(empty) { display: none; }
   image-slot[data-ghost]::part(frame) { background: transparent; }
   image-slot[data-ghost]::part(ring)  { display: none; }
+
+  /* ── PDF export layout — one 1920×1080 page per slide ── */
+  body.print-mode { overflow: auto !important; height: auto !important; background: #fff !important; }
+  body.print-mode #video-root, body.print-mode #root { position: static !important; inset: auto !important; }
+  .print-root { background: #fff; }
+  /* Each page is A4 landscape; the 1920×1080 slide is scaled to fit the width. */
+  .print-page {
+    position: relative; width: 297mm; height: 210mm; overflow: hidden;
+    background: #fff; margin: 16px auto; break-after: page; page-break-after: always;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .print-canvas {
+    position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px;
+    transform: translate(-50%, -50%) scale(0.5846); background: #fff;
+  }
+  .print-page * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @media print {
+    @page { size: A4 landscape; margin: 0; }
+    body.print-mode { background: #fff !important; }
+    .print-page { margin: 0; box-shadow: none; }
+  }
 </style>
 </head>
 <body style="font-size: 10px">
@@ -53,12 +75,12 @@
 
 <!-- Bump ?v= when you change any local script. Forces browsers to re-fetch
      instead of serving the previous version from URL-keyed cache. -->
-<script src="image-slot.js?v=20260618k"></script>
-<script type="text/babel" src="animations.jsx?v=20260618k"></script>
-<script type="text/babel" src="tweaks-data.jsx?v=20260618k"></script>
-<script type="text/babel" src="scenes-core.jsx?v=20260618k"></script>
-<script type="text/babel" src="scenes-a.jsx?v=20260618k"></script>
-<script type="text/babel" src="scenes-b.jsx?v=20260618k"></script>
-<script type="text/babel" src="app.jsx?v=20260618k"></script>
+<script src="image-slot.js?v=20260622h"></script>
+<script type="text/babel" src="animations.jsx?v=20260622h"></script>
+<script type="text/babel" src="tweaks-data.jsx?v=20260622h"></script>
+<script type="text/babel" src="scenes-core.jsx?v=20260622h"></script>
+<script type="text/babel" src="scenes-a.jsx?v=20260622h"></script>
+<script type="text/babel" src="scenes-b.jsx?v=20260622h"></script>
+<script type="text/babel" src="app.jsx?v=20260622h"></script>
 </body>
 </html>

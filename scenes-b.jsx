@@ -209,10 +209,19 @@ function SceneFoundingTeam({ start, end }) {
 // ─── Slide 9 — Promoters & Directors II (next 4, same zigzag format) ─
 function SceneDirectors({ start, end }) {
   const D = D_b();
-  const directors = D.directors.filter(d => d.show).slice(4);
+  const directors = D.directors.filter(d => d.show).slice(4, 8);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
                                 eyebrow="KMP and Directors"
-                                title="Key managerial personnel & directors — technology, administration, growth, compliance, business and capital markets."/>;
+                                title="Key managerial personnel & directors — technology, administration, growth and compliance."/>;
+}
+
+// ─── Slide 12 — KMP and Directors (II) ───────────────────────────────
+function SceneDirectors2({ start, end }) {
+  const D = D_b();
+  const directors = D.directors.filter(d => d.show).slice(8);
+  return <DirectorsZigzagSlide start={start} end={end} directors={directors}
+                                eyebrow="KMP and Directors"
+                                title="Key managerial personnel & directors — business, capital markets, operations and property."/>;
 }
 
 function DirectorsZigzagSlide({ start, end, directors, eyebrow, title }) {
@@ -234,7 +243,7 @@ function DirectorsZigzagSlide({ start, end, directors, eyebrow, title }) {
         <div style={{
           position: 'absolute', left: 100, right: 100, top: 320,
           display: 'grid', gridTemplateColumns: `repeat(${directors.length}, 1fr)`,
-          gap: 30, alignItems: 'start'
+          gap: directors.length >= 7 ? 22 : 30, alignItems: 'start'
         }}>
           {directors.map((d, i) => (
             <Reveal key={d.name} start={start} end={end} delay={0.9 + i * 0.15} y={20}>
@@ -257,14 +266,10 @@ function FounderColumn({ d, offset = 'up', photoSize = 200 }) {
     }}>
       <RoundPhoto id={d.slot} size={photoSize}/>
       <div style={{
-        fontSize: 22, fontWeight: 600, color: NAVY,
-        letterSpacing: '-0.01em', marginTop: 22, textAlign: 'center', lineHeight: 1.2
+        fontSize: photoSize >= 200 ? 22 : 19, fontWeight: 600, color: NAVY,
+        letterSpacing: '-0.01em', marginTop: 22, textAlign: 'center', lineHeight: 1.2,
+        whiteSpace: 'nowrap'
       }}>{d.name}</div>
-      <div style={{
-        fontSize: 11, color: GOLD, marginTop: 8,
-        letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700,
-        textAlign: 'center'
-      }}>{d.role}</div>
       {d.qualification && (
         <div style={{
           fontSize: 12, color: GRAY600, marginTop: 6,
@@ -364,7 +369,7 @@ function SceneAceInvestors({ start, end }) {
         <div style={{ position: 'absolute', left: 100, top: 90, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="Advisory board"
+            eyebrow="Ace investors"
             title="Senior advisors spanning banking, capital markets, healthcare, real estate, technology, manufacturing, hospitality, jewellery, agriculture and law — combining decades of operating, regulatory and capital-allocation experience."
             accent={GOLD}
             fontSize={64}
@@ -435,15 +440,21 @@ function SceneGrowth({ start, end }) {
           />
         </div>
 
-        {/* LEFT — Our 5-year trajectory */}
+        {/* LEFT — Where we stand today */}
         <div style={{ position: 'absolute', left: 100, top: 410, width: 800 }}>
           <Reveal start={start} end={end} delay={0.7}>
-            <CategoryLabel>Our 5-year trajectory</CategoryLabel>
+            <CategoryLabel>Where we stand today</CategoryLabel>
           </Reveal>
           <div style={{ marginTop: 22, display: 'flex', flexDirection: 'column', gap: 16 }}>
-            {G.ourTrajectory.map((row, i) => (
-              <Reveal key={row.label} start={start} end={end} delay={0.95 + i * 0.15}>
-                <TrajectoryRow row={row}/>
+            {G.current.map((row, i) => (
+              <Reveal key={row.label} start={start} end={end} delay={0.95 + i * 0.12}>
+                <div style={{
+                  display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'baseline', gap: 18,
+                  padding: '18px 0', borderBottom: `1px solid ${GRAY200}`, fontFamily: FONT
+                }}>
+                  <div style={{ fontSize: 14, color: GRAY600, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700 }}>{row.label}</div>
+                  <div style={{ fontSize: 34, color: NAVY, fontWeight: 500, letterSpacing: '-0.015em', fontVariantNumeric: 'tabular-nums' }}>{row.value}</div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -783,8 +794,148 @@ function ContactRow({ label, value, href, last = false }) {
   return <div style={style}>{inner}</div>;
 }
 
+// ─── Slide — Business model (conventional + AI-driven fintech) ───────
+function SceneBusinessModel({ start, end }) {
+  const D = D_b();
+  const B = D.businessModel;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
+          <SectionHeading start={start} end={end} eyebrow="Business model" title={B.subhead} fontSize={72} subSize={24}/>
+        </div>
+
+        {/* LEFT — conventional */}
+        <Reveal start={start} end={end} delay={0.6} y={16}>
+          <div style={{
+            position: 'absolute', left: 100, top: 340, width: 820,
+            background: PAPER, border: `1px solid ${GRAY200}`, borderTop: `3px solid ${NAVY}`,
+            borderRadius: 14, padding: '28px 30px', fontFamily: FONT
+          }}>
+            <ModelHeader label={B.conventional.label} tag={B.conventional.tag} accent={NAVY}/>
+            <div style={{ marginTop: 16 }}>
+              {B.conventional.items.map((it, i) => (
+                <ModelRow key={it.name} item={it} accent={NAVY} last={i === B.conventional.items.length - 1}/>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* RIGHT — fintech / AI */}
+        <Reveal start={start} end={end} delay={0.8} y={16}>
+          <div style={{
+            position: 'absolute', right: 100, top: 340, width: 820,
+            background: PAPER, border: `1px solid ${GOLD_PALE}`, borderTop: `3px solid ${GOLD}`,
+            borderRadius: 14, padding: '28px 30px', fontFamily: FONT
+          }}>
+            <ModelHeader label={B.fintech.label} tag={B.fintech.tag} accent={GOLD}/>
+            <div style={{ marginTop: 16 }}>
+              {B.fintech.items.map((it, i) => (
+                <ModelRow key={it.name} item={it} accent={GOLD} last={i === B.fintech.items.length - 1}/>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* center + */}
+        <Reveal start={start} end={end} delay={1.0}>
+          <div style={{
+            position: 'absolute', left: '50%', top: 545, transform: 'translate(-50%, -50%)',
+            width: 48, height: 48, borderRadius: 999, background: NAVY, color: '#fff',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: 26, fontFamily: FONT, zIndex: 5, boxShadow: `0 0 0 6px ${PAPER}`
+          }}>+</div>
+        </Reveal>
+
+        {/* footer band */}
+        <Reveal start={start} end={end} delay={1.2} y={14}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, bottom: 104,
+            background: NAVY, color: '#fff', borderRadius: 16, padding: '24px 44px',
+            textAlign: 'center', fontFamily: FONT, fontSize: 22, fontWeight: 500, letterSpacing: '-0.01em'
+          }}>{B.footer}</div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
+function ModelHeader({ label, tag, accent }) {
+  return (
+    <div>
+      <div style={{ fontSize: 26, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em' }}>{label}</div>
+      <div style={{ fontFamily: MONO, fontSize: 11, color: accent, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginTop: 8 }}>{tag}</div>
+    </div>
+  );
+}
+
+function ModelRow({ item, accent, last }) {
+  return (
+    <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '13px 0', borderBottom: last ? 'none' : `1px solid ${GRAY100}` }}>
+      <span style={{ width: 8, height: 8, borderRadius: 999, background: accent, marginTop: 7, flexShrink: 0 }}/>
+      <div>
+        <div style={{ fontSize: 18, fontWeight: 600, color: NAVY, letterSpacing: '-0.005em' }}>{item.name}</div>
+        <div style={{ fontSize: 13, color: GRAY600, lineHeight: 1.4, marginTop: 3 }}>{item.note}</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Slide — Risks & mitigations ─────────────────────────────────────
+function SceneRisks({ start, end }) {
+  const D = D_b();
+  const R = D.risks;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
+          <SectionHeading start={start} end={end} eyebrow="Risks & mitigations" title={R.subhead} fontSize={72} subSize={24}/>
+        </div>
+
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 350,
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20
+        }}>
+          {R.items.map((it, i) => (
+            <Reveal key={it.risk} start={start} end={end} delay={0.7 + i * 0.1} y={14}>
+              <div style={{
+                background: GRAY50, border: `1px solid ${GRAY200}`, borderTop: `3px solid ${GOLD}`,
+                borderRadius: 12, padding: '22px 24px', fontFamily: FONT, minHeight: 208
+              }}>
+                <div style={{ fontFamily: MONO, fontSize: 11, color: GRAY600, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Risk {String(i + 1).padStart(2, '0')}</div>
+                <div style={{ fontSize: 20, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em', marginTop: 10 }}>{it.risk}</div>
+                <div style={{ height: 1, background: GRAY200, margin: '16px 0' }}/>
+                <div style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
+                  <span style={{ color: '#1E7A45', fontSize: 14, fontWeight: 700, marginTop: 1 }}>✓</span>
+                  <div style={{ fontSize: 14, color: GRAY800, lineHeight: 1.5 }}>{it.mitigation}</div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal start={start} end={end} delay={1.5} y={12}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, bottom: 110,
+            paddingTop: 22, borderTop: `1px solid ${GRAY200}`,
+            fontFamily: FONT, fontSize: 22, fontWeight: 500, color: NAVY,
+            textAlign: 'center', letterSpacing: '-0.01em'
+          }}>
+            Predominantly <span style={{ color: GOLD }}>secured</span>, RBI-regulated, and conservatively capitalised at <span style={{ color: GOLD }}>40%</span> — risk-first by construction.
+          </div>
+        </Reveal>
+      </div>
+    </Sprite>
+  );
+}
+
 Object.assign(window, {
-  SceneLockers, SceneCompetitors, SceneFoundingTeam, SceneDirectors,
+  SceneBusinessModel, SceneRisks, ModelHeader, ModelRow,
+  SceneLockers, SceneCompetitors, SceneFoundingTeam, SceneDirectors, SceneDirectors2,
   SceneTeam, SceneAceInvestors, SceneGrowth, SceneWhyDhanam, SceneContact,
   LockerFeatureCard, CompetitorColumn, FounderColumn,
   DirectorCardCompact, TeamCard, AceCard,

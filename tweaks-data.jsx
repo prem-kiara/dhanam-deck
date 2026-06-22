@@ -19,19 +19,20 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   },
 
   "story": {
-    "subhead": "From a single branch in Coimbatore to a tech-led NBFC across South India — built on trust, innovation and financial inclusion.",
+    "subhead": "From a single branch to an end-to-end fintech across South India — built on trust, innovation and financial inclusion.",
     "brandLine": "means wealth — and to us, that's empowering communities, not just money.",
     "journey": [
-      { "year": "2016",   "title": "Founded in Coimbatore",   "note": "Microfinance for underserved communities" },
+      { "year": "2016",   "title": "Founded",                 "note": "A single branch — microfinance for the underserved" },
       { "year": "Growth", "title": "Multi-product NBFC",       "note": "Gold loans, LAP & SME finance" },
       { "year": "2026",   "title": "Premium Private Lockers",  "note": "State-of-the-art vault storage" },
       { "year": "Now",    "title": "Giant leaps in technology","note": "Since 2026 — fully fintech, on our own stack", "highlight": true }
     ],
     "values": [
-      { "title": "Trust & Transparency",  "note": "Clear terms, no hidden charges" },
       { "title": "Customer First",        "note": "Your success is our success" },
+      { "title": "Trust & Transparency",  "note": "Clear terms, no hidden charges" },
       { "title": "Financial Inclusion",   "note": "Credit for those who need it most" },
-      { "title": "Heritage & Innovation", "note": "Tradition meets modern technology" }
+      { "title": "Heritage & Innovation", "note": "Tradition meets modern technology" },
+      { "title": "Fintech-first",         "note": "Our own apps, automated end to end" }
     ]
   },
 
@@ -43,17 +44,16 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "products": 5,
     "customers": "50,000+",
     "productMix": [
-      { "label": "Gold loans",            "value": 60 },
-      { "label": "Loan against property", "value": 22 },
-      { "label": "Private lockers",       "value": 12 },
-      { "label": "Personal loans",        "value": 6 }
+      { "label": "Gold loans",            "value": 40 },
+      { "label": "Loan against property", "value": 40 },
+      { "label": "Personal loans",        "value": 20 }
     ]
   },
 
   "productCategories": {
     "loans": [
       { "key": "gold",              "label": "Gold loans",                "slot": "about-gold",       "caption": "Highest LTV in the market. 30-minute disbursal. Fully secured collateral." },
-      { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Secured property-backed credit — fastest disbursement in 3–4 days. Open to all eligible borrowers.", "imgPos": "center 65%" },
+      { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Secured property-backed credit — fastest disbursement in 3–4 days. Open to all eligible borrowers.", "imgPos": "center 50%" },
       { "key": "secured-business",  "label": "Secured business loans",    "slot": "about-business",   "caption": "Asset-backed working capital — structured credit for businesses that deserve better than a bank rejection." },
       { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Fast, flexible personal credit — backed by a verified repayment track record." }
     ],
@@ -68,8 +68,8 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "appPlatforms": "iOS · Android · Web",
     "headline": "Engineered by us, crafted for you.",
     "subhead": "A fully digital lending platform — built and run entirely in-house.",
-    "appSubtitle": "Invest, save, borrow and bank — apply, e-sign and pay in minutes. No branch needed.",
-    "appChips": ["Instant e-KYC", "e-Signing", "UPI & auto-pay", "Same-day disbursal"],
+    "appSubtitle": "Invest, save, borrow and bank — apply, e-sign and pay in minutes. No branch visit needed.",
+    "appChips": ["Instant e-KYC", "e-Signing", "UPI & auto-pay", "Immediate disbursal"],
     "appStoreUrl": "https://apps.apple.com/in/app/dhanamfin/id6766440740",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.dhanam.lockerhub",
     "capabilities": [
@@ -85,7 +85,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "step": "Collect",  "note": "Automated repayments" },
       { "step": "Service",  "note": "In-app LMS & support" }
     ],
-    "buildHeadline": "Run like a fintech, end to end.",
+    "buildHeadline": "Run as a fintech, end to end.",
     "buildLead": "From first tap to final collection — automated, paperless, on-app:",
     "buildBlocks": [
       { "label": "Zero-touch onboarding",  "note": "Digital KYC to disbursal — no manual intervention" },
@@ -267,6 +267,15 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "slot": "team-raju",
       "show": true,
       "founder": false
+    },
+    {
+      "name": "Mr. Govindasamy S",
+      "role": "Director · Property & LAP",
+      "qualification": "B.A.",
+      "bio": "Three decades of expertise in property analysis, valuation and construction. A sharp eye for assessing collateral quality and market value anchors Dhanam's loan-against-property underwriting and real-estate-backed lending. Deep networks across the construction and property ecosystem sharpen credit and risk decisions.",
+      "slot": "dir-govindasamy",
+      "show": true,
+      "founder": false
     }
   ],
 
@@ -290,7 +299,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     { "name": "Mr. Karnan Shanmugam",        "tag": "Director of Engg., Intel, Malaysia" },
     { "name": "Dr. Senthil Kumar K",         "tag": "Founder, Gateway Hospitals, CBE" },
     { "name": "Dr. Sudhakaran K",            "tag": "President, Rajshree Biosolutions, Theni" },
-    { "name": "Mr. Selvarajkumar C",         "tag": "Banker, Tenkasi" },
+    { "name": "Mr. Palanisamy",              "tag": "Sakthi Tyres, Erode" },
     { "name": "Mr. Dinesh Thangamuthu",      "tag": "Muthu Constructions, Erode" },
     { "name": "CA. Shanmugam P",             "tag": "Chartered Accountant, Namakkal" },
     { "name": "Mr. Samy K",                  "tag": "Associate Partner, IBM India" },
@@ -318,7 +327,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   ],
 
   "growth": {
-    "aumTodayCr": 200,
+    "aumTodayCr": 250,
     "aumYr5TargetCr": 2500,
     "branchesTodayCount": 50,
     "branchesYr5TargetCount": 200,
@@ -333,17 +342,57 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "label": "LAP market",          "stat": "₹76 lakh crore → ₹160 lakh crore by 2030 (13.3% CAGR)", "cite": "TechSci Research, IMARC" },
       { "label": "Locker demand",       "stat": "Multi-year wait-lists at PSU banks",   "cite": "Industry observation" }
     ],
-    "ourTrajectory": [
-      { "label": "AUM",        "today": "₹200 Cr",  "year5": "₹2,500 Cr",  "multiple": "12.5×" },
-      { "label": "Branches",   "today": "50+",       "year5": "200+",        "multiple": "4×" },
-      { "label": "Customers",  "today": "50,000+",   "year5": "5,00,000+",   "multiple": "10×" }
+    "current": [
+      { "label": "AUM",         "value": "₹250 Cr" },
+      { "label": "Branches",    "value": "50+" },
+      { "label": "Customers",   "value": "50,000+" },
+      { "label": "Share price", "value": "₹100" }
+    ]
+  },
+
+  "businessModel": {
+    "subhead": "Two engines under one roof — a proven, secured lending book, compounding through a paperless, AI-driven fintech layer.",
+    "conventional": {
+      "label": "Conventional model",
+      "tag": "Proven · secured · cash-generating",
+      "items": [
+        { "name": "Gold loans",          "note": "Highest-LTV, 30-minute disbursal, fully secured" },
+        { "name": "Loan against property","note": "Property-backed credit for the self-employed" },
+        { "name": "Private lockers",      "note": "Recurring fee income, zero credit risk" },
+        { "name": "Personal loans",       "note": "Fast, flexible, repayment-track-record based" },
+        { "name": "Bill discounting",     "note": "Short-tenor working-capital & invoice finance" }
+      ]
+    },
+    "fintech": {
+      "label": "Fintech model",
+      "tag": "AI-driven · digital · scalable",
+      "items": [
+        { "name": "Digi-gold",         "note": "Buy, save & pledge gold digitally, in-app" },
+        { "name": "AI credit analysis","note": "Data-led underwriting & risk scoring" },
+        { "name": "App-based loans",   "note": "Apply, e-sign & disburse end-to-end in-app" },
+        { "name": "Cross-selling",     "note": "AI-matched products across the customer base" },
+        { "name": "Upselling",         "note": "Right-size & top-up offers, driven by usage data" }
+      ]
+    },
+    "footer": "One customer base, two compounding engines — secured cash flows today, AI-led scale tomorrow."
+  },
+
+  "risks": {
+    "subhead": "Conservative by design — every material risk identified, owned and actively mitigated.",
+    "items": [
+      { "risk": "Credit risk",            "mitigation": "The large majority of the book is secured against gold or property at conservative LTVs. AI-assisted, branch-level underwriting, a granular small-ticket book and active monitoring keep concentration and default risk low." },
+      { "risk": "Gold-price risk",        "mitigation": "Loans capped at prudent LTV margins with daily mark-to-market and short (3–12 month) tenors. Disciplined re-pledge limits and timely auctions protect principal even through sharp gold corrections." },
+      { "risk": "Liquidity / ALM risk",   "mitigation": "Funding diversified across banks, NCDs and own capital, with assets and liabilities tenor-matched. A 40% capital-adequacy ratio — well above the RBI minimum — and maintained liquidity buffers absorb shocks." },
+      { "risk": "Regulatory & compliance","mitigation": "RBI-licensed NBFC with an in-house Company Secretary and compliance team. Regular audits, timely filings and IPO-grade governance keep us continuously audit-ready." },
+      { "risk": "Operational risk",       "mitigation": "Paperless, automated workflows on a single integrated core remove manual error. Standardised low-touch branch processes, maker-checker controls and centralised oversight contain operational exposure." },
+      { "risk": "Technology & cyber",     "mitigation": "Built and run on our own engineering stack — no third-party core dependency. Role-based access, encryption in transit and at rest, regular backups and continuous monitoring." }
     ]
   },
 
   "competitors": [
     {
       "product": "Gold loans",
-      "us": { "headline": "Hyper-local · 30-minute disbursal", "sub": "Branch-level credit decisions, in your language." },
+      "us": { "headline": "Hyper-local · 30-minute disbursal", "sub": "Branch-level credit decisions, clearly explained." },
       "peers": [
         { "name": "Muthoot Finance",  "focus": "Single-product specialist" },
         { "name": "Manappuram Finance", "focus": "Single-product specialist" },

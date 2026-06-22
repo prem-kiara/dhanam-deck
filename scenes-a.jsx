@@ -87,14 +87,11 @@ function SceneCover({ start, end }) {
         <Reveal start={start} end={end} delay={1.4} dur={1.0} y={0}>
           <div style={{
             position: 'absolute', left: 100, bottom: 120, right: 100,
-            display: 'flex', justifyContent: 'space-between',
+            display: 'flex', justifyContent: 'center',
             paddingTop: 24, borderTop: `1px solid ${GRAY200}`,
             fontFamily: MONO, fontSize: 14, color: GRAY600,
             letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600
           }}>
-            <span>RBI-licensed NBFC · BFSI · Pan-India</span>
-            <span>Licensed in {D.brand.establishedYear}</span>
-            <span>{D.brand.yearsOperating} years lending</span>
             <span>{D.brand.website}</span>
           </div>
         </Reveal>
@@ -115,7 +112,7 @@ function SceneStory({ start, end }) {
         <div style={{ position: 'absolute', left: 100, top: 120, width: 1000 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="Our story"
+            eyebrow="About us"
             title={S.subhead}
             fontSize={68}
             subSize={22}
@@ -136,7 +133,7 @@ function SceneStory({ start, end }) {
         {/* Story image — top right */}
         <Reveal start={start} end={end} delay={0.4} dur={1.0} y={20}>
           <div style={{
-            position: 'absolute', right: 100, top: 130, width: 720, height: 360,
+            position: 'absolute', right: 100, top: 168, width: 700, height: 332,
             borderRadius: 16, overflow: 'hidden', background: GRAY100,
             border: `1px solid ${GRAY200}`
           }}>
@@ -176,25 +173,30 @@ function SceneStory({ start, end }) {
           </div>
         </div>
 
-        {/* Values */}
-        <div style={{ position: 'absolute', left: 100, right: 100, top: 760 }}>
-          <Reveal start={start} end={end} delay={1.5}>
-            <div><CategoryLabel>What we stand for</CategoryLabel></div>
-          </Reveal>
-          <div style={{ marginTop: 18, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
-            {S.values.map((v, i) => (
-              <Reveal key={v.title} start={start} end={end} delay={1.65 + i * 0.1} y={12}>
-                <div style={{
-                  background: GRAY50, border: `1px solid ${GRAY200}`, borderLeft: `3px solid ${GOLD}`,
-                  borderRadius: 10, padding: '18px 20px', fontFamily: FONT, minHeight: 92
-                }}>
-                  <div style={{ fontSize: 17, fontWeight: 700, color: NAVY, letterSpacing: '-0.005em' }}>{v.title}</div>
-                  <div style={{ fontSize: 13, color: GRAY600, lineHeight: 1.5, marginTop: 8 }}>{v.note}</div>
-                </div>
-              </Reveal>
-            ))}
+        {/* What we stand for — navy ribbon */}
+        <Reveal start={start} end={end} delay={1.4} y={14}>
+          <div style={{
+            position: 'absolute', left: 100, right: 100, bottom: 80,
+            background: NAVY, color: '#fff', borderRadius: 16, padding: '26px 40px',
+            fontFamily: FONT
+          }}>
+            <div style={{
+              fontFamily: MONO, fontSize: 12, color: GOLD_LITE, letterSpacing: '0.2em',
+              textTransform: 'uppercase', fontWeight: 700, marginBottom: 18
+            }}>What we stand for</div>
+            <div style={{ display: 'flex', alignItems: 'stretch' }}>
+              {S.values.map((v, i) => (
+                <React.Fragment key={v.title}>
+                  {i > 0 && <div style={{ width: 1, background: 'rgba(255,255,255,0.16)', margin: '0 26px' }}/>}
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.2 }}>{v.title}</div>
+                    <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.62)', lineHeight: 1.4, marginTop: 7 }}>{v.note}</div>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </Sprite>
   );
@@ -598,7 +600,7 @@ function SceneHighlights({ start, end }) {
             { label: 'Gold loans',     color: GOLD,      stat: '22%',     statLabel: 'Gross yield', detail: '30-min disbursal · highest LTV · fully secured collateral' },
             { label: 'Loan against property', color: NAVY, stat: '17%',  statLabel: 'Gross yield', detail: '3–4 day disbursal · property-backed · self-employed friendly' },
             { label: 'Private lockers', color: NAVY_SOFT, stat: '100%',   statLabel: 'Asset secured', detail: 'Recurring fee income · security deposits · zero credit risk · large-format premium vaults' },
-            { label: 'Personal loans',  color: GRAY400,   stat: '↑38%',  statLabel: 'YoY growth',  detail: 'Fast & flexible · rewarding proven repayment track records' }
+            { label: 'Personal loans',  color: '#2A6BAD', stat: '↑38%',  statLabel: 'YoY growth',  detail: 'Fast & flexible · rewarding proven repayment track records' }
           ].map((card, i) => (
             <Reveal key={card.label} start={start} end={end} delay={1.3 + i * 0.1} y={12}>
               <div style={{
@@ -653,7 +655,7 @@ function FactCell({ label, value, align = 'left' }) {
 
 // ─── Product mix segmented horizontal bar ────────────────────────────
 function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 56 }) {
-  const PALETTE = [GOLD, NAVY, NAVY_SOFT, GRAY400];
+  const PALETTE = [GOLD, NAVY, '#2A6BAD', GRAY400];
   return (
     <Sprite start={start} end={end - 0.1}>
       {({ localTime }) => {
@@ -908,8 +910,67 @@ function ProjectionChart({ historical, projected, start, end, delay = 0.4, growD
   );
 }
 
+// ─── Slide — Future prospects (Gold + LAP, merged) ───────────────────
+function SceneProspects({ start, end }) {
+  const D = D_();
+  const G = D.goldProspectus;
+  const L = D.lapProspectus;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="Future business prospects"
+            title="Gold and LAP — two markets compounding in our favour, separately and together."
+            fontSize={64}
+            subSize={22}
+          />
+        </div>
+
+        {/* LEFT — Gold */}
+        <div style={{ position: 'absolute', left: 100, top: 360, width: 840 }}>
+          <Reveal start={start} end={end} delay={0.6}>
+            <div><CategoryLabel>Gold loans · macro tailwind</CategoryLabel></div>
+          </Reveal>
+          <Reveal start={start} end={end} delay={0.75} y={12}>
+            <div style={{ fontFamily: FONT, fontWeight: 500, fontSize: 30, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1, marginTop: 14 }}>
+              Gold could reach <span style={{ color: GOLD }}>$10,000/oz</span> by 2030.
+            </div>
+          </Reveal>
+          <div style={{ marginTop: 24 }}>
+            <ProjectionChart historical={G.historical} projected={G.future}
+                             start={start} end={end} delay={1.0} height={300}
+                             valuePrefix={G.valuePrefix || '$'}/>
+          </div>
+        </div>
+
+        {/* RIGHT — LAP */}
+        <div style={{ position: 'absolute', right: 100, top: 360, width: 840 }}>
+          <Reveal start={start} end={end} delay={0.7}>
+            <div><CategoryLabel>Loan against property · macro tailwind</CategoryLabel></div>
+          </Reveal>
+          <Reveal start={start} end={end} delay={0.85} y={12}>
+            <div style={{ fontFamily: FONT, fontWeight: 500, fontSize: 30, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1, marginTop: 14 }}>
+              ₹76L cr → <span style={{ color: GOLD }}>₹160L cr</span> by 2030.
+            </div>
+          </Reveal>
+          <div style={{ marginTop: 24 }}>
+            <ProjectionChart historical={L.historical} projected={L.future}
+                             start={start} end={end} delay={1.1} height={300}
+                             valuePrefix={L.valuePrefix || '₹'}/>
+          </div>
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
 Object.assign(window, {
-  SceneCover, SceneStory, SceneAbout, SceneTech, SceneHighlights, SceneGold, SceneLAP,
+  SceneCover, SceneStory, SceneAbout, SceneTech, SceneHighlights,
+  SceneGold, SceneLAP, SceneProspects,
   ProductCardTop, ProductCardSide, StoreBadge,
   FactCell, ProductMixBar, ProjectionChart
 });
