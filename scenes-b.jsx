@@ -200,19 +200,19 @@ function CompetitorColumn({ row }) {
 // ─── Slide 8 — Promoters & Directors I (first 4, zigzag round photos) ─
 function SceneFoundingTeam({ start, end }) {
   const D = D_b();
-  const directors = D.directors.filter(d => d.show).slice(0, 5);
+  const directors = D.directors.filter(d => d.show).slice(0, 4);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
-                                eyebrow="08 · Promoters & Directors"
-                                title="Promoters and operating Directors — chartered accountancy, finance, technology and governance, all under one roof."/>;
+                                eyebrow="Promoters and Directors"
+                                title="Our promoter-directors — chartered accountancy, finance, strategy, operations and governance, all under one roof."/>;
 }
 
 // ─── Slide 9 — Promoters & Directors II (next 4, same zigzag format) ─
 function SceneDirectors({ start, end }) {
   const D = D_b();
-  const directors = D.directors.filter(d => d.show).slice(5, 10);
+  const directors = D.directors.filter(d => d.show).slice(4);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
-                                eyebrow="09 · Promoters & Directors"
-                                title="The operating board — branch network, administration, growth, business development and capital markets."/>;
+                                eyebrow="KMP and Directors"
+                                title="Key managerial personnel & directors — technology, administration, growth, compliance, business and capital markets."/>;
 }
 
 function DirectorsZigzagSlide({ start, end, directors, eyebrow, title }) {
@@ -238,7 +238,7 @@ function DirectorsZigzagSlide({ start, end, directors, eyebrow, title }) {
         }}>
           {directors.map((d, i) => (
             <Reveal key={d.name} start={start} end={end} delay={0.9 + i * 0.15} y={20}>
-              <FounderColumn d={d} offset={i % 2 === 0 ? 'up' : 'down'} photoSize={directors.length >= 5 ? 160 : 200}/>
+              <FounderColumn d={d} offset={i % 2 === 0 ? 'up' : 'down'} photoSize={directors.length >= 7 ? 140 : directors.length >= 5 ? 160 : 200}/>
             </Reveal>
           ))}
         </div>
@@ -429,7 +429,7 @@ function SceneGrowth({ start, end }) {
           <SectionHeading
             start={start} end={end}
             eyebrow="12 · Future growth"
-            title="Conservative, secured, multi-product. Built for India's next decade of credit — and the macro tailwinds working in our favour."
+            title="A fintech-led, multi-product NBFC — conservative, secured, and built for India's next decade of credit, with the macro tailwinds in our favour."
             fontSize={80}
             subSize={26}
           />
@@ -473,7 +473,7 @@ function SceneGrowth({ start, end }) {
             fontFamily: FONT, fontSize: 22, fontWeight: 500,
             color: NAVY, letterSpacing: '-0.01em', textAlign: 'center'
           }}>
-            Our money grows because <span style={{ color: GOLD }}>India's credit cycle</span> grows.
+            Our money grows because <span style={{ color: GOLD }}>India's credit cycle</span> grows — and because we run it like a fintech.
           </div>
         </Reveal>
       </div>

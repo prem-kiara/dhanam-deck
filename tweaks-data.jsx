@@ -18,6 +18,23 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "whatsapp": "89258 03986"
   },
 
+  "story": {
+    "subhead": "From a single branch in Coimbatore to a tech-led NBFC across South India — built on trust, innovation and financial inclusion.",
+    "brandLine": "means wealth — and to us, that's empowering communities, not just money.",
+    "journey": [
+      { "year": "2016",   "title": "Founded in Coimbatore",   "note": "Microfinance for underserved communities" },
+      { "year": "Growth", "title": "Multi-product NBFC",       "note": "Gold loans, LAP & SME finance" },
+      { "year": "2026",   "title": "Premium Private Lockers",  "note": "State-of-the-art vault storage" },
+      { "year": "Now",    "title": "Giant leaps in technology","note": "Since 2026 — fully fintech, on our own stack", "highlight": true }
+    ],
+    "values": [
+      { "title": "Trust & Transparency",  "note": "Clear terms, no hidden charges" },
+      { "title": "Customer First",        "note": "Your success is our success" },
+      { "title": "Financial Inclusion",   "note": "Credit for those who need it most" },
+      { "title": "Heritage & Innovation", "note": "Tradition meets modern technology" }
+    ]
+  },
+
   "highlights": {
     "aumCr": 150,
     "branches": "50+",
@@ -180,20 +197,20 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "founder": true
     },
     {
-      "name": "Mr. Suren S",
-      "role": "Director · CEO · Technology & Strategy",
-      "qualification": "B.E.",
-      "bio": "Engineer and former CEO of two technology companies. 8+ years in machine learning and data sciences across the United States, delivering AI-led solutions for Home Depot, Walmart and global banking clients. Drives Dhanam's digital transformation, scalable infrastructure and intelligent data-led decisions.",
-      "slot": "dir-suren",
-      "show": true,
-      "founder": false
-    },
-    {
       "name": "Mr. Gunasekaran S",
       "role": "Director & COO",
       "qualification": "MBA",
       "bio": "Operations specialist with decades in branch-network management, process optimisation and service delivery at scale across financial services. Leads Dhanam's branch productivity, customer service and operational delivery.",
       "slot": "dir-guna",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Suren S",
+      "role": "Director · CEO · Technology & Strategy",
+      "qualification": "B.E.",
+      "bio": "Engineer and former CEO of two technology companies. 8+ years in machine learning and data sciences across the United States, delivering AI-led solutions for Home Depot, Walmart and global banking clients. Drives Dhanam's digital transformation, scalable infrastructure and intelligent data-led decisions.",
+      "slot": "dir-suren",
       "show": true,
       "founder": false
     },
@@ -239,6 +256,15 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "qualification": "MBA",
       "bio": "Capital markets and securities specialist with 30+ years of experience in share market and trading. Business Associate at Kotak Securities, Erode. Brings deep investor relations, wealth management and financial markets expertise to Dhanam's board.",
       "slot": "dir-sivashanmugam",
+      "show": true,
+      "founder": false
+    },
+    {
+      "name": "Mr. Raju P",
+      "role": "Head of Operations · North",
+      "qualification": "B.A.",
+      "bio": "Leads Dhanam's operations across the northern region — branch coordination, service delivery and on-ground execution. Ensures the expanding northern network holds consistent operational standards and a customer-first approach as Dhanam scales beyond its southern base.",
+      "slot": "team-raju",
       "show": true,
       "founder": false
     }
@@ -292,10 +318,10 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   ],
 
   "growth": {
-    "aumTodayCr": 150,
+    "aumTodayCr": 200,
     "aumYr5TargetCr": 2500,
     "branchesTodayCount": 50,
-    "branchesYr5TargetCount": 150,
+    "branchesYr5TargetCount": 200,
     "customersTodayK": 50,
     "customersYr5TargetK": 500,
     "nbfcSectorCagrPct": 18,
@@ -304,12 +330,12 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "macroPoints": [
       { "label": "NBFC sector AUM",     "stat": "Crosses ₹50 lakh crore by FY27", "cite": "CRISIL — 18% growth FY26-FY27" },
       { "label": "Gold loan market",    "stat": "Gold could hit $10,000/oz by 2030", "cite": "Yardeni Research" },
-      { "label": "LAP market",          "stat": "$0.76T → $1.59T by 2030 (13.3% CAGR)", "cite": "TechSci Research, IMARC" },
+      { "label": "LAP market",          "stat": "₹76 lakh crore → ₹160 lakh crore by 2030 (13.3% CAGR)", "cite": "TechSci Research, IMARC" },
       { "label": "Locker demand",       "stat": "Multi-year wait-lists at PSU banks",   "cite": "Industry observation" }
     ],
     "ourTrajectory": [
-      { "label": "AUM",        "today": "₹150 Cr",  "year5": "₹2,500 Cr",  "multiple": "16×" },
-      { "label": "Branches",   "today": "50+",       "year5": "150+",        "multiple": "3×" },
+      { "label": "AUM",        "today": "₹200 Cr",  "year5": "₹2,500 Cr",  "multiple": "12.5×" },
+      { "label": "Branches",   "today": "50+",       "year5": "200+",        "multiple": "4×" },
       { "label": "Customers",  "today": "50,000+",   "year5": "5,00,000+",   "multiple": "10×" }
     ]
   },

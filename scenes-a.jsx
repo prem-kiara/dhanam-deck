@@ -103,6 +103,103 @@ function SceneCover({ start, end }) {
   );
 }
 
+// ─── Slide — Our story (about + journey timeline + values) ───────────
+function SceneStory({ start, end }) {
+  const D = D_();
+  const S = D.story;
+  return (
+    <Sprite start={start} end={end}>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
+
+        <div style={{ position: 'absolute', left: 100, top: 120, width: 1000 }}>
+          <SectionHeading
+            start={start} end={end}
+            eyebrow="Our story"
+            title={S.subhead}
+            fontSize={68}
+            subSize={22}
+          />
+        </div>
+
+        {/* Brand-meaning accent line */}
+        <Reveal start={start} end={end} delay={0.5}>
+          <div style={{
+            position: 'absolute', left: 100, top: 330, width: 960,
+            fontFamily: SERIF, fontStyle: 'italic', fontSize: 26, color: NAVY,
+            letterSpacing: '-0.005em', lineHeight: 1.4
+          }}>
+            <span style={{ color: GOLD }}>“Dhanam”</span> {S.brandLine}
+          </div>
+        </Reveal>
+
+        {/* Story image — top right */}
+        <Reveal start={start} end={end} delay={0.4} dur={1.0} y={20}>
+          <div style={{
+            position: 'absolute', right: 100, top: 130, width: 720, height: 360,
+            borderRadius: 16, overflow: 'hidden', background: GRAY100,
+            border: `1px solid ${GRAY200}`
+          }}>
+            <img src={`uploads/story-branch.png?v=${IMG_VER}`} alt=""
+                 onError={(e) => { e.target.style.display = 'none'; }}
+                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 42%', display: 'block' }}/>
+          </div>
+        </Reveal>
+
+        {/* Journey timeline */}
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 510 }}>
+          <Reveal start={start} end={end} delay={0.7}>
+            <div><CategoryLabel>Our journey</CategoryLabel></div>
+          </Reveal>
+          <div style={{ position: 'relative', marginTop: 44 }}>
+            <div style={{ position: 'absolute', left: '12.5%', right: '12.5%', top: 8, height: 2, background: GRAY200 }}/>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, position: 'relative' }}>
+              {S.journey.map((m, i) => (
+                <Reveal key={i} start={start} end={end} delay={0.9 + i * 0.14} y={14}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', fontFamily: FONT }}>
+                    <div style={{
+                      width: 18, height: 18, borderRadius: 999,
+                      background: m.highlight ? GOLD : NAVY, border: '3px solid #fff',
+                      boxShadow: m.highlight ? `0 0 0 4px ${GOLD_PALE}` : 'none'
+                    }}/>
+                    <div style={{
+                      fontFamily: MONO, fontSize: 13, fontWeight: 700, marginTop: 20,
+                      letterSpacing: '0.14em', textTransform: 'uppercase',
+                      color: m.highlight ? GOLD : NAVY
+                    }}>{m.year}</div>
+                    <div style={{ fontSize: 20, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em', marginTop: 10, lineHeight: 1.2 }}>{m.title}</div>
+                    <div style={{ fontSize: 13, color: GRAY600, lineHeight: 1.45, marginTop: 8, maxWidth: 320 }}>{m.note}</div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Values */}
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 760 }}>
+          <Reveal start={start} end={end} delay={1.5}>
+            <div><CategoryLabel>What we stand for</CategoryLabel></div>
+          </Reveal>
+          <div style={{ marginTop: 18, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+            {S.values.map((v, i) => (
+              <Reveal key={v.title} start={start} end={end} delay={1.65 + i * 0.1} y={12}>
+                <div style={{
+                  background: GRAY50, border: `1px solid ${GRAY200}`, borderLeft: `3px solid ${GOLD}`,
+                  borderRadius: 10, padding: '18px 20px', fontFamily: FONT, minHeight: 92
+                }}>
+                  <div style={{ fontSize: 17, fontWeight: 700, color: NAVY, letterSpacing: '-0.005em' }}>{v.title}</div>
+                  <div style={{ fontSize: 13, color: GRAY600, lineHeight: 1.5, marginTop: 8 }}>{v.note}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Sprite>
+  );
+}
+
 // ─── Slide 2 — Products we offer (Loans + Wealth, categorised) ───────
 function SceneAbout({ start, end }) {
   const D = D_();
@@ -812,7 +909,7 @@ function ProjectionChart({ historical, projected, start, end, delay = 0.4, growD
 }
 
 Object.assign(window, {
-  SceneCover, SceneAbout, SceneTech, SceneHighlights, SceneGold, SceneLAP,
+  SceneCover, SceneStory, SceneAbout, SceneTech, SceneHighlights, SceneGold, SceneLAP,
   ProductCardTop, ProductCardSide, StoreBadge,
   FactCell, ProductMixBar, ProjectionChart
 });
