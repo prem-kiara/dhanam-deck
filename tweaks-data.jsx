@@ -299,7 +299,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     { "name": "Mr. Karnan Shanmugam",        "tag": "Director of Engg., Intel, Malaysia" },
     { "name": "Dr. Senthil Kumar K",         "tag": "Founder, Gateway Hospitals, CBE" },
     { "name": "Dr. Sudhakaran K",            "tag": "President, Rajshree Biosolutions, Theni" },
-    { "name": "Mr. Palanisamy",              "tag": "Sakthi Tyres, Erode" },
+    { "name": "Mr. Palanisamy D",            "tag": "Sri Sakthi Tyres, Erode" },
     { "name": "Mr. Dinesh Thangamuthu",      "tag": "Muthu Constructions, Erode" },
     { "name": "CA. Shanmugam P",             "tag": "Chartered Accountant, Namakkal" },
     { "name": "Mr. Samy K",                  "tag": "Associate Partner, IBM India" },
