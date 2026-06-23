@@ -21,6 +21,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   "story": {
     "subhead": "From a single branch to an end-to-end fintech across South India — built on trust, innovation and financial inclusion.",
     "brandLine": "means wealth — and to us, that's empowering communities, not just money.",
+    "narrative": "Founded in 2016 in Coimbatore, Dhanam Investment and Finance Pvt. Ltd. was born from a vision to bring formal financial services to underserved communities. Starting with microfinance and MFI lending, we recognized the potential to serve rural farmers, small business owners, and working families who faced barriers to accessing credit from traditional banking systems.",
     "journey": [
       { "year": "2016",   "title": "Founded",                 "note": "A single branch — microfinance for the underserved" },
       { "year": "Growth", "title": "Multi-product NBFC",       "note": "Gold loans, LAP & SME finance" },
@@ -369,7 +370,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "items": [
         { "name": "Digi-gold",         "note": "Buy, save & pledge gold digitally, in-app" },
         { "name": "AI credit analysis","note": "Data-led underwriting & risk scoring" },
-        { "name": "App-based loans",   "note": "Apply, e-sign & disburse end-to-end in-app" },
+        { "name": "App-based services","note": "Personal Loans, NCD, Lockers, Gold Schemes" },
         { "name": "Cross-selling",     "note": "AI-matched products across the customer base" },
         { "name": "Upselling",         "note": "Right-size & top-up offers, driven by usage data" }
       ]
