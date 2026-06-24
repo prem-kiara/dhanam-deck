@@ -130,6 +130,15 @@ function SceneStory({ start, end }) {
           </div>
         </Reveal>
 
+        {/* Narrative paragraph */}
+        <Reveal start={start} end={end} delay={0.6}>
+          <div style={{
+            position: 'absolute', left: 100, top: 392, width: 960,
+            fontFamily: FONT, fontSize: 16, color: GRAY800,
+            letterSpacing: '-0.005em', lineHeight: 1.55
+          }}>{S.narrative}</div>
+        </Reveal>
+
         {/* Story image — top right */}
         <Reveal start={start} end={end} delay={0.4} dur={1.0} y={20}>
           <div style={{
