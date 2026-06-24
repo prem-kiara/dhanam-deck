@@ -53,14 +53,14 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
 
   "productCategories": {
     "loans": [
-      { "key": "gold",              "label": "Gold loans",                "slot": "about-gold",       "caption": "Highest LTV in the market. 30-minute disbursal. Fully secured collateral." },
-      { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Secured property-backed credit — fastest disbursement in 3–4 days. Open to all eligible borrowers.", "imgPos": "center 50%" },
-      { "key": "secured-business",  "label": "Secured business loans",    "slot": "about-business",   "caption": "Asset-backed working capital — structured credit for businesses that deserve better than a bank rejection." },
-      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Fast, flexible personal credit — backed by a verified repayment track record." }
+      { "key": "gold",              "label": "Gold loans",                "slot": "about-gold",       "caption": "Instant Gold Loans. Instant Relief." },
+      { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Turn Property into Possibilities.", "imgPos": "center 50%" },
+      { "key": "secured-business",  "label": "Secured business loans",    "slot": "about-business",   "caption": "Grow More. Worry Less." },
+      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Turn Plans into Reality." }
     ],
     "wealth": [
-      { "key": "ncd",     "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Secured · Stable · Income. RBI-overseen debt instruments — a regulated investment for every wealth profile." },
-      { "key": "lockers", "label": "Private lockers",                "slot": "about-lockers", "caption": "Exclusive vault-grade security with five-star hospitality — private, discreet, and reserved for Dhanam's discerning clientele." }
+      { "key": "ncd",     "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Stable Returns. Stronger Tomorrow." },
+      { "key": "lockers", "label": "Private lockers",                "slot": "about-lockers", "caption": "Lock It. Leave It. Live Worry-Free." }
     ]
   },
 
