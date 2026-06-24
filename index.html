@@ -45,20 +45,20 @@
   body.print-mode { overflow: auto !important; height: auto !important; background: #fff !important; }
   body.print-mode #video-root, body.print-mode #root { position: static !important; inset: auto !important; }
   .print-root { background: #fff; }
-  /* Each page is a 16:9 sheet; the 1920×1080 slide fills it edge-to-edge. */
+  /* Each page is the slide's native 1920×1080 — fills the sheet edge-to-edge. */
   .print-page {
-    position: relative; width: 297mm; height: 167.06mm; overflow: hidden;
+    position: relative; width: 1920px; height: 1080px; overflow: hidden;
     background: #fff; margin: 16px auto; break-after: page; page-break-after: always;
     box-shadow: 0 6px 30px rgba(0,0,0,0.25);
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   .print-canvas {
-    position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px;
-    transform: translate(-50%, -50%) scale(0.5846); background: #fff;
+    position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+    transform: none; background: #fff;
   }
   .print-page * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   @media print {
-    @page { size: 297mm 167.06mm; margin: 0; }
+    @page { size: 1920px 1080px; margin: 0; }
     body.print-mode { background: #fff !important; }
     .print-page { margin: 0; box-shadow: none; }
   }
