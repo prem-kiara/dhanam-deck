@@ -45,9 +45,9 @@
   body.print-mode { overflow: auto !important; height: auto !important; background: #fff !important; }
   body.print-mode #video-root, body.print-mode #root { position: static !important; inset: auto !important; }
   .print-root { background: #fff; }
-  /* Each page is A4 landscape; the 1920×1080 slide is scaled to fit the width. */
+  /* Each page is a 16:9 sheet; the 1920×1080 slide fills it edge-to-edge. */
   .print-page {
-    position: relative; width: 297mm; height: 210mm; overflow: hidden;
+    position: relative; width: 297mm; height: 167.06mm; overflow: hidden;
     background: #fff; margin: 16px auto; break-after: page; page-break-after: always;
     box-shadow: 0 6px 30px rgba(0,0,0,0.25);
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
@@ -58,7 +58,7 @@
   }
   .print-page * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   @media print {
-    @page { size: A4 landscape; margin: 0; }
+    @page { size: 297mm 167.06mm; margin: 0; }
     body.print-mode { background: #fff !important; }
     .print-page { margin: 0; box-shadow: none; }
   }
