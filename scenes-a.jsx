@@ -40,16 +40,6 @@ function SceneCover({ start, end }) {
             </div>
           </Reveal>
 
-          <Reveal start={start} end={end} delay={1.0}>
-            <div style={{
-              fontFamily: MONO, fontSize: 14, color: GOLD,
-              letterSpacing: '0.16em', textTransform: 'uppercase',
-              fontWeight: 500, marginTop: 12
-            }}>
-              {new Date().getFullYear()} · Pan-India
-            </div>
-          </Reveal>
-
           <Reveal start={start} end={end} delay={1.2} y={14}>
             <div style={{
               fontFamily: FONT, fontSize: 18, color: GRAY600,
@@ -257,7 +247,7 @@ function SceneAbout({ start, end }) {
           </Reveal>
           <div style={{
             marginTop: 18,
-            display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 22
+            display: 'grid', gridTemplateColumns: `repeat(${wealth.length}, 1fr)`, gap: 22
           }}>
             {wealth.map((it, i) => (
               <Reveal key={it.key} start={start} end={end} delay={1.5 + i * 0.1} y={14}>
@@ -331,13 +321,15 @@ function ProductCardSide({ item }) {
       display: 'grid', gridTemplateColumns: '300px 1fr',
       height: 250
     }}>
-      <div style={{ width: '100%', height: '100%', background: GRAY100 }}>
+      <div style={{ width: '100%', height: '100%', background: GRAY100, overflow: 'hidden' }}>
         <img src={`uploads/${item.slot}.png?v=${IMG_VER}`} alt={item.label}
              onError={(e) => { e.target.style.display = 'none'; }}
              style={{
                width: '100%', height: '100%',
                objectFit: 'cover',
-               objectPosition: 'center 35%',
+               objectPosition: item.imgPos || 'center 35%',
+               transform: item.imgZoom ? `scale(${item.imgZoom})` : 'none',
+               transformOrigin: item.imgZoomOrigin || 'center 35%',
                display: 'block'
              }}/>
       </div>
@@ -357,7 +349,7 @@ function ProductCardSide({ item }) {
           letterSpacing: '-0.005em', lineHeight: 1.25
         }}>{item.label}</div>
         <div style={{
-          fontSize: 15, color: GRAY600, lineHeight: 1.55
+          fontSize: 15, color: GRAY600, lineHeight: 1.55, whiteSpace: 'pre-line'
         }}>{item.caption}</div>
       </div>
     </div>
@@ -383,7 +375,7 @@ function SceneTech({ start, end }) {
           />
         </div>
 
-        {/* LEFT — the app: identity + store badges */}
+        {/* LEFT — the app: identity, image, chips + store badges */}
         <div style={{ position: 'absolute', left: 100, top: 336, width: 760 }}>
           <Reveal start={start} end={end} delay={0.6}>
             <div><CategoryLabel>Our app · live on both stores</CategoryLabel></div>
@@ -391,46 +383,51 @@ function SceneTech({ start, end }) {
 
           <Reveal start={start} end={end} delay={0.75} y={16}>
             <div style={{
-              marginTop: 18, background: PAPER, border: `1px solid ${GRAY200}`,
-              borderRadius: 16, padding: 28, fontFamily: FONT
+              marginTop: 18, background: '#fff', border: `1px solid ${GRAY200}`,
+              borderRadius: 16, padding: '24px 28px', fontFamily: FONT
             }}>
-              {/* App header */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <div style={{
-                  width: 72, height: 72, borderRadius: 16, overflow: 'hidden',
-                  border: `1px solid ${GRAY200}`, flexShrink: 0
-                }}>
-                  <img src={T.appIcon} alt="Dhanamfin app icon"
-                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}/>
-                </div>
-                <div>
-                  <div style={{ fontSize: 30, fontWeight: 700, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1 }}>{T.appName}</div>
-                  <div style={{ fontFamily: MONO, fontSize: 11, color: GRAY600, letterSpacing: '0.16em', textTransform: 'uppercase', marginTop: 6 }}>{T.appPlatforms}</div>
-                </div>
-                <div style={{ marginLeft: 'auto' }}>
-                  <span style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 7,
-                    background: '#E8F5EE', color: '#1E7A45', borderRadius: 999,
-                    padding: '5px 12px', fontSize: 11, fontWeight: 700,
-                    letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: MONO
-                  }}>
-                    <span style={{ width: 7, height: 7, borderRadius: 999, background: '#1E7A45' }}/>Live
-                  </span>
+              {/* top — phone image beside identity + chips */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 26 }}>
+                {/* phone image */}
+                <img src={`uploads/app.png.jpeg?v=${IMG_VER}`} alt="Dhanamfin app on phone"
+                     style={{ height: 192, width: 'auto', maxWidth: 140, objectFit: 'contain', display: 'block', flexShrink: 0 }}/>
+
+                {/* right — identity, subtitle, chips */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 26, fontWeight: 600, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1 }}>{T.appName}</div>
+                      <div style={{ fontFamily: MONO, fontSize: 12, color: GRAY600, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: 5 }}>{T.appPlatforms}</div>
+                    </div>
+                    <div style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 12px',
+                      background: 'rgba(22,163,74,0.10)', borderRadius: 999
+                    }}>
+                      <span style={{ width: 7, height: 7, borderRadius: 999, background: '#16a34a' }}/>
+                      <span style={{ fontFamily: MONO, fontSize: 11, fontWeight: 700, color: '#15803d', letterSpacing: '0.12em' }}>LIVE</span>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: 14, fontSize: 15, color: GRAY600, lineHeight: 1.5 }}>{T.appSubtitle}</div>
+
+                  <div style={{ marginTop: 14, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                    {T.appChips.map(c => (
+                      <span key={c} style={{
+                        fontFamily: MONO, fontSize: 12, color: NAVY, background: GRAY50,
+                        border: `1px solid ${GRAY200}`, borderRadius: 999, padding: '7px 14px', letterSpacing: '0.01em'
+                      }}>{c}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div style={{ fontSize: 15, color: GRAY800, lineHeight: 1.55, marginTop: 16 }}>{T.appSubtitle}</div>
+              {/* divider */}
+              <div style={{ height: 1, background: GRAY200, margin: '18px 0' }}/>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
-                {T.appChips.map(c => <Chip key={c} mono>{c}</Chip>)}
-              </div>
-
-              <div style={{ height: 1, background: GRAY100, margin: '20px 0' }}/>
-
-              {/* Store badges */}
+              {/* store badges */}
               <div style={{ display: 'flex', gap: 14 }}>
                 <StoreBadge kind="apple" href={T.appStoreUrl}/>
-                <StoreBadge kind="play"  href={T.playStoreUrl}/>
+                <StoreBadge kind="play" href={T.playStoreUrl}/>
               </div>
             </div>
           </Reveal>
@@ -594,8 +591,8 @@ function SceneHighlights({ start, end }) {
               fontFamily: FONT, fontSize: 17, color: GRAY600,
               marginTop: 24, lineHeight: 1.6
             }}>
-              Gold loans anchor the book — secured, granular, recurring. LAP is the fastest-compounding line, backed by real property.
-              Private lockers bring fee-based income with zero credit risk. Personal loans remain disciplined, rewarding only proven borrowers.
+              Gold loans anchor the book. LAP is the rapidly-compounding.
+              Private lockers bring fee-based income with zero credit risk. Personal loans remain disciplined, rewarding.
             </div>
           </div>
         </Reveal>
@@ -606,10 +603,10 @@ function SceneHighlights({ start, end }) {
           display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18
         }}>
           {[
-            { label: 'Gold loans',     color: GOLD,      stat: '22%',     statLabel: 'Gross yield', detail: '30-min disbursal · highest LTV · fully secured collateral' },
-            { label: 'Loan against property', color: NAVY, stat: '17%',  statLabel: 'Gross yield', detail: '3–4 day disbursal · property-backed · self-employed friendly' },
-            { label: 'Private lockers', color: NAVY_SOFT, stat: '100%',   statLabel: 'Asset secured', detail: 'Recurring fee income · security deposits · zero credit risk · large-format premium vaults' },
-            { label: 'Personal loans',  color: '#2A6BAD', stat: '↑38%',  statLabel: 'YoY growth',  detail: 'Fast & flexible · rewarding proven repayment track records' }
+            { label: 'Gold loans',     color: GOLD,      stat: '22%',     statLabel: 'Gross yield', detail: '' },
+            { label: 'Loan against property', color: NAVY, stat: '17%',  statLabel: 'Gross yield', detail: '' },
+            { label: 'Private lockers', color: NAVY_SOFT, stat: '100%',   statLabel: 'Asset secured', detail: '' },
+            { label: 'Personal loans',  color: '#2A6BAD', stat: '↑38%',  statLabel: 'YoY growth',  detail: '' }
           ].map((card, i) => (
             <Reveal key={card.label} start={start} end={end} delay={1.3 + i * 0.1} y={12}>
               <div style={{
@@ -622,7 +619,7 @@ function SceneHighlights({ start, end }) {
                   <span style={{ fontSize: 36, fontWeight: 500, color: card.color, letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>{card.stat}</span>
                   <span style={{ fontSize: 12, color: GRAY600, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{card.statLabel}</span>
                 </div>
-                <div style={{ fontSize: 13, color: GRAY800, lineHeight: 1.5, marginTop: 10 }}>{card.detail}</div>
+                {card.detail && <div style={{ fontSize: 13, color: GRAY800, lineHeight: 1.5, marginTop: 10 }}>{card.detail}</div>}
               </div>
             </Reveal>
           ))}
@@ -972,8 +969,53 @@ function SceneProspects({ start, end }) {
                              valuePrefix={L.valuePrefix || '₹'}/>
           </div>
         </div>
+
+        {/* BOTTOM LEFT — total gold loan market & the share we plan to capture */}
+        <div style={{ position: 'absolute', left: 100, top: 858, width: 840 }}>
+          <Reveal start={start} end={end} delay={1.25} y={16}>
+            <ProspectShareCard
+              marketLabel="Total gold loan market" marketValue="₹10 lakh cr"
+              targetValue="0.5%" targetSub="≈ ₹5,000 Cr book"/>
+          </Reveal>
+        </div>
+
+        {/* BOTTOM RIGHT — total LAP market & the share we plan to capture */}
+        <div style={{ position: 'absolute', right: 100, top: 858, width: 840 }}>
+          <Reveal start={start} end={end} delay={1.35} y={16}>
+            <ProspectShareCard
+              marketLabel="Total LAP market" marketValue="₹160 lakh cr"
+              targetValue="0.5%" targetSub="≈ ₹8,000 Cr book"/>
+          </Reveal>
+        </div>
       </div>
     </Sprite>
+  );
+}
+
+// Compact navy card: a market size on the left, our target slice on the right.
+function ProspectShareCard({ marketLabel, marketValue, targetValue, targetSub }) {
+  return (
+    <div style={{
+      background: NAVY, borderRadius: 16, padding: '24px 32px', fontFamily: FONT,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20
+    }}>
+      {/* total market */}
+      <div style={{ flex: '0 0 auto' }}>
+        <div style={{ fontFamily: MONO, fontSize: 12, color: GOLD_LITE, letterSpacing: '0.16em', textTransform: 'uppercase' }}>{marketLabel}</div>
+        <div style={{ marginTop: 8, fontSize: 36, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1 }}>
+          {marketValue} <span style={{ fontSize: 18, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>by 2030</span>
+        </div>
+      </div>
+      {/* connector arrow */}
+      <svg width="30" height="13" viewBox="0 0 34 14" fill="none" style={{ flexShrink: 0 }}><path d="M0 7h32m0 0l-6-6m6 6l-6 6" stroke={GOLD_LITE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      {/* our target */}
+      <div style={{ flex: '0 0 auto', textAlign: 'right' }}>
+        <div style={{ fontFamily: MONO, fontSize: 12, color: GOLD_LITE, letterSpacing: '0.16em', textTransform: 'uppercase' }}>Dhanam targets · by FY31</div>
+        <div style={{ marginTop: 8, fontSize: 36, fontWeight: 600, color: GOLD, letterSpacing: '-0.02em', lineHeight: 1 }}>
+          {targetValue} <span style={{ fontSize: 18, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>{targetSub}</span>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -981,5 +1023,5 @@ Object.assign(window, {
   SceneCover, SceneStory, SceneAbout, SceneTech, SceneHighlights,
   SceneGold, SceneLAP, SceneProspects,
   ProductCardTop, ProductCardSide, StoreBadge,
-  FactCell, ProductMixBar, ProjectionChart
+  FactCell, ProductMixBar, ProjectionChart, ProspectShareCard
 });

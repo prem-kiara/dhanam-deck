@@ -19,18 +19,18 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   },
 
   "story": {
-    "subhead": "From a single branch to an end-to-end fintech across South India — built on trust, innovation and financial inclusion.",
-    "brandLine": "means wealth — and to us, that's empowering communities, not just money.",
-    "narrative": "Founded in 2016 in Coimbatore, Dhanam Investment and Finance Pvt. Ltd. was born from a vision to bring formal financial services to underserved communities. Starting with microfinance and MFI lending, we recognized the potential to serve rural farmers, small business owners, and working families who faced barriers to accessing credit from traditional banking systems.",
+    "subhead": "An end-to-end fintech across South India — built on trust, innovation and financial inclusion.",
+    "brandLine": "means wealth — and to us, that's empowering communities, enhancing life.",
+    "narrative": "Founded in 2016, Dhanam Investment and Finance Pvt. Ltd. was born from a vision to bring formal financial services to underserved communities. Starting with microfinance and MFI lending, to a multiproduct NBFC with LAP, Gold Loans and Premium Lockers. Also achieved biggest milestone as a completely paperless fintech oriented company.",
     "journey": [
-      { "year": "2016",   "title": "Founded",                 "note": "A single branch — microfinance for the underserved" },
+      { "year": "2016",   "title": "Founded",                 "note": "Started with Microfinancing" },
       { "year": "Growth", "title": "Multi-product NBFC",       "note": "Gold loans, LAP & SME finance" },
       { "year": "2026",   "title": "Premium Private Lockers",  "note": "State-of-the-art vault storage" },
-      { "year": "Now",    "title": "Giant leaps in technology","note": "Since 2026 — fully fintech, on our own stack", "highlight": true }
+      { "year": "Now",    "title": "Giant leaps in technology","note": "Fully fintech, developed in house", "highlight": true }
     ],
     "values": [
       { "title": "Customer First",        "note": "Your success is our success" },
-      { "title": "Trust & Transparency",  "note": "Clear terms, no hidden charges" },
+      { "title": "Trust & Transparency",  "note": "Clear terms and transparency" },
       { "title": "Financial Inclusion",   "note": "Credit for those who need it most" },
       { "title": "Heritage & Innovation", "note": "Tradition meets modern technology" },
       { "title": "Fintech-first",         "note": "Our own apps, automated end to end" }
@@ -56,11 +56,13 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       { "key": "gold",              "label": "Gold loans",                "slot": "about-gold",       "caption": "Instant Gold Loans. Instant Relief." },
       { "key": "lap",               "label": "Loan against property",     "slot": "about-lap",        "caption": "Turn Property into Possibilities.", "imgPos": "center 50%" },
       { "key": "secured-business",  "label": "Secured business loans",    "slot": "about-business",   "caption": "Grow More. Worry Less." },
-      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Turn Plans into Reality." }
+      { "key": "unsecured",         "label": "Personal loans",            "slot": "about-unsecured",  "caption": "Turn Plans into Reality." },
+      { "key": "app-loan",          "label": "App-based loans",           "slot": "about-app-loan",   "caption": "Loans at Your Fingertips." }
     ],
     "wealth": [
-      { "key": "ncd",     "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Stable Returns. Stronger Tomorrow." },
-      { "key": "lockers", "label": "Private lockers",                "slot": "about-lockers", "caption": "Lock It. Leave It. Live Worry-Free." }
+      { "key": "ncd",         "label": "Non-convertible debentures",     "slot": "about-ncd",     "caption": "Stable Returns.\nStronger Tomorrow." },
+      { "key": "lockers",     "label": "Private lockers",                "slot": "about-lockers", "caption": "Lock It. Leave It.\nLive Worry-Free." },
+      { "key": "gold-scheme", "label": "Gold scheme",                    "slot": "about-gold-scheme",    "caption": "Save Today,\nShine Tomorrow", "imgPos": "center 50%" }
     ]
   },
 
@@ -158,14 +160,14 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
 
   "lockersDetail": {
     "headline": "Dhanam Private Vaults — where your most precious possessions meet uncompromising protection.",
-    "intro": "We do not offer a mere locker. We offer a sovereign-grade sanctuary — where biometric precision, armed custodianship and five-star hospitality converge. Designed for those who expect nothing less than the finest.",
+    "intro": "We do not offer a mere locker. We offer a premium-grade sanctuary — where biometric precision, armed custodianship and five-star hospitality converge. Designed for those who expect nothing less than the finest.",
     "features": [
       { "title": "Triple-layer biometric authentication",  "body": "Military-grade fingerprint and dual-custodian key protocol. No single point of failure. No exceptions." },
       { "title": "Round-the-clock armed custodianship",    "body": "Licensed, trained security personnel on premises at all hours — exceeding every benchmark set by the RBI and industry peers." },
       { "title": "Concierge-class welcome",                "body": "From the moment you arrive — a private attendant and a dedicated vault suite. You are honoured as a guest, never managed as a number." },
-      { "title": "Large-format premium lockers",           "body": "Spacious, large-sized vault compartments for families, collections and high-value assets — available at Dhanam Private Vaults. Designed for those with more to protect." },
+      { "title": "Large-format premium lockers",           "body": "Spacious, large-sized vault compartments for families, collections and high-value assets — available at Dhanam Private Vaults." },
       { "title": "Appointment-based after-hours access",   "body": "Pre-scheduled private sessions outside standard banking hours. We open the vault at your convenience, not ours." },
-      { "title": "Sovereign private chambers",             "body": "Sound-isolated, staff-free review rooms where your privacy is absolute — no observation, no queue, no compromise." }
+      { "title": "Premium private chambers",             "body": "Sound-isolated, staff-free review rooms where your privacy is absolute — no observation, no queue, no compromise." }
     ]
   },
 
@@ -339,7 +341,6 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     "goldMarketCagrPct": 18,
     "macroPoints": [
       { "label": "NBFC sector AUM",     "stat": "Crosses ₹50 lakh crore by FY27", "cite": "CRISIL — 18% growth FY26-FY27" },
-      { "label": "Gold loan market",    "stat": "Gold could hit $10,000/oz by 2030", "cite": "Yardeni Research" },
       { "label": "LAP market",          "stat": "₹76 lakh crore → ₹160 lakh crore by 2030 (13.3% CAGR)", "cite": "TechSci Research, IMARC" },
       { "label": "Locker demand",       "stat": "Multi-year wait-lists at PSU banks",   "cite": "Industry observation" }
     ],
@@ -352,57 +353,57 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
   },
 
   "businessModel": {
-    "subhead": "Two engines under one roof — a proven, secured lending book, compounding through a paperless, AI-driven fintech layer.",
+    "subhead": "Some run on conventional model, Some run on Fintech model, we do both, the growth is unmatchable.",
     "conventional": {
       "label": "Conventional model",
       "tag": "Proven · secured · cash-generating",
       "items": [
-        { "name": "Gold loans",          "note": "Highest-LTV, 30-minute disbursal, fully secured" },
-        { "name": "Loan against property","note": "Property-backed credit for the self-employed" },
-        { "name": "Private lockers",      "note": "Recurring fee income, zero credit risk" },
-        { "name": "Personal loans",       "note": "Fast, flexible, repayment-track-record based" },
-        { "name": "Bill discounting",     "note": "Short-tenor working-capital & invoice finance" }
+        { "name": "Gold loans",          "note": "Highest-LTV, 30-minute disbursal" },
+        { "name": "Loan against property","note": "Five lakhs to Five crores" },
+        { "name": "Private lockers",      "note": "Interest for locker deposit amount" },
+        { "name": "Personal loans",       "note": "Fast, flexible, easy documentation" },
+        { "name": "Bill discounting",     "note": "Short term working capital" }
       ]
     },
     "fintech": {
       "label": "Fintech model",
       "tag": "AI-driven · digital · scalable",
       "items": [
-        { "name": "Digi-gold",         "note": "Buy, save & pledge gold digitally, in-app" },
+        { "name": "Digital Investments", "note": "Digital gold, NCDs" },
         { "name": "AI credit analysis","note": "Data-led underwriting & risk scoring" },
         { "name": "App-based services","note": "Personal Loans, NCD, Lockers, Gold Schemes" },
-        { "name": "Cross-selling",     "note": "AI-matched products across the customer base" },
-        { "name": "Upselling",         "note": "Right-size & top-up offers, driven by usage data" }
+        { "name": "Cross-sell & upsell","note": "AI-matched products, right-size & top-up offers" },
+        { "name": "In-app LOS & LMS",   "note": "All loans, customer-initiated — coming to the app" }
       ]
     },
-    "footer": "One customer base, two compounding engines — secured cash flows today, AI-led scale tomorrow."
+    "footer": "One customer base, two compounding engines — secured cash flows, AI-led scale."
   },
 
   "risks": {
     "subhead": "Conservative by design — every material risk identified, owned and actively mitigated.",
     "items": [
-      { "risk": "Credit risk",            "mitigation": "The large majority of the book is secured against gold or property at conservative LTVs. AI-assisted, branch-level underwriting, a granular small-ticket book and active monitoring keep concentration and default risk low." },
-      { "risk": "Gold-price risk",        "mitigation": "Loans capped at prudent LTV margins with daily mark-to-market and short (3–12 month) tenors. Disciplined re-pledge limits and timely auctions protect principal even through sharp gold corrections." },
+      { "risk": "Credit risk",            "mitigation": "The large majority of the book is secured against gold or property at conservative LTVs. AI driven credit underwriting and active monitoring keep concentration and default risk low." },
+      { "risk": "Gold-price risk",        "mitigation": "Loans capped at prudent LTV margins with monthly repayment schedule. Timely auctions protect principal even through sharp gold corrections." },
       { "risk": "Liquidity / ALM risk",   "mitigation": "Funding diversified across banks, NCDs and own capital, with assets and liabilities tenor-matched. A 40% capital-adequacy ratio — well above the RBI minimum — and maintained liquidity buffers absorb shocks." },
       { "risk": "Regulatory & compliance","mitigation": "RBI-licensed NBFC with an in-house Company Secretary and compliance team. Regular audits, timely filings and IPO-grade governance keep us continuously audit-ready." },
       { "risk": "Operational risk",       "mitigation": "Paperless, automated workflows on a single integrated core remove manual error. Standardised low-touch branch processes, maker-checker controls and centralised oversight contain operational exposure." },
-      { "risk": "Technology & cyber",     "mitigation": "Built and run on our own engineering stack — no third-party core dependency. Role-based access, encryption in transit and at rest, regular backups and continuous monitoring." }
+      { "risk": "Technology & cyber",     "mitigation": "Built and run on our own engineering stack — Tech in house development. Role-based access, encryption in transit and at rest, regular backups and continuous monitoring." }
     ]
   },
 
   "competitors": [
     {
       "product": "Gold loans",
-      "us": { "headline": "Hyper-local · 30-minute disbursal", "sub": "Branch-level credit decisions, clearly explained." },
+      "us": { "headline": "Branch Level decisions", "sub": "Dual Appraising system with Appraiser and dedicated purity scanning machines." },
       "peers": [
         { "name": "Muthoot Finance",  "focus": "Single-product specialist" },
         { "name": "Manappuram Finance", "focus": "Single-product specialist" },
-        { "name": "Gold-loan fintechs", "focus": "App-only · e.g. Rupeek" }
+        { "name": "Kosamattam Finance", "focus": "Single-product specialist" }
       ]
     },
     {
       "product": "Loan against property",
-      "us": { "headline": "Self-employed underwriting", "sub": "Fastest disbursement in 3–4 days — cash-flow underwritten at the branch, not bureau-only." },
+      "us": { "headline": "Niche Product", "sub": "Loan upto five crores with Property" },
       "peers": [
         { "name": "Five Star",  "focus": "Small-ticket LAP only" },
         { "name": "Veritas",    "focus": "MSME / LAP only" },
@@ -411,7 +412,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     },
     {
       "product": "Private lockers",
-      "us": { "headline": "The sovereign alternative to a bank locker", "sub": "Large-sized lockers, concierge-class service, armed custodianship and seamless wealth integration — all under one Dhanam roof." },
+      "us": { "headline": "The sovereign alternative to a bank locker", "sub": "Large-sized lockers, concierge-class service, armed custodianship." },
       "peers": [
         { "name": "PSU bank lockers", "focus": "Multi-year wait-lists" },
         { "name": "Sakthi",           "focus": "Locker specialist · regional" },
@@ -420,11 +421,20 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
     },
     {
       "product": "Personal loans",
-      "us": { "headline": "Fast, flexible personal credit", "sub": "Swift disbursal backed by a verified repayment track record — credit that rewards loyalty." },
+      "us": { "headline": "Fast, flexible personal credit", "sub": "AI Driven Credit Underwriting" },
       "peers": [
         { "name": "Bajaj Finance",  "focus": "Multi-product retail giant" },
         { "name": "Shriram",        "focus": "Vehicle + retail credit" },
-        { "name": "App-only fintechs", "focus": "Thin-file · high-rate" }
+        { "name": "Major Banks", "focus": "SBI, ICICI, HDFC" }
+      ]
+    },
+    {
+      "product": "App based services",
+      "us": { "headline": "Smart savings & Loans", "sub": "Attractive Gold Saving schemes and app based loans" },
+      "peers": [
+        { "name": "KreditBee",  "focus": "App-based personal loans" },
+        { "name": "Moneyview",  "focus": "App-based credit & loans" },
+        { "name": "Jar",        "focus": "Daily gold savings app" }
       ]
     }
   ],
@@ -443,7 +453,7 @@ const INVESTOR_DATA = /*EDITMODE-BEGIN*/{
       "note": "The window to enter at the earliest stage does not remain open indefinitely."
     },
     "pillars": [
-      { "title": "Multi-product NBFC",        "body": "Five products under one roof. Diversified revenue, resilient by design." },
+      { "title": "Multi-product NBFC",        "body": "Multi products under one roof. Diversified revenue, resilient by design." },
       { "title": "Fintech inside an NBFC",    "body": "RBI-licensed credit chassis. Data, AI and modern operations." },
       { "title": "Compounding alongside us",  "body": "Your capital sits next to ours. We win together." }
     ]

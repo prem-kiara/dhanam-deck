@@ -9,8 +9,8 @@ function SceneLockers({ start, end }) {
   const L = D.lockersDetail;
   return (
     <Sprite start={start} end={end}>
-      <div style={{ position: 'absolute', inset: 0, background: CREAM }}>
-        <HairlineBackdrop color="rgba(15,30,55,0.05)"/>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
 
         <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
           <SectionHeading
@@ -110,7 +110,7 @@ function SceneCompetitors({ start, end }) {
 
         <div style={{
           position: 'absolute', left: 100, right: 100, top: 320,
-          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18,
+          display: 'grid', gridTemplateColumns: `repeat(${D.competitors.length}, 1fr)`, gap: 18,
           height: 620
         }}>
           {D.competitors.map((row, i) => (
@@ -203,7 +203,7 @@ function SceneFoundingTeam({ start, end }) {
   const directors = D.directors.filter(d => d.show).slice(0, 4);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
                                 eyebrow="Promoters and Directors"
-                                title="Our promoter-directors — chartered accountancy, finance, strategy, operations and governance, all under one roof."/>;
+                                title=""/>;
 }
 
 // ─── Slide 9 — Promoters & Directors II (next 4, same zigzag format) ─
@@ -212,7 +212,7 @@ function SceneDirectors({ start, end }) {
   const directors = D.directors.filter(d => d.show).slice(4, 8);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
                                 eyebrow="KMP and Directors"
-                                title="Key managerial personnel & directors — technology, administration, growth and compliance."/>;
+                                title=""/>;
 }
 
 // ─── Slide 12 — KMP and Directors (II) ───────────────────────────────
@@ -221,7 +221,7 @@ function SceneDirectors2({ start, end }) {
   const directors = D.directors.filter(d => d.show).slice(8);
   return <DirectorsZigzagSlide start={start} end={end} directors={directors}
                                 eyebrow="KMP and Directors"
-                                title="Key managerial personnel & directors — business, capital markets, operations and property."/>;
+                                title=""/>;
 }
 
 function DirectorsZigzagSlide({ start, end, directors, eyebrow, title }) {
@@ -433,7 +433,7 @@ function SceneGrowth({ start, end }) {
         <div style={{ position: 'absolute', left: 100, top: 140, width: 1720 }}>
           <SectionHeading
             start={start} end={end}
-            eyebrow="12 · Future growth"
+            eyebrow="Where do we Stand Today"
             title="A fintech-led, multi-product NBFC — conservative, secured, and built for India's next decade of credit, with the macro tailwinds in our favour."
             fontSize={80}
             subSize={26}
@@ -442,8 +442,8 @@ function SceneGrowth({ start, end }) {
 
         {/* LEFT — Where we stand today */}
         <div style={{ position: 'absolute', left: 100, top: 410, width: 800 }}>
-          <Reveal start={start} end={end} delay={0.7}>
-            <CategoryLabel>Where we stand today</CategoryLabel>
+          <Reveal start={start} end={end} delay={0.85}>
+            <CategoryLabel color={NAVY} accent={GOLD}>By the numbers</CategoryLabel>
           </Reveal>
           <div style={{ marginTop: 22, display: 'flex', flexDirection: 'column', gap: 16 }}>
             {G.current.map((row, i) => (
@@ -453,7 +453,7 @@ function SceneGrowth({ start, end }) {
                   padding: '18px 0', borderBottom: `1px solid ${GRAY200}`, fontFamily: FONT
                 }}>
                   <div style={{ fontSize: 14, color: GRAY600, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700 }}>{row.label}</div>
-                  <div style={{ fontSize: 34, color: NAVY, fontWeight: 500, letterSpacing: '-0.015em', fontVariantNumeric: 'tabular-nums' }}>{row.value}</div>
+                  <div style={{ fontSize: 28, color: NAVY, fontWeight: 500, letterSpacing: '-0.015em', fontVariantNumeric: 'tabular-nums' }}>{row.value}</div>
                 </div>
               </Reveal>
             ))}
@@ -467,7 +467,7 @@ function SceneGrowth({ start, end }) {
           </Reveal>
           <div style={{
             marginTop: 22,
-            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14
+            display: 'flex', flexDirection: 'column', gap: 16
           }}>
             {G.macroPoints.map((m, i) => (
               <Reveal key={i} start={start} end={end} delay={1.4 + i * 0.12} y={10}>
@@ -484,7 +484,7 @@ function SceneGrowth({ start, end }) {
             fontFamily: FONT, fontSize: 22, fontWeight: 500,
             color: NAVY, letterSpacing: '-0.01em', textAlign: 'center'
           }}>
-            Our money grows because <span style={{ color: GOLD }}>India's credit cycle</span> grows — and because we run it like a fintech.
+            Our money grows because <span style={{ color: GOLD }}>India's credit cycle</span> grows — and because we run it as a fintech.
           </div>
         </Reveal>
       </div>
@@ -532,7 +532,7 @@ function MacroCard({ m }) {
     <div style={{
       background: GRAY50, border: `1px solid ${GRAY200}`,
       borderRadius: 10, padding: '16px 18px',
-      fontFamily: FONT, minHeight: 130
+      fontFamily: FONT, minHeight: 114
     }}>
       <div style={{
         fontFamily: MONO, fontSize: 11, color: GOLD,
@@ -556,46 +556,31 @@ function SceneWhyDhanam({ start, end }) {
   const P = D.promise;
   return (
     <Sprite start={start} end={end}>
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: `linear-gradient(135deg, ${CREAM} 0%, ${GOLD_PALE} 100%)`
-      }}>
-        <HairlineBackdrop color="rgba(15,30,55,0.04)"/>
+      <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
+        <HairlineBackdrop/>
 
         <div style={{ position: 'absolute', left: 100, top: 130, width: 1720 }}>
           <Reveal start={start} end={end} delay={0.2}>
             <div style={{
-              fontFamily: FONT, fontWeight: 600, fontSize: 80,
+              fontFamily: FONT, fontWeight: 600, fontSize: 64,
               color: NAVY, letterSpacing: '-0.03em', lineHeight: 1.0
-            }}>Why partner with us</div>
+            }}>Missed Opportunity - Missed Fortune</div>
           </Reveal>
         </div>
 
-        {/* Hero promise */}
+        {/* Highlighted hero line */}
         <Reveal start={start} end={end} delay={0.5} dur={0.9} y={20}>
           <div style={{
-            position: 'absolute', left: 100, top: 270, width: 1500,
-            fontFamily: FONT, fontWeight: 500, fontSize: 64,
-            color: NAVY, letterSpacing: '-0.03em', lineHeight: 1.05
-          }}>
-            Your money will <span style={{
-              fontWeight: 600, color: GOLD, letterSpacing: '-0.02em'
-            }}>grow</span> with us.
-          </div>
-        </Reveal>
-
-        <Reveal start={start} end={end} delay={0.8}>
-          <div style={{
-            position: 'absolute', left: 100, top: 380, width: 1500,
-            fontFamily: FONT, fontSize: 20, color: GRAY800,
-            lineHeight: 1.55, letterSpacing: '-0.005em'
+            position: 'absolute', left: 100, top: 300, width: 1500,
+            fontFamily: FONT, fontWeight: 500, fontSize: 20,
+            color: NAVY, letterSpacing: '-0.005em', lineHeight: 1.55
           }}>{P.subhead}</div>
         </Reveal>
 
         {/* Two-panel strip: Wipro precedent (left) + Dhanam opportunity (right) */}
         <Reveal start={start} end={end} delay={1.0} y={14}>
           <div style={{
-            position: 'absolute', left: 100, right: 100, top: 470,
+            position: 'absolute', left: 100, right: 100, top: 410,
             background: NAVY, color: '#fff',
             borderRadius: 16,
             display: 'grid', gridTemplateColumns: '1fr 1fr',
@@ -925,7 +910,7 @@ function SceneRisks({ start, end }) {
             fontFamily: FONT, fontSize: 22, fontWeight: 500, color: NAVY,
             textAlign: 'center', letterSpacing: '-0.01em'
           }}>
-            Predominantly <span style={{ color: GOLD }}>secured</span>, RBI-regulated, and conservatively capitalised at <span style={{ color: GOLD }}>40%</span> — risk-first by construction.
+            Predominantly <span style={{ color: GOLD }}>secured</span>, RBI-regulated, and adequately capitalised at <span style={{ color: GOLD }}>40%</span>.
           </div>
         </Reveal>
       </div>
