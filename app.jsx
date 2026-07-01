@@ -1,26 +1,23 @@
 // app.jsx — wires the deck timeline together
-// 17 scenes, durations tuned to content density. Total 212s (~3:32).
+// 18 scenes, durations tuned to content density. Total 226s (~3:46).
 
 const SCENES = [
   { id: 1,  label: 'Cover',                    start: 0,   end: 5,   Comp: 'SceneCover',         dark: false },
   { id: 2,  label: 'About us',                 start: 5,   end: 17,  Comp: 'SceneStory',         dark: false },
-  { id: 3,  label: 'Products we offer',        start: 17,  end: 27,  Comp: 'SceneAbout',         dark: false },
-  { id: 4,  label: 'Business model',           start: 27,  end: 41,  Comp: 'SceneBusinessModel', dark: false },
-  { id: 5,  label: 'In-house technology',      start: 41,  end: 55,  Comp: 'SceneTech',          dark: false },
-  { id: 6,  label: 'Annual highlights',        start: 55,  end: 61,  Comp: 'SceneHighlights',    dark: false },
-  { id: 7,  label: 'Future prospects',         start: 61,  end: 77,  Comp: 'SceneProspects',     dark: false },
-  { id: 8,  label: 'Private lockers',          start: 77,  end: 90,  Comp: 'SceneLockers',       dark: false },
-  { id: 9,  label: 'Where we compete',         start: 90,  end: 106, Comp: 'SceneCompetitors',   dark: false },
-  { id: 10, label: 'Promoters and Directors',  start: 106, end: 122, Comp: 'SceneFoundingTeam',  dark: false },
-  { id: 11, label: 'KMP and Directors',        start: 122, end: 136, Comp: 'SceneDirectors',     dark: false },
-  { id: 12, label: 'KMP and Directors',        start: 136, end: 150, Comp: 'SceneDirectors2',    dark: false },
-  { id: 13, label: 'Ace investors',            start: 150, end: 164, Comp: 'SceneAceInvestors',  dark: true  },
-  { id: 14, label: 'Future growth',            start: 164, end: 178, Comp: 'SceneGrowth',        dark: false },
-  { id: 15, label: 'Risks & mitigations',      start: 178, end: 192, Comp: 'SceneRisks',         dark: false },
-  { id: 16, label: 'Why partner with us',      start: 192, end: 206, Comp: 'SceneWhyDhanam',     dark: false },
-  { id: 17, label: 'Thank you',                start: 206, end: 212, Comp: 'SceneContact',       dark: false }
+  { id: 3,  label: 'Promoters and Directors',  start: 17,  end: 33,  Comp: 'SceneFoundingTeam',  dark: false },
+  { id: 4,  label: 'KMP and Directors',        start: 33,  end: 47,  Comp: 'SceneDirectors',     dark: false },
+  { id: 5,  label: 'KMP and Directors',        start: 47,  end: 61,  Comp: 'SceneDirectors2',    dark: false },
+  { id: 6,  label: 'Ace investors',            start: 61,  end: 75,  Comp: 'SceneAceInvestors',  dark: true  },
+  { id: 7,  label: 'Products we offer',        start: 75,  end: 85,  Comp: 'SceneAbout',         dark: false },
+  { id: 8,  label: 'Business model',           start: 85,  end: 99,  Comp: 'SceneBusinessModel', dark: false },
+  { id: 9,  label: 'In-house technology',      start: 99,  end: 113, Comp: 'SceneTech',          dark: false },
+  { id: 10, label: 'Annual highlights',        start: 113, end: 119, Comp: 'SceneHighlights',    dark: false },
+  { id: 11, label: 'Where we compete',         start: 119, end: 135, Comp: 'SceneCompetitors',   dark: false },
+  { id: 12, label: 'Risks & mitigations',      start: 135, end: 149, Comp: 'SceneRisks',         dark: false },
+  { id: 13, label: 'Why partner with us',      start: 149, end: 163, Comp: 'SceneWhyDhanam',     dark: false },
+  { id: 14, label: 'Thank you',                start: 163, end: 169, Comp: 'SceneContact',       dark: false }
 ];
-const DURATION = 212;
+const DURATION = 169;
 
 function ChromeMux() {
   const t = useTime();

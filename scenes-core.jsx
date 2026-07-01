@@ -64,7 +64,7 @@ function Reveal({ start, end, delay = 0, dur = 0.6, y = 16, children, style }) {
 function Eyebrow({ children, color = GOLD, style = {} }) {
   return (
     <div style={{
-      fontFamily: MONO, fontSize: 14, color,
+      fontFamily: MONO, fontSize: 18, color,
       letterSpacing: '0.18em', textTransform: 'uppercase',
       fontWeight: 600,
       ...style
@@ -249,7 +249,7 @@ function CategoryLabel({ children, color = NAVY, accent = GOLD }) {
   return (
     <div style={{
       display: 'flex', alignItems: 'center', gap: 14,
-      fontFamily: MONO, fontSize: 13, color,
+      fontFamily: MONO, fontSize: 17, color,
       letterSpacing: '0.22em', textTransform: 'uppercase',
       fontWeight: 700
     }}>
@@ -265,7 +265,7 @@ function StatBlock({ label, value, unit, foot, color = NAVY, big = 56, dark = fa
   return (
     <div style={{ fontFamily: FONT }}>
       <div style={{
-        fontSize: 14, color: labelColor, letterSpacing: '0.12em',
+        fontSize: 18, color: labelColor, letterSpacing: '0.12em',
         textTransform: 'uppercase', fontWeight: 600, marginBottom: 12
       }}>{label}</div>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
@@ -284,7 +284,7 @@ function StatBlock({ label, value, unit, foot, color = NAVY, big = 56, dark = fa
       </div>
       {foot && (
         <div style={{
-          fontSize: 15, color: labelColor, marginTop: 10, lineHeight: 1.5
+          fontSize: 19, color: labelColor, marginTop: 10, lineHeight: 1.5
         }}>{foot}</div>
       )}
     </div>
@@ -311,7 +311,7 @@ function BarChart({ data, height = 280, color = NAVY, accentLast = true, formatt
             alignItems: 'center', gap: 8
           }}>
             <div style={{
-              fontFamily: MONO, fontSize: 12, color: NAVY,
+              fontFamily: MONO, fontSize: 16, color: NAVY,
               fontVariantNumeric: 'tabular-nums', fontWeight: 500
             }}>{formatter(d.value)}</div>
             <div style={{
@@ -320,7 +320,7 @@ function BarChart({ data, height = 280, color = NAVY, accentLast = true, formatt
               transition: 'height 600ms ease-out'
             }}/>
             <div style={{
-              fontSize: 12, color: GRAY600, letterSpacing: '0.04em',
+              fontSize: 16, color: GRAY600, letterSpacing: '0.04em',
               textTransform: 'uppercase', textAlign: 'center'
             }}>{d.label}</div>
           </div>
@@ -358,7 +358,7 @@ function GrowingBarChart({ data, start, end, delay = 0.4, growDur = 1.4,
                   alignItems: 'center', gap: 8
                 }}>
                   <div style={{
-                    fontFamily: MONO, fontSize: 12, color: NAVY,
+                    fontFamily: MONO, fontSize: 16, color: NAVY,
                     fontVariantNumeric: 'tabular-nums', fontWeight: 500,
                     opacity: localP
                   }}>{formatter(d.value)}</div>
@@ -367,7 +367,7 @@ function GrowingBarChart({ data, start, end, delay = 0.4, growDur = 1.4,
                     borderRadius: '4px 4px 0 0'
                   }}/>
                   <div style={{
-                    fontSize: 12, color: GRAY600, letterSpacing: '0.04em',
+                    fontSize: 16, color: GRAY600, letterSpacing: '0.04em',
                     textTransform: 'uppercase', textAlign: 'center',
                     opacity: localP
                   }}>{d.label}</div>
@@ -400,7 +400,7 @@ function HorizontalBars({ data, start, end, delay = 0.4, growDur = 1.2,
               return (
                 <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr 96px', alignItems: 'center', gap: 16 }}>
                   <div style={{
-                    fontSize: 12, color: GRAY600, letterSpacing: '0.06em',
+                    fontSize: 16, color: GRAY600, letterSpacing: '0.06em',
                     textTransform: 'uppercase', fontWeight: 500
                   }}>{d.label}</div>
                   <div style={{ position: 'relative', height: barHeight, background: GRAY100, borderRadius: 4 }}>
@@ -411,7 +411,7 @@ function HorizontalBars({ data, start, end, delay = 0.4, growDur = 1.2,
                     }}/>
                   </div>
                   <div style={{
-                    fontFamily: MONO, fontSize: 13, color: NAVY,
+                    fontFamily: MONO, fontSize: 17, color: NAVY,
                     fontVariantNumeric: 'tabular-nums', fontWeight: 500,
                     opacity: localP, textAlign: 'right'
                   }}>{formatter(d.value)}</div>
@@ -529,7 +529,7 @@ function Donut({ value, max = 100, size = 160, stroke = 14, color = GOLD, label,
           <div style={{ fontSize: Math.round(size * 0.18), fontWeight: 500, color: NAVY,
                          letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>{label}</div>
           {sub && (
-            <div style={{ fontSize: 11, color: GRAY600, letterSpacing: '0.06em',
+            <div style={{ fontSize: 15.5, color: GRAY600, letterSpacing: '0.06em',
                            textTransform: 'uppercase', marginTop: 4 }}>{sub}</div>
           )}
         </div>
@@ -586,7 +586,7 @@ function Chip({ children, color = NAVY, bg = GRAY50, border = GRAY200, mono = fa
       display: 'inline-flex', alignItems: 'center', gap: 6,
       padding: '6px 12px', borderRadius: 999,
       background: bg, border: `1px solid ${border}`,
-      fontFamily: mono ? MONO : FONT, fontSize: 12, color,
+      fontFamily: mono ? MONO : FONT, fontSize: 16, color,
       fontWeight: 500, letterSpacing: mono ? '0.04em' : '-0.005em',
       whiteSpace: 'nowrap'
     }}>{children}</span>

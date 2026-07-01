@@ -13,7 +13,7 @@ function SceneCover({ start, end }) {
     { id: 'cover-family',        col: '4 / 5', row: '1 / 2' },
     { id: 'cover-driver',        col: '3 / 5', row: '2 / 3' },
     { id: 'cover-professional',  col: '1 / 3', row: '3 / 4' },
-    { id: 'cover-branch',        col: '3 / 5', row: '3 / 4' }
+    { id: '1st',                 col: '3 / 5', row: '3 / 4', pos: 'center top' }
   ];
 
   return (
@@ -42,7 +42,7 @@ function SceneCover({ start, end }) {
 
           <Reveal start={start} end={end} delay={1.2} y={14}>
             <div style={{
-              fontFamily: FONT, fontSize: 18, color: GRAY600,
+              fontFamily: FONT, fontSize: 20, color: GRAY600,
               marginTop: 32, lineHeight: 1.55, maxWidth: 660,
               letterSpacing: '-0.005em'
             }}>{D.brand.tagline}</div>
@@ -59,17 +59,27 @@ function SceneCover({ start, end }) {
             gap: 12
           }}>
             {COVER_PHOTOS.map(p => (
-              <PhotoSlot
-                key={p.id}
-                id={p.id}
-                placeholder=""
-                radius={14}
-                style={{
-                  gridColumn: p.col,
-                  gridRow: p.row,
-                  width: 'auto', height: 'auto'
-                }}
-              />
+              p.pos ? (
+                <div key={p.id} style={{
+                  gridColumn: p.col, gridRow: p.row,
+                  borderRadius: 14, overflow: 'hidden', background: GRAY100
+                }}>
+                  <img src={`uploads/${p.id}.png?v=${IMG_VER}`} alt=""
+                       style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: p.pos, display: 'block' }}/>
+                </div>
+              ) : (
+                <PhotoSlot
+                  key={p.id}
+                  id={p.id}
+                  placeholder=""
+                  radius={14}
+                  style={{
+                    gridColumn: p.col,
+                    gridRow: p.row,
+                    width: 'auto', height: 'auto'
+                  }}
+                />
+              )
             ))}
           </div>
         </Reveal>
@@ -79,7 +89,7 @@ function SceneCover({ start, end }) {
             position: 'absolute', left: 100, bottom: 120, right: 100,
             display: 'flex', justifyContent: 'center',
             paddingTop: 24, borderTop: `1px solid ${GRAY200}`,
-            fontFamily: MONO, fontSize: 14, color: GRAY600,
+            fontFamily: MONO, fontSize: 18, color: GRAY600,
             letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600
           }}>
             <span>{D.brand.website}</span>
@@ -124,7 +134,7 @@ function SceneStory({ start, end }) {
         <Reveal start={start} end={end} delay={0.6}>
           <div style={{
             position: 'absolute', left: 100, top: 392, width: 960,
-            fontFamily: FONT, fontSize: 16, color: GRAY800,
+            fontFamily: FONT, fontSize: 18.5, color: GRAY800,
             letterSpacing: '-0.005em', lineHeight: 1.55
           }}>{S.narrative}</div>
         </Reveal>
@@ -143,7 +153,7 @@ function SceneStory({ start, end }) {
         </Reveal>
 
         {/* Journey timeline */}
-        <div style={{ position: 'absolute', left: 100, right: 100, top: 510 }}>
+        <div style={{ position: 'absolute', left: 100, right: 100, top: 532 }}>
           <Reveal start={start} end={end} delay={0.7}>
             <div><CategoryLabel>Our journey</CategoryLabel></div>
           </Reveal>
@@ -159,12 +169,12 @@ function SceneStory({ start, end }) {
                       boxShadow: m.highlight ? `0 0 0 4px ${GOLD_PALE}` : 'none'
                     }}/>
                     <div style={{
-                      fontFamily: MONO, fontSize: 13, fontWeight: 700, marginTop: 20,
+                      fontFamily: MONO, fontSize: 17, fontWeight: 700, marginTop: 20,
                       letterSpacing: '0.14em', textTransform: 'uppercase',
                       color: m.highlight ? GOLD : NAVY
                     }}>{m.year}</div>
                     <div style={{ fontSize: 20, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em', marginTop: 10, lineHeight: 1.2 }}>{m.title}</div>
-                    <div style={{ fontSize: 13, color: GRAY600, lineHeight: 1.45, marginTop: 8, maxWidth: 320 }}>{m.note}</div>
+                    <div style={{ fontSize: 17, color: GRAY600, lineHeight: 1.45, marginTop: 8, maxWidth: 320 }}>{m.note}</div>
                   </div>
                 </Reveal>
               ))}
@@ -180,7 +190,7 @@ function SceneStory({ start, end }) {
             fontFamily: FONT
           }}>
             <div style={{
-              fontFamily: MONO, fontSize: 12, color: GOLD_LITE, letterSpacing: '0.2em',
+              fontFamily: MONO, fontSize: 16, color: GOLD_LITE, letterSpacing: '0.2em',
               textTransform: 'uppercase', fontWeight: 700, marginBottom: 18
             }}>What we stand for</div>
             <div style={{ display: 'flex', alignItems: 'stretch' }}>
@@ -188,8 +198,8 @@ function SceneStory({ start, end }) {
                 <React.Fragment key={v.title}>
                   {i > 0 && <div style={{ width: 1, background: 'rgba(255,255,255,0.16)', margin: '0 26px' }}/>}
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.2 }}>{v.title}</div>
-                    <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.62)', lineHeight: 1.4, marginTop: 7 }}>{v.note}</div>
+                    <div style={{ fontSize: 20, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.2 }}>{v.title}</div>
+                    <div style={{ fontSize: 16, color: 'rgba(255,255,255,0.62)', lineHeight: 1.4, marginTop: 7, whiteSpace: 'nowrap' }}>{v.note}</div>
                   </div>
                 </React.Fragment>
               ))}
@@ -295,16 +305,16 @@ function ProductCardTop({ item, category = 'lending' }) {
             background: isWealth ? NAVY : GOLD
           }}/>
           <span style={{
-            fontFamily: MONO, fontSize: 10, color: GRAY600,
+            fontFamily: MONO, fontSize: 12.5, color: GRAY600,
             letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
           }}>{isWealth ? 'Wealth' : 'Lending'}</span>
         </div>
         <div style={{
-          fontSize: 18, fontWeight: 600, color: NAVY,
+          fontSize: 20, fontWeight: 600, color: NAVY,
           letterSpacing: '-0.005em', lineHeight: 1.2
         }}>{item.label}</div>
         <div style={{
-          fontSize: 13, color: GRAY600, lineHeight: 1.45
+          fontSize: 17, color: GRAY600, lineHeight: 1.45
         }}>{item.caption}</div>
       </div>
     </div>
@@ -340,7 +350,7 @@ function ProductCardSide({ item }) {
             width: 6, height: 6, borderRadius: 999, background: NAVY
           }}/>
           <span style={{
-            fontFamily: MONO, fontSize: 10, color: GRAY600,
+            fontFamily: MONO, fontSize: 12.5, color: GRAY600,
             letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
           }}>Wealth</span>
         </div>
@@ -349,7 +359,7 @@ function ProductCardSide({ item }) {
           letterSpacing: '-0.005em', lineHeight: 1.25
         }}>{item.label}</div>
         <div style={{
-          fontSize: 15, color: GRAY600, lineHeight: 1.55, whiteSpace: 'pre-line'
+          fontSize: 19, color: GRAY600, lineHeight: 1.55, whiteSpace: 'pre-line'
         }}>{item.caption}</div>
       </div>
     </div>
@@ -397,23 +407,23 @@ function SceneTech({ start, end }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                     <div style={{ flex: 1 }}>
                       <div style={{ fontSize: 26, fontWeight: 600, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1 }}>{T.appName}</div>
-                      <div style={{ fontFamily: MONO, fontSize: 12, color: GRAY600, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: 5 }}>{T.appPlatforms}</div>
+                      <div style={{ fontFamily: MONO, fontSize: 16, color: GRAY600, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: 5 }}>{T.appPlatforms}</div>
                     </div>
                     <div style={{
                       display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 12px',
                       background: 'rgba(22,163,74,0.10)', borderRadius: 999
                     }}>
                       <span style={{ width: 7, height: 7, borderRadius: 999, background: '#16a34a' }}/>
-                      <span style={{ fontFamily: MONO, fontSize: 11, fontWeight: 700, color: '#15803d', letterSpacing: '0.12em' }}>LIVE</span>
+                      <span style={{ fontFamily: MONO, fontSize: 15.5, fontWeight: 700, color: '#15803d', letterSpacing: '0.12em' }}>LIVE</span>
                     </div>
                   </div>
 
-                  <div style={{ marginTop: 14, fontSize: 15, color: GRAY600, lineHeight: 1.5 }}>{T.appSubtitle}</div>
+                  <div style={{ marginTop: 14, fontSize: 19, color: GRAY600, lineHeight: 1.5 }}>{T.appSubtitle}</div>
 
                   <div style={{ marginTop: 14, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                     {T.appChips.map(c => (
                       <span key={c} style={{
-                        fontFamily: MONO, fontSize: 12, color: NAVY, background: GRAY50,
+                        fontFamily: MONO, fontSize: 16, color: NAVY, background: GRAY50,
                         border: `1px solid ${GRAY200}`, borderRadius: 999, padding: '7px 14px', letterSpacing: '0.01em'
                       }}>{c}</span>
                     ))}
@@ -448,7 +458,7 @@ function SceneTech({ start, end }) {
 
           <Reveal start={start} end={end} delay={1.05} y={10}>
             <div style={{
-              marginTop: 12, fontFamily: FONT, fontSize: 15, color: GRAY600, lineHeight: 1.5
+              marginTop: 12, fontFamily: FONT, fontSize: 19, color: GRAY600, lineHeight: 1.5
             }}>{T.buildLead}</div>
           </Reveal>
 
@@ -462,10 +472,10 @@ function SceneTech({ start, end }) {
                   padding: '18px 18px', minHeight: 112, fontFamily: FONT
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-                    <span style={{ color: GOLD, fontSize: 13, fontWeight: 700 }}>✓</span>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, letterSpacing: '-0.005em', lineHeight: 1.2 }}>{b.label}</div>
+                    <span style={{ color: GOLD, fontSize: 17, fontWeight: 700 }}>✓</span>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: NAVY, letterSpacing: '-0.005em', lineHeight: 1.2 }}>{b.label}</div>
                   </div>
-                  <div style={{ fontSize: 12, color: GRAY600, lineHeight: 1.4, marginTop: 8 }}>{b.note}</div>
+                  <div style={{ fontSize: 16, color: GRAY600, lineHeight: 1.4, marginTop: 8 }}>{b.note}</div>
                 </div>
               </Reveal>
             ))}
@@ -475,7 +485,7 @@ function SceneTech({ start, end }) {
         {/* MIDDLE — fintech positioning */}
         <Reveal start={start} end={end} delay={1.35} y={12}>
           <div style={{
-            position: 'absolute', left: 100, right: 100, top: 742,
+            position: 'absolute', left: 100, right: 100, top: 776,
             textAlign: 'center', fontFamily: FONT
           }}>
             <div style={{
@@ -485,7 +495,7 @@ function SceneTech({ start, end }) {
               An end-to-end <span style={{ color: GOLD }}>FinTech application</span> built to streamline customer financial journeys.
             </div>
             <div style={{
-              fontSize: 16, color: GRAY600, marginTop: 12, letterSpacing: '0.01em'
+              fontSize: 18.5, color: GRAY600, marginTop: 12, letterSpacing: '0.01em'
             }}>
               Digital-first · automated end to end · built on rails we own.
             </div>
@@ -495,14 +505,14 @@ function SceneTech({ start, end }) {
         {/* BOTTOM — full-width metric strip */}
         <Reveal start={start} end={end} delay={1.5} y={14}>
           <div style={{
-            position: 'absolute', left: 100, right: 100, bottom: 104,
+            position: 'absolute', left: 100, right: 100, bottom: 80,
             background: NAVY, color: '#fff', borderRadius: 16,
             padding: '22px 48px', display: 'flex', alignItems: 'center',
             justifyContent: 'space-between', gap: 28, fontFamily: FONT
           }}>
             <div style={{ flexShrink: 0, maxWidth: 720 }}>
               <div style={{
-                fontFamily: MONO, fontSize: 12, color: GOLD_LITE,
+                fontFamily: MONO, fontSize: 16, color: GOLD_LITE,
                 letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
               }}>Straight-through processing</div>
               <div style={{
@@ -520,7 +530,7 @@ function SceneTech({ start, end }) {
                       letterSpacing: '-0.02em', lineHeight: 1, fontVariantNumeric: 'tabular-nums'
                     }}>{m.value}</div>
                     <div style={{
-                      fontSize: 12, color: 'rgba(255,255,255,0.62)', marginTop: 6,
+                      fontSize: 16, color: 'rgba(255,255,255,0.62)', marginTop: 6,
                       letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600
                     }}>{m.label}</div>
                   </div>
@@ -554,7 +564,7 @@ function StoreBadge({ kind, href }) {
         </svg>
       )}
       <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-        <span style={{ fontFamily: FONT, fontSize: 11, color: 'rgba(255,255,255,0.72)', letterSpacing: '0.02em' }}>{isApple ? 'Download on the' : 'Get it on'}</span>
+        <span style={{ fontFamily: FONT, fontSize: 15.5, color: 'rgba(255,255,255,0.72)', letterSpacing: '0.02em' }}>{isApple ? 'Download on the' : 'Get it on'}</span>
         <span style={{ fontFamily: FONT, fontSize: 19, fontWeight: 600, color: '#fff', letterSpacing: '-0.01em' }}>{isApple ? 'App Store' : 'Google Play'}</span>
       </div>
     </a>
@@ -588,7 +598,7 @@ function SceneHighlights({ start, end }) {
                              start={start} end={end} delay={1.1} height={72}/>
             </div>
             <div style={{
-              fontFamily: FONT, fontSize: 17, color: GRAY600,
+              fontFamily: FONT, fontSize: 19, color: GRAY600,
               marginTop: 24, lineHeight: 1.6
             }}>
               Gold loans anchor the book. LAP is the rapidly-compounding.
@@ -614,12 +624,12 @@ function SceneHighlights({ start, end }) {
                 borderRadius: 12, padding: '20px 22px',
                 fontFamily: FONT, borderTop: `3px solid ${card.color}`
               }}>
-                <div style={{ fontSize: 11, color: GRAY600, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700 }}>{card.label}</div>
+                <div style={{ fontSize: 15.5, color: GRAY600, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700 }}>{card.label}</div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginTop: 10 }}>
                   <span style={{ fontSize: 36, fontWeight: 500, color: card.color, letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>{card.stat}</span>
-                  <span style={{ fontSize: 12, color: GRAY600, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{card.statLabel}</span>
+                  <span style={{ fontSize: 16, color: GRAY600, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{card.statLabel}</span>
                 </div>
-                {card.detail && <div style={{ fontSize: 13, color: GRAY800, lineHeight: 1.5, marginTop: 10 }}>{card.detail}</div>}
+                {card.detail && <div style={{ fontSize: 17, color: GRAY800, lineHeight: 1.5, marginTop: 10 }}>{card.detail}</div>}
               </div>
             </Reveal>
           ))}
@@ -647,7 +657,7 @@ function FactCell({ label, value, align = 'left' }) {
   return (
     <div style={{ textAlign: align }}>
       <div style={{
-        fontSize: 13, color: GRAY600, letterSpacing: '0.14em',
+        fontSize: 17, color: GRAY600, letterSpacing: '0.14em',
         textTransform: 'uppercase', fontWeight: 600
       }}>{label}</div>
       <div style={{
@@ -682,7 +692,7 @@ function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 
                     transition: 'width 200ms ease-out',
                     display: 'flex', alignItems: 'center', justifyContent: 'flex-start',
                     paddingLeft: 14, color: i === 0 ? NAVY_DEEP : i === 3 ? NAVY : '#fff',
-                    fontWeight: 600, fontSize: 18, letterSpacing: '-0.01em',
+                    fontWeight: 600, fontSize: 20, letterSpacing: '-0.01em',
                     fontVariantNumeric: 'tabular-nums', overflow: 'hidden', whiteSpace: 'nowrap'
                   }}>{p > 0.6 ? `${d.value}%` : ''}</div>
                 );
@@ -699,7 +709,7 @@ function ProductMixBar({ data, start, end, delay = 0.4, growDur = 1.2, height = 
                     background: PALETTE[i % PALETTE.length], flexShrink: 0
                   }}/>
                   <span style={{
-                    fontSize: 14, color: GRAY600, letterSpacing: '-0.005em', lineHeight: 1.3
+                    fontSize: 18, color: GRAY600, letterSpacing: '-0.005em', lineHeight: 1.3
                   }}>{d.label}</span>
                 </div>
               ))}
@@ -741,12 +751,12 @@ function SceneGold({ start, end }) {
               Gold could reach <span style={{ color: GOLD }}>$10,000/oz</span> by 2030.
             </div>
             <div style={{
-              fontFamily: MONO, fontSize: 13, color: GRAY600,
+              fontFamily: MONO, fontSize: 17, color: GRAY600,
               marginTop: 14, letterSpacing: '0.04em'
             }}>{G.macroCite}</div>
 
             <div style={{
-              fontFamily: FONT, fontSize: 17, color: GRAY800,
+              fontFamily: FONT, fontSize: 19, color: GRAY800,
               marginTop: 28, lineHeight: 1.6
             }}>{G.marketStat}</div>
           </div>
@@ -766,7 +776,7 @@ function SceneGold({ start, end }) {
               />
             </div>
             <div style={{
-              fontFamily: FONT, fontSize: 14, color: GRAY600, fontStyle: 'italic',
+              fontFamily: FONT, fontSize: 18, color: GRAY600, fontStyle: 'italic',
               marginTop: 16, lineHeight: 1.5
             }}>
               As gold rises, our gold-loan book rises with it — same gram of gold, bigger loan ticket, recurring yield.
@@ -807,12 +817,12 @@ function SceneLAP({ start, end }) {
               ₹76 lakh crore (FY24) → <span style={{ color: GOLD }}>₹160 lakh crore by 2030</span>.
             </div>
             <div style={{
-              fontFamily: MONO, fontSize: 13, color: GRAY600,
+              fontFamily: MONO, fontSize: 17, color: GRAY600,
               marginTop: 14, letterSpacing: '0.04em'
             }}>{L.macroCite}</div>
 
             <div style={{
-              fontFamily: FONT, fontSize: 17, color: GRAY800,
+              fontFamily: FONT, fontSize: 19, color: GRAY800,
               marginTop: 28, lineHeight: 1.6
             }}>{L.marketStat}</div>
           </div>
@@ -831,7 +841,7 @@ function SceneLAP({ start, end }) {
               />
             </div>
             <div style={{
-              fontFamily: FONT, fontSize: 14, color: GRAY600, fontStyle: 'italic',
+              fontFamily: FONT, fontSize: 18, color: GRAY600, fontStyle: 'italic',
               marginTop: 16, lineHeight: 1.5
             }}>
               Your money grows where ours does — inside a market doubling to ₹160 lakh crore by 2030.
@@ -872,7 +882,7 @@ function ProjectionChart({ historical, projected, start, end, delay = 0.4, growD
                   position: 'relative'
                 }}>
                   <div style={{
-                    fontFamily: MONO, fontSize: 12, color: isProjected ? GOLD : NAVY,
+                    fontFamily: MONO, fontSize: 16, color: isProjected ? GOLD : NAVY,
                     fontVariantNumeric: 'tabular-nums', fontWeight: 600,
                     opacity: localP
                   }}>{fmt(d.value)}</div>
@@ -885,7 +895,7 @@ function ProjectionChart({ historical, projected, start, end, delay = 0.4, growD
                       : 'none'
                   }}/>
                   <div style={{
-                    fontSize: 12, color: GRAY600, letterSpacing: '0.04em',
+                    fontSize: 16, color: GRAY600, letterSpacing: '0.04em',
                     textTransform: 'uppercase', textAlign: 'center',
                     opacity: localP, fontWeight: isProjected ? 600 : 400
                   }}>{d.year}</div>
@@ -904,7 +914,7 @@ function ProjectionChart({ historical, projected, start, end, delay = 0.4, growD
             }}>
               <div style={{
                 position: 'absolute', top: -22, left: -28,
-                fontFamily: MONO, fontSize: 10, color: GRAY600,
+                fontFamily: MONO, fontSize: 12.5, color: GRAY600,
                 letterSpacing: '0.18em', fontWeight: 700,
                 background: PAPER, padding: '2px 6px'
               }}>· NOW ·</div>
@@ -942,13 +952,13 @@ function SceneProspects({ start, end }) {
             <div><CategoryLabel>Gold loans · macro tailwind</CategoryLabel></div>
           </Reveal>
           <Reveal start={start} end={end} delay={0.75} y={12}>
-            <div style={{ fontFamily: FONT, fontWeight: 500, fontSize: 30, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1, marginTop: 14 }}>
+            <div style={{ fontFamily: FONT, fontWeight: 500, fontSize: 34, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1, marginTop: 14 }}>
               Gold could reach <span style={{ color: GOLD }}>$10,000/oz</span> by 2030.
             </div>
           </Reveal>
           <div style={{ marginTop: 24 }}>
             <ProjectionChart historical={G.historical} projected={G.future}
-                             start={start} end={end} delay={1.0} height={300}
+                             start={start} end={end} delay={1.0} height={480}
                              valuePrefix={G.valuePrefix || '$'}/>
           </div>
         </div>
@@ -959,33 +969,15 @@ function SceneProspects({ start, end }) {
             <div><CategoryLabel>Loan against property · macro tailwind</CategoryLabel></div>
           </Reveal>
           <Reveal start={start} end={end} delay={0.85} y={12}>
-            <div style={{ fontFamily: FONT, fontWeight: 500, fontSize: 30, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1, marginTop: 14 }}>
+            <div style={{ fontFamily: FONT, fontWeight: 500, fontSize: 34, color: NAVY, letterSpacing: '-0.02em', lineHeight: 1.1, marginTop: 14 }}>
               ₹76L cr → <span style={{ color: GOLD }}>₹160L cr</span> by 2030.
             </div>
           </Reveal>
           <div style={{ marginTop: 24 }}>
             <ProjectionChart historical={L.historical} projected={L.future}
-                             start={start} end={end} delay={1.1} height={300}
+                             start={start} end={end} delay={1.1} height={480}
                              valuePrefix={L.valuePrefix || '₹'}/>
           </div>
-        </div>
-
-        {/* BOTTOM LEFT — total gold loan market & the share we plan to capture */}
-        <div style={{ position: 'absolute', left: 100, top: 858, width: 840 }}>
-          <Reveal start={start} end={end} delay={1.25} y={16}>
-            <ProspectShareCard
-              marketLabel="Total gold loan market" marketValue="₹10 lakh cr"
-              targetValue="0.5%" targetSub="≈ ₹5,000 Cr book"/>
-          </Reveal>
-        </div>
-
-        {/* BOTTOM RIGHT — total LAP market & the share we plan to capture */}
-        <div style={{ position: 'absolute', right: 100, top: 858, width: 840 }}>
-          <Reveal start={start} end={end} delay={1.35} y={16}>
-            <ProspectShareCard
-              marketLabel="Total LAP market" marketValue="₹160 lakh cr"
-              targetValue="0.5%" targetSub="≈ ₹8,000 Cr book"/>
-          </Reveal>
         </div>
       </div>
     </Sprite>
@@ -1001,18 +993,18 @@ function ProspectShareCard({ marketLabel, marketValue, targetValue, targetSub })
     }}>
       {/* total market */}
       <div style={{ flex: '0 0 auto' }}>
-        <div style={{ fontFamily: MONO, fontSize: 12, color: GOLD_LITE, letterSpacing: '0.16em', textTransform: 'uppercase' }}>{marketLabel}</div>
+        <div style={{ fontFamily: MONO, fontSize: 16, color: GOLD_LITE, letterSpacing: '0.16em', textTransform: 'uppercase' }}>{marketLabel}</div>
         <div style={{ marginTop: 8, fontSize: 36, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1 }}>
-          {marketValue} <span style={{ fontSize: 18, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>by 2030</span>
+          {marketValue} <span style={{ fontSize: 20, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>by 2030</span>
         </div>
       </div>
       {/* connector arrow */}
       <svg width="30" height="13" viewBox="0 0 34 14" fill="none" style={{ flexShrink: 0 }}><path d="M0 7h32m0 0l-6-6m6 6l-6 6" stroke={GOLD_LITE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
       {/* our target */}
       <div style={{ flex: '0 0 auto', textAlign: 'right' }}>
-        <div style={{ fontFamily: MONO, fontSize: 12, color: GOLD_LITE, letterSpacing: '0.16em', textTransform: 'uppercase' }}>Dhanam targets · by FY31</div>
+        <div style={{ fontFamily: MONO, fontSize: 16, color: GOLD_LITE, letterSpacing: '0.16em', textTransform: 'uppercase' }}>Dhanam targets · by FY31</div>
         <div style={{ marginTop: 8, fontSize: 36, fontWeight: 600, color: GOLD, letterSpacing: '-0.02em', lineHeight: 1 }}>
-          {targetValue} <span style={{ fontSize: 18, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>{targetSub}</span>
+          {targetValue} <span style={{ fontSize: 20, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>{targetSub}</span>
         </div>
       </div>
     </div>

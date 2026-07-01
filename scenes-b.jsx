@@ -69,14 +69,14 @@ function LockerFeatureCard({ num, feature }) {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between'
       }}>
         <span style={{
-          fontFamily: MONO, fontSize: 12, color: GOLD,
+          fontFamily: MONO, fontSize: 16, color: GOLD,
           letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
         }}>{String(num).padStart(2, '0')}</span>
         <span style={{
           width: 24, height: 24, borderRadius: 999,
           background: GOLD_PALE, display: 'inline-flex',
           alignItems: 'center', justifyContent: 'center',
-          fontSize: 12, color: NAVY_DEEP
+          fontSize: 16, color: NAVY_DEEP
         }}>✓</span>
       </div>
       <div style={{
@@ -84,7 +84,7 @@ function LockerFeatureCard({ num, feature }) {
         letterSpacing: '-0.01em', lineHeight: 1.25
       }}>{feature.title}</div>
       <div style={{
-        fontSize: 15, color: GRAY600, lineHeight: 1.5
+        fontSize: 19, color: GRAY600, lineHeight: 1.5
       }}>{feature.body}</div>
     </div>
   );
@@ -136,7 +136,7 @@ function CompetitorColumn({ row }) {
       {/* Header — product name */}
       <div style={{ padding: '24px 24px 18px' }}>
         <div style={{
-          fontFamily: MONO, fontSize: 10, color: GRAY600,
+          fontFamily: MONO, fontSize: 12.5, color: GRAY600,
           letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700
         }}>Product</div>
         <div style={{
@@ -152,7 +152,7 @@ function CompetitorColumn({ row }) {
       <div style={{ padding: '4px 24px 22px', flex: 1,
                      display: 'flex', flexDirection: 'column' }}>
         <div style={{
-          fontFamily: MONO, fontSize: 10, color: GRAY600,
+          fontFamily: MONO, fontSize: 12.5, color: GRAY600,
           letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700,
           marginBottom: 12
         }}>Competitors</div>
@@ -163,9 +163,9 @@ function CompetitorColumn({ row }) {
               background: GRAY50, border: `1px solid ${GRAY200}`, borderRadius: 8,
               lineHeight: 1.3
             }}>
-              <div style={{ fontSize: 15, fontWeight: 600, color: NAVY,
+              <div style={{ fontSize: 19, fontWeight: 600, color: NAVY,
                              letterSpacing: '-0.005em' }}>{p.name}</div>
-              <div style={{ fontSize: 12, color: GRAY600, marginTop: 3 }}>{p.focus}</div>
+              <div style={{ fontSize: 16, color: GRAY600, marginTop: 3 }}>{p.focus}</div>
             </div>
           ))}
         </div>
@@ -179,18 +179,18 @@ function CompetitorColumn({ row }) {
         borderTop: `2px solid ${GOLD}`,
         padding: '20px 24px 24px',
         display: 'flex', flexDirection: 'column', gap: 8,
-        height: 180, flexShrink: 0
+        height: 214, flexShrink: 0
       }}>
         <div style={{
-          fontFamily: MONO, fontSize: 11, color: NAVY_DEEP,
+          fontFamily: MONO, fontSize: 15.5, color: NAVY_DEEP,
           letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 800
         }}>Dhanam ✓</div>
         <div style={{
-          fontSize: 17, fontWeight: 700, color: NAVY,
+          fontSize: 19, fontWeight: 700, color: NAVY,
           letterSpacing: '-0.005em', lineHeight: 1.3
         }}>{row.us.headline}</div>
         <div style={{
-          fontSize: 13, color: GRAY800, lineHeight: 1.5
+          fontSize: 17, color: GRAY800, lineHeight: 1.5
         }}>{row.us.sub}</div>
       </div>
     </div>
@@ -272,12 +272,12 @@ function FounderColumn({ d, offset = 'up', photoSize = 200 }) {
       }}>{d.name}</div>
       {d.qualification && (
         <div style={{
-          fontSize: 12, color: GRAY600, marginTop: 6,
+          fontSize: 16, color: GRAY600, marginTop: 6,
           fontFamily: MONO, letterSpacing: '0.04em', textAlign: 'center'
         }}>{d.qualification}</div>
       )}
       <div style={{
-        fontSize: 14, color: GRAY800, lineHeight: 1.6,
+        fontSize: 18, color: GRAY800, lineHeight: 1.6,
         marginTop: 20, textAlign: 'left'
       }}>{d.bio}</div>
     </div>
@@ -330,18 +330,18 @@ function TeamCard({ t }) {
       <RoundPhoto id={t.slot} size={140} objPos={t.imgPos || 'center 18%'} zoom={t.imgZoom || 1}/>
       <div>
         <div style={{
-          fontSize: 16, fontWeight: 700, color: NAVY,
+          fontSize: 18.5, fontWeight: 700, color: NAVY,
           letterSpacing: '-0.005em', lineHeight: 1.25
         }}>{t.name}</div>
         {t.role && (
           <div style={{
-            fontSize: 10, color: GOLD,
+            fontSize: 12.5, color: GOLD,
             letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700,
             lineHeight: 1.3, marginTop: 5
           }}>{t.role}</div>
         )}
         <div style={{
-          fontSize: 11, color: GRAY600,
+          fontSize: 15.5, color: GRAY600,
           fontFamily: MONO, letterSpacing: '0.04em', marginTop: 3
         }}>{t.qualification}</div>
       </div>
@@ -410,11 +410,11 @@ function AceCard({ name, tag }) {
       fontFamily: FONT, color: NAVY
     }}>
       <div style={{
-        fontSize: 15, fontWeight: 600, letterSpacing: '-0.005em',
+        fontSize: 19, fontWeight: 600, letterSpacing: '-0.005em',
         lineHeight: 1.25
       }}>{name}</div>
       <div style={{
-        fontSize: 12, color: GRAY600, fontStyle: 'italic',
+        fontSize: 16, color: GRAY600, fontStyle: 'italic',
         marginTop: 4, lineHeight: 1.35
       }}>{tag}</div>
     </div>
@@ -452,7 +452,7 @@ function SceneGrowth({ start, end }) {
                   display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'baseline', gap: 18,
                   padding: '18px 0', borderBottom: `1px solid ${GRAY200}`, fontFamily: FONT
                 }}>
-                  <div style={{ fontSize: 14, color: GRAY600, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700 }}>{row.label}</div>
+                  <div style={{ fontSize: 18, color: GRAY600, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700 }}>{row.label}</div>
                   <div style={{ fontSize: 28, color: NAVY, fontWeight: 500, letterSpacing: '-0.015em', fontVariantNumeric: 'tabular-nums' }}>{row.value}</div>
                 </div>
               </Reveal>
@@ -501,18 +501,18 @@ function TrajectoryRow({ row }) {
       fontFamily: FONT
     }}>
       <div style={{
-        fontSize: 13, color: GRAY600, letterSpacing: '0.16em',
+        fontSize: 17, color: GRAY600, letterSpacing: '0.16em',
         textTransform: 'uppercase', fontWeight: 700
       }}>{row.label}</div>
       <div>
-        <div style={{ fontSize: 11, color: GRAY400, letterSpacing: '0.12em',
+        <div style={{ fontSize: 15.5, color: GRAY400, letterSpacing: '0.12em',
                        textTransform: 'uppercase', fontWeight: 600 }}>Today</div>
         <div style={{ fontSize: 28, color: NAVY, fontWeight: 500,
                        letterSpacing: '-0.015em', marginTop: 4,
                        fontVariantNumeric: 'tabular-nums' }}>{row.today}</div>
       </div>
       <div>
-        <div style={{ fontSize: 11, color: GRAY400, letterSpacing: '0.12em',
+        <div style={{ fontSize: 15.5, color: GRAY400, letterSpacing: '0.12em',
                        textTransform: 'uppercase', fontWeight: 600 }}>Year 5</div>
         <div style={{ fontSize: 28, color: GOLD, fontWeight: 500,
                        letterSpacing: '-0.015em', marginTop: 4,
@@ -535,15 +535,15 @@ function MacroCard({ m }) {
       fontFamily: FONT, minHeight: 114
     }}>
       <div style={{
-        fontFamily: MONO, fontSize: 11, color: GOLD,
+        fontFamily: MONO, fontSize: 15.5, color: GOLD,
         letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700
       }}>{m.label}</div>
       <div style={{
-        fontSize: 18, fontWeight: 600, color: NAVY,
+        fontSize: 20, fontWeight: 600, color: NAVY,
         marginTop: 10, lineHeight: 1.3, letterSpacing: '-0.005em'
       }}>{m.stat}</div>
       <div style={{
-        fontSize: 12, color: GRAY600, marginTop: 8, fontStyle: 'italic',
+        fontSize: 16, color: GRAY600, marginTop: 8, fontStyle: 'italic',
         lineHeight: 1.4
       }}>{m.cite}</div>
     </div>
@@ -568,19 +568,10 @@ function SceneWhyDhanam({ start, end }) {
           </Reveal>
         </div>
 
-        {/* Highlighted hero line */}
-        <Reveal start={start} end={end} delay={0.5} dur={0.9} y={20}>
-          <div style={{
-            position: 'absolute', left: 100, top: 300, width: 1500,
-            fontFamily: FONT, fontWeight: 500, fontSize: 20,
-            color: NAVY, letterSpacing: '-0.005em', lineHeight: 1.55
-          }}>{P.subhead}</div>
-        </Reveal>
-
         {/* Two-panel strip: Wipro precedent (left) + Dhanam opportunity (right) */}
         <Reveal start={start} end={end} delay={1.0} y={14}>
           <div style={{
-            position: 'absolute', left: 100, right: 100, top: 410,
+            position: 'absolute', left: 100, right: 100, top: 360,
             background: NAVY, color: '#fff',
             borderRadius: 16,
             display: 'grid', gridTemplateColumns: '1fr 1fr',
@@ -593,7 +584,7 @@ function SceneWhyDhanam({ start, end }) {
               borderRight: '1px solid rgba(255,255,255,0.14)'
             }}>
               <div style={{
-                fontFamily: MONO, fontSize: 11, color: GOLD_LITE,
+                fontFamily: MONO, fontSize: 15.5, color: GOLD_LITE,
                 letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
               }}>The Wipro Precedent</div>
               <div style={{
@@ -602,11 +593,11 @@ function SceneWhyDhanam({ start, end }) {
                 letterSpacing: '-0.015em', lineHeight: 1.2
               }}>{P.wipro.kicker}</div>
               <div style={{
-                fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
+                fontSize: 18.5, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
                 letterSpacing: '-0.005em'
               }}>{P.wipro.detail}</div>
               <div style={{
-                fontSize: 11, color: 'rgba(255,255,255,0.4)',
+                fontSize: 15.5, color: 'rgba(255,255,255,0.4)',
                 fontStyle: 'italic', marginTop: 4
               }}>{P.wipro.cite}</div>
             </div>
@@ -617,7 +608,7 @@ function SceneWhyDhanam({ start, end }) {
               display: 'flex', flexDirection: 'column', gap: 14
             }}>
               <div style={{
-                fontFamily: MONO, fontSize: 11, color: GOLD_LITE,
+                fontFamily: MONO, fontSize: 15.5, color: GOLD_LITE,
                 letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
               }}>Your Dhanam Moment</div>
               <div style={{
@@ -626,11 +617,11 @@ function SceneWhyDhanam({ start, end }) {
                 letterSpacing: '-0.015em', lineHeight: 1.2
               }}>{P.dhanam.kicker}</div>
               <div style={{
-                fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
+                fontSize: 18.5, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65,
                 letterSpacing: '-0.005em'
               }}>{P.dhanam.detail}</div>
               <div style={{
-                fontSize: 13, color: GOLD_LITE, fontWeight: 600, marginTop: 4
+                fontSize: 17, color: GOLD_LITE, fontWeight: 600, marginTop: 4
               }}>{P.dhanam.note}</div>
             </div>
           </div>
@@ -638,7 +629,7 @@ function SceneWhyDhanam({ start, end }) {
 
         {/* 3 pillars */}
         <div style={{
-          position: 'absolute', left: 100, right: 100, top: 780,
+          position: 'absolute', left: 100, right: 100, top: 730,
           display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20
         }}>
           {P.pillars.map((line, i) => (
@@ -661,7 +652,7 @@ function PromiseCard({ index, title, body }) {
       display: 'flex', flexDirection: 'column', gap: 12
     }}>
       <div style={{
-        fontFamily: MONO, fontSize: 12, color: GOLD,
+        fontFamily: MONO, fontSize: 16, color: GOLD,
         letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700
       }}>{String(index).padStart(2, '0')}</div>
       <div style={{
@@ -669,7 +660,7 @@ function PromiseCard({ index, title, body }) {
         lineHeight: 1.3, letterSpacing: '-0.01em'
       }}>{title}</div>
       <div style={{
-        fontSize: 15, color: GRAY800, lineHeight: 1.55
+        fontSize: 19, color: GRAY800, lineHeight: 1.55
       }}>{body}</div>
     </div>
   );
@@ -708,7 +699,7 @@ function SceneContact({ start, end }) {
 
         <Reveal start={start} end={end} delay={0.7} dur={1.0} y={20}>
           <PhotoSlot
-            id="closing-photo"
+            id="last"
             placeholder=""
             style={{ position: 'absolute', right: 100, top: 200,
                      width: 720, height: 460 }}
@@ -727,10 +718,10 @@ function SceneContact({ start, end }) {
               marginBottom: 18
             }}>
               <div style={{
-                fontSize: 13, color: GOLD_LITE,
+                fontSize: 17, color: GOLD_LITE,
                 letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600
               }}>Talk to us</div>
-              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)',
+              <div style={{ fontSize: 16, color: 'rgba(255,255,255,0.5)',
                              fontFamily: MONO, letterSpacing: '0.08em' }}>
                 {D.brand.hq}
               </div>
@@ -752,7 +743,7 @@ function ContactRow({ label, value, href, last = false }) {
   const inner = (
     <>
       <span style={{
-        fontSize: 13, color: 'rgba(255,255,255,0.6)',
+        fontSize: 17, color: 'rgba(255,255,255,0.6)',
         letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600
       }}>{label}</span>
       <span style={{
@@ -783,65 +774,151 @@ function ContactRow({ label, value, href, last = false }) {
 function SceneBusinessModel({ start, end }) {
   const D = D_b();
   const B = D.businessModel;
+  const LOANS = [
+    {
+      name: 'Gold Loans',
+      range: '₹50,000 – ₹1 Crore',
+      points: [
+        'Highest rate-per-gram payout in the market, with 30-minute disbursal.',
+        'Dual appraisal — an experienced manual appraiser backed by a karatmeter which scans the purity of the gold.'
+      ],
+      target: 'Working professionals, self-employed, small business owners & HNIs.'
+    },
+    {
+      name: 'Property Loans',
+      range: '₹5 Lakh – ₹3 Crore',
+      points: [
+        '30–35% LTV, calibrated to each property’s location, road-base and boundary standards.',
+        'AI-driven underwriting on the customer’s verified financial data and legal documents of the property.'
+      ],
+      target: 'Salaried professionals, self-employed and business owners.'
+    },
+    {
+      name: 'Personal Loans',
+      range: '₹5,000 – ₹1 Lakh',
+      points: [
+        'AI underwriting on the applicant’s CIBIL, repayment track record & other essential customer data.',
+        'Fast, fully digital, paperless approval and same-day disbursal.'
+      ],
+      target: 'Existing customers who have already taken a Gold or Property loan from us.'
+    },
+    {
+      name: 'Bill Discounting',
+      range: '₹1 Lakh – ₹50 Lakh',
+      points: [
+        'Short-term working capital advanced against verified invoices and trade bills.',
+        'Quick liquidity that lets businesses unlock cash tied up in receivables.'
+      ],
+      target: 'Traders, MSMEs and business owners who are reputed and well connected.'
+    }
+  ];
+  const FINTECH = [
+    { name: 'App-based loans', tag: 'Loan amount', figure: '₹5,000 – ₹1,00,000', note: 'Instant, app-initiated lending — apply, underwrite and disburse entirely in-app.' },
+    { name: 'Gold schemes', tag: 'Plans', figure: 'Daily · Weekly · Monthly', note: 'Digital gold savings and accumulation schemes, managed from the app.' },
+    { name: 'NCDs', tag: 'Returns', figure: '13% p.a.', note: 'Non-convertible debentures offering fixed, secured returns. Invested and earned through the app.' },
+    { name: 'Other services', points: [
+      'Customers can avail lockers and book locker visit through the app.',
+      'They can also enquire about loans through the app.'
+    ] }
+  ];
+  const TEAL = '#0E8E8E';
+  const SectionLabel = ({ label, tag, accent }) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+      <div style={{ fontSize: 28, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>{label}</div>
+      <div style={{ fontFamily: MONO, fontSize: 16, color: accent, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, whiteSpace: 'nowrap' }}>{tag}</div>
+      <div style={{ flex: 1, height: 1, background: GRAY200 }}/>
+    </div>
+  );
   return (
     <Sprite start={start} end={end}>
       <div style={{ position: 'absolute', inset: 0, background: PAPER }}>
         <HairlineBackdrop/>
 
-        <div style={{ position: 'absolute', left: 100, top: 110, width: 1720 }}>
-          <SectionHeading start={start} end={end} eyebrow="Business model" title={B.subhead} fontSize={72} subSize={24}/>
+        <div style={{ position: 'absolute', left: 100, top: 70, width: 1720 }}>
+          <SectionHeading start={start} end={end} eyebrow="Business model" title={B.subhead} fontSize={58} subSize={23}/>
         </div>
 
-        {/* LEFT — conventional */}
-        <Reveal start={start} end={end} delay={0.6} y={16}>
-          <div style={{
-            position: 'absolute', left: 100, top: 340, width: 820,
-            background: PAPER, border: `1px solid ${GRAY200}`, borderTop: `3px solid ${NAVY}`,
-            borderRadius: 14, padding: '28px 30px', fontFamily: FONT
-          }}>
-            <ModelHeader label={B.conventional.label} tag={B.conventional.tag} accent={NAVY}/>
-            <div style={{ marginTop: 16 }}>
-              {B.conventional.items.map((it, i) => (
-                <ModelRow key={it.name} item={it} accent={NAVY} last={i === B.conventional.items.length - 1}/>
-              ))}
-            </div>
+        {/* CONVENTIONAL MODEL */}
+        <Reveal start={start} end={end} delay={0.4} y={10}>
+          <div style={{ position: 'absolute', left: 100, right: 100, top: 198 }}>
+            <SectionLabel label="Conventional model" tag="Proven · Secured · Cash-generating" accent={NAVY}/>
           </div>
         </Reveal>
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 244,
+          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20
+        }}>
+          {LOANS.map((l, i) => (
+            <Reveal key={l.name} start={start} end={end} delay={0.55 + i * 0.1} y={14}>
+              <div style={{
+                background: 'linear-gradient(180deg, #FFFFFF 0%, #FBF9F4 100%)',
+                border: `1px solid ${GRAY200}`, borderTop: `3px solid ${GOLD}`,
+                borderRadius: 16, padding: '20px 28px', fontFamily: FONT, minHeight: 344,
+                boxShadow: '0 8px 26px rgba(11,42,74,0.07)',
+                display: 'flex', flexDirection: 'column'
+              }}>
+                <div style={{ fontSize: 24, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em' }}>{l.name}</div>
+                <div style={{ fontFamily: MONO, fontSize: 15.5, color: GOLD, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginTop: 14 }}>Loan amount</div>
+                <div style={{ fontSize: 27, fontWeight: 600, color: GOLD, letterSpacing: '-0.01em', marginTop: 4 }}>{l.range}</div>
+                <div style={{ height: 1, background: GRAY200, margin: '12px 0' }}/>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  {l.points.map((p, j) => (
+                    <div key={j} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                      <span style={{ width: 7, height: 7, borderRadius: 999, background: GOLD, marginTop: 7, flexShrink: 0 }}/>
+                      <div style={{ fontSize: 18.5, color: GRAY800, lineHeight: 1.45 }}>{p}</div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ marginTop: 'auto', paddingTop: 12 }}>
+                  <div style={{ fontFamily: MONO, fontSize: 15.5, color: GRAY600, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700 }}>Target Customers</div>
+                  <div style={{ fontSize: 18, color: NAVY, fontWeight: 500, lineHeight: 1.45, marginTop: 6 }}>{l.target}</div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
 
-        {/* RIGHT — fintech / AI */}
-        <Reveal start={start} end={end} delay={0.8} y={16}>
-          <div style={{
-            position: 'absolute', right: 100, top: 340, width: 820,
-            background: PAPER, border: `1px solid ${GOLD_PALE}`, borderTop: `3px solid ${GOLD}`,
-            borderRadius: 14, padding: '28px 30px', fontFamily: FONT
-          }}>
-            <ModelHeader label={B.fintech.label} tag={B.fintech.tag} accent={GOLD}/>
-            <div style={{ marginTop: 16 }}>
-              {B.fintech.items.map((it, i) => (
-                <ModelRow key={it.name} item={it} accent={GOLD} last={i === B.fintech.items.length - 1}/>
-              ))}
-            </div>
+        {/* FINTECH MODEL */}
+        <Reveal start={start} end={end} delay={0.9} y={10}>
+          <div style={{ position: 'absolute', left: 100, right: 100, top: 724 }}>
+            <SectionLabel label="Fintech model" tag="AI-driven · Digital · Scalable" accent={TEAL}/>
           </div>
         </Reveal>
-
-        {/* center + */}
-        <Reveal start={start} end={end} delay={1.0}>
-          <div style={{
-            position: 'absolute', left: '50%', top: 545, transform: 'translate(-50%, -50%)',
-            width: 48, height: 48, borderRadius: 999, background: NAVY, color: '#fff',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 26, fontFamily: FONT, zIndex: 5, boxShadow: `0 0 0 6px ${PAPER}`
-          }}>+</div>
-        </Reveal>
-
-        {/* footer band */}
-        <Reveal start={start} end={end} delay={1.2} y={14}>
-          <div style={{
-            position: 'absolute', left: 100, right: 100, bottom: 104,
-            background: NAVY, color: '#fff', borderRadius: 16, padding: '24px 44px',
-            textAlign: 'center', fontFamily: FONT, fontSize: 22, fontWeight: 500, letterSpacing: '-0.01em'
-          }}>{B.footer}</div>
-        </Reveal>
+        <div style={{
+          position: 'absolute', left: 100, right: 100, top: 768,
+          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20
+        }}>
+          {FINTECH.map((f, i) => (
+            <Reveal key={f.name} start={start} end={end} delay={1.05 + i * 0.1} y={14}>
+              <div style={{
+                background: 'linear-gradient(180deg, #F7FDFD 0%, #E6F4F4 100%)',
+                border: `1px solid rgba(14,142,142,0.28)`, borderTop: `3px solid ${TEAL}`,
+                borderRadius: 16, padding: '20px 28px', fontFamily: FONT, minHeight: 246,
+                boxShadow: '0 8px 26px rgba(14,142,142,0.12)',
+                display: 'flex', flexDirection: 'column'
+              }}>
+                <div style={{ fontSize: 24, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em' }}>{f.name}</div>
+                {f.figure && <>
+                  <div style={{ fontFamily: MONO, fontSize: 15.5, color: TEAL, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginTop: 14 }}>{f.tag}</div>
+                  <div style={{ fontSize: 23, fontWeight: 600, color: TEAL, letterSpacing: '-0.01em', marginTop: 4 }}>{f.figure}</div>
+                </>}
+                <div style={{ height: 1, background: GRAY200, margin: '12px 0' }}/>
+                {f.points ? (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    {f.points.map((p, j) => (
+                      <div key={j} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                        <span style={{ width: 7, height: 7, borderRadius: 999, background: TEAL, marginTop: 7, flexShrink: 0 }}/>
+                        <div style={{ fontSize: 18.5, color: GRAY800, lineHeight: 1.5 }}>{p}</div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div style={{ fontSize: 18.5, color: GRAY800, lineHeight: 1.5 }}>{f.note}</div>
+                )}
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </Sprite>
   );
@@ -851,7 +928,7 @@ function ModelHeader({ label, tag, accent }) {
   return (
     <div>
       <div style={{ fontSize: 26, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em' }}>{label}</div>
-      <div style={{ fontFamily: MONO, fontSize: 11, color: accent, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginTop: 8 }}>{tag}</div>
+      <div style={{ fontFamily: MONO, fontSize: 15.5, color: accent, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginTop: 8 }}>{tag}</div>
     </div>
   );
 }
@@ -861,8 +938,8 @@ function ModelRow({ item, accent, last }) {
     <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '13px 0', borderBottom: last ? 'none' : `1px solid ${GRAY100}` }}>
       <span style={{ width: 8, height: 8, borderRadius: 999, background: accent, marginTop: 7, flexShrink: 0 }}/>
       <div>
-        <div style={{ fontSize: 18, fontWeight: 600, color: NAVY, letterSpacing: '-0.005em' }}>{item.name}</div>
-        <div style={{ fontSize: 13, color: GRAY600, lineHeight: 1.4, marginTop: 3 }}>{item.note}</div>
+        <div style={{ fontSize: 20, fontWeight: 600, color: NAVY, letterSpacing: '-0.005em' }}>{item.name}</div>
+        <div style={{ fontSize: 17, color: GRAY600, lineHeight: 1.4, marginTop: 3 }}>{item.note}</div>
       </div>
     </div>
   );
@@ -891,12 +968,12 @@ function SceneRisks({ start, end }) {
                 background: GRAY50, border: `1px solid ${GRAY200}`, borderTop: `3px solid ${GOLD}`,
                 borderRadius: 12, padding: '22px 24px', fontFamily: FONT, minHeight: 208
               }}>
-                <div style={{ fontFamily: MONO, fontSize: 11, color: GRAY600, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Risk {String(i + 1).padStart(2, '0')}</div>
+                <div style={{ fontFamily: MONO, fontSize: 15.5, color: GRAY600, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Risk {String(i + 1).padStart(2, '0')}</div>
                 <div style={{ fontSize: 20, fontWeight: 700, color: NAVY, letterSpacing: '-0.01em', marginTop: 10 }}>{it.risk}</div>
-                <div style={{ height: 1, background: GRAY200, margin: '16px 0' }}/>
+                <div style={{ height: 1, background: GRAY200, margin: '12px 0' }}/>
                 <div style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                  <span style={{ color: '#1E7A45', fontSize: 14, fontWeight: 700, marginTop: 1 }}>✓</span>
-                  <div style={{ fontSize: 14, color: GRAY800, lineHeight: 1.5 }}>{it.mitigation}</div>
+                  <span style={{ color: '#1E7A45', fontSize: 18, fontWeight: 700, marginTop: 1 }}>✓</span>
+                  <div style={{ fontSize: 18, color: GRAY800, lineHeight: 1.5 }}>{it.mitigation}</div>
                 </div>
               </div>
             </Reveal>
